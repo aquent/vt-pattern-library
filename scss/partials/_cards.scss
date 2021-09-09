@@ -1,0 +1,55 @@
+/** TABLE OF CONTENT-Card
+ — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
+1 — Something
+  1.1 — Something Sometning
+  1.2 — Something Else
+
+/// END TABLE OF CONTENTS **/
+
+.content-block {
+  // add spacing vars?
+  margin-right: 7.5rem;
+
+  &__date {
+    @extend .uppercase;
+
+    align-items: center;
+    background-color: $secondary-blue-1;
+    justify-content: center;
+    color: $primary-white;
+    display: flex;
+    flex-direction: column;
+    left: 4rem;
+    height: 9rem;
+    position: absolute;
+    top: calc(50% - 13.5rem);
+    width: 9rem;
+
+    &-month {
+      @extend .tk-aktiv-grotesk;
+      letter-spacing: .3rem;
+      font-size: 1.4rem;
+      font-weight: 700;
+      line-height: 1.6rem;
+    }
+
+    &-day {
+      @extend .tk-degular-text;
+      font-size: 4.2rem;
+      font-weight: 600;
+      line-height: 4.6rem;
+    }
+  }
+
+  &__image{
+    margin-bottom: 2.4rem;
+  }
+
+  &__image-tag {
+    @extend .uppercase;
+
+    color: $secondary-green-1;
+    letter-spacing: .3rem;
+    margin-bottom: .2rem;
+  }
+}

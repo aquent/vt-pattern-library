@@ -65,13 +65,13 @@
   font-style: normal;
   font-weight: 600;
 }
-.tk-aktiv-grotesk, [class^=tertiary-info], [class^=anchor][class*=-link], [class^=button] {
+.tk-aktiv-grotesk, [class^=tertiary-info], [class^=anchor][class*=-link], [class^=button], .content-block__date-month {
   font-family: "aktiv-grotesk", sans-serif;
 }
 .tk-degular {
   font-family: "degular", sans-serif;
 }
-.tk-degular-text, p, .p {
+.tk-degular-text, .content-block__date-day, p, .p {
   font-family: "degular-text", sans-serif;
 }
 /* Concatenate Modifier */
@@ -127,7 +127,7 @@ input, button, textarea, select {
 /// END TABLE OF CONTENTS **/
 /** 1 - Text
 ------------------------------------------------------------*/
-.uppercase, [class^=tertiary-info], [class^=anchor][class*=-link], [class^=button], :is(.h1--page-titles, .h3--alt, .h4--alt, .h5--alt, .h6--alt) {
+.uppercase, [class^=tertiary-info], [class^=anchor][class*=-link], [class^=button], :is(.h1--page-titles, .h3--alt, .h4--alt, .h5--alt, .h6--alt), .content-block__image-tag, .content-block__date {
   text-transform: uppercase;
 }
 .italic, .p--body-quote, :is(.h4--quote, .h5--quote, .h6--quote, blockquote) {
@@ -473,6 +473,57 @@ pre {
 .group-button > *:not(:last-child) {
   margin-bottom: 1rem;
   margin-right: 1rem;
+}
+/** TABLE OF CONTENT-Card
+ — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
+1 — Something
+  1.1 — Something Sometning
+  1.2 — Something Else
+
+/// END TABLE OF CONTENTS **/
+.content-block {
+  margin-right: 7.5rem;
+}
+.content-block__date {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  left: 4rem;
+  height: 9rem;
+  position: absolute;
+  top: calc(50% - 13.5rem);
+  width: 9rem;
+  background-color: #003e51;
+}
+.content-block__date-month {
+  letter-spacing: 0.3rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.6rem;
+}
+.content-block__date-day {
+  font-size: 4.2rem;
+  font-weight: 600;
+  line-height: 4.6rem;
+}
+.content-block__image {
+  margin-bottom: 2.4rem;
+}
+.content-block__image-tag {
+  color: #477a7b;
+  letter-spacing: 0.3rem;
+  margin-bottom: 0.2rem;
 }
 /** TABLE OF CONTENTS
  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
