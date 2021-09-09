@@ -9,6 +9,7 @@
     "@frctl/nunjucks": "^2.0.13"
   },
   "devDependencies": {
+    "rollup-plugin-copy": "^3.4.0",
     "rollup-plugin-scss": "^3.0.0",
     "sass": "^1.37.5"
   },

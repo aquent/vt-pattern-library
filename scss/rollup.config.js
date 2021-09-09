@@ -1,4 +1,5 @@
 import autoprefixer from 'autoprefixer';
+import copy from 'rollup-plugin-copy';
 import cssnano from 'cssnano';
 import postcss from 'postcss';
 import postcssImport from 'postcss-import';
@@ -37,6 +38,11 @@ export default {
       output: `dist/styles.${minfile}css`,
       processor: () => postcss(postcssConfig),
       sourceMap: (target === 'development' ? true : false)
+    }),
+    copy({
+      targets: [
+        { src: 'dist/styles.css', dest: '../public/css/dist' }
+      ]
     })
   ]
 }
