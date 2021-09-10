@@ -52,13 +52,13 @@ $warm-neutral-2: map-get($colors, warm-neutral-2);
 /** 2 - Breakpoints
 ------------------------------------------------------------*/
 $breakpoints: (
-  small: 0,
-  medium: 640px,
-  large: 866px,
+  mobile: 0,
+  tablet: 640px,
+  desktop: 866px,
   xlarge: 1200px,
   xxlarge: 1440px,
 );
-$breakpoint-classes: (small medium large);
+$breakpoint-classes: (mobile tablet desktop);
 
 /** 3 - Spacers
 ------------------------------------------------------------*/
