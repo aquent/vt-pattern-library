@@ -39,13 +39,13 @@ $warm-neutral-1: map-get($colors, warm-neutral-1);
 $warm-neutral-2: map-get($colors, warm-neutral-2);
 
 $breakpoints: (
-  small: 0,
-  medium: 640px,
-  large: 866px,
+  mobile: 0,
+  tablet: 640px,
+  desktop: 866px,
   xlarge: 1200px,
   xxlarge: 1440px,
 );
-$breakpoint-classes: (small medium large);
+$breakpoint-classes: (mobile tablet desktop);
 
 $themes: (
   bg-prim-blue: (color: $primary-white, rollover-color: $primary-blue, background-color: $primary-blue, primary-accent: $primary-green, secondary-accent: $secondary-green-1),

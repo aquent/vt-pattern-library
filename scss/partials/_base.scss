@@ -83,7 +83,7 @@ a {
 blockquote {
   @extend .h6--quote;
 
-  @include breakpoint(small) {
+  @include breakpoint(mobile) {
     font-size: 4.2rem;
     font-style: italic;
     line-height: 1.095;
