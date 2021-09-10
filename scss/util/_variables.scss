@@ -1,13 +1,3 @@
-/** TABLE OF CONTENTS
- — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
-1 - Color
-2 - Beakpoints
-3 - Spacers
-4 - Themes
-
-*/
-/** 1 - Colors
-------------------------------------------------------------*/
 $colors: (
   primary-blue:       #051c2c,
   primary-green:      #6cc24a,
@@ -48,9 +38,6 @@ $cool-neutral-6: map-get($colors, cool-neutral-6);
 $warm-neutral-1: map-get($colors, warm-neutral-1);
 $warm-neutral-2: map-get($colors, warm-neutral-2);
 
-
-/** 2 - Breakpoints
-------------------------------------------------------------*/
 $breakpoints: (
   mobile: 0,
   tablet: 640px,
@@ -60,31 +47,6 @@ $breakpoints: (
 );
 $breakpoint-classes: (mobile tablet desktop);
 
-/** 3 - Spacers
-------------------------------------------------------------*/
-$spacers: (
-  small-1-large: 4rem,
-  small-1-medium: 4rem,
-  small-1-small: 3rem,
-  small-2-large: 3.5rem,
-  small-2-medium: 3.5rem,
-  small-2-small: 3.5rem,
-  small-3-large: 3rem,
-  small-3-medium: 3rem,
-  small-3-small: 3rem,
-  small-4-large: 2.5rem,
-  small-4-medium: 2.5rem,
-  small-4-small: 2.5rem,
-  small-5-large: 2rem,
-  small-5-medium: 2rem,
-  small-5-small: 2rem,
-  small-1-large: 1.5rem,
-  small-1-medium: 2rem,
-  small-1-small: 2rem, 
-);
-
-/** 4 - Themes
-------------------------------------------------------------*/
 $themes: (
   bg-prim-blue: (color: $primary-white, rollover-color: $primary-blue, background-color: $primary-blue, primary-accent: $primary-green, secondary-accent: $secondary-green-1),
   bg-sec-blue: (color: $primary-white, rollover-color: $primary-blue, background-color: $secondary-blue-1, primary-accent: $primary-green, secondary-accent: $secondary-green-1),
