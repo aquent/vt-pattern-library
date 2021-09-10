@@ -48,8 +48,13 @@ h3, .h3 {
 }
 
 h4, .h4 {
-  font-size: 4.2rem;
-  line-height: 1.095;
+  // @extend .h6;
+  font-size: 2.8rem;
+  line-height: 1.143;
+  @include breakpoint(tablet){
+    font-size: 4.2rem;
+    line-height: 1.095;
+  }
 }
 
 h5, .h5 {

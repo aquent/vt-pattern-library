@@ -65,7 +65,7 @@
   font-style: normal;
   font-weight: 600;
 }
-.tk-aktiv-grotesk, [class^=tertiary-info], [class^=anchor][class*=-link], [class^=button], .content-block__date-month {
+.tk-aktiv-grotesk, [class^=tertiary-info], [class^=anchor][class*=-link], [class^=button], .content-block__subtitle, .content-block__date-month {
   font-family: "aktiv-grotesk", sans-serif;
 }
 .tk-degular {
@@ -127,7 +127,7 @@ input, button, textarea, select {
 /// END TABLE OF CONTENTS **/
 /** 1 - Text
 ------------------------------------------------------------*/
-.uppercase, [class^=tertiary-info], [class^=anchor][class*=-link], [class^=button], :is(.h1--page-titles, .h3--alt, .h4--alt, .h5--alt, .h6--alt), .content-block__image-tag, .content-block__date {
+.uppercase, [class^=tertiary-info], [class^=anchor][class*=-link], [class^=button], .content-block__subtitle, :is(.h1--page-titles, .h3--alt, .h4--alt, .h5--alt, .h6--alt), .content-block__date {
   text-transform: uppercase;
 }
 .italic, .p--body-quote, :is(.h4--quote, .h5--quote, .h6--quote, blockquote) {
@@ -194,8 +194,14 @@ h3, .h3 {
   line-height: 1.074;
 }
 h4, dl dt, .h4 {
-  font-size: 4.2rem;
-  line-height: 1.095;
+  font-size: 2.8rem;
+  line-height: 1.143;
+}
+@media (min-width: 640px) {
+  h4, dl dt, .h4 {
+    font-size: 4.2rem;
+    line-height: 1.095;
+  }
 }
 h5, .h5 {
   font-size: 3.2rem;
@@ -474,23 +480,41 @@ pre {
   margin-bottom: 1rem;
   margin-right: 1rem;
 }
-/** TABLE OF CONTENT-Card
+/** TABLE OF CONTENT-Cards
  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
-1 — Something
-  1.1 — Something Sometning
+1 — Content Block
+  1.1 — Date
   1.2 — Something Else
 
 /// END TABLE OF CONTENTS **/
 .content-block {
-  margin-right: 7.5rem;
+  padding-right: 1.8rem;
+  position: relative;
+  width: calc(100vw - 2.8rem);
+}
+@media (min-width: 640px) {
+  .content-block {
+    padding-right: 7.5rem;
+    width: calc(100vw - 8.5rem);
+  }
+}
+.content-block__button {
+  display: none;
+}
+@media (min-width: 640px) {
+  .content-block__button {
+    display: inline-block;
+  }
+}
+.content-block__date, .content-block__image {
+  align-self: center;
+  grid-row: 1/2;
 }
 .content-block__date {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  background-color: #003e51;
   color: #ffffff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -499,17 +523,23 @@ pre {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  left: 4rem;
+  grid-column: 1/-1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: -1rem;
   height: 9rem;
-  position: absolute;
-  top: calc(50% - 13.5rem);
   width: 9rem;
-  background-color: #003e51;
+}
+@media (min-width: 640px) {
+  .content-block__date {
+    margin-left: -2rem;
+  }
 }
 .content-block__date-month {
-  letter-spacing: 0.3rem;
   font-size: 1.4rem;
   font-weight: 700;
+  letter-spacing: 0.3rem;
   line-height: 1.6rem;
 }
 .content-block__date-day {
@@ -518,12 +548,45 @@ pre {
   line-height: 4.6rem;
 }
 .content-block__image {
+  grid-column: 1/3;
+  width: 100%;
+}
+.content-block__subtitle {
+  color: #477a7b;
+  margin-bottom: 1rem;
+}
+@media (min-width: 640px) {
+  .content-block__subtitle {
+    margin-bottom: 1.4rem;
+  }
+}
+.content-block__text {
   margin-bottom: 2.4rem;
 }
-.content-block__image-tag {
-  color: #477a7b;
-  letter-spacing: 0.3rem;
-  margin-bottom: 0.2rem;
+.content-block__title {
+  margin-bottom: 1rem;
+}
+@media (min-width: 640px) {
+  .content-block__title {
+    margin-bottom: 1.4rem;
+  }
+}
+.content-block__title > a {
+  text-decoration: none;
+  display: inline !important;
+}
+.content-block__title > a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+.content-block__upper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 2.4rem;
 }
 /** TABLE OF CONTENTS
  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
@@ -604,7 +667,7 @@ pre {
 }
 /** 2 - Tertiary Info
 ------------------------------------------------------------*/
-[class^=tertiary-info], [class^=anchor][class*=-link], [class^=button] {
+[class^=tertiary-info], [class^=anchor][class*=-link], [class^=button], .content-block__subtitle {
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: 0.3rem;

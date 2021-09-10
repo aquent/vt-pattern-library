@@ -1,38 +1,60 @@
-/** TABLE OF CONTENT-Card
+/** TABLE OF CONTENT-Cards
  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
-1 — Something
-  1.1 — Something Sometning
+1 — Content Block
+  1.1 — Date
   1.2 — Something Else
 
 /// END TABLE OF CONTENTS **/
 
 .content-block {
-  // add spacing vars?
-  margin-right: 7.5rem;
+  padding-right: 1.8rem;
+  position: relative;
+  width: calc(100vw - 2.8rem);
 
+  @include breakpoint(tablet){
+    //TODO: remove margin on last card
+    padding-right: 7.5rem;
+    width: calc(100vw - 8.5rem);
+  }
+
+  &__button {
+    display: none;
+    @include breakpoint(tablet) {
+      display: inline-block;
+    }
+  }
+  
+  &__date,
+  &__image {
+    align-self: center;
+    grid-row: 1 / 2;
+  }
+  
   &__date {
     @extend .uppercase;
-
     align-items: center;
     background-color: $secondary-blue-1;
-    justify-content: center;
     color: $primary-white;
     display: flex;
     flex-direction: column;
-    left: 4rem;
+    grid-column: 1 / -1;
+    justify-content: center;
+    margin-left: -1rem;
     height: 9rem;
-    position: absolute;
-    top: calc(50% - 13.5rem);
     width: 9rem;
-
+    
+    @include breakpoint(tablet){
+      margin-left: -2rem;
+    }
+    
     &-month {
       @extend .tk-aktiv-grotesk;
-      letter-spacing: .3rem;
       font-size: 1.4rem;
       font-weight: 700;
+      letter-spacing: .3rem;
       line-height: 1.6rem;
     }
-
+    
     &-day {
       @extend .tk-degular-text;
       font-size: 4.2rem;
@@ -40,16 +62,53 @@
       line-height: 4.6rem;
     }
   }
+  
+  &__image {
+    grid-column: 1 / 3;
+    width: 100%;
+    @include breakpoint(tablet){
 
-  &__image{
+    }
+  }
+  
+  &__subtitle {
+    @extend [class^="tertiary-info"];
+    color: $secondary-green-1;
+    margin-bottom: 1rem;
+    
+    @include breakpoint(tablet){
+      margin-bottom: 1.4rem;
+    }
+  }
+  
+  &__text {
     margin-bottom: 2.4rem;
   }
+  
+  &__title {
+    margin-bottom: 1rem;
+    @include breakpoint(tablet){
+      margin-bottom: 1.4rem;
+    }
+    & > a {
+      text-decoration: none;
+      display: inline !important;
+    }
 
-  &__image-tag {
-    @extend .uppercase;
+    & > a::after{
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
 
-    color: $secondary-green-1;
-    letter-spacing: .3rem;
-    margin-bottom: .2rem;
+    }
+  }
+
+  &__upper{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 2.4rem;
   }
 }

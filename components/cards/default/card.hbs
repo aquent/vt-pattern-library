@@ -1,23 +1,29 @@
 <div class="section--bg-white demo-section">
   <div class="content-block">
-    <img
-      class="content-block__image"
-      src="https://via.placeholder.com/535x301"
-      alt=""
-    />
-    <time 
-      class="content-block__date"
-      datetime="2021-06-10">
-        <span class="content-block__date-month">Jun</span>
-        <span class="content-block__date-day">10</span>
-    </time>
+    <div class="content-block__upper">
+      <img
+        class="content-block__image"
+        src="https://via.placeholder.com/535x301"
+        role="presentation"
+        alt=""
+      />
+      <time 
+        class="content-block__date"
+        datetime="2021-06-10">
+          <span class="content-block__date-month" aria-label="June">Jun</span>
+          <span class="content-block__date-day">10</span>
+      </time>
+    </div><!-- .content-block__upper -->
+
     <div class="content-block__lower">
-      <p class="content-block__image-tag">Digital Webinars</p>
-      <h4 class="content-block__title">RSVP: This is ...</h4>
+      <p class="content-block__subtitle">Digitalks Webinar</p>
+      <h4 class="content-block__title">
+        <a href="#" class="anchor-primary">RSVP: This is a featured event that is topical and relevant.</a>
+        </h4>
       <p class="content-block__text">Lorem ipsum dolor, sit amet consectetur
         adipisicing elit. Voluptate sit id harum aliquid ea.
       </p>
-      <a class="button--medium-primary">Learn More</a>
-    </div>
-  </div>
-</div>
+      <a class="button--medium-primary content-block__button">Learn More</a>
+    </div><!-- .content-block__lower -->
+  </div><!-- .content-block -->
+</div><!-- .section--bg-white.demo-section -->
