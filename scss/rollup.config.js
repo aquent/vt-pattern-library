@@ -29,7 +29,7 @@ if (target === 'production') {
 
 export default {
   input: 'entry.js',
-  output: false,
+  output: 'dist/main.js',
   plugins: [
     scss({
       includePaths: [
@@ -37,12 +37,16 @@ export default {
         ],
       output: `dist/styles.${minfile}css`,
       processor: () => postcss(postcssConfig),
-      sourceMap: (target === 'development' ? true : false)
+      sourceMap: (target === 'development' ? true : false),
+      watch: 'partials'
     }),
     copy({
+      hook: 'writeBundle',
       targets: [
         { src: 'dist/styles.css', dest: '../public/css/dist' }
-      ]
+      ],
+      verbose: true
     })
-  ]
+  ],
+  watch: 'js/**/*'
 }
