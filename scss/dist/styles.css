@@ -511,6 +511,9 @@ pre {
 
 /// END TABLE OF CONTENTS **/
 .content-block {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
   padding-right: 1.8rem;
   position: relative;
   width: calc(100vw - 2.8rem);
@@ -523,6 +526,7 @@ pre {
 }
 .content-block__button {
   display: none;
+  position: relative;
 }
 @media (min-width: 640px) {
   .content-block__button {

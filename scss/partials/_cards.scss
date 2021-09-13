@@ -5,6 +5,8 @@
 /// END TABLE OF CONTENTS **/
 
 .content-block {
+
+  max-width: fit-content;
   padding-right: 1.8rem;
   position: relative;
   width: calc(100vw - 2.8rem);
@@ -17,6 +19,7 @@
 
   &__button {
     display: none;
+    position: relative;
     @include breakpoint(tablet) {
       display: inline-block;
     }
