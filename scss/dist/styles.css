@@ -510,6 +510,9 @@ pre {
 1 — Content Block
 
 /// END TABLE OF CONTENTS **/
+* {
+  background-color: rgba(255, 0, 0, 0.1);
+}
 .content-block {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
