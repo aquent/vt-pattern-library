@@ -1,4 +1,4 @@
 import './styles.scss';
-import test from 'js/test';
+import test from 'test';
 
 test();

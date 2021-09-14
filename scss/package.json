@@ -4,7 +4,7 @@
   "description": "",
   "author": "Web Squad",
   "license": "ISC",
-  "main": "dist/styles.min.css",
+  "main": "dist/main.js",
   "publishConfig": {
     "registry": "https://artifactory.aquent.io/artifactory/api/npm/aquent-npm/"
   },
@@ -23,6 +23,8 @@
     "styling"
   ],
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
     "autoprefixer": "^10.3.1",
     "cssnano": "^5.0.7",
     "modern-css-reset": "^1.4.0",
@@ -31,6 +33,8 @@
     "postcss-cli": "^8.3.1",
     "postcss-import": "^14.0.2",
     "rollup": "^2.56.0",
-    "rollup-plugin-scss": "^3.0.0"
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-scss": "^3.0.0",
+    "rollup-plugin-terser": "^7.0.2"
   }
 }
