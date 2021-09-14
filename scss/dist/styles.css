@@ -272,6 +272,8 @@ pre {
   font-weight: 700;
 }
 [class^=button] {
+  text-decoration: none;
+  cursor: pointer;
   display: inline-block;
   text-align: center;
 }
@@ -286,6 +288,10 @@ pre {
 }
 [class^=button][class*=-flex] {
   width: 100%;
+}
+.section--bg-prim-blue [class^=button] {
+  color: #ffffff;
+  background-color: #051c2c;
 }
 .section--bg-prim-blue [class^=button]:hover {
   color: #051c2c;
@@ -332,6 +338,10 @@ pre {
   background: -o-linear-gradient(#477a7b 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
   background: linear-gradient(#477a7b 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
 }
+.section--bg-sec-blue [class^=button] {
+  color: #ffffff;
+  background-color: #003e51;
+}
 .section--bg-sec-blue [class^=button]:hover {
   color: #051c2c;
   background-color: #ffffff;
@@ -377,6 +387,10 @@ pre {
   background: -o-linear-gradient(#477a7b 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
   background: linear-gradient(#477a7b 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
 }
+.section--bg-green [class^=button] {
+  color: #051c2c;
+  background-color: #6cc24a;
+}
 .section--bg-green [class^=button]:hover {
   color: #ffffff;
   background-color: #051c2c;
@@ -421,6 +435,10 @@ pre {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #53565a)) 0 100%/var(--d, 0) 0.2rem no-repeat;
   background: -o-linear-gradient(#53565a 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
   background: linear-gradient(#53565a 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
+}
+.section--bg-white [class^=button] {
+  color: #051c2c;
+  background-color: #ffffff;
 }
 .section--bg-white [class^=button]:hover {
   color: #ffffff;
