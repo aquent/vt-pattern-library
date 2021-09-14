@@ -51,5 +51,6 @@ $themes: (
   bg-prim-blue: (color: $primary-white, rollover-color: $primary-blue, background-color: $primary-blue, primary-accent: $primary-green, secondary-accent: $secondary-green-1),
   bg-sec-blue: (color: $primary-white, rollover-color: $primary-blue, background-color: $secondary-blue-1, primary-accent: $primary-green, secondary-accent: $secondary-green-1),
   bg-green: (color: $primary-blue, rollover-color: $primary-white, background-color: $primary-green, primary-accent: $secondary-blue-1, secondary-accent: $cool-neutral-1),
-  bg-white: (color: $primary-blue, rollover-color: $primary-white, background-color: $primary-white, primary-accent: $accessible-green, secondary-accent: $secondary-green-2)
+  bg-white: (color: $primary-blue, rollover-color: $primary-white, background-color: $primary-white, primary-accent: $accessible-green, secondary-accent: $secondary-green-2),
+  bg-sec-green: (color: $primary-blue, rollover-color: $primary-white, background-color: $secondary-green-2, primary-accent: $accessible-green, secondary-accent: $secondary-green-2)
 );

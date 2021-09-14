@@ -5,6 +5,8 @@
 
 [class^="button"] {
   @extend [class^="tertiary-info"];
+  text-decoration: none;
+  cursor: pointer;
   display: inline-block;
   text-align: center;
 }
@@ -28,6 +30,9 @@
 .section {
   @include theming($themes) {
     [class^="button"] {
+      color: get-theme-value(color);
+      background-color: get-theme-value(background-color);
+
       &:hover {
         color: get-theme-value(rollover-color);
         background-color: get-theme-value(color);

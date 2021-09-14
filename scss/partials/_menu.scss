@@ -1,0 +1,454 @@
+// temp menu size
+#top-nav {
+  @include breakpoint(desktop) {
+    width: 1440px;
+  }
+}
+
+.top-nav {
+  position: absolute;
+  top: 0;
+  z-index: 10; // top nav needs to be above the hero image
+  width: 100%;
+  outline: none;
+  height: 6.5rem;
+
+  @include breakpoint(desktop) {
+    position: static;
+    height: 100%;
+  }
+}
+
+.site-title {
+  position: absolute;
+  right: 0;
+  z-index: 10;
+
+  @include breakpoint(desktop) {
+    position: relative;
+    margin: 2rem 0;
+  }
+
+  &__img {
+    width: 18rem;
+    @include breakpoint(desktop) {
+      max-width: 18rem;
+    }
+  }
+}
+
+/* =======================
+  ******* Mobile Menu ******
+  ========================*/
+.menu-toggle {
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  position: relative;
+  cursor: pointer;
+  z-index: 2;
+  transition: border-bottom 250ms ease;
+  border-bottom: 0.3rem solid $primary-white;
+
+  @include breakpoint(desktop) {
+    display: none;
+  }
+
+  &:active,
+  &:focus {
+    background: transparent;
+    border: none;
+    outline: none;
+  }
+
+  &::after,
+  &::before {
+    height: 0.2rem;
+    width: 100%;
+    left: 0;
+    background: $primary-white;
+    content: "";
+    position: absolute;
+    transition: transform 250ms ease, background 250ms ease;
+  }
+
+  &::before {
+    top: 50%;
+    transform: rotate(-180deg);
+  }
+
+  &::after {
+    top: 0;
+    transform: rotate(180deg);
+  }
+
+  &__a {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+  }
+
+  a {
+    &#close-menu {
+      display: none;
+    }
+
+    &#open-menu {
+      display: inline-block;
+    }
+  }
+}
+
+.top-menu {
+  position: relative;
+  width: 100%;
+  padding: 2rem;
+  @include breakpoint(desktop) {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-column-gap: 0;
+    grid-auto-flow: column;
+  }
+
+  @at-root [class^="top-menu__arrow"] {
+    padding: 0.8rem;
+    display: none;
+    @include breakpoint(desktop) {
+      padding: 0;
+    }
+  }
+
+  &__arrow {
+    &--after {
+      display: block;
+      float: right;
+      border: solid $secondary-green-1;
+      border-width: 0 0.1rem 0.1rem 0;
+      transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+      @include breakpoint(desktop) {
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-left: 0.5rem solid transparent;
+        border-right: 0.5rem solid transparent;
+        border-top: 0.5rem solid $secondary-green-1;
+        border-bottom: none;
+        margin-left: 0.8rem;
+        float: unset;
+        transform: none;
+      }
+    }
+
+    &--before {
+      display: none;
+      float: left;
+      border: solid $primary-white;
+      border-width: 0 0.1rem 0.1rem 0;
+      margin-right: 2rem;
+      transform: rotate(135deg);
+      -webkit-transform: rotate(135deg);
+    }
+  }
+
+  &__ul {
+    padding: 2.9rem;
+    font-weight: inherit;
+    list-style-type: none;
+  }
+
+  &__li {
+    display: block;
+
+    &::before {
+      content: "";
+    }
+
+    &--heading {
+      border-bottom: 0.1rem solid $cool-neutral-4;
+      padding-bottom: 1rem;
+      margin-bottom: 1.6rem;
+    }
+
+    &--subheading {
+      color: $secondary-green-1;
+      margin-top: 2rem;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__anchor,
+  &__button {
+    text-decoration: none;
+  }
+
+  &__button {
+    width: fit-content;
+    margin-top: 2rem;
+    @include breakpoint(desktop) {
+      margin-left: auto;
+      margin-top: auto;
+      margin-bottom: auto;
+      height: fit-content;
+    }
+  }
+
+  &__label {
+    @include breakpoint(desktop) {
+      display: block;
+      padding: 2rem 0;
+    }
+  }
+
+  &__menuitem {
+    list-style: none;
+    padding: 2rem 0;
+    @include breakpoint(desktop) {
+      padding: 0 0 0 3rem;
+    }
+  }
+
+  &__divider {
+    border-top: 0.1rem solid $cool-neutral-3;
+    border-left: none;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    @include breakpoint(desktop) {
+      border-top: none;
+      border-left: 0.1rem solid $cool-neutral-2;
+      margin-left: 3rem;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__details {
+    &[open] {
+      position: absolute;
+      top: 0.5rem;
+      left: 0;
+      width: 100%;
+      @include breakpoint(desktop) {
+        position: relative;
+      }
+
+      .dropdown-menu {
+        animation: sweep 0.5s ease-in-out;
+      }
+
+      .top-menu {
+        &__menuitem {
+          padding: 0 2rem;
+
+          @include breakpoint(tablet) {
+            padding: 0;
+          }
+
+          @include breakpoint(desktop) {
+            padding: 0 0 0 3rem;
+          }
+        }
+
+        &__label {
+          background-color: $secondary-blue-1;
+          display: block;
+          padding: 2rem;
+          @include breakpoint(desktop) {
+            background-color: transparent;
+            border-bottom: 0.6rem solid $primary-green;
+            padding: 2rem 0;
+          }
+        }
+
+        &__arrow {
+          &--after {
+            display: none;
+            @include breakpoint(desktop) {
+              display: inline-block;
+              border-left: 0.5rem solid transparent;
+              border-right: 0.5rem solid transparent;
+              border-bottom: 0.5rem solid $primary-white;
+              border-top: none;
+            }
+          }
+
+          &--before {
+            display: block;
+
+            @include breakpoint(desktop) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.navbar {
+  position: absolute;
+  top: 6.5rem;
+  z-index: 1;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  /* basic menu styling*/
+  list-style: none;
+  display: flex;
+  flex-flow: column nowrap;
+  // justify-content: center;
+  padding: 5rem 2rem 0 2rem;
+  background: $primary-blue;
+  /* animate slide left to right */
+  transform: translateY(-100%);
+  transition: transform 0.2s ease;
+
+  @include breakpoint(tablet) {
+    width: 50%;
+  }
+
+  @include breakpoint(desktop) {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto 3rem repeat(3, auto) 1fr;
+    justify-items: center;
+    grid-column-gap: 0;
+    grid-auto-columns: max-content;
+    position: relative;
+    top: 0;
+    transform: none;
+    overflow: visible;
+    padding: 2rem 0;
+  }
+
+  &:target {
+    transform: translateY(0);
+    /* 
+        * Transform all the slices of hamburger
+        * into a crossmark.
+        */
+    & ~ .menu-toggle {
+      border-bottom: 0;
+
+      &:after,
+      &:before {
+        height: 0.2rem;
+        width: 100%;
+        top: 50%;
+        left: 0;
+        background: $primary-white;
+        transition: transform 250ms ease, background 250ms ease;
+      }
+
+      &:before {
+        transform: rotate(45deg);
+      }
+
+      &:after {
+        transform: rotate(-45deg);
+      }
+
+      &__a {
+        position: absolute;
+      }
+
+      a {
+        &#close-menu {
+          display: inline-block;
+        }
+
+        &#open-menu {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.dropdown-menu {
+  z-index: 10;
+  left: 0;
+  width: 100%;
+  height: 92vh;
+  overflow: hidden;
+  /* basic menu styling*/
+  list-style: none;
+  display: flex;
+  flex-flow: column nowrap;
+  //   justify-content: space-evenly;
+  background: $primary-white;
+  @include breakpoint(desktop) {
+    transform: none;
+    display: grid;
+    position: absolute;
+    height: auto;
+    width: max-content;
+    overflow: visible;
+  }
+
+  &--main {
+    align-self: flex-start;
+    width: 100%;
+
+    @include breakpoint(desktop) {
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
+  }
+
+  &--sub {
+    align-self: flex-end;
+    width: 100%;
+
+    @include breakpoint(desktop) {
+      background-color: lighten($secondary-green-2, 20%);
+      grid-column-start: 4;
+      grid-column-end: 5;
+    }
+  }
+
+  &--main,
+  &--sub {
+    @include breakpoint(desktop) {
+      align-self: unset;
+      width: auto;
+    }
+  }
+
+  &__button {
+    text-decoration: none;
+    margin-top: 2rem;
+    width: fit-content;
+  }
+}
+
+@keyframes sweep {
+  0% {
+    opacity: 0;
+    margin-left: -10px;
+  }
+  100% {
+    opacity: 1;
+    margin-left: 0px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.hidden-for-desktop {
+  display: relative;
+  @include breakpoint(desktop) {
+    display: none;
+  }
+}

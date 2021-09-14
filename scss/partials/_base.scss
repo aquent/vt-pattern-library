@@ -44,13 +44,14 @@ h2 {
   line-height: 1.059;
 }
 
-h3, .h3 {
+h3,
+.h3 {
   font-size: 5.4rem;
   line-height: 1.074;
 }
 
-h4, .h4 {
-  // @extend .h6;
+h4, 
+.h4 {
   font-size: 2.8rem;
   line-height: 1.143;
   @include breakpoint(tablet){
@@ -59,12 +60,14 @@ h4, .h4 {
   }
 }
 
-h5, .h5 {
+h5,
+.h5 {
   font-size: 3.2rem;
   line-height: 1.125;
 }
 
-h6, .h6 {
+h6,
+.h6 {
   font-size: 2.8rem;
   line-height: 1.143;
 }
@@ -134,7 +137,7 @@ dl {
     display: block;
     color: inherit;
   }
-  
+
   dd {
     @extend .p--body;
   }
