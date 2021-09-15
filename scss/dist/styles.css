@@ -180,32 +180,39 @@ html {
 }
 /** 2 - Headers
 ------------------------------------------------------------*/
-h1, .h1--page-titles, .h1 {
+h1, .h1--page-titles,
+.h1 {
   font-family: degular, sans-serif;
   font-weight: 600;
   margin: 0;
 }
-h2, .h2 {
+h2,
+.h2 {
   font-family: degular, sans-serif;
   font-weight: 600;
   margin: 0;
 }
-h3, .h3 {
+h3,
+.h3 {
   font-family: degular, sans-serif;
   font-weight: 600;
   margin: 0;
 }
-h4, dl dt, .h4, .content-block__date-day {
+h4, dl dt,
+.h4,
+.content-block__date-day {
   font-family: degular, sans-serif;
   font-weight: 600;
   margin: 0;
 }
-h5, .h5 {
+h5,
+.h5 {
   font-family: degular, sans-serif;
   font-weight: 600;
   margin: 0;
 }
-h6, .h6 {
+h6,
+.h6 {
   font-family: degular, sans-serif;
   font-weight: 600;
   margin: 0;
@@ -584,14 +591,16 @@ pre {
 
 /// END TABLE OF CONTENTS **/
 /* !!! DEV ONLY !!!*/
-.yield .demo-section {
+.demo-section {
   width: 27.8rem;
 }
 @media (min-width: 640px) {
-  .yield .demo-section {
+  .demo-section {
     width: 53.5rem;
   }
 }
+/** 1 - Content Block
+------------------------------------------------------------*/
 .content-block {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;

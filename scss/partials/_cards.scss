@@ -5,25 +5,18 @@
 /// END TABLE OF CONTENTS **/
 
 /* !!! DEV ONLY !!!*/
-.yield {
-  // max-width: 100% !important;
-  
-  .demo-section {
-    width: 27.8rem;
-    
-    @include breakpoint(tablet){
-      width: 53.5rem;
+.demo-section {
+  width: 27.8rem;
 
-    }
+  @include breakpoint(tablet) {
+    width: 53.5rem;
   }
 }
 /// END DEV ONLY **/
 
-
-
-
+/** 1 - Content Block
+------------------------------------------------------------*/
 .content-block {
-
   max-width: fit-content;
   position: relative;
 
