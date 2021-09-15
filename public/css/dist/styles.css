@@ -65,7 +65,7 @@
   font-style: normal;
   font-weight: 600;
 }
-.tk-aktiv-grotesk, [class^=tertiary-info], [class^=anchor][class*=-link], [class^=button] {
+.tk-aktiv-grotesk, [class^=tertiary-info], [class^=anchor][class*=-link], [class^=button], .content-block__date-month, .content-block__subtitle {
   font-family: "aktiv-grotesk", sans-serif;
 }
 .tk-degular {
@@ -127,7 +127,7 @@ input, button, textarea, select {
 /// END TABLE OF CONTENTS **/
 /** 1 - Text
 ------------------------------------------------------------*/
-.uppercase, [class^=tertiary-info], [class^=anchor][class*=-link], [class^=button], :is(.h1--page-titles, .h3--alt, .h4--alt, .h5--alt, .h6--alt) {
+.uppercase, [class^=tertiary-info], [class^=anchor][class*=-link], [class^=button], .content-block__date-month, .content-block__subtitle, :is(.h1--page-titles, .h3--alt, .h4--alt, .h5--alt, .h6--alt) {
   text-transform: uppercase;
 }
 .italic, .p--body-quote, :is(.h4--quote, .h5--quote, .h6--quote, blockquote) {
@@ -176,7 +176,43 @@ html {
 }
 /** 2 - Headers
 ------------------------------------------------------------*/
+<<<<<<< HEAD
 h1, .h1--page-titles, h2, h3, h4, dl dt, h5, h6 {
+=======
+h1, .h1--page-titles,
+.h1 {
+  font-family: degular, sans-serif;
+  font-weight: 600;
+  margin: 0;
+}
+h2,
+.h2 {
+  font-family: degular, sans-serif;
+  font-weight: 600;
+  margin: 0;
+}
+h3,
+.h3 {
+  font-family: degular, sans-serif;
+  font-weight: 600;
+  margin: 0;
+}
+h4, dl dt,
+.h4,
+.content-block__date-day {
+  font-family: degular, sans-serif;
+  font-weight: 600;
+  margin: 0;
+}
+h5,
+.h5 {
+  font-family: degular, sans-serif;
+  font-weight: 600;
+  margin: 0;
+}
+h6,
+.h6 {
+>>>>>>> origin/WEB-9538-generic-content-card
   font-family: degular, sans-serif;
   font-weight: 600;
   margin: 0;
@@ -193,9 +229,25 @@ h3, .h3 {
   font-size: 5.4rem;
   line-height: 1.074;
 }
+<<<<<<< HEAD
 h4, dl dt, .h4 {
   font-size: 4.2rem;
   line-height: 1.095;
+=======
+h4, dl dt,
+.h4,
+.content-block__date-day {
+  font-size: 2.8rem;
+  line-height: 1.143;
+}
+@media (min-width: 640px) {
+  h4, dl dt,
+.h4,
+.content-block__date-day {
+    font-size: 4.2rem;
+    line-height: 1.095;
+  }
+>>>>>>> origin/WEB-9538-generic-content-card
 }
 h5, .h5 {
   font-size: 3.2rem;
@@ -310,7 +362,6 @@ pre {
 .section--bg-prim-blue [class^=anchor] {
   color: #ffffff;
   background-color: #051c2c;
-  display: inline-block;
   padding-bottom: 0.2rem;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, currentColor)) 0 100%/var(--d, 0) 0.2rem no-repeat;
   background: -o-linear-gradient(currentColor 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
@@ -355,7 +406,6 @@ pre {
 .section--bg-sec-blue [class^=anchor] {
   color: #ffffff;
   background-color: #003e51;
-  display: inline-block;
   padding-bottom: 0.2rem;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, currentColor)) 0 100%/var(--d, 0) 0.2rem no-repeat;
   background: -o-linear-gradient(currentColor 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
@@ -400,7 +450,6 @@ pre {
 .section--bg-green [class^=anchor] {
   color: #051c2c;
   background-color: #6cc24a;
-  display: inline-block;
   padding-bottom: 0.2rem;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, currentColor)) 0 100%/var(--d, 0) 0.2rem no-repeat;
   background: -o-linear-gradient(currentColor 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
@@ -445,7 +494,6 @@ pre {
 .section--bg-white [class^=anchor] {
   color: #051c2c;
   background-color: #ffffff;
-  display: inline-block;
   padding-bottom: 0.2rem;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, currentColor)) 0 100%/var(--d, 0) 0.2rem no-repeat;
   background: -o-linear-gradient(currentColor 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
@@ -467,12 +515,157 @@ pre {
   background: -o-linear-gradient(#a7bdb1 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
   background: linear-gradient(#a7bdb1 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
 }
+<<<<<<< HEAD
+=======
+.section--bg-sec-green [class^=button] {
+  color: #051c2c;
+  background-color: #a7bdb1;
+}
+.section--bg-sec-green [class^=button]:hover {
+  color: #ffffff;
+  background-color: #051c2c;
+  border: 0.2rem solid #051c2c;
+  -webkit-transition: background-color 250ms ease-out, border-color 250ms ease-out, color 250ms ease-out;
+  -o-transition: background-color 250ms ease-out, border-color 250ms ease-out, color 250ms ease-out;
+  transition: background-color 250ms ease-out, border-color 250ms ease-out, color 250ms ease-out;
+}
+.section--bg-sec-green [class^=button][class*=-primary] {
+  border: 0.2rem solid #509e2f;
+}
+.section--bg-sec-green [class^=button][class*=-primary]:hover {
+  border: 0.2rem solid #051c2c;
+}
+.section--bg-sec-green [class^=button][class*=-secondary] {
+  border: 0.2rem solid #a7bdb1;
+}
+.section--bg-sec-green [class^=button][class*=-secondary]:hover {
+  border: 0.2rem solid #051c2c;
+}
+.section--bg-sec-green [class^=anchor] {
+  color: #051c2c;
+  background-color: #a7bdb1;
+  padding-bottom: 0.2rem;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, currentColor)) 0 100%/var(--d, 0) 0.2rem no-repeat;
+  background: -o-linear-gradient(currentColor 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
+  background: linear-gradient(currentColor 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+.section--bg-sec-green [class^=anchor]:hover {
+  --d: 100%;
+}
+.section--bg-sec-green [class^=anchor][class*=-primary] {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #509e2f)) 0 100%/var(--d, 0) 0.2rem no-repeat;
+  background: -o-linear-gradient(#509e2f 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
+  background: linear-gradient(#509e2f 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
+}
+.section--bg-sec-green [class^=anchor][class*=-secondary] {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #a7bdb1)) 0 100%/var(--d, 0) 0.2rem no-repeat;
+  background: -o-linear-gradient(#a7bdb1 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
+  background: linear-gradient(#a7bdb1 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
+}
+>>>>>>> origin/WEB-9538-generic-content-card
 .group-button .stacked {
   display: block;
 }
 .group-button > *:not(:last-child) {
   margin-bottom: 1rem;
   margin-right: 1rem;
+}
+/** TABLE OF CONTENTS - Cards
+ — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
+1 — Content Block
+
+/// END TABLE OF CONTENTS **/
+/* !!! DEV ONLY !!!*/
+.demo-section {
+  width: 27.8rem;
+}
+@media (min-width: 640px) {
+  .demo-section {
+    width: 53.5rem;
+  }
+}
+/** 1 - Content Block
+------------------------------------------------------------*/
+.content-block {
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  position: relative;
+}
+.content-block__button {
+  display: none;
+  position: relative;
+}
+@media (min-width: 640px) {
+  .content-block__button {
+    display: inline-block;
+  }
+}
+.content-block__date, .content-block__image {
+  align-self: center;
+  grid-row: 1/2;
+}
+.content-block__date {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #003e51;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  grid-column: 1/-1;
+  height: 9rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: -1rem;
+  width: 9rem;
+}
+@media (min-width: 640px) {
+  .content-block__date {
+    margin-left: -2rem;
+  }
+}
+.content-block__image {
+  grid-column: 1/3;
+  width: 100%;
+  max-width: 100%;
+}
+.content-block__subtitle {
+  color: #477a7b;
+  margin-bottom: 1rem;
+}
+@media (min-width: 640px) {
+  .content-block__subtitle {
+    margin-bottom: 1.4rem;
+  }
+}
+.content-block__text {
+  margin-bottom: 2.4rem;
+}
+.content-block__title {
+  margin-bottom: 1rem;
+}
+@media (min-width: 640px) {
+  .content-block__title {
+    margin-bottom: 1.4rem;
+  }
+}
+.content-block__title > a {
+  text-decoration: none;
+}
+.content-block__upper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 2.4rem;
 }
 /** TABLE OF CONTENTS
  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
@@ -553,7 +746,7 @@ pre {
 }
 /** 2 - Tertiary Info
 ------------------------------------------------------------*/
-[class^=tertiary-info], [class^=anchor][class*=-link], [class^=button] {
+[class^=tertiary-info], [class^=anchor][class*=-link], [class^=button], .content-block__date-month, .content-block__subtitle {
   font-size: 1.4rem;
   font-weight: 700;
   letter-spacing: 0.3rem;
