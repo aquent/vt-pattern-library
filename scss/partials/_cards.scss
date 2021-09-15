@@ -50,11 +50,11 @@
       margin-left: -2rem;
     }
 
-    &-month {
+    &__month {
       @extend [class^="tertiary-info"];
     }
 
-    &-day {
+    &__day {
       @extend .h4;
     }
   }
