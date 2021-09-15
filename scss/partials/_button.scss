@@ -9,6 +9,7 @@
   cursor: pointer;
   display: inline-block;
   text-align: center;
+  text-decoration: none;
 }
 
 [class^="button--small"] {
@@ -25,6 +26,13 @@
 
 @include mod(button, flex) {
   width: 100%;
+}
+
+@include mod(button, flex-mobile) {
+  width: 100%;
+  @include breakpoint(tablet) {
+    width: auto;
+  }
 }
 
 .section {
@@ -63,6 +71,8 @@
       background: linear-gradient(currentColor 0 0) 0 100% / var(--d, 0) 0.2rem
         no-repeat;
       transition: 0.3s;
+      text-decoration: none;
+
       &:hover {
         --d: 100%;
       }

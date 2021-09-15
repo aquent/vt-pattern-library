@@ -42,3 +42,12 @@
     @content;
   }
 }
+
+ /* Apply common style to all modifier of a block element */
+@mixin self() {
+  $self: str-slice(#{&}, 2);
+  
+  @at-root &, [class*="#{$self}"] {
+    @content
+  }
+}

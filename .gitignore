@@ -105,3 +105,6 @@ typings/
 
 # Temporary watch directory
 tmp/
+
+# System files
+.DS_Store

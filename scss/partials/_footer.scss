@@ -1,0 +1,138 @@
+footer {
+  @include breakpoint(desktop) {
+    width: 1440px;
+  }
+}
+
+.vt-footer {
+  padding-bottom: 4rem;
+}
+
+.site-trademark {
+  color: $cool-neutral-4;
+}
+
+.footer {
+  &__button {
+    margin-left: auto;
+    @include breakpoint(desktop) {
+      width: max-content;
+    }
+  }
+
+  &__divider {
+    border: 0.1rem solid $cool-neutral-3;
+    margin: 5rem 0;
+    @include breakpoint(tablet) {
+      margin: 4rem 0;
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    margin-right: auto;
+    margin-bottom: 1.5rem;
+    width: 18rem;
+    @include breakpoint(desktop) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-gap: 1.5rem;
+    @include breakpoint(tablet) {
+      grid-template-columns: 1fr auto auto;
+      grid-column-gap: 1.5rem;
+      grid-auto-flow: column;
+    }
+  }
+
+  &__space-separated {
+    margin-top: 3rem;
+  }
+
+  &__title {
+    color: $secondary-green-2;
+    margin-bottom: 1.5rem;
+  }
+
+  &__ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  &__li {
+    display: block;
+
+    &::before {
+      content: "";
+    }
+
+    &--heading {
+      border-bottom: 0.1rem solid $cool-neutral-4;
+      padding-bottom: 1rem;
+      margin-bottom: 1.6rem;
+    }
+
+    &--subheading {
+      color: $secondary-green-1;
+      margin-top: 2rem;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &__main-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-gap: 5.5rem;
+    @include breakpoint(desktop) {
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-column-gap: 12rem;
+      grid-auto-flow: column;
+    }
+  }
+
+  &__intro-copy {
+    margin-bottom: 2rem;
+  }
+
+  &__support-label {
+    @extend .p--body-small;
+    color: $cool-neutral-4;
+    margin-right: 0.5rem;
+  }
+
+  &__content {
+    padding: 3rem 2rem;
+    @include breakpoint(desktop) {
+      max-width: 115rem;
+      padding: 2.5rem;
+      margin: 0 auto;
+    }
+  }
+
+  &__bottom-nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-gap: 2.5rem;
+    @include breakpoint(desktop) {
+      grid-template-columns: 2fr 1fr;
+      grid-column-gap: 12rem;
+      grid-auto-flow: column;
+    }
+  }
+
+  &__social {
+    margin-right: auto;
+    margin-left: 0;
+    @include breakpoint(desktop) {
+      margin-right: 0;
+      margin-left: auto;
+    }
+  }
+}

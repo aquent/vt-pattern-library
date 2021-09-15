@@ -1,0 +1,149 @@
+// TODO: delete this when we have spacer code in place
+.temp-spacer {
+  height: 7.5rem;
+  @include breakpoint(tablet) {
+    height: 14.5rem;
+  }
+}
+
+// TODO: delete this
+.page {
+  background-color: $primary-white;
+  width: 320px;
+  @include breakpoint(tablet) {
+    width: 768px;
+  }
+  @include breakpoint(desktop) {
+    width: 1440px;
+  }
+}
+
+.client-success {
+  padding: 2rem;
+
+  @include breakpoint(desktop) {
+    padding: 14.5rem;
+  }
+}
+
+.success-story {
+  $storyBlock: &;
+
+  &__container {
+    @include self() {
+      display: grid;
+      grid-gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      @include breakpoint(tablet) {
+        grid-template-columns: repeat(auto-fit, minmax(60rem, 1fr));
+      }
+      @include breakpoint(desktop) {
+        grid-gap: 2rem;
+        grid-auto-flow: column;
+        grid-gap: 0;
+      }
+    }
+
+    &--left {
+      @include breakpoint(desktop) {
+        grid-template-columns: 4fr 8fr;
+      }
+
+      @include breakpoint(desktop) {
+        #{$storyBlock}__images {
+          order: 2;
+        }
+      }
+
+      #{$storyBlock}__content {
+        order: 2;
+        @include breakpoint(desktop) {
+          order: 1;
+        }
+      }
+
+      #{$storyBlock}__image-main,
+      #{$storyBlock}__image-sub {
+        justify-self: end;
+      }
+
+      #{$storyBlock}__image-main {
+        grid-column: 1/-4;
+        @include breakpoint(desktop) {
+          grid-column: 1/-3;
+        }
+      }
+
+      #{$storyBlock}__image-sub {
+        grid-column: -5/-1;
+        @include breakpoint(desktop) {
+          grid-column: -4/-1;
+        }
+      }
+    }
+
+    &--right {
+      @include breakpoint(desktop) {
+        grid-template-columns: 8fr 4fr;
+      }
+
+      #{$storyBlock}__content {
+        order: 2;
+      }
+
+      #{$storyBlock}__image-main,
+      #{$storyBlock}__image-sub {
+        justify-self: start;
+      }
+
+      #{$storyBlock}__image-main {
+        grid-column: 4/13;
+        @include breakpoint(desktop) {
+          grid-column: 3/9;
+        }
+      }
+
+      #{$storyBlock}__image-sub {
+        grid-column: 1/5;
+        @include breakpoint(desktop) {
+          grid-column: 1/4;
+        }
+      }
+    }
+  }
+
+  &__logo {
+    margin-bottom: 1rem;
+  }
+
+  &__header {
+    margin-bottom: 1.5rem;
+  }
+
+  &__subheader {
+    margin-bottom: 1.5rem;
+
+    &-highlight {
+      color: $secondary-green-1;
+    }
+  }
+
+  &__copy-text {
+    color: $cool-neutral-1;
+  }
+
+  &__images {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    @include breakpoint(desktop) {
+      grid-template-columns: repeat(8, 1fr);
+      margin-bottom: 0;
+    }
+  }
+
+  &__image-main,
+  &__image-sub {
+    align-self: center;
+    grid-row: 1 / 2;
+  }
+}

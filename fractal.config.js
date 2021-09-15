@@ -66,3 +66,26 @@ fractal.web.set('server.syncOptions', {
     notify: true,
     watch: true
 });
+
+fractal.components.set('statuses', {
+  prototype: {
+    label: "Prototype",
+    description: "Do not implement.",
+    color: "#ff3333"
+  },
+  wip: {
+    label: "WIP",
+    description: "Work in progress. Implement with caution.",
+    color: "#ff9233"
+  },
+  review: {
+    label: "In Review",
+    description: "Awaiting design sign off.",
+    color: "#ffb319 "
+  },
+  ready: {
+    label: "Ready",
+    description: "Ready to implement.",
+    color: "#29cc29"
+  }
+});
