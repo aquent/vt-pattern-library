@@ -223,12 +223,16 @@ h3,
   font-size: 5.4rem;
   line-height: 1.074;
 }
-h4, dl dt, .h4, .content-block__date-day {
+h4, dl dt,
+.h4,
+.content-block__date-day {
   font-size: 2.8rem;
   line-height: 1.143;
 }
 @media (min-width: 640px) {
-  h4, dl dt, .h4, .content-block__date-day {
+  h4, dl dt,
+.h4,
+.content-block__date-day {
     font-size: 4.2rem;
     line-height: 1.095;
   }
@@ -579,27 +583,16 @@ pre {
   margin-bottom: 1rem;
   margin-right: 1rem;
 }
-/** TABLE OF CONTENT-Cards
+/** TABLE OF CONTENTS - Cards
  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
 1 — Content Block
 
 /// END TABLE OF CONTENTS **/
-* {
-  background-color: rgba(255, 0, 0, 0.1);
-}
 .content-block {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
-  padding-right: 1.8rem;
   position: relative;
-  width: calc(100vw - 2.8rem);
-}
-@media (min-width: 640px) {
-  .content-block {
-    padding-right: 7.5rem;
-    width: calc(100vw - 8.5rem);
-  }
 }
 .content-block__button {
   display: none;
@@ -643,6 +636,7 @@ pre {
 .content-block__image {
   grid-column: 1/3;
   width: 100%;
+  max-width: 100%;
 }
 .content-block__subtitle {
   color: #477a7b;
@@ -667,14 +661,6 @@ pre {
 .content-block__title > a {
   display: inline !important;
   text-decoration: none;
-}
-.content-block__title > a::after {
-  bottom: 0;
-  content: "";
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
 }
 .content-block__upper {
   display: grid;
