@@ -4,6 +4,17 @@
 
 /// END TABLE OF CONTENTS **/
 
+/* DEV ONLY*/
+.yeald{
+  .demo-section {
+    width: 27.8rem;
+
+    @include breakpoint(tablet){
+      width: 53.5rem;
+    }
+  }
+}
+
 .content-block {
 
   max-width: fit-content;

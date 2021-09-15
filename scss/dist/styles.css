@@ -588,6 +588,15 @@ pre {
 1 — Content Block
 
 /// END TABLE OF CONTENTS **/
+/* DEV ONLY*/
+.yeald .demo-section {
+  width: 27.8rem;
+}
+@media (min-width: 640px) {
+  .yeald .demo-section {
+    width: 53.5rem;
+  }
+}
 .content-block {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
