@@ -12,17 +12,20 @@ body {
   min-width: 600px;
 }
 
-.demo-section{
+.demo-section {
   padding: 2rem;
 }
 
-.demo-section > .content-block{
+.demo-section > .content-block {  
   width: 27.8rem;
+}
 
-  @media(min-width 640px;){
+@media only screen and (min-width: 640px){
+  .demo-section > .content-block {
     width: 53.5rem;
   }
 }
+
 
 .demo-col {
   display: inline-block;
