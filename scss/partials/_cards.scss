@@ -4,16 +4,6 @@
 
 /// END TABLE OF CONTENTS **/
 
-/* !!! DEV ONLY !!!*/
-.demo-section {
-  width: 27.8rem;
-
-  @include breakpoint(tablet) {
-    width: 53.5rem;
-  }
-}
-/// END DEV ONLY **/
-
 /** 1 - Content Block
 ------------------------------------------------------------*/
 .content-block {
@@ -84,7 +74,7 @@
     @include breakpoint(tablet) {
       margin-bottom: 1.4rem;
     }
-
+    // TODO: remove/update after the links styles are finalized. 
     & > a {
       text-decoration: none;
     }

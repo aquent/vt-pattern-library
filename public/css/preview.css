@@ -16,6 +16,14 @@ body {
   padding: 2rem;
 }
 
+.demo-section > .content-block{
+  width: 27.8rem;
+
+  @media(min-width 640px;){
+    width: 53.5rem;
+  }
+}
+
 .demo-col {
   display: inline-block;
   margin-right: 2rem;
