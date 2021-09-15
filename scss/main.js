@@ -1,4 +1,4 @@
 import './styles.scss';
-import test from 'test';
+import Menu from 'menu';
 
-test();
+const menu = new Menu();
