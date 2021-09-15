@@ -4,16 +4,23 @@
 
 /// END TABLE OF CONTENTS **/
 
-/* DEV ONLY*/
-.yeald{
+/* !!! DEV ONLY !!!*/
+.yield {
+  // max-width: 100% !important;
+  
   .demo-section {
     width: 27.8rem;
-
+    
     @include breakpoint(tablet){
       width: 53.5rem;
+
     }
   }
 }
+/// END DEV ONLY **/
+
+
+
 
 .content-block {
 
@@ -86,11 +93,8 @@
     }
 
     & > a {
-      display: inline !important;
       text-decoration: none;
     }
-
-   
   }
 
   &__upper {

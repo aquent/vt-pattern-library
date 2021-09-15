@@ -358,7 +358,6 @@ pre {
 .section--bg-prim-blue [class^=anchor] {
   color: #ffffff;
   background-color: #051c2c;
-  display: inline-block;
   padding-bottom: 0.2rem;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, currentColor)) 0 100%/var(--d, 0) 0.2rem no-repeat;
   background: -o-linear-gradient(currentColor 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
@@ -407,7 +406,6 @@ pre {
 .section--bg-sec-blue [class^=anchor] {
   color: #ffffff;
   background-color: #003e51;
-  display: inline-block;
   padding-bottom: 0.2rem;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, currentColor)) 0 100%/var(--d, 0) 0.2rem no-repeat;
   background: -o-linear-gradient(currentColor 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
@@ -456,7 +454,6 @@ pre {
 .section--bg-green [class^=anchor] {
   color: #051c2c;
   background-color: #6cc24a;
-  display: inline-block;
   padding-bottom: 0.2rem;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, currentColor)) 0 100%/var(--d, 0) 0.2rem no-repeat;
   background: -o-linear-gradient(currentColor 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
@@ -505,7 +502,6 @@ pre {
 .section--bg-white [class^=anchor] {
   color: #051c2c;
   background-color: #ffffff;
-  display: inline-block;
   padding-bottom: 0.2rem;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, currentColor)) 0 100%/var(--d, 0) 0.2rem no-repeat;
   background: -o-linear-gradient(currentColor 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
@@ -554,7 +550,6 @@ pre {
 .section--bg-sec-green [class^=anchor] {
   color: #051c2c;
   background-color: #a7bdb1;
-  display: inline-block;
   padding-bottom: 0.2rem;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0, currentColor)) 0 100%/var(--d, 0) 0.2rem no-repeat;
   background: -o-linear-gradient(currentColor 0 0) 0 100%/var(--d, 0) 0.2rem no-repeat;
@@ -588,12 +583,12 @@ pre {
 1 — Content Block
 
 /// END TABLE OF CONTENTS **/
-/* DEV ONLY*/
-.yeald .demo-section {
+/* !!! DEV ONLY !!!*/
+.yield .demo-section {
   width: 27.8rem;
 }
 @media (min-width: 640px) {
-  .yeald .demo-section {
+  .yield .demo-section {
     width: 53.5rem;
   }
 }
@@ -668,7 +663,6 @@ pre {
   }
 }
 .content-block__title > a {
-  display: inline !important;
   text-decoration: none;
 }
 .content-block__upper {
