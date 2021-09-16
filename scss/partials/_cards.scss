@@ -13,6 +13,7 @@
   &__button {
     display: none;
     position: relative;
+    
     @include breakpoint(tablet) {
       display: inline-block;
     }
@@ -40,11 +41,11 @@
       margin-left: -2rem;
     }
 
-    &__month {
+    &-month {
       @extend [class^="tertiary-info"];
     }
 
-    &__day {
+    &-day {
       @extend .h4;
     }
   }

@@ -1,0 +1,32 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+
+      - name: Install and Build 🔧
+        run: |
+          npm install
+          npm run build
+          npm run fractal:build
+
+      - name: Commit Assets 🗃
+        uses: stefanzweifel/git-auto-commit-action@v4.12.0
+        with:
+          commit_message: Build latest CSS and JS
+          file_pattern: scss/dist/*
+
+      - name: Deploy Pattern Library 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages 
+          folder: docs 
