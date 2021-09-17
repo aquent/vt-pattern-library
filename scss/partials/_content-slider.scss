@@ -1,0 +1,17 @@
+$spacer-large-2: 7.5rem;
+
+.content-slider {
+  //The padding and margin comensate for content-block__date being clipped in the first item of the slider.
+  padding-left: 2rem;
+  margin-left: -2rem;
+  overflow: scroll;
+  white-space: nowrap;
+  width: 1440px;
+
+  .content-block {
+    display: inline-block;
+    padding-right: $spacer-large-2;
+    white-space: normal;
+    width: 540px;
+  }
+}
