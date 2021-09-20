@@ -88,41 +88,28 @@ p {
 a {
   /*
   #TODO: 
-   - [ ] Add the headings link style (https://codepen.io/nedevn/pen/XWgzxXM Nubmer 1)
-   - [ ] Implement themes
+   - [X] Add the headings link style (https://codepen.io/nedevn/pen/XWgzxXM Nubmer 1)
+   - [ ] Implement theme colors
   */
-
+  
   background-color: transparent;
-  color: inherit;
-
-  // Mobile + Tablet
-  text-decoration: none;
-  background: linear-gradient(to right, $secondary-green-2, $secondary-green-2);
-  background-size: 100% 0.2rem, 100% 0.2rem;
-  background-position: 98% 100%, 0 98%;
+  background: linear-gradient(to right, $secondary-green-2, $secondary-green-2),
+              linear-gradient(to right, $accessible-green, $accessible-green);
+  background-size: 100% 0.2rem, 0% 0.2rem;
+  background-position: 100% 100%, 0 100%;
   background-repeat: no-repeat;
+  color: inherit;
+  text-decoration: none;
+  transition: background-size (500ms);
 
-  &:focus-visible{
-    /*
-    #TODO: Update placeholder value or remove and rely on browser's default focus indicator.
-    */ 
-    box-shadow: 0px 0px 2px 4px $accessible-green;
-    outline: none;
+  &:hover,
+  &:focus {
+    background-size: 0 0.2rem, 100% 0.2rem;
   }
 
-  // Desktop
-  @include breakpoint(desktop) {
-    background: linear-gradient(to right,$secondary-green-2,$secondary-green-2),
-                linear-gradient(to right, $accessible-green, $accessible-green);
-    background-size: 100% 0.2rem, 0% 0.2rem;
-    background-position: 98% 100%, 0 98%;
-    background-repeat: no-repeat;
-    transition: background-size (400ms);
-
-    &:hover,
-    &:focus {
-      background-size: 0 0.2rem, 100% 0.2rem;
-    }
+  &:focus-visible {
+    box-shadow: 0px 0px 2px 4px $accessible-green;
+    outline: none;
   }
 }
 
