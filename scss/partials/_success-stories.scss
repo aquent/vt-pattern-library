@@ -31,16 +31,14 @@
 
   &__container {
     @include self() {
-      display: grid;
-      grid-gap: 1.5rem;
+      @include grid();
       grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+
       @include breakpoint(tablet) {
         grid-template-columns: repeat(auto-fit, minmax(60rem, 1fr));
       }
       @include breakpoint(desktop) {
-        grid-gap: 2rem;
         grid-auto-flow: column;
-        grid-gap: 0;
       }
     }
 
@@ -133,7 +131,8 @@
   }
 
   &__images {
-    display: grid;
+    @include grid();
+
     grid-template-columns: repeat(12, 1fr);
     @include breakpoint(desktop) {
       grid-template-columns: repeat(8, 1fr);

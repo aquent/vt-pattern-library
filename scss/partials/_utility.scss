@@ -17,10 +17,29 @@
 
 /** 2 - Containers
 ------------------------------------------------------------*/
+[class^="section"] {
+  > * {
+    margin: 0 auto;
+    max-width: 144rem;
+    width: 100%;
+    padding: clamp(2rem, 8vw, 14.5rem);
+  }
+}
+
 .section {
   @include theming($themes) {
     color: get-theme-value(color);
     background-color: get-theme-value(background-color);
+
+    .headline {
+      @extend .uppercase;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 70%,
+        get-theme-value(secondary-accent) 70%
+      );
+      display: inline;
+    }
   }
 }
 
@@ -36,3 +55,4 @@
   white-space: nowrap !important;
   border: 0 !important;
 }
+

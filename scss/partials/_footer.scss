@@ -130,9 +130,41 @@ footer {
   &__social {
     margin-right: auto;
     margin-left: 0;
+    > *:not(:last-child) {
+      margin-right: 1rem;
+    }
+
     @include breakpoint(desktop) {
       margin-right: 0;
       margin-left: auto;
     }
+  }
+}
+
+.social-icon {
+  @include self() {
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+  }
+
+  &--linkedin {
+    mask: url("/img/linkedin.svg") no-repeat center / contain;
+    background-color: $primary-green;
+  }
+
+  &--twitter {
+    mask: url("/img/twitter.svg") no-repeat center / contain;
+    background-color: $primary-green;
+  }
+
+  &--instagram {
+    mask: url("/img/instagram.svg") no-repeat center / contain;
+    background-color: $primary-green;
+  }
+
+  &--facebook {
+    mask: url("/img/facebook.svg") no-repeat center / contain;
+    background-color: $primary-green;
   }
 }
