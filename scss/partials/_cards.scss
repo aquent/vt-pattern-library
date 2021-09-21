@@ -88,12 +88,9 @@
 /** 1 - Content Block - Clickable
 ------------------------------------------------------------*/
 
-a.content-block--clickable:hover {
+.content-block--clickable:hover {
   .content-block__title span{
     @extend .a;
     display: inline;
-    @include breakpoint(tablet) {
-      margin-bottom: 1.4rem;
-    }
   }
 }
