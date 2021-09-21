@@ -7,11 +7,16 @@
 
 /** 1 - Content Block
 ------------------------------------------------------------*/
-.content-block, .content-block--clickable {
+.content-block, 
+.content-block--clickable {
+    
   max-width: fit-content;
   position: relative;
+  } 
+  // TODO = check if those are still needed. 
 
-  &__button {
+  .content-block {
+    &__button {
     display: none;
     position: relative;
     
@@ -85,12 +90,15 @@
   }
 }
 
-/** 1 - Content Block - Clickable
+/** 2 - Content Block - Clickable
 ------------------------------------------------------------*/
+.content-block--clickable {
+  display: block; 
+  background:none;
 
-.content-block--clickable:hover {
-  .content-block__title span{
-    @extend .a;
-    display: inline;
+  &:hover {
+    .content-block__title-text {
+      @extend .a;
+    }
   }
 }
