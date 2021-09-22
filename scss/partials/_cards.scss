@@ -8,11 +8,11 @@
 /** 1 - Content Block
 ------------------------------------------------------------*/
 
-  .content-block {
-    &__button {
+.content-block {
+  &__button {
     display: none;
     position: relative;
-    
+
     @include breakpoint(tablet) {
       display: inline-block;
     }
@@ -86,14 +86,14 @@
 /** 2 - Content Block - Clickable
 ------------------------------------------------------------*/
 .content-block--clickable {
-  background:none;
-  display: block; 
+  background: none;
+  display: block;
 
   .content-block__title {
     display: inline;
     &::after {
       @extend .content-block__title;
-      content: '';
+      content: "";
       display: block;
     }
   }
