@@ -1,17 +1,50 @@
-$spacer-large-2: 7.5rem;
-
 .content-slider {
-  //The padding and margin comensate for content-block__date being clipped in the first item of the slider.
-  padding-left: 2rem;
-  margin-left: -2rem;
-  overflow: scroll;
+  position: relative;
+  overflow-x: scroll;
   white-space: nowrap;
-  width: 1440px;
 
-  .content-block {
-    display: inline-block;
-    padding-right: $spacer-large-2;
-    white-space: normal;
-    width: 540px;
+  &__cards-list {
+    display: flex;
+    flex-direction: row;
+    gap: 7.5rem;
+    //The padding and margin compensate for content-block__date being clipped in the first item of the slider.
+    padding-left: 2rem;
+    margin-left: -2rem;
+    width: 144rem;
   }
+
+  &__controls {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+
+    &__left,
+    &__right {
+      background: none;
+      background-color: pink;
+      display: block;
+      position: absolute;
+      top: 0;
+    }
+
+    &__left {
+      cursor: w-resize;
+      left: 0;
+      height: 200px;
+      width: 50%;
+    }
+
+    &__right {
+      cursor: e-resize;
+      right: 0;
+      height: 200px;
+      width: 50%;
+    }
+  }
+}
+
+.content-block--clickable {
+  white-space: normal;
 }
