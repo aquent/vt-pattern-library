@@ -11,6 +11,10 @@
     padding-left: 2rem;
     margin-left: -2rem;
     width: 144rem;
+    
+    .content-block--clickable {
+      white-space: normal;
+    }
   }
 
   &__controls {
@@ -23,7 +27,7 @@
     &__left,
     &__right {
       background: none;
-      background-color: pink;
+      background-color: rgba($color: red, $alpha: .1);
       display: block;
       position: absolute;
       top: 0;
@@ -43,8 +47,4 @@
       width: 50%;
     }
   }
-}
-
-.content-block--clickable {
-  white-space: normal;
 }
