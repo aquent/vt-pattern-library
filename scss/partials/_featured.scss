@@ -1,0 +1,47 @@
+.featured {
+  &__title {
+    @include vertical-spacing(md-2, bottom, margin);
+  }
+
+  .content-block {
+    &__subtitle {
+      color: $secondary-green-2;
+    }
+
+    &__text {
+      color: $cool-neutral-6;
+    }
+
+    &__button {
+      display: inline;
+    }
+
+    &__date {
+      background-color: $primary-blue;
+    }
+
+    @include breakpoint(desktop) {
+      &--featured {
+        @include grid();
+        grid-template-columns: repeat(12, 1fr);
+      }
+
+      &__upper,
+      &__lower {
+        align-self: center;
+        grid-row: 1 / 2;
+      }
+
+      &__upper {
+        grid-column: 1/7;
+        margin-right: $grid-desktop-margin;
+        margin-bottom: 0;
+      }
+
+      &__lower {
+        grid-column: -1/-7;
+        margin-left: $grid-desktop-margin;
+      }
+    }
+  }
+}

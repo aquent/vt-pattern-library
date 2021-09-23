@@ -27,7 +27,7 @@ html {
 /** 2 - Headers
 ------------------------------------------------------------*/
 @for $i from 1 through 6 {
-  h#{$i}, 
+  h#{$i},
   .h#{$i} {
     font-family: degular, sans-serif;
     font-weight: 600;
@@ -51,11 +51,11 @@ h3,
   line-height: 1.074;
 }
 
-h4, 
+h4,
 .h4 {
   font-size: 2.8rem;
   line-height: 1.143;
-  @include breakpoint(tablet){
+  @include breakpoint(tablet) {
     font-size: 4.2rem;
     line-height: 1.095;
   }
@@ -85,9 +85,32 @@ p {
 
 /** 4 - Anchors
 ------------------------------------------------------------*/
-a {
+a, .a {
+  /*
+  #TODO: 
+   - [X] Add the headings link style (https://codepen.io/nedevn/pen/XWgzxXM Nubmer 1)
+   - [ ] Implement theme colors
+  */
+  
   background-color: transparent;
+  background: linear-gradient(to right, $secondary-green-2, $secondary-green-2),
+              linear-gradient(to right, $accessible-green, $accessible-green);
+  background-size: 100% 0.2rem, 0% 0.2rem;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
   color: inherit;
+  text-decoration: none;
+  transition: background-size (500ms);
+
+  &:hover,
+  &:focus {
+    background-size: 0 0.2rem, 100% 0.2rem;
+  }
+
+  &:focus-visible {
+    box-shadow: 0px 0px 2px 4px $accessible-green;
+    outline: none;
+  }
 }
 
 /** 5 - Blockquotes

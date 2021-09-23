@@ -1,19 +1,18 @@
 /** TABLE OF CONTENTS - Cards
  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
 1 — Content Block
+2 - Content Block - Clickable
 
 /// END TABLE OF CONTENTS **/
 
 /** 1 - Content Block
 ------------------------------------------------------------*/
-.content-block {
-  max-width: fit-content;
-  position: relative;
 
+.content-block {
   &__button {
     display: none;
     position: relative;
-    
+
     @include breakpoint(tablet) {
       display: inline-block;
     }
@@ -75,15 +74,33 @@
     @include breakpoint(tablet) {
       margin-bottom: 1.4rem;
     }
-    // TODO: remove/update after the links styles are finalized. 
-    & > a {
-      text-decoration: none;
-    }
   }
 
   &__upper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin-bottom: 2.4rem;
+  }
+}
+
+/** 2 - Content Block - Clickable
+------------------------------------------------------------*/
+.content-block--clickable {
+  background: none;
+  display: block;
+
+  .content-block__title {
+    display: inline;
+    &::after {
+      @extend .content-block__title;
+      content: "";
+      display: block;
+    }
+  }
+
+  &:hover {
+    .content-block__title {
+      @extend .a;
+    }
   }
 }

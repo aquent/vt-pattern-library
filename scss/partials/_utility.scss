@@ -2,7 +2,7 @@
  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
 1 — Text
 2 — Containers
-3 - Accessibility
+3 - Accessibility and Visibility
 /// END TABLE OF CONTENTS **/
 
 /** 1 - Text
@@ -17,22 +17,72 @@
 
 /** 2 - Containers
 ------------------------------------------------------------*/
+[class^="section"] {
+  > * {
+    margin: 0 auto;
+    max-width: 144rem;
+    width: 100%;
+    padding: clamp(2rem, 8vw, 14.5rem);
+  }
+}
+
 .section {
   @include theming($themes) {
     color: get-theme-value(color);
     background-color: get-theme-value(background-color);
+
+    .headline {
+      @extend .uppercase;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 70%,
+        get-theme-value(secondary-accent) 70%
+      );
+      display: inline;
+    }
   }
 }
 
-/** 3 - Accessibility
+/** 3 - Accessibility and Visibility
 ------------------------------------------------------------*/
-.show-for-sr {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
+.hidden {
+  display: none;
 }
+
+.hidden-for-desktop {
+  display: relative;
+  @include breakpoint(desktop) {
+    display: none;
+  }
+}
+
+.show-for-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap !important;
+  border: 0;
+}
+
+.show-on-focus {
+  @extend .show-for-sr;
+
+  &:active,
+  &:focus {
+    background-color: $primary-white;
+    border: .3rem dotted blue;
+    border-radius: .8rem;
+    clip: initial;
+    color: blue;
+    display: block;
+    height: max-content;
+    left: 0;
+    padding: 1rem 4rem;
+    top: 0;
+    width: max-content;
+  }
+}
+

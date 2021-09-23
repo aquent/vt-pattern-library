@@ -1,3 +1,16 @@
+/** TABLE OF CONTENTS
+ — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
+1 — Breakpoint
+2 — Theme
+3 - BEM utiliy
+  3.1 — Concatenate Modifier
+  3.2 — Self
+4 - Grid
+5 - Vertical spacing
+/// END TABLE OF CONTENTS **/
+
+/** 1 - Breakpoint
+------------------------------------------------------------*/
 @mixin breakpoint($breakpoint) {
   // If the key exists in the map
   @if map-has-key($breakpoints, $breakpoint) {
@@ -14,6 +27,8 @@
   }
 }
 
+/** 2 - Theme
+------------------------------------------------------------*/
 @function get-theme-value($key) {
   @return map-get($exposed-theme-declarations, $key);
 }
@@ -25,9 +40,11 @@
       // @extend #{&};
       @each $property, $value in $theme-declarations {
         $exposed-theme-declarations: map-merge(
-            $theme-declarations,
-              ($property: $value)
-          ) !global;
+          $theme-declarations,
+          (
+            $property: $value,
+          )
+        ) !global;
       }
 
       @content;
@@ -35,19 +52,71 @@
   }
 }
 
+/** 3 - BEM utiliy
+------------------------------------------------------------*/
 // REF: https://www.viget.com/articles/bem-multiple-modifiers-and-experimenting-with-attribute-selectors/
- /* Concatenate Modifier */
 @mixin mod($parent, $modifier) {
   [class^="#{$parent}"][class*="-#{$modifier}"] {
     @content;
   }
 }
 
- /* Apply common style to all modifier of a block element */
+/* Apply common style to all modifier of a block element */
 @mixin self() {
   $self: str-slice(#{&}, 2);
-  
-  @at-root &, [class*="#{$self}"] {
-    @content
+
+  @at-root &,
+    [class*="#{$self}"] {
+    @content;
+  }
+}
+
+/** 4 - Grid
+------------------------------------------------------------*/
+@mixin grid() {
+  @at-root & {
+    display: grid;
+    column-gap: $grid-mobile-gap;
+    @include breakpoint(tablet) {
+      column-gap: $grid-tablet-gap;
+    }
+    @include breakpoint(desktop) {
+      column-gap: $grid-desktop-gap;
+    }
+  }
+}
+
+/** 5 - Vertical spacing
+------------------------------------------------------------*/
+// Requires $design-vertical-spacing map as defined in _variables.scss
+@mixin vertical-spacing($spacer, $dir: auto, $type: margin) {
+  @if ($spacer == null) {
+    @warn 'this mixin needs a map passed in as an argument';
+  } @else {
+    // vertical spacing on interior panels for mobile & wide
+    $map: map-get($design-vertical-spacing, $spacer);
+    @each $breakpoint, $value in $map {
+      $diff: map-get($design-dev-vertical-space-diff, $breakpoint);
+
+      @if ($dir == auto) {
+        @if $breakpoint != small {
+          @include breakpoint($breakpoint) {
+            #{$type}-top: $value - $diff;
+            #{$type}-bottom: $value - $diff;
+          }
+        } @else {
+          #{$type}-top: $value - $diff;
+          #{$type}-bottom: $value - $diff;
+        }
+      } @else {
+        @if $breakpoint != small {
+          @include breakpoint($breakpoint) {
+            #{$type}-#{$dir}: $value - $diff;
+          }
+        } @else {
+          #{$type}-#{$dir}: $value - $diff;
+        }
+      }
+    }
   }
 }
