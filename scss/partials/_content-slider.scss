@@ -1,50 +1,67 @@
 .content-slider {
   position: relative;
   overflow-x: scroll;
+  // scroll-snap-type: mandatory;
+  // scroll-snap-points-x: snapInterval(30% 70%);
   white-space: nowrap;
 
+  &__block {
+    width: 24rem;
+    @include breakpoint(tablet) {
+      width: 53.5rem;
+    }
+  }
+
   &__cards-list {
+    overflow-x: scroll;
+    scroll-behavior: smooth;
     display: flex;
     flex-direction: row;
-    gap: 7.5rem;
+    gap: 7.5rem; // TODO add mobile gap
     //The padding and margin compensate for content-block__date being clipped in the first item of the slider.
     padding-left: 2rem;
     margin-left: -2rem;
-    width: 144rem;
-    
+
     .content-block--clickable {
       white-space: normal;
+      width: 24rem;
+      @include breakpoint(tablet) {
+        width: 53.5rem;
+      }
     }
   }
 
   &__controls {
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
+    display: none;
 
-    &__left,
-    &__right {
-      background: none;
-      background-color: rgba($color: red, $alpha: .1);
+    @include breakpoint(desktop) {
       display: block;
       position: absolute;
       top: 0;
-    }
-
-    &__left {
-      cursor: w-resize;
       left: 0;
-      height: 200px;
-      width: 50%;
-    }
-
-    &__right {
-      cursor: e-resize;
       right: 0;
-      height: 200px;
-      width: 50%;
+      z-index: 10;
+
+      &-left,
+      &-right {
+        background: none;
+        // background-color: rgba($color: red, $alpha: 0.1);
+        display: inline-block;
+        position: relative;
+      }
+/*  
+* TODO: might neeed to adjust the cursors x and y in relation to the arrow images
+*/
+      &-left {
+        cursor: url("/img/cursor-carousel-arrow-back.svg"), auto;
+        width: 50%;
+      }
+
+      &-right {
+        cursor: url("/img/cursor-carousel-arrow-forward.svg"), auto;
+        right: 0;
+        width: 50%;
+      }
     }
   }
 }
