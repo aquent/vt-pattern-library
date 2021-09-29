@@ -1,0 +1,34 @@
+.services {
+  @include grid();
+  grid-template-rows: 50px repeat(3, 1fr);
+
+  [data^="section-one"]{
+    color: blue;
+  }
+
+
+}
+
+  // [class*="service"] {
+  //   @include grid();
+  //   color: red;
+  //   &__text-content{
+  //     grid-column: 1 / 4;
+  //     color: red;
+  //   }
+
+
+
+  // &__text-content {
+  //   grid-column: 1 / 4;
+  // }
+
+  // &__images {
+  //   grid-column: 5 / 12;
+  // }
+
+
+// class
+
+
+
