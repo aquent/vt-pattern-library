@@ -1,34 +1,130 @@
 .services {
-  @include grid();
-  grid-template-rows: 50px repeat(3, 1fr);
-
-  [data^="section-one"]{
-    color: blue;
+  &__title {
+    margin-bottom: 7.6rem;
   }
-
-
 }
 
-  // [class*="service"] {
-  //   @include grid();
-  //   color: red;
-  //   &__text-content{
-  //     grid-column: 1 / 4;
-  //     color: red;
-  //   }
+.service {
+  margin-bottom: 11rem;
 
+  &__enumerator {
+    @extend .h6;
+    color: $secondary-orange-2;
+    @include vertical-spacing(sm-6, bottom, margin);
+  }
 
+  //----Mobile
+  @include grid();
+  grid-template-columns: repeat(12, 1fr);
 
-  // &__text-content {
-  //   grid-column: 1 / 4;
-  // }
+  &__images {
+    @include grid();
+    grid-column: 9 / 13;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+    row-gap: 6.4rem;
 
-  // &__images {
-  //   grid-column: 5 / 12;
-  // }
+    &-small {
+      display: none;
+    }
 
+    [data-id="one"] &,
+    [data-id="three"] & {
+      &-large {
+        grid-column: 1 / 5;
+        grid-row: 1;
+      }
+      &-medium {
+        grid-column: 3 / 5;
+        grid-row: 2;
+      }
+    }
 
-// class
+    [data-id="two"] & {
+      &-large {
+        grid-column: 1 / 5;
+        grid-row: 2;
+      }
 
+      &-medium {
+        grid-column: 1 / 3;
+        grid-row: 1;
+      }
+    }
 
+    //----Desktop
+    @include breakpoint(tablet) {
+      grid-column: 6 / 13;
+      grid-template-columns: repeat(7, 1fr);
 
+      [data-id="one"] & {
+        align-items: center;
+        grid-template-rows: none;
+
+        &-large {
+          grid-column: 1 / 5;
+          grid-row: 1;
+        }
+        &-medium {
+          grid-column: 6 / 8;
+          grid-row: 1;
+        }
+      }
+
+      [data-id="two"] & {
+        grid-template-rows: repeat(12, auto);
+
+        &-large {
+          grid-column: 4 / 8;
+          grid-row: 1 / 10;
+        }
+
+        &-medium {
+          grid-column: 1 / 3;
+          grid-row: 3 / 8;
+        }
+
+        &-small {
+          margin-left: -3.5rem;
+          display: inline-block;
+          grid-column: 1 / 3;
+          grid-row: 9 / 13;
+        }
+      }
+
+      [data-id="three"] & {
+        grid-template-rows: repeat(7, 1fr);
+
+        &-large {
+          grid-column: 1 / 5;
+          grid-row: 1 / 7;
+        }
+
+        &-medium {
+          grid-column: 6 / 8;
+          grid-row: 5 / 8;
+        }
+
+        &-small {
+          display: inline-block;
+          padding-right: 4.2rem;
+          grid-column: 6 / 8;
+          grid-row: 2 / 4;
+        }
+      }
+    }
+  }
+
+  &__heading {
+    @extend .h4;
+    @include vertical-spacing(sm-5, bottom, margin);
+  }
+
+  &__text-content {
+    grid-column: 1 / 8;
+    align-self: center;
+    @include breakpoint("tablet") {
+      grid-column: 1 / 5;
+    }
+  }
+}
