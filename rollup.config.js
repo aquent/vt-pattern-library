@@ -10,7 +10,7 @@ import scss from 'rollup-plugin-scss';
 import { terser } from 'rollup-plugin-terser';
 
 export default {
-  input: 'scss/main.js',
+  input: 'index.js',
   output: 
     {
       file: 'scss/dist/main.js',
@@ -21,7 +21,7 @@ export default {
     nodeResolve({
       moduleDirectories: [
         'node_modules/',
-        'scss/js/'
+        'js/'
       ]
     }),
     commonjs(),
@@ -48,5 +48,5 @@ export default {
       verbose: true
     })
   ],
-  watch: 'scss/js/**'
+  watch: 'js/**'
 }

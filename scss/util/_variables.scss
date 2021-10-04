@@ -1,22 +1,35 @@
+/** TABLE OF CONTENTS
+ — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
+1 — Colors
+2 — Breakpoints
+3 — Theme coloring
+4 — Grid
+5 — Spacing
+  5.1 — Vertical
+  5.2 — Horizontal
+/// END TABLE OF CONTENTS **/
+
+/** 1 - Colors
+------------------------------------------------------------*/
 $colors: (
-  primary-blue:       #051c2c,
-  primary-green:      #6cc24a,
-  primary-white:      #ffffff,
-  accessible-green:   #509e2f,
-  secondary-blue-1:   #003e51,
-  secondary-blue-2:   #004f71,
-  secondary-green-1:  #477a7b,
-  secondary-green-2:  #a7bdb1,
+  primary-blue: #051c2c,
+  primary-green: #6cc24a,
+  primary-white: #ffffff,
+  accessible-green: #509e2f,
+  secondary-blue-1: #003e51,
+  secondary-blue-2: #004f71,
+  secondary-green-1: #477a7b,
+  secondary-green-2: #a7bdb1,
   secondary-orange-1: #ff6a14,
   secondary-orange-2: #f0b323,
-  cool-neutral-1:     #53565a,
-  cool-neutral-2:     #75787b,
-  cool-neutral-3:     #97999b,
-  cool-neutral-4:     #b1b3b3,
-  cool-neutral-5:     #c8c9c7,
-  cool-neutral-6:     #d9d9d6,
-  warm-neutral-1:     #e1b87f,
-  warm-neutral-2:     #efdbb2,
+  cool-neutral-1: #53565a,
+  cool-neutral-2: #75787b,
+  cool-neutral-3: #97999b,
+  cool-neutral-4: #b1b3b3,
+  cool-neutral-5: #c8c9c7,
+  cool-neutral-6: #d9d9d6,
+  warm-neutral-1: #e1b87f,
+  warm-neutral-2: #efdbb2,
 );
 
 $primary-blue: map-get($colors, primary-blue);
@@ -38,6 +51,8 @@ $cool-neutral-6: map-get($colors, cool-neutral-6);
 $warm-neutral-1: map-get($colors, warm-neutral-1);
 $warm-neutral-2: map-get($colors, warm-neutral-2);
 
+/** 2 - Breakpoints
+------------------------------------------------------------*/
 $breakpoints: (
   mobile: 0,
   tablet: 640px,
@@ -47,10 +62,142 @@ $breakpoints: (
 );
 $breakpoint-classes: (mobile tablet desktop);
 
+/** 3 - Theme coloring
+------------------------------------------------------------*/
 $themes: (
-  bg-prim-blue: (color: $primary-white, rollover-color: $primary-blue, background-color: $primary-blue, primary-accent: $primary-green, secondary-accent: $secondary-green-1),
-  bg-sec-blue: (color: $primary-white, rollover-color: $primary-blue, background-color: $secondary-blue-1, primary-accent: $primary-green, secondary-accent: $secondary-green-1),
-  bg-green: (color: $primary-blue, rollover-color: $primary-white, background-color: $primary-green, primary-accent: $secondary-blue-1, secondary-accent: $cool-neutral-1),
-  bg-white: (color: $primary-blue, rollover-color: $primary-white, background-color: $primary-white, primary-accent: $accessible-green, secondary-accent: $secondary-green-2),
-  bg-sec-green: (color: $primary-blue, rollover-color: $primary-white, background-color: $secondary-green-2, primary-accent: $accessible-green, secondary-accent: $secondary-green-2)
+  bg-prim-blue: (
+    color: $primary-white,
+    rollover-color: $primary-blue,
+    background-color: $primary-blue,
+    primary-accent: $primary-green,
+    secondary-accent: $secondary-green-1,
+  ),
+  bg-sec-blue: (
+    color: $primary-white,
+    rollover-color: $primary-blue,
+    background-color: $secondary-blue-1,
+    primary-accent: $primary-green,
+    secondary-accent: $secondary-green-1,
+  ),
+  bg-green: (
+    color: $primary-blue,
+    rollover-color: $primary-white,
+    background-color: $primary-green,
+    primary-accent: $secondary-blue-1,
+    secondary-accent: $cool-neutral-1,
+  ),
+  bg-white: (
+    color: $primary-blue,
+    rollover-color: $primary-white,
+    background-color: $primary-white,
+    primary-accent: $accessible-green,
+    secondary-accent: $secondary-green-2,
+  ),
+  bg-sec-green: (
+    color: $primary-blue,
+    rollover-color: $primary-white,
+    background-color: $secondary-green-2,
+    primary-accent: $accessible-green,
+    secondary-accent: $secondary-green-2,
+  ),
+);
+
+/** 4 - Grid
+------------------------------------------------------------*/
+$grid-mobile-gap: 1rem;
+$grid-mobile-margin: 2rem;
+$grid-tablet-gap: 1rem;
+$grid-tablet-margin: 2rem;
+$grid-desktop-gap: 1.5rem;
+$grid-desktop-margin: 3rem;
+
+/** 4 - Spacing
+------------------------------------------------------------*/
+// Given design vertical spacing is the measure between
+// element's baseline and following sibling element's ascender line
+
+$design-vertical-spacing: (
+  // large 1
+  lg-1:
+    (
+      desktop: 14.5rem,
+      tablet: 10rem,
+      mobile: 7.5rem,
+    ),
+  // medium 1
+  md-1:
+    (
+      desktop: 10rem,
+      tablet: 7.5rem,
+      mobile: 5rem,
+    ),
+  // medium 2
+  md-2:
+    (
+      desktop: 7.5rem,
+      tablet: 6rem,
+      mobile: 5rem,
+    ),
+  // medium 3
+  md-3:
+    (
+      desktop: 6rem,
+      tablet: 5rem,
+      mobile: 5rem,
+    ),
+  // medium 4
+  md-4:
+    (
+      desktop: 5rem,
+      tablet: 3.5rem,
+      mobile: 3.5rem,
+    ),
+  // small 1
+  sm-1:
+    (
+      desktop: 4rem,
+      tablet: 4rem,
+      mobile: 3rem,
+    ),
+  // small 2
+  sm-2:
+    (
+      desktop: 3.5rem,
+      tablet: 3.5rem,
+      mobile: 3.5rem,
+    ),
+  // small 3
+  sm-3:
+    (
+      desktop: 3rem,
+      tablet: 3rem,
+      mobile: 3rem,
+    ),
+  // small 4
+  sm-4:
+    (
+      desktop: 2.5rem,
+      tablet: 2.5rem,
+      mobile: 2.5rem,
+    ),
+  // small 5
+  sm-5:
+    (
+      desktop: 2rem,
+      tablet: 2rem,
+      mobile: 2rem,
+    ),
+  // small 6
+  sm-6:
+    (
+      desktop: 1.5rem,
+      tablet: 2rem,
+      mobile: 2rem,
+    )
+);
+
+$design-dev-vertical-space-diff: (
+  desktop: 0rem,
+  tablet: 0rem,
+  mobile: 0rem
 );

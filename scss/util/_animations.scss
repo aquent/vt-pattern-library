@@ -1,0 +1,10 @@
+@keyframes sweep {
+    0% {
+      opacity: 0;
+      margin-left: -1rem;
+    }
+    100% {
+      opacity: 1;
+      margin-left: 0;
+    }
+}

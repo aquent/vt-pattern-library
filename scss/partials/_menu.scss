@@ -1,57 +1,68 @@
-// temp menu size
-#top-nav {
-  @include breakpoint(desktop) {
-    width: 1440px;
-  }
-}
+/** TABLE OF CONTENTS
+ — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
+1 — Top Nav Wrapper
+2 — Mobile Hamburger Menu
+3 — Top Menu
+4 — Nav bar wrapper
+5 — Dropdown menus
+/// END TABLE OF CONTENTS **/
 
+/** 1 - Top Nav Wrapper
+------------------------------------------------------------*/
 .top-nav {
   position: absolute;
   top: 0;
   z-index: 10; // top nav needs to be above the hero image
   width: 100%;
   outline: none;
-  height: 6.5rem;
+  height: 8rem;
+
+  @include breakpoint(tablet) {
+    height: 9rem;
+  }
 
   @include breakpoint(desktop) {
     position: static;
     height: 100%;
   }
-}
-
-.site-title {
-  position: absolute;
-  right: 0;
-  z-index: 10;
-
-  @include breakpoint(desktop) {
-    position: relative;
-    margin: 2rem 0;
-  }
 
   &__img {
     width: 18rem;
+
     @include breakpoint(desktop) {
       max-width: 18rem;
     }
   }
+
+  &__logo {
+    position: absolute;
+    right: 2.6rem;
+    z-index: 10;
+  
+    @include breakpoint(desktop) {
+      position: relative;
+      right: initial;
+    } 
+  }
 }
 
-/* =======================
-  ******* Mobile Menu ******
-  ========================*/
+/** 2 - Mobile Hamburger Menu
+------------------------------------------------------------*/
 .menu-toggle {
   background: transparent;
   border: none;
-  margin: 0;
-  padding: 0;
-  width: 2.5rem;
-  height: 2.5rem;
-  position: relative;
-  cursor: pointer;
-  z-index: 2;
-  transition: border-bottom 250ms ease;
   border-bottom: 0.3rem solid $primary-white;
+  cursor: pointer;
+  height: 2.5rem;
+  left: 2.6rem;
+  position: relative;
+  transition: border-bottom 250ms ease;
+  width: 2.5rem;
+  z-index: 2;
+
+  @include breakpoint(tablet) {
+    //transform: translateY(50%);
+  }
 
   @include breakpoint(desktop) {
     display: none;
@@ -86,10 +97,12 @@
   }
 
   &__a {
-    width: 100%;
+    background: none;
     height: 100%;
-    position: absolute;
     left: 0;
+    position: absolute;
+    text-decoration: none;
+    width: 100%;
   }
 
   a {
@@ -103,62 +116,28 @@
   }
 }
 
+/** 3 - Top Menu
+------------------------------------------------------------*/
 .top-menu {
+  align-items: center;
+  display: flex;
+  height: 100%;
   position: relative;
   width: 100%;
-  padding: 2rem;
+  
   @include breakpoint(desktop) {
     display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-column-gap: 0;
     grid-auto-flow: column;
-  }
-
-  @at-root [class^="top-menu__arrow"] {
-    padding: 0.8rem;
-    display: none;
-    @include breakpoint(desktop) {
-      padding: 0;
-    }
-  }
-
-  &__arrow {
-    &--after {
-      display: block;
-      float: right;
-      border: solid $secondary-green-1;
-      border-width: 0 0.1rem 0.1rem 0;
-      transform: rotate(-45deg);
-      -webkit-transform: rotate(-45deg);
-      @include breakpoint(desktop) {
-        display: inline-block;
-        width: 0;
-        height: 0;
-        border-left: 0.5rem solid transparent;
-        border-right: 0.5rem solid transparent;
-        border-top: 0.5rem solid $secondary-green-1;
-        border-bottom: none;
-        margin-left: 0.8rem;
-        float: unset;
-        transform: none;
-      }
-    }
-
-    &--before {
-      display: none;
-      float: left;
-      border: solid $primary-white;
-      border-width: 0 0.1rem 0.1rem 0;
-      margin-right: 2rem;
-      transform: rotate(135deg);
-      -webkit-transform: rotate(135deg);
-    }
+    grid-column-gap: 0;
+    grid-template-columns: 1fr 4fr; 
+    height: initial;
+    padding: 0 3rem;
   }
 
   &__ul {
-    padding: 2.9rem;
     font-weight: inherit;
     list-style-type: none;
+    padding: 2.9rem;    
   }
 
   &__li {
@@ -192,6 +171,7 @@
   &__button {
     width: fit-content;
     margin-top: 2rem;
+
     @include breakpoint(desktop) {
       margin-left: auto;
       margin-top: auto;
@@ -203,15 +183,60 @@
   &__label {
     @include breakpoint(desktop) {
       display: block;
-      padding: 2rem 0;
+      padding: 4.3rem 1.774rem 4.3rem 0;
+      position: relative;
+
+      &::before {
+        background-color: $secondary-green-2;
+        clip-path: polygon(50% 100%, 0 0, 100% 0);
+        content: "";
+        display: block;
+        height: 0.5rem;
+        position: absolute;
+        right: 0px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0.974rem;
+      }
+
+      @at-root [open] #{&} {
+        @include breakpoint(desktop) {
+          background: linear-gradient(0deg, $primary-green 0%, $primary-green 8%, transparent 8%, transparent 100%);
+
+          &::before {
+            background-color: $primary-white;
+            clip-path: polygon(50% 0, 100% 100%, 0 100%);
+          }
+        }
+      }
     }
   }
 
   &__menuitem {
+    cursor: pointer;
     list-style: none;
     padding: 2rem 0;
+    position: relative;
+
+    &:before {
+      background-color: $secondary-green-1;
+      clip-path: polygon(88% 12%, 100% 0, 100% 95%, 95% 100%, 0 100%, 12% 88%, 88% 88%);
+      content: '';
+      display: block;
+      height: 1.5rem;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%) rotate(-45deg);
+      width: 1.5rem;
+    }
+
     @include breakpoint(desktop) {
       padding: 0 0 0 3rem;
+
+      &:before {
+        display: none;
+      }
     }
   }
 
@@ -220,6 +245,7 @@
     border-left: none;
     margin-top: 2rem;
     margin-bottom: 2rem;
+
     @include breakpoint(desktop) {
       border-top: none;
       border-left: 0.1rem solid $cool-neutral-2;
@@ -231,10 +257,12 @@
 
   &__details {
     &[open] {
-      position: absolute;
-      top: 0.5rem;
       left: 0;
+      position: absolute;
+      top: 0;
       width: 100%;
+      z-index: 1;
+
       @include breakpoint(desktop) {
         position: relative;
       }
@@ -245,45 +273,28 @@
 
       .top-menu {
         &__menuitem {
-          padding: 0 2rem;
+          background-color: $secondary-blue-2;
+          padding: 2.5rem 0 2.5rem 6.3rem;
 
-          @include breakpoint(tablet) {
-            padding: 0;
+          &:before {
+            background-color: $primary-white;
+            clip-path: polygon(88% 12%, 100% 0, 100% 95%, 95% 100%, 0 100%, 12% 88%, 88% 88%);
+            content: '';
+            display: block;
+            height: 1.5rem;
+            left: 3rem;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%) rotate(135deg);
+            width: 1.5rem;
           }
 
-          @include breakpoint(desktop) {
-            padding: 0 0 0 3rem;
-          }
-        }
-
-        &__label {
-          background-color: $secondary-blue-1;
-          display: block;
-          padding: 2rem;
           @include breakpoint(desktop) {
             background-color: transparent;
-            border-bottom: 0.6rem solid $primary-green;
-            padding: 2rem 0;
-          }
-        }
+            padding: 0 0 0 3rem;
 
-        &__arrow {
-          &--after {
-            display: none;
-            @include breakpoint(desktop) {
-              display: inline-block;
-              border-left: 0.5rem solid transparent;
-              border-right: 0.5rem solid transparent;
-              border-bottom: 0.5rem solid $primary-white;
-              border-top: none;
-            }
-          }
-
-          &--before {
-            display: block;
-
-            @include breakpoint(desktop) {
-              display: none;
+            &:before {
+              content: none;
             }
           }
         }
@@ -292,22 +303,20 @@
   }
 }
 
+/** 4 - Nav bar wrapper
+------------------------------------------------------------*/
 .navbar {
   position: absolute;
-  top: 6.5rem;
   z-index: 1;
   left: 0;
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  /* basic menu styling*/
   list-style: none;
   display: flex;
   flex-flow: column nowrap;
-  // justify-content: center;
   padding: 5rem 2rem 0 2rem;
   background: $primary-blue;
-  /* animate slide left to right */
   transform: translateY(-100%);
   transition: transform 0.2s ease;
 
@@ -327,11 +336,15 @@
     top: 0;
     transform: none;
     overflow: visible;
-    padding: 2rem 0;
+    padding: 0;
   }
 
   &:target {
-    transform: translateY(0);
+    transform: translateY(54%);
+
+    @include breakpoint(tablet) {
+      transform: translateY(55.3%);
+    }
     /* 
         * Transform all the slices of hamburger
         * into a crossmark.
@@ -374,18 +387,17 @@
   }
 }
 
+/** 5 - Dropdown menus
+------------------------------------------------------------*/
 .dropdown-menu {
   z-index: 10;
   left: 0;
   width: 100%;
   height: 92vh;
   overflow: hidden;
-  /* basic menu styling*/
   list-style: none;
-  display: flex;
-  flex-flow: column nowrap;
-  //   justify-content: space-evenly;
   background: $primary-white;
+
   @include breakpoint(desktop) {
     transform: none;
     display: grid;
@@ -428,27 +440,5 @@
     text-decoration: none;
     margin-top: 2rem;
     width: fit-content;
-  }
-}
-
-@keyframes sweep {
-  0% {
-    opacity: 0;
-    margin-left: -10px;
-  }
-  100% {
-    opacity: 1;
-    margin-left: 0px;
-  }
-}
-
-.hidden {
-  display: none;
-}
-
-.hidden-for-desktop {
-  display: relative;
-  @include breakpoint(desktop) {
-    display: none;
   }
 }

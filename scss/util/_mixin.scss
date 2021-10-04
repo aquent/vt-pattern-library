@@ -1,3 +1,18 @@
+/** TABLE OF CONTENTS
+ — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
+1 — Breakpoint
+2 — Theme
+3 - BEM utiliy
+  3.1 — Concatenate Modifier
+  3.2 — Self
+4 - Grid
+5 - Vertical spacing
+6 - Image zoom
+7 - Clear decoration
+/// END TABLE OF CONTENTS **/
+
+/** 1 - Breakpoint
+------------------------------------------------------------*/
 @mixin breakpoint($breakpoint) {
   // If the key exists in the map
   @if map-has-key($breakpoints, $breakpoint) {
@@ -14,6 +29,30 @@
   }
 }
 
+@mixin only-breakpoint($breakpoint) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $breakpoint) {
+    // between tablet and desktop breakpoint
+    @if ($breakpoint == tablet) {
+      @media (min-width: map-get($breakpoints, tablet)) and (max-width: map-get($breakpoints, desktop) - 1px) {
+        @content;
+      }
+    } @else {
+      @media (min-width: map-get($breakpoints, $breakpoint)) {
+        @content;
+      }
+    }
+  }
+
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+          + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+/** 2 - Theme
+------------------------------------------------------------*/
 @function get-theme-value($key) {
   @return map-get($exposed-theme-declarations, $key);
 }
@@ -25,9 +64,11 @@
       // @extend #{&};
       @each $property, $value in $theme-declarations {
         $exposed-theme-declarations: map-merge(
-            $theme-declarations,
-              ($property: $value)
-          ) !global;
+          $theme-declarations,
+          (
+            $property: $value,
+          )
+        ) !global;
       }
 
       @content;
@@ -35,19 +76,93 @@
   }
 }
 
+/** 3 - BEM utiliy
+------------------------------------------------------------*/
 // REF: https://www.viget.com/articles/bem-multiple-modifiers-and-experimenting-with-attribute-selectors/
- /* Concatenate Modifier */
 @mixin mod($parent, $modifier) {
   [class^="#{$parent}"][class*="-#{$modifier}"] {
     @content;
   }
 }
 
- /* Apply common style to all modifier of a block element */
+/* Apply common style to all modifier of a block element */
 @mixin self() {
   $self: str-slice(#{&}, 2);
-  
-  @at-root &, [class*="#{$self}"] {
-    @content
+
+  @at-root &,
+    [class*="#{$self}"] {
+    @content;
+  }
+}
+
+/** 4 - Grid
+------------------------------------------------------------*/
+@mixin grid() {
+  @at-root & {
+    display: grid;
+    column-gap: $grid-mobile-gap;
+    @include breakpoint(tablet) {
+      column-gap: $grid-tablet-gap;
+    }
+    @include breakpoint(desktop) {
+      column-gap: $grid-desktop-gap;
+    }
+  }
+}
+
+/** 5 - Vertical spacing
+------------------------------------------------------------*/
+// Requires $design-vertical-spacing map as defined in _variables.scss
+// E.g. vertical-spacing(lg-1 | md-1 | ..., auto | top | bottom, margin | padding)
+@mixin vertical-spacing($spacer, $dir: auto, $type: margin) {
+  @if ($spacer == null) {
+    @warn 'this mixin needs a map passed in as an argument';
+  } @else {
+    // vertical spacing on interior panels for mobile & wide
+    $map: map-get($design-vertical-spacing, $spacer);
+    @each $breakpoint, $value in $map {
+      $diff: map-get($design-dev-vertical-space-diff, $breakpoint);
+
+      @if ($dir == auto) {
+        @if $breakpoint != mobile {
+          @include only-breakpoint($breakpoint) {
+            #{$type}-top: $value - $diff;
+            #{$type}-bottom: $value - $diff;
+          }
+        } @else {
+          #{$type}-top: $value - $diff;
+          #{$type}-bottom: $value - $diff;
+        }
+      } @else {
+        @if $breakpoint != mobile {
+          @include only-breakpoint($breakpoint) {
+            #{$type}-#{$dir}: $value - $diff;
+          }
+        } @else {
+          #{$type}-#{$dir}: $value - $diff;
+        }
+      }
+    }
+  }
+}
+
+/** 6 - Image zoom
+------------------------------------------------------------*/
+@mixin image-zoom() {
+  @at-root & {
+    transition: transform 0.3s;
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}
+
+/** 7 - Clear decoration
+------------------------------------------------------------*/
+@mixin clear-decoration() {
+  & {
+    background: none;
+    text-decoration: none;
+    border: none;
   }
 }

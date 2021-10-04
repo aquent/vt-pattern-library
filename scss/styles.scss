@@ -8,6 +8,7 @@
 @import 'util/variables';
 @import 'util/fonts';
 @import 'util/mixin';
+@import 'util/animations';
 // Zero everything out, just in case
 @import 'modern-css-reset';
 
@@ -16,9 +17,12 @@
 @import 'partials/base';
 @import 'partials/button';
 @import 'partials/cards';
+@import 'partials/content-slider';
+@import 'partials/featured';
 @import 'partials/footer';
 @import 'partials/forms';
 @import 'partials/headers';
 @import 'partials/menu';
+@import 'partials/services';
 @import 'partials/success-stories';
 @import 'partials/typography';

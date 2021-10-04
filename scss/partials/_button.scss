@@ -5,6 +5,7 @@
 
 [class^="button"] {
   @extend [class^="tertiary-info"];
+  background: none;
   text-decoration: none;
   cursor: pointer;
   display: inline-block;

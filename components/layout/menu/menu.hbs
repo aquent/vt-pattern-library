@@ -1,23 +1,27 @@
-<nav
-  id="top-nav"
+<div
   class="top-nav section--bg-prim-blue"
   tabindex="0"
 >
-  <div class="grid-container top-menu">
-    <div class="site-title">
-      <a class="logo" href="/" title="Aquent"><img
-          {{!-- src="/img/AQ_VT_Co_Branding_White.svg" --}}
-          src="/img/Vitamin_T_Primary_Wordmark_RGB_Reverse.svg"
-          class="site-title__img"
-        /></a>
-    </div>
-    <div class="grid-container navbar" id="navbar">
+  <a class="show-on-focus" href="#">Skip navigation</a>
+  <div class="top-menu">
+    <div class="top-nav__logo">
+      <a href="/" title="Aquent">
+        <img
+          src="{{path '/img/Vitamin_T_Primary_Wordmark_RGB_Reverse.svg'}}"
+          class="top-nav__img"
+          alt="Vitamin T Logo"
+        />
+      </a>
+    </div><!-- ..top-nav__logo -->
+
+    <nav id="navbar" class="navbar">
       <details class="top-menu__details">
         <summary class="tertiary-info--large top-menu__menuitem">
           <span class="top-menu__label">
-            <span class="top-menu__arrow--before"></span>Talents<span class="top-menu__arrow--after"></span>
+            Talent
           </span>
         </summary>
+
         <div class="dropdown-menu section--bg-white" role="menubar">
           <ul class="top-menu__ul dropdown-menu--main" role="menubar">
             <li class="top-menu__li top-menu__li--heading" role="none"><span
@@ -60,6 +64,7 @@
                 class="button--small-primary dropdown-menu__button"
               >Explore Jobs</a></li>
           </ul>
+
           <ul class="top-menu__ul dropdown-menu--sub">
             <li class="top-menu__li top-menu__li--heading" role="none"><span
                 class="p--body-emphasis"
@@ -91,15 +96,16 @@
           </ul>
         </div>
       </details>
+
       <div class="top-menu__divider"></div>
+
       <details class="top-menu__details">
         <summary class="tertiary-info--large top-menu__menuitem">
           <span class="top-menu__label">
-            <span class="top-menu__arrow--before"></span>Problems we solve<span
-              class="top-menu__arrow--after"
-            ></span>
+            Problems we solve
           </span>
         </summary>
+
         <div class="dropdown-menu section--bg-white" role="menubar">
           <ul class="top-menu__ul dropdown-menu--main" role="menubar">
             <li class="top-menu__li top-menu__li--heading" role="none"><span
@@ -151,6 +157,7 @@
                 class="button--small-primary dropdown-menu__button"
               >Request Talent</a></li>
           </ul>
+
           <ul class="top-menu__ul dropdown-menu--sub">
             <li class="top-menu__li top-menu__li--heading" role="none"><span
                 class="p--body-emphasis"
@@ -182,14 +189,14 @@
           </ul>
         </div>
       </details>
+
       <details class="top-menu__details">
         <summary class="tertiary-info--large top-menu__menuitem">
           <span class="top-menu__label">
-            <span class="top-menu__arrow--before"></span>Tech we deliver<span
-              class="top-menu__arrow--after"
-            ></span>
+            Tech we deliver
           </span>
         </summary>
+
         <div class="dropdown-menu section--bg-white" role="menubar">
           <ul class="top-menu__ul dropdown-menu--main" role="menubar">
             <li class="top-menu__li top-menu__li--subheading" role="none"><span
@@ -234,12 +241,14 @@
           </ul>
         </div>
       </details>
+
       <details class="top-menu__details">
         <summary class="tertiary-info--large top-menu__menuitem">
           <span class="top-menu__label">
-            <span class="top-menu__arrow--before"></span>Who we are<span class="top-menu__arrow--after"></span>
+            Who we are
           </span>
         </summary>
+
         <div class="dropdown-menu section--bg-white" role="menubar">
           <ul class="top-menu__ul dropdown-menu--main" role="menubar">
             <li class="top-menu__li" role="none"><a
@@ -269,13 +278,16 @@
           </ul>
         </div>
       </details>
+
       <div class="top-menu__divider hidden-for-desktop"></div>
+
       <a
         href="#"
         role="menuitem"
         class="button--small-primary top-menu__button"
-      >Contact Us</a>
-    </div> <!--- grid-container navbar --->
+      >Contact</a>
+    </nav> <!--- #navbar.grid-container.navbar --->
+
     <div
       class="menu-toggle"
       id="menu-toggle"
@@ -290,4 +302,4 @@
       </a>
     </div> <!--- menu-toggle --->
   </div> <!--- grid-container top-menu --->
-</nav> <!--- top-nav --->
+</div> <!--- top-nav --->
