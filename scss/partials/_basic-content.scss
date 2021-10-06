@@ -1,0 +1,36 @@
+.basic-content {
+  &__headline {
+    @extend h1;
+    @include vertical-spacing(md-1, bottom, margin);
+  }
+
+  &__text {
+    @include vertical-spacing(md-3, bottom, margin);
+  }
+
+  &__title {
+    @extend .h4;
+    @include vertical-spacing(sm-6, bottom, margin);
+  }
+
+  @include breakpoint(tablet) {
+    &__card {
+      margin-left: 19.5rem;
+      margin-right: 4rem;
+    }
+  }
+
+  &--two-cols {
+    display: grid;
+    grid-column-gap: 13.9rem;
+
+    .basic-content__card {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    @include breakpoint(tablet) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
