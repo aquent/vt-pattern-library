@@ -1,0 +1,62 @@
+.tabs-panel {
+  // Desktop
+
+  border-bottom: 1px solid $cool-neutral-4;
+
+  &__ul {
+    //not sure why this is needed
+    @extend .tk-degular-text;
+    @extend .p--body-emphasis;
+
+    display: none;
+    list-style-type: none;
+    padding: 0;
+
+    @include breakpoint(desktop) {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      border-bottom: 1px solid $cool-neutral-4;
+
+      &__li {
+        align-items: flex-end;
+        color: $secondary-blue-1;
+        display: flex;
+        justify-content: flex-start;
+
+        padding-left: 2rem;
+        padding-bottom: 1.4rem;
+
+        &::before {
+          content: "";
+        }
+
+        &[open] {
+          background: linear-gradient(
+            0deg,
+            #6cc24a,
+            #6cc24a 8%,
+            transparent 0,
+            transparent
+          );
+          color: $primary-blue;
+        }
+      }
+
+      &__li a {
+        background: none;
+        list-style: none;
+      }
+
+      &__li:not(:last-of-type) {
+        border-right: 1px solid gray;
+      }
+    }
+
+    // Mobile
+  }
+  &__dropdown {
+    @include breakpoint(desktop) {
+      display: none;
+    }
+  }
+}
