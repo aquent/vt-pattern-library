@@ -40,6 +40,7 @@
 
 .hidden-for-desktop {
   display: relative;
+
   @include breakpoint(desktop) {
     display: none;
   }
@@ -78,13 +79,21 @@
 /** 4 - Multi Column Blog Grid
 ------------------------------------------------------------*/
 .grid-col-content {
-  &__two, &__three {
+
+  &__two,
+  &__three {
     padding-top: 0;
   }
 
   &__two {
-    &:nth-of-type(3){
+    &--homepage {
+      @extend .grid-col-content__two;
+      column-gap: 16.0rem !important;
+    }
+
+    &:nth-of-type(3) {
       padding-bottom: 7.5rem;
+
       @include breakpoint(desktop) {
         padding-bottom: 14.4rem;
       }
@@ -92,38 +101,59 @@
   }
 
   &__three {
-    &:nth-of-type(3n+1){
+    &:nth-of-type(3n+1) {
       padding-top: 7.5rem;
-      @include breakpoint(desktop) {
-      padding-top: 14.4rem;
-      }
-    } 
-  }
-  
-  @include breakpoint(desktop) {
-      &__two {
-          @include grid();
-          align-items: center;
-          column-gap: 16.0rem !important;
-          grid-template-columns: repeat(2, 1fr);
-          padding-bottom: 13.5rem;
-          &.featured {
-              column-gap: 14.5rem !important;
-          }
-      }
 
-      &__three {
-          @include grid();
-          align-items: center;
-          column-gap: 14.6rem !important;
-          grid-template-columns: repeat(3, 1fr);
-          padding-bottom: 13.5rem;
+      @include breakpoint(desktop) {
+        padding-top: 14.4rem;
       }
+    }
+  }
+
+  &__four {
+    &--homepage-blog {
+      @extend .grid-col-content__four;
+      padding-top: 5.0rem;
+
+      @include breakpoint(desktop) {
+        padding-top: 0;
+      }
+    }
+  }
+
+
+
+  @include breakpoint(desktop) {
+    &__two {
+      @include grid();
+      align-items: center;
+      column-gap: 16.0rem !important;
+      grid-template-columns: repeat(2, 1fr);
+      padding-bottom: 13.5rem;
+
+      &.featured {
+        column-gap: 14.5rem !important;
+      }
+    }
+
+    &__three {
+      @include grid();
+      align-items: center;
+      column-gap: 14.6rem !important;
+      grid-template-columns: repeat(3, 1fr);
+      padding-bottom: 13.5rem;
+    }
+
+    &__four {
+      align-items: top;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 2fr;
+    }
   }
 
   @include breakpoint(tablet) {
-      grid-column-gap: 7.1rem;
-      grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: 7.1rem;
+    grid-template-columns: repeat(1, 1fr);
   }
 
 }
