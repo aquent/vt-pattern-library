@@ -167,6 +167,7 @@
   &-featured {
     padding-bottom: 7.5rem;
     padding-top: 7.5rem;
+    width: 33.5rem;
     @extend .content-block--clickable;
 
     @include breakpoint(desktop) {
@@ -176,6 +177,7 @@
       grid-template-columns: 1fr 1fr;
       padding-bottom: 14.5rem;
       padding-top: 14.5rem;
+      width: 100%
     }
   }
 
