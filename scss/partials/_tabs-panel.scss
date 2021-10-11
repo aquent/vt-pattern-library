@@ -1,8 +1,21 @@
+/** TABLE OF CONTENTS - Cards
+ — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
+1 — Tabs Panel
+2 - Tabs Section
+
+
+/// END TABLE OF CONTENTS **/
+
+
+
+/** 1 - Tabs Panel
+------------------------------------------------------------*/
 .tabs-panel {
-  // Desktop
 
   border-bottom: 1px solid $cool-neutral-4;
 
+
+  // Desktop
   &__ul {
     //not sure why this is needed
     @extend .tk-degular-text;
@@ -23,18 +36,16 @@
         display: flex;
         justify-content: flex-start;
 
-        padding-left: 2rem;
-        padding-bottom: 1.4rem;
-
         &::before {
           content: "";
         }
 
-        &[open] {
+        &[open],
+        &:hover {
           background: linear-gradient(
             0deg,
             #6cc24a,
-            #6cc24a 8%,
+            #6cc24a 9%,
             transparent 0,
             transparent
           );
@@ -43,8 +54,15 @@
       }
 
       &__li a {
+        display: block;
         background: none;
         list-style: none;
+        padding-top: 1.4rem;
+        padding-right: 2rem ;  
+        padding-bottom: 1.4rem;
+        padding-left: 2rem;  
+
+        // padding: 1.4rem, 2rem;
       }
 
       &__li:not(:last-of-type) {
@@ -59,4 +77,31 @@
       display: none;
     }
   }
+}
+
+
+/** 1 - Tabs Section
+------------------------------------------------------------*/
+.tabs-section {
+
+  &__tab {
+    display: grid;
+    grid-template-rows: auto 1.8rem 7.5rem;
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .section_heading--underline {
+    grid-row: 1; 
+    grid-column: 1/2;
+  }
+  .section-heading {
+    grid-row: 1;
+    grid-column: 2/3;
+  }
+  
+  .tertiary-info {
+    grid-row: 2;
+    
+  }
+
 }
