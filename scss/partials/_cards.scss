@@ -197,6 +197,11 @@
       border-bottom: none;
       padding-bottom: 0;
     }
+
+    @media only screen and (min-width: 866px) and (max-width: 1160px) {
+      // TODO discuss with Mark and the Web team about how to handle custom breakpoints
+      width: 77rem;
+   }
   }
 }
 
@@ -213,6 +218,13 @@
     padding-top: 14.5rem;
   }
 
+  @media only screen and (min-width: 866px) and (max-width: 1160px) {
+    // TODO discuss with Mark and the Web team about how to handle custom breakpoints
+    grid-row-gap: 6.2rem;
+    grid-template-columns: 1fr;
+    place-items: center;
+  }
+
   .content-block__title {
     @extend .h4;
   }
@@ -224,6 +236,12 @@
       width: 24rem !important;
     }
 
+    @media only screen and (min-width: 866px) and (max-width: 1160px) {
+      // TODO discuss with Mark and the Web team about how to handle custom breakpoints
+      // Override width set by the content slider
+      width: 35rem!important;
+    }
+  
     // Override width set by the content slider
     width: 27.8rem !important;
   }
@@ -241,13 +259,6 @@
 
     .content-block__title {
       @extend .h6;
-    }
-
-    @media only screen and (min-width: 866px) and (max-width: 1160px) {
-      // TODO discuss with Mark and the Web team about how to handle custom breakpoints
-      grid-row-gap: 6.2rem;
-      grid-template-columns: 1fr;
-      place-items: center;
     }
   }
 
