@@ -4,6 +4,7 @@
 2 - Content Block - Clickable
 3 - Content Block - Clickable - Blog Cards
 4 - Content Block - Split
+5 - Content Block - Clickable - Homepage Blog Card Grid
 
 /// END TABLE OF CONTENTS **/
 
@@ -112,6 +113,20 @@
       }
     }
   }
+
+  &__blog-author-date {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+
+    time,
+    label {
+      @extend .tk-degular-text;
+    }
+
+    time {
+      font-weight: 500;
+    }
+  }
 }
 
 /** 2 - Content Block - Clickable
@@ -145,9 +160,11 @@
 ------------------------------------------------------------*/
 .content-block--blog {
   padding-bottom: 7.5rem;
+
   &:last-child {
     padding-bottom: 0;
   }
+
   @include breakpoint(desktop) {
     padding-bottom: 0;
   }
@@ -173,6 +190,16 @@
 
   &__lower {
     margin-top: 2.1rem;
+  }
+
+  &-featured-home {
+    padding-bottom: 5.0rem;
+    border-bottom: 1px solid $cool-neutral-6;
+
+    @include breakpoint(desktop) {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
   }
 }
 
@@ -206,4 +233,56 @@
       height: 11.5rem;
     }
   }
+}
+/** 5 - Content Block - Clickable - Homepage Blog Card Grid
+------------------------------------------------------------*/
+.content-block--homepage-blog {
+  padding-bottom: 4.4rem;
+
+  @include breakpoint(desktop) {
+    display: grid;
+    column-gap: 6rem;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 10rem;
+    padding-top: 14.5rem;
+  }
+
+  .content-block__title {
+    @extend .h4;
+  }
+
+  .content-slider__block,
+  .content-block--blog {
+    @include breakpoint(desktop) {
+      // Override width set by the content slider
+      width: 24rem !important;
+    }
+
+    // Override width set by the content slider
+    width: 27.8rem !important;
+  }
+
+  .grid-col-content__four--homepage-blog {
+    @include breakpoint(desktop) {
+      column-gap: 5.8rem;
+      display: grid;
+      grid-row-gap: 10rem;
+    }
+
+    column-gap: 2rem;
+    margin-left: 0;
+    padding-left: 0;
+
+    .content-block__title {
+      @extend .h6;
+    }
+
+    @media only screen and (min-width: 866px) and (max-width: 1160px) {
+      // TODO discuss with Mark and the Web team about how to handle custom breakpoints
+      grid-row-gap: 6.2rem;
+      grid-template-columns: 1fr;
+      place-items: center;
+    }
+  }
+
 }
