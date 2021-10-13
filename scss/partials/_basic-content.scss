@@ -33,4 +33,31 @@
       grid-template-columns: 1fr 1fr;
     }
   }
+
+  &--half {
+    @include grid();
+
+    @include breakpoint(tablet) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .basic-content {
+      &__headline {
+        margin-bottom: 1.5rem;
+
+        @include breakpoint(tablet) {
+          margin-bottom: 3rem;
+        }
+      }
+
+      &__text {
+        color: $cool-neutral-1;
+
+        &--bold {
+          @extend .p--body-emphasis;
+          color: $primary-blue;
+        }
+      }
+    }
+  }
 }

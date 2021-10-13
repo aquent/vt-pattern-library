@@ -36,7 +36,9 @@ html {
 }
 
 h1 {
-  @extend h3;
+  // h3
+  font-size: 5.4rem;
+  line-height: 1.074;
 
   @include breakpoint(tablet) {
     font-size: 8.4rem;
