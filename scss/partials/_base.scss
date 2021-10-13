@@ -185,7 +185,7 @@ dl {
   }
 
   dd {
-    @extend .p--body;
+    @extend p,.p--body;
   }
 }
 
