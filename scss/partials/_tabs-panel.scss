@@ -3,32 +3,32 @@
 1 — Tabs Panel
 2 - Tabs Section
 
-
 /// END TABLE OF CONTENTS **/
 
-
-
+/** TODO:
+* [ ] Chevron for the mobile dropdown
+*
+** /
 /** 1 - Tabs Panel
 ------------------------------------------------------------*/
-.tabs-panel {
-
+.tabs-nav {
   border-bottom: 1px solid $cool-neutral-4;
+  padding-bottom: 2rem;
+  margin-bottom: 6rem;
 
-
-  // Desktop
   &__ul {
-    //not sure why this is needed
     @extend .tk-degular-text;
     @extend .p--body-emphasis;
 
     display: none;
-    list-style-type: none;
     padding: 0;
 
+    // Desktop
     @include breakpoint(desktop) {
+      border-bottom: 1px solid $cool-neutral-4;
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      border-bottom: 1px solid $cool-neutral-4;
+      margin-bottom: 12rem;
 
       &__li {
         align-items: flex-end;
@@ -40,7 +40,7 @@
           content: "";
         }
 
-        &[open],
+        &.open,
         &:hover {
           background: linear-gradient(
             0deg,
@@ -56,52 +56,125 @@
       &__li a {
         display: block;
         background: none;
-        list-style: none;
         padding-top: 1.4rem;
-        padding-right: 2rem ;  
+        padding-right: 2rem;
         padding-bottom: 1.4rem;
-        padding-left: 2rem;  
-
-        // padding: 1.4rem, 2rem;
+        padding-left: 2rem;
       }
 
       &__li:not(:last-of-type) {
-        border-right: 1px solid gray;
+        border-right: 1px solid $cool-neutral-4;
       }
     }
-
-    // Mobile
   }
+
   &__dropdown {
+    @extend .tk-degular-text;
+    @extend .p--body;
+
+    border: 2px solid $secondary-green-2;
+    padding: 1.6rem 4rem 1.6rem 1.5rem;
+    width: 100%;
+
     @include breakpoint(desktop) {
       display: none;
     }
   }
+
+  @include breakpoint(desktop) {
+    border-bottom: none;
+  }
 }
 
-
-/** 1 - Tabs Section
+/** 2 - Tabs Section
 ------------------------------------------------------------*/
-.tabs-section {
 
-  &__tab {
-    display: grid;
-    grid-template-rows: auto 1.8rem 7.5rem;
-    grid-template-columns: 1fr 2fr;
-  }
+.tabs {
+  @extend .tk-degular-text;
 
-  .section_heading--underline {
-    grid-row: 1; 
-    grid-column: 1/2;
-  }
-  .section-heading {
-    grid-row: 1;
-    grid-column: 2/3;
-  }
-  
-  .tertiary-info {
-    grid-row: 2;
+  .tab {
+    &__heading {
+      @extend .section-heading--underline;
+    }
+
+    &__copy--highlighted {
+      @extend .h3;
+      padding-bottom: 4.3rem;
+    }
+
+    &__example-list {
+      &__content {
+        list-style-type: none;
+        padding-left: 1rem;
+        padding-bottom: 4.5rem;
+
+        & li {
+          color: $cool-neutral-1;
+          margin-bottom: 1.7rem;
+        }
+      }
+
+      &__heading {
+        @extend [class^="tertiary-info"];
+
+        border-top: 1px solid $cool-neutral-6;
+        color: $secondary-green-1;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+    }
+
+    &__content-slider {
+      &__heading {
+        @extend [class^="tertiary-info"];
+
+        color: $secondary-green-1;
+        padding-top: 4.5rem;
+        padding-bottom: 3.2rem;
+      }
+    }
+
+    // Desktop
+    @include breakpoint(desktop) {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: repeat(3, auto);
+      grid-column-gap: 6rem;
+
+      &__copy--highlighted {
+        grid-row: 1;
+        grid-column: 2/3;
+      }
+      &__heading {
+        border-bottom: 1px solid $cool-neutral-6;
+        grid-row: 1;
+        grid-column: 1/2;
+      }
+
+      &__example-list {
+        &__content {
+          border-bottom: none;
+          grid-row: 3;
+          grid-column: 1/2;
+        }
+
+        &__heading {
+          grid-row: 2;
+          grid-column: 1/2;
+        }
+      }
+    }
     
-  }
+    &__content-slider {
+      // grid-column: 2/ -1;
+      
 
+      &__heading {
+        border-top: 1px solid $cool-neutral-6;
+        padding-top: 3.4rem;
+        grid-row: 2;
+        grid-column: 2/3;
+      }
+    }
+  }
 }

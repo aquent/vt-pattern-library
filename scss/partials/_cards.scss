@@ -265,7 +265,7 @@
       @include breakpoint(tablet) {
         display: grid;
         column-gap: 4rem;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 3fr 4fr;
         white-space: normal;
       }
     }
