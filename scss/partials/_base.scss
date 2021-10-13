@@ -45,8 +45,14 @@ h1 {
 }
 
 h2 {
-  font-size: 6.8rem;
-  line-height: 1.059;
+  // h4
+  font-size: 4.2rem;
+  line-height: 1.095;
+
+  @include breakpoint(tablet) {
+    font-size: 6.8rem;
+    line-height: 1.059;
+  }
 }
 
 h3,
