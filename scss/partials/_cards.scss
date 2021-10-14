@@ -110,17 +110,9 @@
   }
 
   &__blog-author-date {
+    @extend .tk-degular-text;
     padding-bottom: 1rem;
     padding-top: 1rem;
-
-    time,
-    span {
-      @extend .tk-degular-text;
-    }
-
-    time {
-      font-weight: 500;
-    }
   }
 }
 
