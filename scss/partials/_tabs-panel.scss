@@ -93,6 +93,10 @@
   @extend .tk-degular-text;
 
   .tab {
+    display: grid;
+    :not(:first-child){
+      display: none;
+
     &__heading {
       @extend .section-heading--underline;
     }
@@ -128,6 +132,7 @@
       &__heading {
         @extend [class^="tertiary-info"];
 
+        border-top: 1px solid $cool-neutral-6;
         color: $secondary-green-1;
         padding-top: 4.5rem;
         padding-bottom: 3.2rem;
@@ -136,7 +141,6 @@
 
     // Desktop
     @include breakpoint(desktop) {
-      display: grid;
       grid-template-columns: 1fr 2fr;
       grid-template-rows: repeat(3, auto);
       grid-column-gap: 6rem;
@@ -162,18 +166,6 @@
           grid-row: 2;
           grid-column: 1/2;
         }
-      }
-    }
-    
-    &__content-slider {
-      // grid-column: 2/ -1;
-      
-
-      &__heading {
-        border-top: 1px solid $cool-neutral-6;
-        padding-top: 3.4rem;
-        grid-row: 2;
-        grid-column: 2/3;
       }
     }
   }
