@@ -2,10 +2,9 @@
 
   <div class="section__inner">
 
-    <nav class="tabs-panel">
+    <nav class="tabs-nav">
 
-      <select class="tabs-panel__dropdown">
-
+      <select class="tabs-nav__dropdown">
         <option class=""><a href="#">Content & Writing</a></li>
         <option class=""><a href="#">Creative</a></li>
         <option class="" data-open><a href="#">Digital Accessibility</a></li>
@@ -15,29 +14,88 @@
         <option class=""><a href="#">Tech</a></option>
       </select>
 
-      <ul class="tabs-panel__ul">
-
-        <li class="tabs-panel__ul__li"><a href="#">Content & Writing</a></li>
-        <li class="tabs-panel__ul__li"><a href="#">Creative</a></li>
-        <li class="tabs-panel__ul__li" open><a href="#">Digital Accessibility</a></li>
-        <li class="tabs-panel__ul__li"><a href="#">Experience Design</a></li>
-        <li class="tabs-panel__ul__li"><a href="#">Gaming</a></li>
-        <li class="tabs-panel__ul__li"><a href="#">Marketing</a></li>
-        <li class="tabs-panel__ul__li"><a href="#">Tech</a></li>
+      <ul class="tabs-nav__ul">
+        <li class="tabs-nav__ul__li"><a href="#">Content & Writing</a></li>
+        <li class="tabs-nav__ul__li"><a href="#">Creative</a></li>
+        <li class="tabs-nav__ul__li open"><a href="#">Digital Accessibility</a></li>
+        <li class="tabs-nav__ul__li"><a href="#">Experience Design</a></li>
+        <li class="tabs-nav__ul__li"><a href="#">Gaming</a></li>
+        <li class="tabs-nav__ul__li"><a href="#">Marketing</a></li>
+        <li class="tabs-nav__ul__li"><a href="#">Tech</a></li>
       </ul>
+
     </nav>
+    {{!-- wrapper for all the tabs --}}
+    <section class="tabs">
 
-    <section class="tabs-section"> 
-      {{!-- wrapper for all the tabs --}}
+      <div class="tab" id="panel-1">
 
-      <div class="tabs-section__tab" id="panel-3">
+        <h3 class="tab__heading">Content & Writing</h3>
+        <p class="tab__copy--highlighted">Craft clear, crisp content along every step in the customer journey.</h4>
 
-        <h3 class="section-heading--underline">Digital Accessibility</h3>
-        <h4 class="section-heading">Deliver inclusive experiences that leave no one behind. long.</h4>
+        <h4 class="tab__example-list__heading">Example Roles:</h4>
+        <ul class="tab__example-list__content">
+          <li>Content Producer</li>
+          <li>Copy Editor</li>
+          <li>Instructional Designer</li>
+          <li>Proposal Writer</li>
+          <li>Web Content Editor</li>
+          <li>Content Strategist</li>
+          <li>Copywriter</li>
+          <li>Proofreader</li>
+          <li>Technical Writer</li>
+        </ul>
 
-        <p class="tertiary-info">Exmaple Roles:</p>
+        <h4 class="tab__content-slider__heading">Client Stories:</h4>
 
-        <ul >
+        <div class="tab__content-slider content-slider" aria-label="gallery">
+
+          <div class="content-slider__controls">
+            <a href="" aria-label="previous" class="content-slider__controls-left"></a>
+            <a href="" aria-label="next" class="content-slider__controls-right"></a>
+          </div> <!-- .content-slider__controls -->
+
+          <div class="content-slider__cards-list">
+
+            <div class="content-slider__block">
+
+              <article class="content-block--split">
+
+                <div class="content-block__upper">
+                  <img class="content-block__image" src="https://via.placeholder.com/715x477" role="presentation"
+                    alt="" />
+
+                  <div class="content-block__overlay-content">
+                    <img src="https://aquent.com/dA/a0a7bd8781/logo/Microsoft.svg/300w" alt="Logo New York Public library" />
+                  </div>
+
+                </div> <!-- .content-block__upper -->
+
+                <div class="content-block__lower">
+                  <h4 class="content-block__title">Until AI has its own warmth and conversational skill, Microsoft needs Writers.</h4>
+
+                  <p class="content-block__text">Microsoft envisioned an everywhere-you-go virtual assistant, Cortana. To keep its conversational style human, we staffed an innovative content mix of Screenplay Writers, Dialogue Doctors, and Comedians.
+                  </p>
+                </div><!-- .content-block__lower -->
+
+              </article> <!-- .content-block--split -->
+
+            </div> <!-- .content-slider__block-->
+
+          </div> <!-- .content-slider__cards-list -->
+
+        </div> <!-- .content-slider -->
+
+      </div> <!-- #panel-1-->
+
+      <div class="tab" id="panel-3">
+
+        <h3 class="tab__heading">Digital Accessibility</h3>
+        <p class="tab__copy--highlighted">Deliver inclusive experiences that leave no one
+          behind.</h4>
+
+        <h4 class="tab__example-list__heading">Example Roles:</h4>
+        <ul class="tab__example-list__content">
           <li>Accessibility Analyst</li>
           <li>Accessibility Architect</li>
           <li>Accessibility Designer</li>
@@ -47,63 +105,54 @@
           <li>Accessibility Specialist</li>
         </ul>
 
-        <p class="tertiary-info">Client Stories:</p>
+        <h4 class="tab__content-slider__heading">Client Stories:</h4>
 
-        <div class="content-slider" aria-label="gallery">
+        <div class="tab__content-slider content-slider" aria-label="gallery">
 
           <div class="content-slider__controls">
             <a href="" aria-label="previous" class="content-slider__controls-left"></a>
             <a href="" aria-label="next" class="content-slider__controls-right"></a>
-          </div>
+          </div> <!-- .content-slider__controls -->
 
           <div class="content-slider__cards-list">
-            <article class="content-block--split">
-              <div class="content-block__upper">
-                <img class="content-block__image" src="https://via.placeholder.com/535x300" role="presentation"
-                  alt="" />
-                <div class="content-block__overlay-content">
-                  <img src="{{path " /img/logo--ny-public-library.svg"}}" alt="Logo New York Public library" />
-                </div>
-              </div><!-- .content-block__upper -->
 
-              <div class="content-block__lower">
-                <h4 class="content-block__title">NYPL wanted to give its patrons a tool to track their research. We
-                  delivered.</h4>
+            <div class="content-slider__block">
 
-                <p class="content-block__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                  ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-              </div><!-- .content-block__lower -->
-            </article><!-- .content-block--clickable -->
+              <article class="content-block--split">
 
-            <article class="content-block--split">
-              <div class="content-block__upper">
-                <img class="content-block__image" src="https://via.placeholder.com/535x300" role="presentation"
-                  alt="" />
-                <div class="content-block__overlay-content">
-                  <img src="{{path " /img/logo--ny-public-library.svg"}}" alt="Logo New York Public library" />
-                </div>
-              </div><!-- .content-block__upper -->
+                <div class="content-block__upper">
+                  <img class="content-block__image" src="https://via.placeholder.com/715x477" role="presentation"
+                    alt="" />
 
-              <div class="content-block__lower">
-                <h4 class="content-block__title">NYPL wanted to give its patrons a tool to track their research. We
-                  delivered.</h4>
+                  <div class="content-block__overlay-content">
+                    <img src="{{path " /img/logo--ny-public-library.svg"}}" alt="Logo New York Public library" />
+                  </div>
 
-                <p class="content-block__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                  ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-              </div><!-- .content-block__lower -->
-            </article><!-- .content-block--clickable -->
+                </div> <!-- .content-block__upper -->
 
-          </div>
-          <!-- .content-slider__cards-list -->
+                <div class="content-block__lower">
+                  <h4 class="content-block__title">NYPL wanted to give its patrons a tool to track their research. We
+                    delivered.</h4>
 
-        </div><!-- .content-slider -->
+                  <p class="content-block__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  </p>
+                </div><!-- .content-block__lower -->
+
+              </article> <!-- .content-block--split -->
+
+            </div> <!-- .content-slider__block-->
+
+          </div> <!-- .content-slider__cards-list -->
+
+        </div> <!-- .content-slider -->
+
+      </div> <!-- #panel-3-->
 
 
-      </div>
-    </section>
+
+    </section> <!-- .tabs -->
+
   </div> <!-- .section-inner -->
-</div><!-- .section--b 
+</div>
