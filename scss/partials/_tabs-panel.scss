@@ -93,9 +93,11 @@
   @extend .tk-degular-text;
 
   .tab {
-    display: grid;
-    :not(:first-child){
-      display: none;
+    display: none;
+
+    // &:not(:first-of-type){
+    //   display: none;
+    // }
 
     &__heading {
       @extend .section-heading--underline;
@@ -167,6 +169,10 @@
           grid-column: 1/2;
         }
       }
+    }
+
+    &.open {
+      display: grid;
     }
   }
 }
