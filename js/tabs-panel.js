@@ -2,7 +2,6 @@
  * Tabs Panel
  * @param {String} navbarContainer
  * @param {string} tabsContainer
- *
  */
 export default class TabsPanel {
   constructor(navbarContainer, tabsContainer) {
@@ -25,62 +24,49 @@ export default class TabsPanel {
       this.dropdownMobile.addEventListener("change", this.onChange, false);
 
       this.currentItem = 0;
-      this.prevItem = 0;
-      this.updateDropdown(3)
     }
   }
   // onClick for navbar
   onClick = (e) => {
-    // Due to the 
+    // The reason for the ternary check is there is only one click event attached to the navbar. A side effect of that is the use can click on either the <a> or a <li>. I believe having this check is more efficicent than having multiple event listeners.
     const clickedItem =
-      e.target.nodeName === "A" 
-        ? e.target.parentElement 
-        : e.target;
+      e.target.nodeName === "A" ? e.target.parentElement : e.target;
 
-    console.log("clickedItem", clickedItem);
     const clickedItemNumber = clickedItem.dataset.panelId;
 
     this.updateDropdown(clickedItemNumber);
     this.updateNav(clickedItemNumber);
 
-    this.prevItem = this.currentItem;
+    this.updatePanel(clickedItemNumber);
+
     this.currentItem = clickedItemNumber;
   };
 
   // onChange for me mobile dropdown
   onChange = (e) => {
     const changedItem = e.target.selectedIndex;
-    // console.log("selected index", this.dropdownMobile.selectedIndex)
 
     this.updateDropdown(changedItem);
     this.updateNav(changedItem);
+    this.updatePanel(changedItem);
 
-    this.prevItem = this.currentItem;
     this.currentItem = changedItem;
-    // this.updateNav()
   };
 
   updateNav = (newMenuItem) => {
     this.menuItems[this.currentItem].classList.remove("open");
     this.menuItems[newMenuItem].classList.add("open");
-    this.currentItem = newMenuItem;
   };
 
   updateDropdown = (newOptionIndex) => {
-    this.dropdownMobile.options[newOptionIndex].selected = true
-    // console.log("here", newOptionIndex);
-    // this.dropdownMobile.options
-    // console.log();
+    this.dropdownMobile.options[newOptionIndex].selected = true;
   };
 
-  updatePanels = (panelNum) => {};
-
-  /**
-   * Takes in an id containing a number (panel-3) and returns the number
-   * @param {String} str
-   * @returns {String}
-   */
-  getNumericValue = (str) => {
-    return str.replace(/[^0-9]/g, "");
+  updatePanel = (panelNum) => {
+    let prevTab = this.tabs[this.currentItem];
+    let currentTab = this.tabs[panelNum];
+    console.log(prevTab);
+    prevTab.classList.remove("open");
+    currentTab.classList.add("open");
   };
 }
