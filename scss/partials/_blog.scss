@@ -138,7 +138,7 @@
         p {
             color: $cool-neutral-1;
 
-            .has-dropcap {
+            .dropcap {
                 @extend .tk-degular;
                 color: $accessible-green;
                 float: left;
@@ -273,6 +273,7 @@
     }
 }
 
+// Blog Author Footer
 .blog-author-footer {
     margin: 0;
     padding-top: 0;
