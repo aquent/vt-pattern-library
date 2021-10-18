@@ -110,17 +110,9 @@
   }
 
   &__blog-author-date {
+    @extend .tk-degular-text;
     padding-bottom: 1rem;
     padding-top: 1rem;
-
-    time,
-    label {
-      @extend .tk-degular-text;
-    }
-
-    time {
-      font-weight: 500;
-    }
   }
 }
 
@@ -154,6 +146,7 @@
 /** 3 - Content Block - Clickable - Blog Cards
 ------------------------------------------------------------*/
 .content-block--blog {
+  @extend .content-block--clickable;
   padding-bottom: 7.5rem;
 
   &:last-child {
@@ -167,6 +160,7 @@
   &-featured {
     padding-bottom: 7.5rem;
     padding-top: 7.5rem;
+    width: 33.5rem;
     @extend .content-block--clickable;
 
     @include breakpoint(desktop) {
@@ -176,6 +170,7 @@
       grid-template-columns: 1fr 1fr;
       padding-bottom: 14.5rem;
       padding-top: 14.5rem;
+      width: 100%
     }
   }
 
@@ -188,6 +183,7 @@
   }
 
   &-featured-home {
+    @extend .content-block--clickable;
     padding-bottom: 5.0rem;
     border-bottom: 1px solid $cool-neutral-6;
 
@@ -195,6 +191,11 @@
       border-bottom: none;
       padding-bottom: 0;
     }
+
+    @media only screen and (min-width: 866px) and (max-width: 1160px) {
+      // TODO discuss with Mark and the Web team about how to handle custom breakpoints
+      width: 77rem;
+   }
   }
 }
 
@@ -211,6 +212,13 @@
     padding-top: 14.5rem;
   }
 
+  @media only screen and (min-width: 866px) and (max-width: 1160px) {
+    // TODO discuss with Mark and the Web team about how to handle custom breakpoints
+    grid-row-gap: 6.2rem;
+    grid-template-columns: 1fr;
+    place-items: center;
+  }
+
   .content-block__title {
     @extend .h4;
   }
@@ -222,6 +230,12 @@
       width: 24rem !important;
     }
 
+    @media only screen and (min-width: 866px) and (max-width: 1160px) {
+      // TODO discuss with Mark and the Web team about how to handle custom breakpoints
+      // Override width set by the content slider
+      width: 35rem!important;
+    }
+  
     // Override width set by the content slider
     width: 27.8rem !important;
   }
@@ -239,13 +253,6 @@
 
     .content-block__title {
       @extend .h6;
-    }
-
-    @media only screen and (min-width: 866px) and (max-width: 1160px) {
-      // TODO discuss with Mark and the Web team about how to handle custom breakpoints
-      grid-row-gap: 6.2rem;
-      grid-template-columns: 1fr;
-      place-items: center;
     }
   }
 

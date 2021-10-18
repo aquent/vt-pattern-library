@@ -93,6 +93,10 @@
   &__two,
   &__three {
     padding-top: 0;
+    width: 33.5rem;
+    @include breakpoint(desktop) {
+      width: 100%
+    }
   }
 
   &__two {
