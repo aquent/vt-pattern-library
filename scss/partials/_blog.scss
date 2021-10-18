@@ -1,5 +1,5 @@
 // VT Blog Post Hero
-.blog-post-hero {
+.post-hero {
     margin: 0;
     padding-bottom: 0;
     width: 42.5rem;
@@ -24,7 +24,7 @@
         font-size: 4.2rem;
     }
 
-    &__blog-author {
+    &__author {
         align-items: center;
         display: grid;
         grid-template-columns: 9rem 1fr;
@@ -64,18 +64,19 @@
 
         &-read-time {
             border-right: 0.1rem solid $cool-neutral-2;
-            padding-top: 1.7rem;
+            padding: 1.7rem 0;
 
-            &--p-text,
-            &--p-time {
-                display: inline-block;
-                font-size: 1.8rem;
-            }
+            time {
+                &::before {
+                    content: "Time";
+                    color: white;
+                    padding-right: 0.3rem;
+                }
 
-            &--p-time {
                 @extend .tk-degular-text;
                 color: $secondary-green-2;
-                padding-right: 3.6rem;
+                padding: 1.7rem 0;
+                font-size: 1.8rem;
             }
         }
 
@@ -103,7 +104,7 @@
 }
 
 // Blog Article Post
-.blog-article {
+.article {
     background: rgba(5, 28, 44, 1);
     background: linear-gradient(180deg, rgba(5, 28, 44, 1) 24.6rem, rgba(255, 255, 255, 1) 24.6rem);
     padding-top: 3rem;
@@ -124,6 +125,16 @@
             margin: 0 19.5rem;
         }
 
+        &::first-letter {
+            @extend .tk-degular;
+            color: $accessible-green;
+            float: left;
+            font-size: 16rem;
+            font-weight: 900;
+            line-height: 0.35;
+            margin: 0.1em 0.1em 0.18em 0;
+        }
+
 
         h2 {
             @extend .h4;
@@ -137,20 +148,10 @@
 
         p {
             color: $cool-neutral-1;
-
-            .dropcap {
-                @extend .tk-degular;
-                color: $accessible-green;
-                float: left;
-                font-size: 16rem;
-                font-weight: 900;
-                line-height: 0.35;
-                margin: 0.1em 0.1em 0.18em 0;
-            }
         }
 
-        &-blockquote {
-            &--quote {
+        blockquote {
+            .quote {
                 position: relative;
                 margin-top: 0;
                 margin-bottom: 1.9rem;
@@ -166,16 +167,16 @@
                     z-index: 1;
                 }
 
-                &-background {
+                span {
+                    background-color: $primary-white;
                     background-image: url("data:image/svg+xml,%3Csvg width='20' height='16' viewBox='0 0 20 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.3181 9.294C11.3181 13.116 13.2921 15.636 16.2741 15.636C18.4161 15.636 19.8021 14.25 19.8021 12.024C19.8021 10.722 19.4661 10.176 18.8781 9.588C17.5761 8.286 14.8041 9.504 14.8041 6.984C14.8041 4.758 17.0721 3.078 19.1721 3.078C19.5501 3.078 19.7601 2.868 19.7601 2.49V1.44C19.7601 1.02 19.5081 0.767998 18.8781 0.767998C15.4761 0.767998 11.3181 4.128 11.3181 9.294ZM0.188078 9.294C0.188078 13.116 2.16208 15.636 5.14408 15.636C7.28608 15.636 8.67208 14.25 8.67208 12.024C8.67208 10.722 8.33608 10.176 7.74808 9.588C6.44608 8.286 3.67408 9.504 3.67408 6.984C3.67408 4.758 5.94208 3.078 8.04208 3.078C8.42008 3.078 8.63008 2.868 8.63008 2.49V1.44C8.63008 1.02 8.37808 0.767998 7.74808 0.767998C4.34608 0.767998 0.188078 4.128 0.188078 9.294Z' fill='%23509E2F'/%3E%3C/svg%3E%0A");
                     background-position: center;
                     background-repeat: no-repeat;
-
                     height: 2rem;
-                    width: 2rem;
-                    background-color: #fff;
+                    margin-left: 45%;
                     padding: 0 3.4rem;
                     position: relative;
+                    width: 2rem;
                     z-index: 5;
                 }
             }
@@ -188,14 +189,14 @@
             text-align: center;
             padding-bottom: 4rem;
 
-            &-cite {
+            cite {
                 font-weight: 900;
                 font-style: normal;
                 display: block;
                 padding-top: 25px;
             }
 
-            &-span {
+            span {
                 @extend .tk-aktiv-grotesk;
                 display: block;
                 font-size: 14px;
@@ -205,22 +206,26 @@
             }
         }
 
-        &-aside {
+        aside {
             border-left: 0.2rem solid $accessible-green;
             margin: 7rem 0;
 
-            .p--body:first-child {
+            &::before {
+                content: "Key Takeaway";
                 @extend .tk-aktiv-grotesk;
                 @extend .uppercase;
                 color: $secondary-green-1;
                 font-size: 1.4rem;
                 letter-spacing: 3.2px;
+                padding: 0 4.1rem;
             }
 
-            .p--body {
+            p {
+                @extend .p--body;
                 font-weight: 600;
                 color: $primary-blue;
-                padding: 0 41px;
+                padding: 0 4.1rem;
+
             }
         }
 
@@ -246,11 +251,11 @@
 
             }
 
-            &--catagories {
+            &--categories {
                 padding-left: 0;
                 padding-bottom: 146px;
 
-                .blog-article__post-list-item {
+                .article__post-list-item {
                     display: inline-block;
                     margin-right: 0.8rem;
 
@@ -291,33 +296,29 @@
     }
 
     &-social {
-        @extend .blog-post-hero__time-social;
+        @extend .post-hero__time-social;
         border-bottom: 0.1rem solid $cool-neutral-4;
         border-top: 0;
 
         &-date-time {
             width: 86%;
-            @extend .blog-post-hero__time-social-read-time;
+            @extend .post-hero__time-social-read-time;
 
-            &--date-text,
-            &--date-format {
-                display: inline-block;
-            }
-            @include breakpoint(desktop) {
-                &--date-text { 
-                    margin-bottom: 1.6rem !important;
+            time {
+                &::before {
+                    content: "Date";
+                    color: $primary-blue;
+                    font-weight: 500;
                 }
-            }
-            
 
-            &--date-format {
                 @extend .tk-degular-text;
                 color: $secondary-green-1;
+                margin-bottom: 1.6rem !important;
             }
         }
 
         &-media-links {
-            @extend .blog-post-hero__time-social-links;
+            @extend .post-hero__time-social-links;
 
             .social-icon__link {
                 img {
