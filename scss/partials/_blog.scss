@@ -295,14 +295,20 @@
         border-bottom: 0.1rem solid $cool-neutral-4;
         border-top: 0;
 
-        &-read-time {
-            width: 96%;
+        &-date-time {
+            width: 86%;
             @extend .blog-post-hero__time-social-read-time;
 
             &--date-text,
             &--date-format {
                 display: inline-block;
             }
+            @include breakpoint(desktop) {
+                &--date-text { 
+                    margin-bottom: 1.6rem !important;
+                }
+            }
+            
 
             &--date-format {
                 @extend .tk-degular-text;
