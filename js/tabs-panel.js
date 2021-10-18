@@ -64,7 +64,7 @@ export default class TabsPanel {
   updatePanel = (panelNum) => {
     let prevTab = this.tabs[this.currentItem];
     let currentTab = this.tabs[panelNum];
-    console.log(prevTab);
+
     prevTab.classList.remove("open");
     currentTab.classList.add("open");
   };
