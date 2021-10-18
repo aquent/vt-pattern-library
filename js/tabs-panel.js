@@ -36,7 +36,6 @@ export default class TabsPanel {
 
     this.updateDropdown(clickedItemNumber);
     this.updateNav(clickedItemNumber);
-
     this.updatePanel(clickedItemNumber);
 
     this.currentItem = clickedItemNumber;
