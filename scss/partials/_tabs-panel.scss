@@ -8,7 +8,8 @@
 /** TODO:
 * [ ] Chevron for the mobile dropdown
 *
-** /
+** 
+
 /** 1 - Tabs Panel
 ------------------------------------------------------------*/
 .tabs-nav {
@@ -95,10 +96,6 @@
   .tab {
     display: none;
 
-    // &:not(:first-of-type){
-    //   display: none;
-    // }
-
     &__heading {
       @extend .section-heading--underline;
     }
@@ -125,8 +122,8 @@
 
         border-top: 1px solid $cool-neutral-6;
         color: $secondary-green-1;
-        padding-top: 3rem;
-        padding-bottom: 3rem;
+        padding-top: 4.5rem;
+        padding-bottom: 3.2rem;
       }
     }
 
