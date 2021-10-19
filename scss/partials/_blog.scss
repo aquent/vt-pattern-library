@@ -1,0 +1,406 @@
+// VT Blog Post Hero
+.post-hero {
+    margin: 0;
+    padding-bottom: 0;
+    width: 42.5rem;
+
+
+    @include breakpoint(desktop) {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    @media only screen and (min-width: 866px) and (max-width: 1160px) {
+        // TODO discuss with Mark and the Web team about how to handle custom breakpoints
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    &__title {
+        @include breakpoint(desktop) {
+            font-size: 8.4rem;
+        }
+
+        font-size: 4.2rem;
+    }
+
+    &__author {
+        align-items: center;
+        display: grid;
+        grid-template-columns: 9rem 1fr;
+        padding-bottom: 7.5rem;
+        padding-top: 3.5rem;
+
+        &-img-container {
+            padding-right: 2rem;
+            .post-hero__author-image {
+                background: none no-repeat center center / cover;
+                width: 6rem;
+                height: 6rem;
+                border-radius: 50%;
+            }
+        }
+
+
+        &-info {
+            display: inline-block;
+
+            &-title {
+                color: $secondary-green-2;
+                font-size: 1.6rem;
+            }
+
+            &-name {
+                @extend .tk-degular-text;
+                font-size: 2rem;
+            }
+        }
+    }
+
+    &__time-social {
+        border-top: 0.1rem solid $cool-neutral-2;
+        display: grid;
+        grid-template-columns: 18rem 1fr;
+
+        &-read-time {
+            border-right: 0.1rem solid $cool-neutral-2;
+            padding: 1.7rem 0;
+
+            time {
+                &::before {
+                    content: "Time";
+                    color: white;
+                    padding-right: 0.3rem;
+                }
+
+                @extend .tk-degular-text;
+                color: $secondary-green-2;
+                padding: 1.7rem 0;
+                font-size: 1.8rem;
+            }
+        }
+
+        &-links {
+            margin-left: auto;
+            margin-right: 0;
+            padding-top: 2.1rem;
+
+
+            .social-icon__link {
+                margin-right: 1.7rem;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                img {
+                    background-color: $secondary-green-2;
+                }
+
+            }
+        }
+
+    }
+}
+
+// Blog Article Post
+.article {
+    background: rgba(5, 28, 44, 1);
+    background: linear-gradient(180deg, rgba(5, 28, 44, 1) 24.6rem, rgba(255, 255, 255, 1) 24.6rem);
+    padding-top: 3rem;
+    padding-bottom: 0;
+
+
+    &__image {
+        padding-top: 3.8rem;
+        padding-bottom: 6.6rem;
+
+        &-featured {
+            padding-bottom: 13.8rem;
+        }
+    }
+
+    &__post {
+        @include breakpoint(desktop) {
+            margin: 0 19.5rem;
+        }
+
+        &::first-letter {
+            @extend .tk-degular;
+            color: $accessible-green;
+            float: left;
+            font-size: 16rem;
+            font-weight: 900;
+            line-height: 0.35;
+            margin: 0.1em 0.1em 0.18em 0;
+        }
+
+
+        h2 {
+            @extend .h4;
+        }
+
+        h2,
+        h3,
+        h4 {
+            padding-bottom: 2.7rem;
+        }
+
+        p {
+            color: $cool-neutral-1;
+        }
+
+        blockquote {
+            div {
+                position: relative;
+                margin-top: 0;
+                margin-bottom: 1.9rem;
+
+                &:before {
+                    content: "";
+                    display: block;
+                    border-top: solid 0.1rem $cool-neutral-6;
+                    width: 100%;
+                    height: 0.1rem;
+                    position: absolute;
+                    top: 50%;
+                    z-index: 1;
+                }
+
+                span {
+                    background-color: $primary-white;
+                    background-image: url("data:image/svg+xml,%3Csvg width='20' height='16' viewBox='0 0 20 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.3181 9.294C11.3181 13.116 13.2921 15.636 16.2741 15.636C18.4161 15.636 19.8021 14.25 19.8021 12.024C19.8021 10.722 19.4661 10.176 18.8781 9.588C17.5761 8.286 14.8041 9.504 14.8041 6.984C14.8041 4.758 17.0721 3.078 19.1721 3.078C19.5501 3.078 19.7601 2.868 19.7601 2.49V1.44C19.7601 1.02 19.5081 0.767998 18.8781 0.767998C15.4761 0.767998 11.3181 4.128 11.3181 9.294ZM0.188078 9.294C0.188078 13.116 2.16208 15.636 5.14408 15.636C7.28608 15.636 8.67208 14.25 8.67208 12.024C8.67208 10.722 8.33608 10.176 7.74808 9.588C6.44608 8.286 3.67408 9.504 3.67408 6.984C3.67408 4.758 5.94208 3.078 8.04208 3.078C8.42008 3.078 8.63008 2.868 8.63008 2.49V1.44C8.63008 1.02 8.37808 0.767998 7.74808 0.767998C4.34608 0.767998 0.188078 4.128 0.188078 9.294Z' fill='%23509E2F'/%3E%3C/svg%3E%0A");
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    height: 2rem;
+                    margin-left: 45%;
+                    padding: 0 3.4rem;
+                    position: relative;
+                    width: 2rem;
+                    z-index: 5;
+                }
+            }
+
+
+            @extend .tk-degular-display;
+            @extend .h5;
+            border-bottom: 0.1rem solid $cool-neutral-6;
+            margin-bottom: 11.6rem;
+            text-align: center;
+            padding-bottom: 4rem;
+
+            cite {
+                font-weight: 900;
+                font-style: normal;
+                display: block;
+                padding-top: 25px;
+            }
+
+            span {
+                @extend .tk-aktiv-grotesk;
+                display: block;
+                font-size: 14px;
+                color: $secondary-green-1;
+                letter-spacing: 3.2px;
+                padding-top: 0.8rem;
+            }
+        }
+
+        aside {
+            border-left: 0.2rem solid $accessible-green;
+            margin: 7rem 0;
+
+            &::before {
+                content: "Key Takeaway";
+                @extend .tk-aktiv-grotesk;
+                @extend .uppercase;
+                color: $secondary-green-1;
+                font-size: 1.4rem;
+                letter-spacing: 3.2px;
+                padding: 0 4.1rem;
+            }
+
+            p {
+                @extend .p--body;
+                font-weight: 600;
+                color: $primary-blue;
+                padding: 0 4.1rem;
+                padding-top: 1.7rem;
+
+            }
+        }
+
+        .p--lead-2 {
+            color: $primary-blue;
+            margin-bottom: 0.7rem;
+        }
+
+        &-list {
+            margin: 2.7rem 0;
+
+            &-item {
+                @extend .tk-degular-text;
+                color: $cool-neutral-1;
+                font-size: 2rem;
+                font-weight: 500;
+                list-style-type: none;
+                padding-bottom: 1.5rem;
+
+                &:last-child {
+                    padding-bottom: 0;
+                }
+
+            }
+
+            &--categories {
+                padding-left: 0;
+                padding-bottom: 146px;
+
+                .article__post-list-item {
+                    display: inline-block;
+                    margin-right: 0.8rem;
+
+                    &::before {
+                        content: '';
+                    }
+
+                    .button--small-secondary-flex {
+                        @extend .tk-degular-text;
+                        font-weight: 500;
+                        letter-spacing: -0.2px;
+                        line-height: 0.5;
+                        text-transform: capitalize;
+                    }
+                }
+            }
+
+        }
+
+    }
+}
+
+// Blog Author Footer
+.blog-author-footer {
+    margin: 0;
+    padding-top: 0;
+    width: 45.5rem;
+
+    @include breakpoint(desktop) {
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    @media only screen and (min-width: 866px) and (max-width: 1160px) {
+        // TODO discuss with Mark and the Web team about how to handle custom breakpoints
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    &-social {
+        @extend .post-hero__time-social;
+        border-bottom: 0.1rem solid $cool-neutral-4;
+        border-top: 0;
+
+        &-date-time {
+            width: 86%;
+            @extend .post-hero__time-social-read-time;
+
+            time {
+                &::before {
+                    content: "Date";
+                    color: $primary-blue;
+                    font-weight: 500;
+                }
+
+                @extend .tk-degular-text;
+                color: $secondary-green-1;
+                margin-bottom: 1.6rem !important;
+            }
+        }
+
+        &-media-links {
+            @extend .post-hero__time-social-links;
+
+            .social-icon__link {
+                img {
+                    background-color: $secondary-blue-2;
+                }
+            }
+        }
+    }
+
+    &-bio {
+        display: grid;
+        align-items: center;
+        padding-bottom: 14.5rem;
+        padding-top: 7.6rem;
+
+        @include breakpoint(desktop) {
+            grid-template-columns: 1fr 2fr;
+        }
+
+        @media only screen and (min-width: 866px) and (max-width: 1160px) {
+            // TODO discuss with Mark and the Web team about how to handle custom breakpoints
+            grid-template-columns: 1fr;
+        }
+
+
+        border-bottom: 0.1rem solid $cool-neutral-4;
+        grid-column-gap: 8rem;
+
+        &__img-container {
+
+            margin-bottom: 3rem;
+
+            .blog-author-footer-bio__author-image {
+                border-radius: 50%;
+                float: none;
+                height: 25rem;
+                width: 25rem;
+
+                @include breakpoint(desktop) {
+                    float: right;
+                }
+
+                @media only screen and (min-width: 866px) and (max-width: 1160px) {
+                    // TODO discuss with Mark and the Web team about how to handle custom breakpoints
+                    float: none;
+                }
+
+            }
+        }
+
+        &-desc-name {
+            @extend .h6;
+        }
+
+        &-desc-title {
+            color: $secondary-green-1;
+        }
+
+        .p--body {
+            color: $cool-neutral-1;
+        }
+
+        &-desc-links {
+            display: grid;
+            grid-column-gap: 20px;
+
+            @include breakpoint(desktop) {
+                grid-template-columns: 1fr 6fr;
+            }
+
+            grid-template-columns: 1fr;
+
+            &-p {
+                display: inline-block;
+
+                &:first-child {
+                    @include breakpoint(desktop) {
+                        border-right: 0.1rem solid $cool-neutral-4;
+                    }
+                }
+            }
+        }
+    }
+}
