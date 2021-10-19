@@ -1,0 +1,15 @@
+// VT Jobs cards, details, and search
+/* 
+W: 557px
+H: 160px
+*/
+.job-card {
+    @extend .content-block--clickable;
+    border: 1px solid $secondary-green-2;
+    height: 16.0rem;
+    width: 55.7rem;
+
+    h3 {
+        @extend .h6;
+    }
+}
