@@ -33,14 +33,14 @@
 
         &-img-container {
             padding-right: 2rem;
-
-            &__author-image {
+            .post-hero__author-image {
                 background: none no-repeat center center / cover;
                 width: 6rem;
                 height: 6rem;
                 border-radius: 50%;
             }
         }
+
 
         &-info {
             display: inline-block;
@@ -352,7 +352,7 @@
 
             margin-bottom: 3rem;
 
-            &__author-image {
+            .blog-author-footer-bio__author-image {
                 border-radius: 50%;
                 float: none;
                 height: 25rem;
