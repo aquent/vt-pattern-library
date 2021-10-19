@@ -1,20 +1,47 @@
 /** TABLE OF CONTENTS
  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
 1 — Alternates
+2 — Section Heading
 /// END TABLE OF CONTENTS **/
 
 /** 1 - Alternates
 ------------------------------------------------------------*/
-:is(.h1--page-titles, .h3--alt, .h4--alt, .h5--alt, .h6--alt){
-    @extend .uppercase;
+:is(.h1--page-titles, .h3--alt, .h4--alt, .h5--alt, .h6--alt) {
+  @extend .uppercase;
 }
 
-:is(.h4--quote, .h5--quote, .h6--quote){
-    @extend .italic;
+:is(.h4--quote, .h5--quote, .h6--quote) {
+  @extend .italic;
 }
 
 .h1--page-titles {
-    @extend h1;
+  @extend h3;
+
+  @include breakpoint(tablet) {
     font-size: 10rem;
     line-height: 1;
+
+  }
+}
+
+/** 2 - Section Heading
+------------------------------------------------------------*/
+.section-heading {
+  @extend h1;
+
+  @include vertical-spacing(md-1, bottom, margin);
+
+  &--underline {
+    @extend .h4;
+    @extend .uppercase;
+
+    @include vertical-spacing(md-1, bottom, margin);
+
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0) 70%,
+        get-theme-value(secondary-accent) 70%
+    );
+    display: inline-block;
+  }
 }

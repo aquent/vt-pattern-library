@@ -15,13 +15,16 @@
 // Start loading theme files, starting with 'base'
 @import 'partials/utility';
 @import 'partials/base';
+@import 'partials/basic-content';
 @import 'partials/button';
 @import 'partials/cards';
+@import 'partials/content-list';
 @import 'partials/content-slider';
 @import 'partials/featured';
 @import 'partials/footer';
 @import 'partials/forms';
 @import 'partials/headers';
+@import 'partials/hero';
 @import 'partials/menu';
 @import 'partials/services';
 @import 'partials/success-stories';

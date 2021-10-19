@@ -1,0 +1,31 @@
+<div class="hero-video__section section--bg-prim-blue">
+  <section class="hero-video">
+    <div class="hero-video__copy">
+      <h1 class="hero-video__title">We help people and organizations grow and
+        succeed.</h1>
+      <p class="hero-video__text">We’re at the intersection of people and tech.</p>
+    </div><!-- .hero-video__copy -->
+
+    <div class="hero-video__media">
+      <input
+        id="hero-video__controller"
+        class="hero-video__controller"
+        type="checkbox"
+      />
+      <div for="hero-video__controller" class="hero-video__controller-wrapper">
+        <video
+          class="hero-video__video"
+          autoplay="true"
+          controlslist="nodownload nofullscreen noremoteplayback"
+          muted="true"
+          loop="true"
+        >
+          <source src="{{path "/video/hero-homepage.mp4"}}" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video><!-- .hero-video__video -->
+        <a class="hero-video__controller-button" href="#"></a>
+      </div><!-- hero-video__controller-wrapper -->
+
+    </div><!-- .hero-video__media -->
+  </section>
+</div>

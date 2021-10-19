@@ -1,0 +1,63 @@
+.basic-content {
+  &__headline {
+    @extend h1;
+    @include vertical-spacing(md-1, bottom, margin);
+  }
+
+  &__text {
+    @include vertical-spacing(md-3, bottom, margin);
+  }
+
+  &__title {
+    @extend .h4;
+    @include vertical-spacing(sm-6, bottom, margin);
+  }
+
+  @include breakpoint(tablet) {
+    &__card {
+      margin-left: 19.5rem;
+      margin-right: 4rem;
+    }
+  }
+
+  &--two-cols {
+    display: grid;
+    grid-column-gap: 13.9rem;
+
+    .basic-content__card {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    @include breakpoint(tablet) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &--half {
+    @include grid();
+
+    @include breakpoint(tablet) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .basic-content {
+      &__headline {
+        margin-bottom: 1.5rem;
+
+        @include breakpoint(tablet) {
+          margin-bottom: 3rem;
+        }
+      }
+
+      &__text {
+        color: $cool-neutral-1;
+
+        &--bold {
+          @extend .p--body-emphasis;
+          color: $primary-blue;
+        }
+      }
+    }
+  }
+}

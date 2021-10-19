@@ -36,13 +36,25 @@ html {
 }
 
 h1 {
-  font-size: 8.4rem;
-  line-height: 1.048;
+  // h3
+  font-size: 5.4rem;
+  line-height: 1.074;
+
+  @include breakpoint(tablet) {
+    font-size: 8.4rem;
+    line-height: 1.048;
+  }
 }
 
 h2 {
-  font-size: 6.8rem;
-  line-height: 1.059;
+  // h4
+  font-size: 4.2rem;
+  line-height: 1.095;
+
+  @include breakpoint(tablet) {
+    font-size: 6.8rem;
+    line-height: 1.059;
+  }
 }
 
 h3,
@@ -81,20 +93,29 @@ p {
   font-size: 2rem;
   font-weight: 500;
   line-height: 1.4;
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+
+    @include breakpoint(desktop) {
+      margin-bottom: 3rem;
+    }
+  }
 }
 
 /** 4 - Anchors
 ------------------------------------------------------------*/
-a, .a {
+a,
+.a {
   /*
   #TODO: 
    - [X] Add the headings link style (https://codepen.io/nedevn/pen/XWgzxXM Nubmer 1)
    - [ ] Implement theme colors
   */
-  
+
   background-color: transparent;
   background: linear-gradient(to right, $secondary-green-2, $secondary-green-2),
-              linear-gradient(to right, $accessible-green, $accessible-green);
+    linear-gradient(to right, $accessible-green, $accessible-green);
   background-size: 100% 0.2rem, 0% 0.2rem;
   background-position: 100% 100%, 0 100%;
   background-repeat: no-repeat;
@@ -164,7 +185,7 @@ dl {
   }
 
   dd {
-    @extend .p--body;
+    @extend p,.p--body;
   }
 }
 

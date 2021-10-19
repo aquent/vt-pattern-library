@@ -1,0 +1,421 @@
+/** TABLE OF CONTENTS
+ — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
+1 — hero-video
+2 — hero-img-contained
+3 — hero-img-overflow
+4 — hero-textonly
+5 - hero-blog
+/// END TABLE OF CONTENTS **/
+
+.hero {
+  /** 1 - hero-video
+  ------------------------------------------------------------*/
+  &-video {
+    $videoBlock: &;
+
+    @include grid();
+    @include vertical-spacing(sm-1, top, padding);
+    @include vertical-spacing(lg-1, bottom, padding);
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-rows: 2fr 3rem 1fr;
+
+    @include breakpoint(tablet) {
+      grid-template-columns: repeat(auto-fit, minmax(60rem, 1fr));
+    }
+    @include breakpoint(desktop) {
+      grid-template-rows: 1fr;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-flow: column;
+    }
+
+    &__section {
+      padding-left: $grid-desktop-margin;
+    }
+
+    &__copy,
+    &__media {
+      align-self: center;
+      grid-column: 1;
+      @include breakpoint(desktop) {
+        grid-row: 1/2;
+        align-self: center;
+      }
+    }
+
+    &__copy {
+      order: 2;
+      justify-self: end;
+      align-self: start;
+      z-index: 10;
+      grid-row: 2/3;
+      cursor: default;
+
+      @include breakpoint(desktop) {
+        grid-row: 1;
+        justify-self: start;
+        align-self: center;
+        order: 1;
+        grid-column: 1/7;
+      }
+    }
+
+    &__media {
+      justify-self: end;
+      order: 1;
+      grid-row: 1/3;
+      position: relative;
+
+      @include breakpoint(desktop) {
+        grid-column: -1/-11;
+        order: 2;
+      }
+    }
+
+    &__video {
+      height: 30rem;
+      @include breakpoint(tablet) {
+        height: unset;
+        width: 100%;
+      }
+    }
+
+    &__controller {
+      visibility: hidden;
+
+      &-button {
+        display: block;
+        box-sizing: border-box;
+
+        position: absolute;
+        right: 5%;
+        bottom: 5%;
+
+        @include breakpoint(tablet) {
+          right: 5rem;
+          bottom: 5rem;
+        }
+
+        cursor: pointer;
+
+        border-color: transparent transparent transparent $primary-white;
+        transition: 100ms all ease;
+        will-change: border-width;
+
+        // paused state
+        border-style: double;
+        border-width: 0rem 0 0rem 2rem;
+        width: 0;
+        height: 2.5rem;
+
+        @include breakpoint(tablet) {
+          display: hidden;
+        }
+      }
+
+      &:checked ~ &-wrapper > &-button {
+        // play state
+        border-style: solid;
+        border-width: 1.3rem 0 1.3rem 1.8rem;
+      }
+
+      &:checked + &-wrapper {
+        @include breakpoint(tablet) {
+          &:hover {
+            cursor: url("data:image/svg+xml,%3Csvg width='90' height='90' viewBox='0 0 90 90' id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 90'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23509e2f;%7D.cls-2%7Bfont-size:14px;fill:%23fff;font-family:AktivGrotesk-Bold, Aktiv Grotesk;font-weight:700;letter-spacing:0.26em;%7D.cls-3%7Bletter-spacing:0.28em;%7D.cls-4%7Bletter-spacing:0.14em;%7D.cls-5%7Bletter-spacing:0.26em;%7D%3C/style%3E%3C/defs%3E%3Ccircle class='cls-1' cx='45' cy='45' r='45'/%3E%3Ctext class='cls-2' transform='translate(21.13 50.25)'%3EP%3Ctspan class='cls-3' x='12.6' y='0'%3EL%3C/tspan%3E%3Ctspan class='cls-4' x='24.7' y='0'%3EA%3C/tspan%3E%3Ctspan class='cls-5' x='36.43' y='0'%3EY%3C/tspan%3E%3C/text%3E%3C/svg%3E")
+                25 25,
+              auto;
+          }
+        }
+      }
+
+      &:not(:checked) + &-wrapper {
+        @include breakpoint(tablet) {
+          &:hover {
+            cursor: url("data:image/svg+xml,%3Csvg width='90' height='90' viewBox='0 0 90 90' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='45' cy='45' r='45' fill='white'/%3E%3Cpath d='M17.4052 40.004H20.9752C21.7405 40.004 22.3705 40.0927 22.8652 40.27C23.3692 40.438 23.7659 40.6667 24.0552 40.956C24.3539 41.236 24.5592 41.5673 24.6712 41.95C24.7925 42.3233 24.8532 42.7153 24.8532 43.126C24.8532 43.5647 24.7925 43.9847 24.6712 44.386C24.5592 44.7873 24.3539 45.142 24.0552 45.45C23.7659 45.7487 23.3739 45.9867 22.8792 46.164C22.3939 46.3413 21.7779 46.43 21.0312 46.43H19.4632V50H17.4052V40.004ZM20.9612 44.694C21.3252 44.694 21.6239 44.6567 21.8572 44.582C22.0999 44.5073 22.2912 44.4047 22.4312 44.274C22.5712 44.1433 22.6645 43.9847 22.7112 43.798C22.7672 43.602 22.7952 43.392 22.7952 43.168C22.7952 42.9347 22.7672 42.7293 22.7112 42.552C22.6552 42.3747 22.5572 42.2253 22.4172 42.104C22.2772 41.9827 22.0859 41.8893 21.8432 41.824C21.6099 41.7587 21.3112 41.726 20.9472 41.726H19.4632V44.694H20.9612ZM31.2408 40.004H33.2288L36.9808 50H34.7408L33.9428 47.69H30.4428L29.6448 50H27.4888L31.2408 40.004ZM33.3968 45.968L32.1788 42.384L30.9748 45.968H33.3968ZM40.7264 40.004H42.8124V45.954C42.8124 46.8033 42.9617 47.4333 43.2604 47.844C43.5591 48.2547 44.0584 48.46 44.7584 48.46C45.4584 48.46 45.9531 48.2547 46.2424 47.844C46.5411 47.4333 46.6904 46.8033 46.6904 45.954V40.004H48.7764V45.954C48.7764 46.71 48.6831 47.3587 48.4964 47.9C48.3097 48.4413 48.0437 48.8893 47.6984 49.244C47.3531 49.5893 46.9284 49.8413 46.4244 50C45.9297 50.168 45.3697 50.252 44.7444 50.252C44.1097 50.252 43.5404 50.168 43.0364 50C42.5417 49.832 42.1217 49.5753 41.7764 49.23C41.4311 48.8753 41.1697 48.4227 40.9924 47.872C40.8151 47.3213 40.7264 46.668 40.7264 45.912V40.004ZM55.4501 46.738C55.4968 47.354 55.6928 47.802 56.0381 48.082C56.3928 48.362 56.9108 48.502 57.5921 48.502C57.9188 48.502 58.1941 48.4693 58.4181 48.404C58.6421 48.3293 58.8241 48.236 58.9641 48.124C59.1041 48.0027 59.2021 47.8627 59.2581 47.704C59.3235 47.5453 59.3561 47.3727 59.3561 47.186C59.3561 46.9247 59.2581 46.682 59.0621 46.458C58.8661 46.2247 58.5068 46.0567 57.9841 45.954L56.6821 45.716C56.1688 45.6227 55.7161 45.5013 55.3241 45.352C54.9321 45.2027 54.6008 45.0113 54.3301 44.778C54.0688 44.5353 53.8681 44.2413 53.7281 43.896C53.5881 43.5507 53.5181 43.14 53.5181 42.664C53.5181 42.188 53.6115 41.768 53.7981 41.404C53.9941 41.04 54.2601 40.7367 54.5961 40.494C54.9415 40.2513 55.3521 40.0693 55.8281 39.948C56.3041 39.8173 56.8268 39.752 57.3961 39.752C58.1241 39.752 58.7308 39.836 59.2161 40.004C59.7015 40.172 60.0935 40.396 60.3921 40.676C60.6908 40.9467 60.9101 41.264 61.0501 41.628C61.1995 41.992 61.2975 42.37 61.3441 42.762L59.3701 43.014C59.2675 42.4633 59.0668 42.0667 58.7681 41.824C58.4788 41.5813 58.0355 41.46 57.4381 41.46C57.0835 41.46 56.7895 41.4927 56.5561 41.558C56.3321 41.614 56.1501 41.6933 56.0101 41.796C55.8701 41.8893 55.7721 42.0013 55.7161 42.132C55.6601 42.2627 55.6321 42.398 55.6321 42.538C55.6321 42.9113 55.7348 43.1913 55.9401 43.378C56.1548 43.5647 56.5141 43.7093 57.0181 43.812L58.3901 44.078C59.4728 44.2927 60.2661 44.6427 60.7701 45.128C61.2741 45.604 61.5261 46.2947 61.5261 47.2C61.5261 47.6387 61.4421 48.0447 61.2741 48.418C61.1155 48.782 60.8728 49.104 60.5461 49.384C60.2288 49.6547 59.8275 49.8647 59.3421 50.014C58.8568 50.1727 58.2875 50.252 57.6341 50.252C56.2715 50.252 55.2261 49.9627 54.4981 49.384C53.7795 48.796 53.3921 47.914 53.3361 46.738H55.4501ZM66.1896 40.004H73.0076V41.782H68.2756V43.966H72.7276V45.758H68.2756V48.222H73.3016L73.0916 50H66.1896V40.004Z' fill='%23051C2C'/%3E%3C/svg%3E%0A")
+                25 25,
+              auto;
+          }
+        }
+      }
+    }
+
+    &__title {
+      // h4
+      font-size: 4.2rem;
+      line-height: 1.095;
+
+      // h1
+      @include breakpoint(desktop) {
+        font-size: 8.4rem;
+        line-height: 1.048;
+      }
+    }
+
+    &__text {
+      @extend .p--body;
+
+      // p--lead-1
+      @include breakpoint(desktop) {
+        font-size: 2.8rem;
+        line-height: 1.286;
+      }
+    }
+  }
+
+  /** 2 - hero-img-contained
+  ------------------------------------------------------------*/
+  &-img-contained {
+    @include grid();
+    @include vertical-spacing(sm-1, top, padding);
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-template-rows: 5fr 3fr;
+
+    @include breakpoint(tablet) {
+      grid-template-columns: repeat(auto-fit, minmax(60rem, 1fr));
+    }
+    @include breakpoint(desktop) {
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-flow: column;
+      padding-bottom: 14.5rem;
+    }
+
+    &__section {
+      @include breakpoint(desktop) {
+        padding: 0 $grid-desktop-margin;
+      }
+    }
+
+    @include breakpoint(desktop) {
+      &__title,
+      &__images {
+        grid-row: 1/2;
+      }
+    }
+
+    &__title {
+      align-self: end;
+      grid-column: 1/12;
+      grid-row: 1/2;
+      justify-self: start;
+      padding: 0 $grid-desktop-margin;
+      z-index: 10;
+
+      @include breakpoint(desktop) {
+        align-self: center;
+        grid-column: 1/7;
+        padding: 0;
+
+        font-size: 8.4rem;
+        line-height: 1.048;
+      }
+    }
+
+    &__images {
+      @include grid();
+      grid-column: 1/-1;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 6fr 1fr 2fr 4fr;
+      grid-row: 1/3;
+
+      @include breakpoint(desktop) {
+        grid-template-rows: 3fr 1fr 1fr;
+      }
+
+      &-1 {
+        grid-column: 5/-1;
+        grid-row: 1/3;
+
+        @include breakpoint(desktop) {
+          align-self: start;
+          grid-column: 5/-4;
+          grid-row: 1/3;
+          justify-self: start;
+        }
+      }
+
+      &-2 {
+        grid-column: 7/-3;
+        grid-row: 4/5;
+        @include breakpoint(desktop) {
+          align-self: center;
+          grid-column: -3/-1;
+          grid-row: 1/3;
+        }
+      }
+
+      &-3 {
+        align-self: end;
+        grid-column: 1/3;
+        grid-row: 1/3;
+        @include breakpoint(desktop) {
+          align-self: end;
+          grid-column: 2/4;
+          grid-row: 2/4;
+        }
+      }
+    }
+  }
+
+  /** 3 - hero-img-overflow
+  ------------------------------------------------------------*/
+  &-img-overflow {
+    @include vertical-spacing(sm-1, top, padding);
+
+    &__section {
+      // push down next content making space for overlow images
+      & + * {
+        padding-top: 14.5rem;
+        @include breakpoint(tablet) {
+          padding-top: 20rem;
+        }
+        @include breakpoint(desktop) {
+          padding: 0 14.5rem;
+          padding-top: 25rem;
+        }
+      }
+    }
+
+    &__title {
+      @include grid();
+      padding-left: $grid-desktop-margin;
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      grid-template-rows: 2fr 3rem 1fr;
+
+      @include breakpoint(tablet) {
+        grid-template-columns: repeat(auto-fit, minmax(60rem, 1fr));
+        padding-bottom: 4rem;
+      }
+
+      @include breakpoint(desktop) {
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(12, 1fr);
+        grid-auto-flow: column;
+      }
+
+      &__text,
+      &__image {
+        align-self: center;
+        grid-column: 1;
+        @include breakpoint(desktop) {
+          grid-row: 1/2;
+          align-self: center;
+        }
+      }
+
+      &__text {
+        order: 2;
+        justify-self: end;
+        align-self: start;
+        z-index: 10;
+        grid-row: 2/3;
+        padding-right: $grid-mobile-margin;
+
+        // h3
+        font-size: 5.4rem;
+        line-height: 1.074;
+
+        @include breakpoint(desktop) {
+          grid-row: 1;
+          justify-self: start;
+          align-self: center;
+          order: 1;
+          grid-column: 1/7;
+
+          // h1
+          font-size: 8.4rem;
+          line-height: 1.048;
+        }
+      }
+
+      &__image {
+        justify-self: end;
+        order: 1;
+        grid-row: 1/3;
+        padding-left: 5.5rem;
+
+        @include breakpoint(desktop) {
+          grid-column: -1/-9;
+          order: 2;
+          padding-left: unset;
+        }
+      }
+    }
+
+    &__images {
+      @include grid();
+      grid-template-columns: repeat(12, 1fr);
+      width: 100%;
+      height: 20rem;
+      padding-right: $grid-mobile-margin;
+
+      @include breakpoint(desktop) {
+        padding: 0 14.5rem;
+      }
+
+      &-1 {
+        @include breakpoint(tablet) {
+          width: 100%;
+        }
+      }
+
+      &-2 {
+        grid-column: 1/3;
+        grid-row: 1/4;
+        @include breakpoint(desktop) {
+          grid-column: 1/4;
+          grid-row: 1/4;
+        }
+      }
+
+      &-3 {
+        justify-self: end;
+        grid-column: -1/-5;
+        grid-row: 2/7;
+        @include breakpoint(desktop) {
+          grid-column: -1/-6;
+          grid-row: 2/7;
+        }
+      }
+    }
+  }
+
+  /** 4 - hero-textonly
+  ------------------------------------------------------------*/
+  &-textonly {
+    @include grid();
+    @include vertical-spacing(md-1, top, padding);
+    @include vertical-spacing(lg-1, bottom, padding);
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    padding-left: $grid-desktop-margin;
+
+    @include breakpoint(tablet) {
+      grid-template-columns: repeat(auto-fit, minmax(60rem, 1fr));
+    }
+    @include breakpoint(desktop) {
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-flow: column;
+    }
+
+    &__title {
+      grid-column: 1/2;
+      @include breakpoint(desktop) {
+        grid-column: 1/7;
+      }
+    }
+  }
+
+  /** 5 - hero-blog
+  ------------------------------------------------------------*/
+  &-blog {
+    @include grid();
+    margin: 0 $grid-mobile-margin;
+
+    @include breakpoint(tablet) {
+      margin: 0 $grid-tablet-margin;
+    }
+
+    @include breakpoint(desktop) {
+      margin: 0 auto;
+    }
+  }
+}
