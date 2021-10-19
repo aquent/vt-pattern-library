@@ -151,7 +151,7 @@
         }
 
         blockquote {
-            .quote {
+            div {
                 position: relative;
                 margin-top: 0;
                 margin-bottom: 1.9rem;
@@ -225,6 +225,7 @@
                 font-weight: 600;
                 color: $primary-blue;
                 padding: 0 4.1rem;
+                padding-top: 1.7rem;
 
             }
         }
