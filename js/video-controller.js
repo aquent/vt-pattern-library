@@ -5,9 +5,12 @@ export default class VideoController {
   constructor(wrapperSelector, controllerSelector) {
     this.wrapper = document.querySelector(wrapperSelector);
     this.controller = document.querySelector(controllerSelector);
-    this.video = this.wrapper.getElementsByTagName("video")[0];
 
-    this.#controlState();
+    if (this.wrapper && this.controller) {
+      this.video = this.wrapper.getElementsByTagName("video")[0];
+
+      this.#controlState();
+    }
   }
 
   // control video state on wrapper click

@@ -1,0 +1,175 @@
+/** TABLE OF CONTENTS - Cards
+ — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
+1 — Tabs Panel
+2 - Tabs Section
+
+/// END TABLE OF CONTENTS **/
+
+/** TODO:
+* [ ] Chevron for the mobile dropdown
+*
+** 
+
+/** 1 - Tabs Panel
+------------------------------------------------------------*/
+.tabs-nav {
+  border-bottom: 1px solid $cool-neutral-4;
+  padding-bottom: 2rem;
+  margin-bottom: 6rem;
+
+  &__ul {
+    @extend .tk-degular-text;
+    @extend .p--body-emphasis;
+
+    display: none;
+    padding: 0;
+
+    // Desktop
+    @include breakpoint(desktop) {
+      border-bottom: 1px solid $cool-neutral-4;
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      margin-bottom: 12rem;
+
+      &__li {
+        align-items: flex-end;
+        color: $secondary-blue-1;
+        display: flex;
+        justify-content: flex-start;
+
+        &::before {
+          content: "";
+        }
+
+        &.open,
+        &:hover {
+          background: linear-gradient(
+            0deg,
+            #6cc24a,
+            #6cc24a 9%,
+            transparent 0,
+            transparent
+          );
+          color: $primary-blue;
+        }
+      }
+
+      &__li a {
+        display: block;
+        background: none;
+        padding-top: 1.4rem;
+        padding-right: 2rem;
+        padding-bottom: 1.4rem;
+        padding-left: 2rem;
+      }
+
+      &__li:not(:last-of-type) {
+        border-right: 1px solid $cool-neutral-4;
+      }
+    }
+  }
+
+  &__dropdown {
+    @extend .tk-degular-text;
+    @extend .p--body;
+
+    border: 2px solid $secondary-green-2;
+    padding: 1.6rem 4rem 1.6rem 1.5rem;
+    width: 100%;
+
+    @include breakpoint(desktop) {
+      display: none;
+    }
+  }
+
+  @include breakpoint(desktop) {
+    border-bottom: none;
+  }
+}
+
+/** 2 - Tabs Section
+------------------------------------------------------------*/
+
+.tabs {
+  @extend .tk-degular-text;
+
+  .tab {
+    display: none;
+
+    &__heading {
+      @extend .section-heading--underline;
+    }
+
+    &__copy--highlighted {
+      @extend .h3;
+      padding-bottom: 4.3rem;
+    }
+
+    &__example-list {
+      &__content {
+        list-style-type: none;
+        padding-left: 1rem;
+        padding-bottom: 4.5rem;
+
+        & li {
+          color: $cool-neutral-1;
+          margin-bottom: 1.7rem;
+        }
+      }
+
+      &__heading {
+        @extend [class^="tertiary-info"];
+
+        border-top: 1px solid $cool-neutral-6;
+        color: $secondary-green-1;
+        padding-top: 4.5rem;
+        padding-bottom: 3.2rem;
+      }
+    }
+
+    &__content-slider {
+      &__heading {
+        @extend [class^="tertiary-info"];
+
+        border-top: 1px solid $cool-neutral-6;
+        color: $secondary-green-1;
+        padding-top: 4.5rem;
+        padding-bottom: 3.2rem;
+      }
+    }
+
+    // Desktop
+    @include breakpoint(desktop) {
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: repeat(3, auto);
+      grid-column-gap: 6rem;
+
+      &__copy--highlighted {
+        grid-row: 1;
+        grid-column: 2/3;
+      }
+      &__heading {
+        border-bottom: 1px solid $cool-neutral-6;
+        grid-row: 1;
+        grid-column: 1/2;
+      }
+
+      &__example-list {
+        &__content {
+          border-bottom: none;
+          grid-row: 3;
+          grid-column: 1/2;
+        }
+
+        &__heading {
+          grid-row: 2;
+          grid-column: 1/2;
+        }
+      }
+    }
+
+    &.open {
+      display: grid;
+    }
+  }
+}
