@@ -12,43 +12,46 @@
 
     &__block {
         padding: 2.0rem 1.3rem 2.1rem;
+    }
 
-        h3 {
-            @extend .h6;
-        }
+    &__title {
+        @extend .h6;
+    }
 
-        span {
-            @extend .tk-aktiv-grotesk;
-            @extend .uppercase;
-            color: $secondary-green-1;
-            font-size: 1.2rem;
-            letter-spacing: 1.8px;
-        }
+    &__location {
+        @extend .tk-aktiv-grotesk;
+        @extend .uppercase;
+        color: $secondary-green-1;
+        font-size: 1.2rem;
+        letter-spacing: 1.8px;
+    }
 
-        time {
-            @include breakpoint(desktop) {
-                padding-top: 4.5rem;
-            }
-
+    &__posted {
+        @include self() {
             @extend .tk-degular-text;
             display: block;
             font-size: 1.6rem;
             font-weight: 500;
             padding-top: 1.5rem;
 
-            &.new {
-                &::before {
-                    background-color: $secondary-orange-2;
-                    border: 0.1rem solid $secondary-orange-2;
-                    color: $secondary-blue-1;
-                    content: "NEW";
-                    display: inline-block;
-                    font-size: 1.4rem;
-                    font-weight: 700;
-                    letter-spacing: 3.2px;
-                    padding-left: 0.5rem;
-                    margin-right: 1rem;
-                }
+            @include breakpoint(desktop) {
+                padding-top: 4.5rem;
+            }
+        }
+
+
+        &--new {
+            &::before {
+                background-color: $secondary-orange-2;
+                border: 0.1rem solid $secondary-orange-2;
+                color: $secondary-blue-1;
+                content: "NEW";
+                display: inline-block;
+                font-size: 1.4rem;
+                font-weight: 700;
+                letter-spacing: 3.2px;
+                padding-left: 0.5rem;
+                margin-right: 1rem;
             }
         }
     }
@@ -59,20 +62,21 @@
         border: 0.2rem solid $primary-blue;
         transition: background-color 0.2s ease-out;
 
-        h3,
-        span,
-        time {
+        .job-card__title,
+        .job-card__location,
+        .job-card__posted {
             color: $primary-white;
             transition: color 0.2s ease-out;
+        }
 
-            &.new {
-                &::before {
-                    background-color: $primary-white;
-                    border: 0.1rem solid $primary-white;
-                    transition: color 0.2s ease-out;
-                }
+        .job-card__posted--new {
+            color: $primary-white;
+            transition: color 0.2s ease-out;
+            &::before {
+                background-color: $primary-white;
+                border: 0.1rem solid $primary-white;
+                transition: color 0.2s ease-out;
             }
         }
     }
-
 }
