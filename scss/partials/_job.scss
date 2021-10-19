@@ -38,8 +38,8 @@
 
             &.new {
                 &::before {
-                    border: 0.1rem solid $secondary-orange-2;
                     background-color: $secondary-orange-2;
+                    border: 0.1rem solid $secondary-orange-2;
                     color: $secondary-blue-1;
                     content: "NEW";
                     display: inline-block;
@@ -67,8 +67,8 @@
 
             &.new {
                 &::before {
-                    border: 0.1rem solid $primary-white;
                     background-color: $primary-white;
+                    border: 0.1rem solid $primary-white;
                     transition: color 0.2s ease-out;
                 }
             }
