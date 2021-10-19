@@ -1,15 +1,78 @@
 // VT Jobs cards, details, and search
-/* 
-W: 557px
-H: 160px
-*/
 .job-card {
     @extend .content-block--clickable;
-    border: 1px solid $secondary-green-2;
-    height: 16.0rem;
-    width: 55.7rem;
+    border: 0.2rem solid $secondary-green-2;
+    display: block;
+    height: 16.5rem;
+    width: 40rem;
 
-    h3 {
-        @extend .h6;
+    @include breakpoint(desktop) {
+        width: 56rem;
     }
+
+    &__block {
+        padding: 2.0rem 0 1.3rem 2.1rem;
+
+        h3 {
+            @extend .h6;
+        }
+
+        span {
+            @extend .tk-aktiv-grotesk;
+            @extend .uppercase;
+            color: $secondary-green-1;
+            font-size: 1.2rem;
+            letter-spacing: 1.8px;
+        }
+
+        time {
+            @include breakpoint(desktop) {
+                padding-top: 4.5rem;
+            }
+
+            @extend .tk-degular-text;
+            display: block;
+            font-size: 1.6rem;
+            font-weight: 500;
+            padding-top: 1.5rem;
+
+            &.new {
+                &::before {
+                    border: 0.1rem solid $secondary-orange-2;
+                    background-color: $secondary-orange-2;
+                    color: $secondary-blue-1;
+                    content: "NEW";
+                    display: inline-block;
+                    font-size: 1.4rem;
+                    font-weight: 700;
+                    letter-spacing: 3.2px;
+                    padding-left: 0.5rem;
+                    margin-right: 1rem;
+                }
+            }
+        }
+    }
+
+    &:hover,
+    &:focus {
+        background-color: $primary-blue;
+        border: 0.2rem solid $primary-blue;
+        transition: background-color 0.2s ease-out;
+
+        h3,
+        span,
+        time {
+            color: $primary-white;
+            transition: color 0.2s ease-out;
+
+            &.new {
+                &::before {
+                    border: 0.1rem solid $primary-white;
+                    background-color: $primary-white;
+                    transition: color 0.2s ease-out;
+                }
+            }
+        }
+    }
+
 }
