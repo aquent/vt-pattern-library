@@ -4,6 +4,7 @@
 2 - Content Block - Clickable
 3 - Content Block - Clickable - Blog Cards
 4 - Content Block - Clickable - Homepage Blog Card Grid
+5 - Content Block - Split
 
 /// END TABLE OF CONTENTS **/
 
@@ -20,13 +21,17 @@
     }
   }
 
+  // !!! Note: Not sure if `__date` shoudl be replaced by `__overlay-content`
+
   &__date,
-  &__image {
+  &__image,
+  &__overlay-content {
     align-self: center;
     grid-row: 1 / 2;
   }
 
-  &__date {
+  &__date,
+  &__overlay-content {
     align-items: center;
     background-color: $secondary-blue-1;
     color: $primary-white;
@@ -255,5 +260,39 @@
       @extend .h6;
     }
   }
+}
 
+/** 5 - Content Block - Split
+------------------------------------------------------------*/
+.content-block--split {
+  width: 71.5rem;
+  grid-column-gap: 4rem;
+  .content-block {
+    &__lower {
+      @include breakpoint(tablet) {
+        display: grid;
+        column-gap: 4rem;
+        grid-template-columns: 3fr 4fr;
+        white-space: normal;
+      }
+    }
+
+    &__title {
+      @extend .h5;
+      margin-bottom: 1.5rem;
+
+      @include breakpoint(tablet) {
+        grid-column: 1/2;
+      }
+    }
+
+    &__text {
+      grid-column: 2/3;
+    }
+
+    &__overlay-content {
+      width: 15rem;
+      height: 11.5rem;
+    }
+  }
 }
