@@ -3,19 +3,20 @@
     @extend .content-block--clickable;
     border: 0.2rem solid $secondary-green-2;
     display: block;
-    height: 16.5rem;
-    width: 40rem;
+    max-height: 20.5rem;
+    max-width: 40rem;
 
     @include breakpoint(desktop) {
-        width: 56rem;
+        max-width: 55.7rem;
     }
 
     &__block {
-        padding: 2.0rem 1.3rem 2.1rem;
+        padding: 0rem 2rem;
     }
 
     &__title {
         @extend .h6;
+        padding-top: 1.3rem;
     }
 
     &__location {
@@ -33,6 +34,7 @@
             font-size: 1.6rem;
             font-weight: 500;
             padding-top: 1.5rem;
+            padding-bottom: 2.1rem;
 
             @include breakpoint(desktop) {
                 padding-top: 4.5rem;
@@ -143,6 +145,7 @@
 
     }
 
+    // TODO: Make post-hero-date-time and job-hero-date-time into it's own reusable component
     &__time-social {
         @extend .post-hero__time-social;
     }
@@ -169,20 +172,25 @@
     @include breakpoint(desktop) {
         width: 76.2rem;
     }
-   background: none;
-   h2 {
-       @extend .h4;
-       padding-bottom: 2.7rem;
-   }
 
-   p {
-       color: $cool-neutral-1;
-   }
+    background: none;
+
+    h2 {
+        @extend .h4;
+        padding-bottom: 2.7rem;
+    }
+
+    p {
+        color: $cool-neutral-1;
+    }
+
     ul {
         @extend .article__post-list;
         margin-top: 0;
+
         li {
             @extend .article__post-list-item;
+
             .p--body-emphasis {
                 color: $primary-blue;
             }
@@ -199,9 +207,10 @@
         &-text {
             @extend .uppercase;
             @extend .tk-aktiv-grotesk;
-            
+
             font-size: 1.4rem;
             letter-spacing: 3.2px;
+
             &-link {
                 color: $primary-blue;
             }
@@ -209,7 +218,8 @@
     }
 }
 
-.details-footer { 
+// TODO: Make details-footer-date-time and blog-author-footer-date-time into it's own reusable component
+.details-footer {
     @extend .blog-author-footer;
 
     &-social-date-time {
@@ -231,21 +241,16 @@
     &-related-jobs {
         @include breakpoint(tablet) {
             grid-template-columns: 1fr;
-            //width: 76.2rem;
         }
-        
+
         @include breakpoint(desktop) {
-            grid-template-columns: 1fr 1fr;
-            //width: 76.2rem;
+            grid-template-columns: repeat(2, 1fr);
         }
+
         align-items: center;
         display: grid;
         grid-template-columns: 1fr;
         grid-column-gap: 3.6rem;
         grid-row-gap: 3.6rem;
-
-        // .job-card {
-        //     width: clamp(500px, 80%, 360px);
-        // }
     }
 }
