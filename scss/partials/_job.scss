@@ -72,11 +72,180 @@
         .job-card__posted--new {
             color: $primary-white;
             transition: color 0.2s ease-out;
+
             &::before {
                 background-color: $primary-white;
                 border: 0.1rem solid $primary-white;
                 transition: color 0.2s ease-out;
             }
         }
+    }
+}
+
+// Job details
+.job-hero {
+    @extend .post-hero;
+    padding-bottom: 3.2rem;
+
+    @include breakpoint(desktop) {
+        padding-bottom: 14.4rem;
+    }
+
+    &__job {
+        padding-bottom: 4.7rem;
+
+        @include breakpoint(desktop) {
+            padding-bottom: 0;
+        }
+    }
+
+    &__group {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 1fr;
+        padding-bottom: 7.5rem;
+
+        @include breakpoint(desktop) {
+            grid-template-columns: 4fr 1fr;
+        }
+
+    }
+
+    &__id {
+        @extend .tk-degular-text;
+        font-size: 2.8rem;
+    }
+
+    &__title {
+        padding-bottom: 2rem;
+        font-size: 4.2rem;
+
+
+        @include breakpoint(desktop) {
+            font-size: 8.4rem;
+        }
+    }
+
+    &__location {
+        @extend .uppercase;
+        @extend .tk-aktiv-grotesk;
+        font-size: 1.6rem;
+        letter-spacing: 3.2px;
+    }
+
+    &__apply {
+        @include breakpoint(desktop) {
+            justify-self: end;
+            padding-bottom: 2rem;
+        }
+
+        justify-self: start;
+
+    }
+
+    &__time-social {
+        @extend .post-hero__time-social;
+    }
+
+    &__time-social-read-time {
+        @extend .post-hero__time-social-read-time;
+
+        time {
+            &::before {
+                content: "Date";
+            }
+        }
+    }
+
+    &__time-social-links {
+        @extend .post-hero__time-social-links;
+    }
+
+
+}
+
+.job-details {
+
+    @include breakpoint(desktop) {
+        width: 76.2rem;
+    }
+   background: none;
+   h2 {
+       @extend .h4;
+       padding-bottom: 2.7rem;
+   }
+
+   p {
+       color: $cool-neutral-1;
+   }
+    ul {
+        @extend .article__post-list;
+        margin-top: 0;
+        li {
+            @extend .article__post-list-item;
+            .p--body-emphasis {
+                color: $primary-blue;
+            }
+        }
+    }
+
+    &__apply {
+        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr 4fr;
+        grid-column-gap: 4rem;
+        padding-top: 7.2rem;
+
+        &-text {
+            @extend .uppercase;
+            @extend .tk-aktiv-grotesk;
+            
+            font-size: 1.4rem;
+            letter-spacing: 3.2px;
+            &-link {
+                color: $primary-blue;
+            }
+        }
+    }
+}
+
+.details-footer { 
+    @extend .blog-author-footer;
+
+    &-social-date-time {
+        @extend .blog-author-footer-social-date-time;
+    }
+
+    &-social {
+        @extend .blog-author-footer-social;
+    }
+
+    &-social-media-links {
+        @extend .blog-author-footer-social-media-links;
+    }
+
+    .section-heading--underline {
+        margin-top: 13.3rem;
+    }
+
+    &-related-jobs {
+        @include breakpoint(tablet) {
+            grid-template-columns: 1fr;
+            //width: 76.2rem;
+        }
+        
+        @include breakpoint(desktop) {
+            grid-template-columns: 1fr 1fr;
+            //width: 76.2rem;
+        }
+        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 3.6rem;
+        grid-row-gap: 3.6rem;
+
+        // .job-card {
+        //     width: clamp(500px, 80%, 360px);
+        // }
     }
 }
