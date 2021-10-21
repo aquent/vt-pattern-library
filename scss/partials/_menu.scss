@@ -23,7 +23,7 @@
 
   @include breakpoint(desktop) {
     position: static;
-    height: 11.2rem;
+    height: 12rem;
   }
 
   &__img {
@@ -124,6 +124,7 @@
   height: 100%;
   position: relative;
   width: 100%;
+  background-color: $primary-blue;
   
   @include breakpoint(desktop) {
     display: grid;
@@ -273,7 +274,7 @@
 
       .top-menu {
         &__menuitem {
-          background-color: $secondary-blue-2;
+          background-color: $primary-blue;
           padding: 2.5rem 0 2.5rem 6.3rem;
 
           &:before {
