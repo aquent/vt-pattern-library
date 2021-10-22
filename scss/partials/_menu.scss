@@ -439,6 +439,7 @@
   }
 
   &__button {
+    @extend .tertiary-info--small;
     text-decoration: none;
     margin-top: 2rem;
     width: fit-content;
