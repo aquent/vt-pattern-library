@@ -434,7 +434,7 @@
   &--sub {
     @include breakpoint(desktop) {
       align-self: unset;
-      width: auto;
+      width: 36rem;
     }
   }
 
