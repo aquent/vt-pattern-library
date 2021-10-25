@@ -203,7 +203,7 @@
 
       @at-root [open] #{&} {
         @include breakpoint(desktop) {
-          background: linear-gradient(0deg, $primary-green 0%, $primary-green 8%, transparent 8%, transparent 100%);
+          background: linear-gradient(0deg, $primary-green 0%, $primary-green 6%, transparent 6%, transparent 100%);
 
           &::before {
             background-color: $primary-white;
