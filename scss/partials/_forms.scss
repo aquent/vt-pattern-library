@@ -43,6 +43,7 @@ input[type="radio"] {
     content: "";
     display: inline-block;
     height: 2.4rem;
+    margin-right: 1.3rem;
     vertical-align: bottom;
     width: 2.4rem;
 
@@ -53,13 +54,7 @@ input[type="radio"] {
     // background: radial-gradient(green 0%, green 40%, tranparent 50%, transparent);
     background: radial-gradient(green 0%, green 40%, transparent 0%, transparent);
   }
-
-
 }
-
-
-
-
 
 // Add custom unchecked styles
 
