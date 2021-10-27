@@ -1,1 +1,31 @@
-<input type="text" value="" placeholder="A plain text input">
+<div class="section--bg-white">
+    <div class="form__field-wrapper">
+        <label for="text-1">A plain text input</label>
+        <input type="text" name="text-1" class="form__input-text" value="" placeholder="A plain text input">
+    </div>
+
+    <input type="text" name="text-1a" class="form__input-text--error" value="" placeholder="A plain text input with error" required>
+    <span class="form__error">This field is required</span>
+
+    <input type="text" name="text-1b" class="form__input-text" value="Content has been entered"> <!-- .form__input-text[val]:not([class*=error]) -->
+</div>
+
+<div class="section--bg-sec-blue">
+    <label for="text-2">A plain text input</label>
+    <input type="text" name="text-2" class="form__input-text" value="" placeholder="A plain text input">
+
+    <input type="text" name="text-2a" class="form__input-text--error" value="" placeholder="A plain text input with error" required>
+    <span class="form__error">This field is required</span>
+
+    <input type="text" name="text-2b" class="form__input-text" value="Content has been entered">
+</div>
+
+<div class="section--bg-green">
+    <label for="text-3">A plain text input</label>
+    <input type="text" name="text-3" class="form__input-text" value="" placeholder="A plain text input">
+
+    <input type="text" name="text-3a" class="form__input-text--error" value="" placeholder="A plain text input with error" required>
+    <span class="form__error">This field is required</span>
+
+    <input type="text" name="text-3b" class="form__input-text" value="Content has been entered">
+</div>

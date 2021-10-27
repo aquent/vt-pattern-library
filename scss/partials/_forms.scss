@@ -9,6 +9,7 @@
   2.2 — Multi
 
   3 - Contact Form
+X — Layout
 
 /// END TABLE OF CONTENTS **/
 
@@ -91,4 +92,10 @@ input[type="radio"] {
 
   }
 
+}
+
+/** X - Layout
+------------------------------------------------------------*/
+.form__field-wrapper {
+  margin-bottom: 1.6rem;
 }
