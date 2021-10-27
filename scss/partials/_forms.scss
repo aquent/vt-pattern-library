@@ -30,35 +30,47 @@ X — Layout
 
 //https://moderncss.dev/pure-css-custom-styled-radio-buttons/
 
-// Hide native radio input
-input[type="radio"] {
-  opacity: 0;
-  height: 0;
-  width: 0;
+form {
+  @extend .tk-degular-text;
 
-  // Create a custom radio input in ::before
-  & + ::before {
-    background: transparent;
-    border: .2rem solid $cool-neutral-4;
-    border-radius: 50%;
-    content: "";
-    display: inline-block;
-    height: 2.4rem;
-    margin-right: 1.3rem;
-    vertical-align: bottom;
-    width: 2.4rem;
+  // Hide native radio input
+  input[type="radio"] {
+    opacity: 0;
+    height: 0;
+    width: 0;
 
-    transition: 200ms all ease-in-out;
+    // Create a custom radio input in ::before
+    & + ::before {
+      background: transparent;
+      border: 0.2rem solid $cool-neutral-4;
+      border-radius: 50%;
+      content: "";
+      display: inline-block;
+      height: 2.4rem;
+      margin-right: 1.3rem;
+      vertical-align: bottom;
+      width: 2.4rem;
+      //not sure why the transition does not trigger.
+      transition: all 0.2s ease-in-out;
+    }
+
+    &:checked + ::before {
+      background: radial-gradient($accessible-green 40%, transparent 0%);
+    }
   }
 
-  &:checked + ::before{
-    // background: radial-gradient(green 0%, green 40%, tranparent 50%, transparent);
-    background: radial-gradient(green 0%, green 40%, transparent 0%, transparent);
+  // Apply theme appropriate colors
+  @include theming($themes) {
+    input[type="radio"] + label {
+      cursor: pointer;
+      color: get-theme-value(color);
+
+      & + ::before {
+        background: get-theme-value(background-color);
+      }
+    }
   }
 }
-
-// Add custom unchecked styles
-
 
 /** 2 - Selects
 ------------------------------------------------------------*/
@@ -74,25 +86,17 @@ input[type="radio"] {
 3 - Contact Form
 ========================= */
 
-.contact-form {
-
-  #contact-switcher {
-    display: grid;
-    grid-template-rows: min-content auto;
-    row-gap: 2.8rem;
-    column-gap: 2rem;
-
-  }
-
-&__radio {
-
-    &__heading {
-      @extend [class^="tertiary-info"];
-    }
-
-  }
-
+#contact-switcher {
+  display: grid;
+  grid-template-rows: min-content auto;
+  row-gap: 1.4rem;
 }
+
+// &__radio {
+//   &__heading {
+//     @extend [class^="tertiary-info"];
+//   }
+// }
 
 /** X - Layout
 ------------------------------------------------------------*/
