@@ -6,16 +6,7 @@
       <a class="show-for-sr show-on-focus" href="#index-2">Skip To Next Content</a>
     </nav>
     <p class="contact-form__radio__heading">Type of Inquiry:</p>
-    <form id="contact-switcher">
-      <input type="radio" id="find-talent" class="find-talent" name="action" value="find-talent" checked="">
-      <label for="find-talent">Find Talent</label>
-      <input type="radio" id="find-work" class="find-work" name="action" value="find-work">
-      <label for="find-work">Find opportunities</label>
-      <input type="radio" id="contact-agent" class="contact-agent" name="action" value="contact-agent">
-      <label for="contact-agent">Contact an agent</label>
-      <input type="radio" id="general-inquiry" class="general-inquiry" name="action" value="general-inquiry">
-      <label for="general-inquiry">Ask another question</label>
-    </form>
+    
     
     <hr class="light padding-top-1">
     <div class="bg-cream padding-top-3 padding-bottom-3">
@@ -29,8 +20,8 @@
             <div class="spinner"></div>
           </div>
 
-          <div class="response">
-            <div class="hide success">
+          <div class="response form__response">
+            <div class="hide success form__response-success">
               <h2>Thank you!</h2>
               <p>An Aquent representative will be in touch with you shortly to learn more about how we can help.</p>
               <p>You can also call us during regular business hours at <a href="tel:+16175355000">617-535-5000</a> and
@@ -46,7 +37,10 @@
               </nav>
 
             </div>
-            <div class="hide error">
+
+            
+            <!--div class="hide error form-respor__error"-->
+            <div class="hide error form__response-error">
               <h2>Oops!</h2>
 
               <p>We're sorry, but we could not send your message. Please try submitting the form again.</p>
@@ -166,13 +160,6 @@
                 <input name="person_title" id="title" type="text" class="title error" value="" placeholder=""
                   required=""><label id="title-error" class="error" for="title">This field is required.</label>
               </div>
-
-
-
-
-
-
-
 
 
 
