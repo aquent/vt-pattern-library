@@ -222,16 +222,16 @@
 .details-footer {
     @extend .blog-author-footer;
 
-    &-social-date-time {
-        @extend .blog-author-footer-social-date-time;
-    }
-
-    &-social {
+    &__social {
         @extend .blog-author-footer-social;
-    }
 
-    &-social-media-links {
-        @extend .blog-author-footer-social-media-links;
+        &-date-time {
+            @extend .blog-author-footer-social-date-time;
+        }
+
+        &-media-links {
+            @extend .blog-author-footer-social-media-links;
+        }
     }
 
     .section-heading--underline {
