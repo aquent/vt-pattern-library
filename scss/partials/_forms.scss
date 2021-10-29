@@ -1,7 +1,7 @@
 /** TABLE OF CONTENTS
  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
 1 - Form
-1.1 - Form labels
+1.1 - Form Labels
 1.2 - Form Inputs - Global
 
 2 — Inputs
@@ -9,10 +9,6 @@
   2.2 — Text Multi line
   2.3 - Radio Buttons
   2.4 - Select Dropdown
-
-  // Not sure about 3.1 3.2
-  3.1 — Single
-  3.2 — Multi
 
   4 - Errors Global (needs to be last)
 X — Layout
@@ -27,7 +23,7 @@ X — Layout
   flex-direction: column;
 }
 /* =========================
-1.1 - Labels
+1.1 - Form Labels
 ========================= */
 
 .form {
@@ -150,32 +146,8 @@ X — Layout
     background-size: 16px 8px;
     color: $primary-blue;
     padding: 1.6rem;
-    //margin to the error message
-
-    // might be needed
-    // & + :is(.form__label--error, .error) {
-    // }
   }
 }
-
-/** 3 - Selects
-------------------------------------------------------------*/
-/* =========================
-3.1 - Single
-========================= */
-
-/* =========================
-2.2 - Multi
-========================= */
-
-// .form {
-//   &__input-text {
-
-//     &--error + span{
-//       color: red;
-//     }
-//   }
-// }
 
 /** X - Layout
 ------------------------------------------------------------*/
@@ -186,9 +158,8 @@ X — Layout
 /* =========================
 4 - Errors - Global
 ========================= */
-
+// Error styles need to be at the bottom
 .form {
-  //ends in --error - border
   & [class*="--error-style"] {
     border: 0.2rem solid $product-red-3;
     color: $product-red-3;
