@@ -1,17 +1,20 @@
 /** TABLE OF CONTENTS
  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
 1 - Form
-1.1 - Form labls
+1.1 - Form labels
+1.2 - Form Inputs - Global
 
 2 — Inputs
-  2.1 — Single line
-  2.2 — Multi line
+  2.1 — Text Single line
+  2.2 — Text Multi line
   2.3 - Radio Buttons
-3 — Selects
+  2.4 - Select Dropdown
+
+  // Not sure about 3.1 3.2
   3.1 — Single
   3.2 — Multi
 
-  4 - Contact Form
+  4 - Errors Global (needs to be last)
 X — Layout
 
 /// END TABLE OF CONTENTS **/
@@ -38,10 +41,19 @@ X — Layout
     @extend [class^="tertiary-info"];
     margin-top: 2.5rem;
     padding-bottom: 1.2rem;
+  }
+}
+/* =========================
+1.2 - Form Inputs - Global
+========================= */
 
-    &__error.error {
-      color: $product-red-3;
-    }
+[class^="form__input__"] {
+  border: 0.2rem solid $cool-neutral-4;
+
+  &:focus,
+  &:not(:placeholder-shown) {
+    outline: none;
+    border: 0.2rem solid $cool-neutral-2;
   }
 }
 
@@ -53,27 +65,11 @@ X — Layout
 ========================= */
 
 .form {
-  &__input-text {
+  [class*="__input__text"] {
     @extend .tk-degular-text;
     background: transparent;
-
-    border: 0.2rem solid $cool-neutral-2;
     padding: 1.2rem;
     width: 100%;
-
-    &[value=""] {
-      border: 0.2rem solid $cool-neutral-4;
-    }
-
-    &:focus {
-      border: 0.2rem solid $cool-neutral-2;
-      outline: none;
-    }
-
-    &.error {
-      border: 0.2rem solid $product-red-3;
-      color: $product-red-3;
-    }
   }
 }
 
@@ -84,70 +80,62 @@ X — Layout
 /* =========================
 2.3 - Radio Buttons
 ========================= */
-.form {
-  // Hide native radio input
-  input[type="radio"] {
-    opacity: 0;
-    height: 0;
-    width: 0;
+// .form {
+//   // Hide native radio input
+//   input[type="radio"] {
+//     opacity: 0;
+//     height: 0;
+//     width: 0;
 
-    // Create a custom radio input in ::before
-    & + ::before {
-      background: transparent;
-      border: 0.2rem solid $cool-neutral-4;
-      border-radius: 50%;
-      content: "";
-      display: inline-block;
-      height: 2.4rem;
-      margin-right: 1.3rem;
-      vertical-align: bottom;
-      width: 2.4rem;
-      //not sure why the transition does not trigger.
-      transition: all 0.2s ease-in-out;
-    }
+//     // Create a custom radio input in ::before
+//     & + ::before {
+//       background: transparent;
+//       border: 0.2rem solid $cool-neutral-4;
+//       border-radius: 50%;
+//       content: "";
+//       display: inline-block;
+//       height: 2.4rem;
+//       margin-right: 1.3rem;
+//       vertical-align: bottom;
+//       width: 2.4rem;
+//       //not sure why the transition does not trigger.
+//       transition: all 0.2s ease-in-out;
+//     }
 
-    &:checked + ::before {
-      background: radial-gradient($accessible-green 40%, transparent 0%);
-    }
-  }
+//     &:checked + ::before {
+//       background: radial-gradient($accessible-green 40%, transparent 0%);
+//     }
+//   }
 
-  // Maybe a good use ofr :has()
-  input[type="radio"] + label {
-    padding-bottom: 2.4rem;
-  }
+// Maybe a good use ofr :has()
+// input[type="radio"] + label {
+//   padding-bottom: 2.4rem;
+// }
 
-  // Apply theme appropriate colors
-  @include theming($themes) {
-    input[type="radio"] + label {
-      cursor: pointer;
-      color: get-theme-value(color);
+// Apply theme appropriate colors
+// @include theming($themes) {
+//   input[type="radio"] + label {
+//     cursor: pointer;
+//     color: get-theme-value(color);
 
-      & + ::before {
-        background: get-theme-value(background-color);
-      }
-    }
-  }
-}
+//     & + ::before {
+//       background: get-theme-value(background-color);
+//     }
+//   }
+// }
+// }
 
-/** 3 - Selects
-------------------------------------------------------------*/
 /* =========================
-3.1 - Single
+2.4 - Radio Buttons
+========================= */
+
+/* =========================
+2.4 - Select Dropdown
 ========================= */
 
 .form {
-  &__label {
-    @extend [class^="tertiary-info"];
-    margin-top: 2.5rem;
-    padding-bottom: 1.2rem;
 
-    &__error.error {
-      margin-top: 0.6rem;
-      color: $product-red-3;
-    }
-  }
-
-  &__select {
+  [class*="__input__select"] {    
     appearance: none;
     border: 0.2rem solid $secondary-green-2;
     background-image: url("data:image/svg+xml,%3Csvg width='17' height='9' viewBox='0 0 17 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.5 0.5L8.5 8.5L16.5 0.5H0.5Z' fill='%23051C2C'/%3E%3C/svg%3E%0A");
@@ -159,23 +147,56 @@ X — Layout
     padding: 1.6rem;
     //margin to the error message
 
-    &.error {
-      border: 0.2rem solid $product-red-3;
-      color: $product-red-3;
-    }
-
     // might be needed
-    // & + :is(.form__label__error, .error) {
+    // & + :is(.form__label--error, .error) {
     // }
   }
 }
+
+
+
+
+
+/** 3 - Selects
+------------------------------------------------------------*/
+/* =========================
+3.1 - Single
+========================= */
+
+
 
 /* =========================
 2.2 - Multi
 ========================= */
 
+// .form {
+//   &__input-text {
+
+//     &--error + span{
+//       color: red;
+//     }
+//   }
+// }
+
 /** X - Layout
 ------------------------------------------------------------*/
 .form__field-wrapper {
   margin-bottom: 1.6rem;
+}
+
+/* =========================
+4 - Errors - Global
+========================= */
+
+.form {
+
+  //ends in --error - border
+  & [class*="--error-style"] {
+    border: 0.2rem solid $product-red-3;
+    color: $product-red-3;
+  }
+
+  & [class*="--error-message"] {
+    color: $product-red-3;
+  }
 }
