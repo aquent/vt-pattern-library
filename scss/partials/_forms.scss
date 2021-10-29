@@ -30,7 +30,6 @@ X — Layout
 .form {
   &__select {
     &:focus {
-
       outline: none;
     }
   }
@@ -54,7 +53,6 @@ X — Layout
 ========================= */
 
 .form {
-
   &__input-text {
     @extend .tk-degular-text;
     background: transparent;
@@ -62,7 +60,7 @@ X — Layout
     border: 0.2rem solid $cool-neutral-2;
     padding: 1.2rem;
     width: 100%;
-    
+
     &[value=""] {
       border: 0.2rem solid $cool-neutral-4;
     }
@@ -75,7 +73,7 @@ X — Layout
     &.error {
       border: 0.2rem solid $product-red-3;
       color: $product-red-3;
-    } 
+    }
   }
 }
 
@@ -112,7 +110,7 @@ X — Layout
       background: radial-gradient($accessible-green 40%, transparent 0%);
     }
   }
-  
+
   // Maybe a good use ofr :has()
   input[type="radio"] + label {
     padding-bottom: 2.4rem;
@@ -167,11 +165,10 @@ X — Layout
     }
 
     // might be needed
-    & + :is(.form__label__error, .error) {
-    }
+    // & + :is(.form__label__error, .error) {
+    // }
   }
 }
-//#location-error
 
 /* =========================
 2.2 - Multi
