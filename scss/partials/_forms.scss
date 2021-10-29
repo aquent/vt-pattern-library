@@ -1,6 +1,7 @@
 /** TABLE OF CONTENTS
  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
 1 - Form
+1.1 - Form labls
 
 2 — Inputs
   2.1 — Single line
@@ -22,6 +23,28 @@ X — Layout
   display: flex;
   flex-direction: column;
 }
+/* =========================
+1.1 - Labels
+========================= */
+
+.form {
+  &__select {
+    &:focus {
+
+      outline: none;
+    }
+  }
+
+  &__label {
+    @extend [class^="tertiary-info"];
+    margin-top: 2.5rem;
+    padding-bottom: 1.2rem;
+
+    &__error.error {
+      color: $product-red-3;
+    }
+  }
+}
 
 /** 2 - Inputs
 ------------------------------------------------------------*/
@@ -30,6 +53,32 @@ X — Layout
 2.1 - Single line
 ========================= */
 
+.form {
+
+  &__input-text {
+    @extend .tk-degular-text;
+    background: transparent;
+
+    border: 0.2rem solid $cool-neutral-2;
+    padding: 1.2rem;
+    width: 100%;
+    
+    &[value=""] {
+      border: 0.2rem solid $cool-neutral-4;
+    }
+
+    &:focus {
+      border: 0.2rem solid $cool-neutral-2;
+      outline: none;
+    }
+
+    &.error {
+      border: 0.2rem solid $product-red-3;
+      color: $product-red-3;
+    } 
+  }
+}
+
 /* =========================
 2.2 - Multi line
 ========================= */
@@ -37,7 +86,7 @@ X — Layout
 /* =========================
 2.3 - Radio Buttons
 ========================= */
-form {
+.form {
   // Hide native radio input
   input[type="radio"] {
     opacity: 0;
@@ -63,7 +112,8 @@ form {
       background: radial-gradient($accessible-green 40%, transparent 0%);
     }
   }
-
+  
+  // Maybe a good use ofr :has()
   input[type="radio"] + label {
     padding-bottom: 2.4rem;
   }
@@ -88,22 +138,13 @@ form {
 ========================= */
 
 .form {
-  // select dropdown
-  color: $primary-blue;
-
-&__label, &__select {
-  &:focus {
-    border: 0.2rem solid $cool-neutral-2;
-    outline: none;
-  }
-}
-
   &__label {
     @extend [class^="tertiary-info"];
     margin-top: 2.5rem;
     padding-bottom: 1.2rem;
 
     &__error.error {
+      margin-top: 0.6rem;
       color: $product-red-3;
     }
   }
@@ -119,30 +160,22 @@ form {
     color: $primary-blue;
     padding: 1.6rem;
     //margin to the error message
-    margin-bottom: 0.6rem;
-    
-    // might be needed
-    & + :is(.form__label__error, .error){
 
+    &.error {
+      border: 0.2rem solid $product-red-3;
+      color: $product-red-3;
+    }
+
+    // might be needed
+    & + :is(.form__label__error, .error) {
     }
   }
-
 }
 //#location-error
 
 /* =========================
 2.2 - Multi
 ========================= */
-
-/* =========================
-3 - Contact Form
-========================= */
-
-// &__radio {
-//   &__heading {
-//     @extend [class^="tertiary-info"];
-//   }
-// }
 
 /** X - Layout
 ------------------------------------------------------------*/
