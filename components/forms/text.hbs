@@ -1,18 +1,17 @@
-<div class="section--bg-white">
+<div class="section--bg-white demo-section">
   <form 
   class="form"
   >
     <label 
-      class="form__label" 
+      class="form__label"
       for="text-1">
       A plain text input
     </label>
     <textarea 
+      class="form__input__text-multi"
       name="text-1" 
-      class="form__input-text" 
-      value="" 
-      placeholder="A plain text input">
-    </textarea>
+      placeholder="A plain text input"
+      ></textarea>
 
     <label 
       class="form__label" 
@@ -20,14 +19,12 @@
       A plain text input
     </label>
     <textarea 
-      class="form__input-text--error error" 
+      class="form__input__text-multi--error-style error" 
       name="text-1a" 
-      value="" 
       placeholder="A plain text input with error"
-      required>
-    </textarea>
+      required>There has been a terrible error.</textarea>
     <span 
-      class="textarea--error error">
+      class="form__input--error-message error">
       This field is required
     </span>
 
@@ -37,9 +34,9 @@
       A plain text input
     </label>
     <textarea 
-      class="form__input-text" 
-      name="text-1b" 
-      value="Content has been entered">
+      class="form__input__text-multi" 
+      name="text-1b"
+      required="">Content has been entered.
     </textarea>
     <!-- .form__input-text[val]:not([class*=error]) -->
   </form>

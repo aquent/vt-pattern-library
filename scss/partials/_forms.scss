@@ -76,6 +76,12 @@ X — Layout
 /* =========================
 2.2 - Multi line
 ========================= */
+.form {
+  [class*="input__text-multi"]{
+    resize: none;
+    height: 26.8rem;
+  }
+}
 
 /* =========================
 2.3 - Radio Buttons
