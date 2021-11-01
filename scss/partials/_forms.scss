@@ -39,11 +39,12 @@ X — Layout
     padding-bottom: 1.2rem;
   }
 }
+
 /* =========================
 1.2 - Form Inputs - Global
 ========================= */
 
-[class^="form__input__"] {
+[class^="form__input-"] {
   border: 0.2rem solid $cool-neutral-4;
 
   &:focus,
@@ -61,7 +62,7 @@ X — Layout
 ========================= */
 
 .form {
-  [class*="__input__text"] {
+  [class*="-text"] {
     @extend .tk-degular-text;
     background: transparent;
     padding: 1.2rem;
@@ -73,7 +74,7 @@ X — Layout
 2.2 - Multi line
 ========================= */
 .form {
-  [class*="input__text-multi"] {
+  [class*="text-multi"] {
     resize: none;
     height: 26.8rem;
   }
@@ -136,7 +137,7 @@ X — Layout
 ========================= */
 
 .form {
-  [class*="__input__select"] {
+  [class*="-select"] {
     appearance: none;
     border: 0.2rem solid $secondary-green-2;
     background-image: url("data:image/svg+xml,%3Csvg width='17' height='9' viewBox='0 0 17 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.5 0.5L8.5 8.5L16.5 0.5H0.5Z' fill='%23051C2C'/%3E%3C/svg%3E%0A");
@@ -160,12 +161,12 @@ X — Layout
 ========================= */
 // Error styles need to be at the bottom
 .form {
-  & [class*="--error-style"] {
+  & [class*="-error-styled"] {
     border: 0.2rem solid $product-red-3;
     color: $product-red-3;
   }
 
-  & [class*="--error-message"] {
+  & [class*="__error-message"] {
     color: $product-red-3;
   }
 }
