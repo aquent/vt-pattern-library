@@ -183,7 +183,16 @@
   }
 
   &__label {
+   
+    // Styles for tertiary-info--large
+    font-size: 1.6rem;
+    line-height: 1.25;
+
     @include breakpoint(desktop) {
+    // Styles for tertiary-info      
+    font-size: 1.4rem;
+    line-height: 1.286;
+
       display: block;
       padding: 4.3rem 1.774rem 4.3rem 0;
       position: relative;
