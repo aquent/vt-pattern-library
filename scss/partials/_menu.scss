@@ -285,8 +285,10 @@
 
       .top-menu {
         &__menuitem {
-          background-color: $primary-blue;
+          background-color: $secondary-blue-1;
+          margin: .9rem auto 0 auto;
           padding: 2.5rem 0 2.5rem 6.3rem;
+          width: 90%;
 
           &:before {
             background-color: $primary-white;
@@ -303,7 +305,9 @@
 
           @include breakpoint(desktop) {
             background-color: transparent;
+            margin: 0;
             padding: 0 0 0 3rem;
+            width: 100%;
 
             &:before {
               content: none;
