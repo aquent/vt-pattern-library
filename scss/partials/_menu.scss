@@ -295,12 +295,12 @@
             clip-path: polygon(88% 12%, 100% 0, 100% 95%, 95% 100%, 0 100%, 12% 88%, 88% 88%);
             content: '';
             display: block;
-            height: 1.5rem;
+            height: 2rem;
             left: 3rem;
             position: absolute;
             top: 50%;
             transform: translateY(-50%) rotate(135deg);
-            width: 1.5rem;
+            width: 2rem;
           }
 
           @include breakpoint(desktop) {
