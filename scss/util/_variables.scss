@@ -15,6 +15,7 @@ $colors: (
   primary-blue: #051c2c,
   primary-green: #6cc24a,
   primary-white: #ffffff,
+  product-red-3: #B31010,
   accessible-green: #509e2f,
   secondary-blue-1: #003e51,
   secondary-blue-2: #004f71,
@@ -35,6 +36,7 @@ $colors: (
 $primary-blue: map-get($colors, primary-blue);
 $primary-green: map-get($colors, primary-green);
 $primary-white: map-get($colors, primary-white);
+$product-red-3: map-get($colors, product-red-3);
 $accessible-green: map-get($colors, accessible-green);
 $secondary-blue-1: map-get($colors, secondary-blue-1);
 $secondary-blue-2: map-get($colors, secondary-blue-2);

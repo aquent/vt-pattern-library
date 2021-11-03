@@ -1,0 +1,7 @@
+[type=color], [type=date], [type=datetime-local], [type=datetime], [type=email], [type=month], [type=number], [type=password], [type=search], [type=tel], [type=text], [type=time], [type=url], [type=week] {
+    // @extend .form__input-text;
+}
+
+// .lead-form-wrapper select {
+//     @extend .form__input-select;
+// }
