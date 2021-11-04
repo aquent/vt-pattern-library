@@ -22,7 +22,7 @@
 
   &--two-cols {
     display: grid;
-    grid-column-gap: 13.9rem;
+    column-gap: 13.9rem;
 
     .basic-content__card {
       margin-left: 0;
@@ -37,26 +37,34 @@
   &--img-two-cols {
     @include grid();
 
+    .basic-content {
+      &__img {
+        margin-bottom: 6rem;
+      }
+    }
+
     // Breaking into a single column on tablet results in the image being way too shrinked
     @include breakpoint(desktop) {
-      gap: 0 9.5rem;
+      column-gap: 9.5rem;
       grid-template-columns: 3fr 2fr;
-      grid-template-rows: auto;
 
-      .basic-content__card {
-        grid-column: 2/3;
-        margin-left: 0;
-        margin-right: 0;
-      }
+      .basic-content {
+        &__img {
+          grid-column: 1/2;
+          grid-row: span 4;
+          margin-bottom: 0;
+        }
 
-      .basic-content__img {
-        grid-column: 1/2;
-        grid-row: span 4;
+        &__card {
+          grid-column: 2/3;
+          margin-left: 0;
+          margin-right: 0;
+        }
       }
     }
   }
 
-  &--half { 
+  &--half {
     @include grid();
 
     @include breakpoint(tablet) {
