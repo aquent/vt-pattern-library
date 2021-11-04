@@ -1,11 +1,11 @@
 .basic-content {
+  &__card {
+    @include vertical-spacing(md-3, bottom, margin);
+  }
+
   &__headline {
     @extend h1;
     @include vertical-spacing(md-1, bottom, margin);
-  }
-
-  &__text {
-    @include vertical-spacing(md-3, bottom, margin);
   }
 
   &__title {
@@ -34,7 +34,29 @@
     }
   }
 
-  &--half {
+  &--img-two-cols {
+    @include grid();
+
+    // Breaking into a single column on tablet results in the image being way too shrinked
+    @include breakpoint(desktop) {
+      gap: 0 9.5rem;
+      grid-template-columns: 3fr 2fr;
+      grid-template-rows: auto;
+
+      .basic-content__card {
+        grid-column: 2/3;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .basic-content__img {
+        grid-column: 1/2;
+        grid-row: span 4;
+      }
+    }
+  }
+
+  &--half { 
     @include grid();
 
     @include breakpoint(tablet) {
