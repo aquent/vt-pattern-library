@@ -34,36 +34,6 @@
     }
   }
 
-  &--img-two-cols {
-    @include grid();
-
-    .basic-content {
-      &__img {
-        margin-bottom: 6rem;
-      }
-    }
-
-    // Breaking into a single column on tablet results in the image being way too shrinked
-    @include breakpoint(desktop) {
-      column-gap: 9.5rem;
-      grid-template-columns: 3fr 2fr;
-
-      .basic-content {
-        &__img {
-          grid-column: 1/2;
-          grid-row: span 4;
-          margin-bottom: 0;
-        }
-
-        &__card {
-          grid-column: 2/3;
-          margin-left: 0;
-          margin-right: 0;
-        }
-      }
-    }
-  }
-
   &--half {
     @include grid();
 
@@ -86,6 +56,50 @@
         &--bold {
           @extend .p--body-emphasis;
           color: $primary-blue;
+        }
+      }
+    }
+  }
+}
+
+[class^="columns"] {
+  @include grid();
+
+  row-gap: 3.5rem;
+
+  @at-root {
+    .columns--two-cols-img {
+      @include breakpoint(desktop) {
+        column-gap: 9.5rem;
+        grid-template-columns: 3fr 2fr;
+
+        .basic-content {
+          &__title {
+            margin-bottom: 1.5rem;
+          }
+
+          &__text {
+            margin-bottom: 4.5rem;
+          }
+
+          .col__left {
+            grid-column: 1/2;
+          }
+
+          .col__right {
+            align-self: center;
+            grid-column: 2/3;
+          }
+
+          .basic-content {
+            &__title {
+              margin-bottom: 1.5rem;
+            }
+
+            &__text {
+              margin-bottom: 5rem;
+            }
+          }
         }
       }
     }
