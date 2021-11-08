@@ -1,0 +1,21 @@
+[class^="columns"] {
+    display: grid;
+
+  &--1-1-1 {
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+
+    col--left{
+
+    }
+    col--middle{
+
+    }
+
+    col--right{
+
+    }
+  }
+
+}
