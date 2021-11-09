@@ -1,5 +1,4 @@
 .columns {
-
   &--two {
     @include grid();
 
@@ -37,13 +36,17 @@
     .stat__number {
       @extend h2;
       color: $secondary-orange-2;
+      
+      @include breakpoint(tablet) {
+        margin-bottom: 1.3rem;
+      }
     }
 
     .stat__detail {
-      @extend h4;
+      @extend h6;
 
       @include breakpoint(tablet) {
-        width: 80%;
+        width: 90%;
       }
     }
 
