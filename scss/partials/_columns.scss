@@ -1,0 +1,50 @@
+.columns {
+
+  &--two {
+    @include grid();
+
+    @include breakpoint(desktop) {
+      column-gap: 14rem;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &--two-left-wide {
+    @include grid();
+    align-items: center;
+
+    @include breakpoint(desktop) {
+      column-gap: 14rem;
+      grid-template-columns: 3fr 2fr;
+    }
+  }
+
+  &--three {
+    @include grid();
+
+    [class^="column"] {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 4.3rem;
+
+      @include breakpoint(desktop) {
+        margin-bottom: 8.6rem;
+        margin-top: 7.4rem;
+      }
+    }
+
+    .stat__number {
+      @extend h2;
+      color: $secondary-orange-2;
+    }
+
+    .stat__detail {
+      @extend h6;
+    }
+
+    @include breakpoint(desktop) {
+      column-gap: 14rem;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}

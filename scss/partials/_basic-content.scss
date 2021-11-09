@@ -13,26 +13,28 @@
     @include vertical-spacing(sm-6, bottom, margin);
   }
 
-  @include breakpoint(tablet) {
-    &__card {
-      margin-left: 19.5rem;
-      margin-right: 4rem;
-    }
-  }
+  // TODO: Refactor this so it only applies to elements in a sinngle column
+  // @include breakpoint(tablet) {
+  //   &__card {
+  //     margin-left: 19.5rem;
+  //     margin-right: 4rem;
+  //   }
+  // }
 
-  &--two-cols {
-    display: grid;
-    grid-column-gap: 13.9rem;
+//To be deprecated. Two-column layout addressed in _columns.scss
+  // &--two-cols {
+  //   display: grid;
+  //   grid-column-gap: 13.9rem;
 
-    .basic-content__card {
-      margin-left: 0;
-      margin-right: 0;
-    }
+  //   .basic-content__card {
+  //     margin-left: 0;
+  //     margin-right: 0;
+  //   }
 
-    @include breakpoint(tablet) {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
+  //   @include breakpoint(tablet) {
+  //     grid-template-columns: 1fr 1fr;
+  //   }
+  // }
 
   &--half {
     @include grid();
