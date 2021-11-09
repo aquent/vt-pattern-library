@@ -51,13 +51,13 @@
 .menu-toggle {
   background: transparent;
   border: none;
-  border-bottom: 0.3rem solid $primary-white;
+  border-bottom: 0.2rem solid $primary-white;
   cursor: pointer;
   height: 2.5rem;
   left: 2.6rem;
   position: relative;
   transition: border-bottom 250ms ease;
-  width: 2.5rem;
+  width: 3.5rem;
   z-index: 2;
 
   @include breakpoint(tablet) {
@@ -143,6 +143,7 @@
 
   &__li {
     display: block;
+    padding-bottom: .2rem;
 
     &::before {
       content: "";
@@ -156,7 +157,7 @@
 
     &--subheading {
       color: $secondary-green-1;
-      margin-top: 2rem;
+      margin-top: 2.8rem;
 
       &:first-child {
         margin-top: 0;
@@ -182,13 +183,22 @@
   }
 
   &__label {
+   
+    // Styles for tertiary-info--large
+    font-size: 1.6rem;
+    line-height: 1.25;
+
     @include breakpoint(desktop) {
+    // Styles for tertiary-info      
+    font-size: 1.4rem;
+    line-height: 1.286;
+
       display: block;
       padding: 4.3rem 1.774rem 4.3rem 0;
       position: relative;
 
       &::before {
-        background-color: $secondary-green-2;
+        background-color: $secondary-green-1;
         clip-path: polygon(50% 100%, 0 0, 100% 0);
         content: "";
         display: block;
@@ -202,7 +212,7 @@
 
       @at-root [open] #{&} {
         @include breakpoint(desktop) {
-          background: linear-gradient(0deg, $primary-green 0%, $primary-green 8%, transparent 8%, transparent 100%);
+          background: linear-gradient(0deg, $primary-green 0%, $primary-green 6%, transparent 6%, transparent 100%);
 
           &::before {
             background-color: $primary-white;
@@ -216,7 +226,7 @@
   &__menuitem {
     cursor: pointer;
     list-style: none;
-    padding: 2rem 0;
+    padding: 2.4rem 0;
     position: relative;
 
     &:before {
@@ -224,12 +234,12 @@
       clip-path: polygon(88% 12%, 100% 0, 100% 95%, 95% 100%, 0 100%, 12% 88%, 88% 88%);
       content: '';
       display: block;
-      height: 1.5rem;
+      height: 2rem;
       position: absolute;
       right: 0;
       top: 50%;
       transform: translateY(-50%) rotate(-45deg);
-      width: 1.5rem;
+      width: 2rem;
     }
 
     @include breakpoint(desktop) {
@@ -251,8 +261,9 @@
       border-top: none;
       border-left: 0.1rem solid $cool-neutral-2;
       margin-left: 3rem;
-      margin-top: 2rem;
+      margin-top: 4.3rem;
       margin-bottom: 2rem;
+      height: 2rem;
     }
   }
 
@@ -274,25 +285,29 @@
 
       .top-menu {
         &__menuitem {
-          background-color: $primary-blue;
+          background-color: $secondary-blue-1;
+          margin: .9rem auto 0 auto;
           padding: 2.5rem 0 2.5rem 6.3rem;
+          width: 90%;
 
           &:before {
             background-color: $primary-white;
             clip-path: polygon(88% 12%, 100% 0, 100% 95%, 95% 100%, 0 100%, 12% 88%, 88% 88%);
             content: '';
             display: block;
-            height: 1.5rem;
+            height: 2rem;
             left: 3rem;
             position: absolute;
             top: 50%;
             transform: translateY(-50%) rotate(135deg);
-            width: 1.5rem;
+            width: 2rem;
           }
 
           @include breakpoint(desktop) {
             background-color: transparent;
+            margin: 0;
             padding: 0 0 0 3rem;
+            width: 100%;
 
             &:before {
               content: none;
@@ -344,7 +359,7 @@
     transform: translateY(54%);
 
     @include breakpoint(tablet) {
-      transform: translateY(55.3%);
+      transform: translateY(54%);
     }
     /* 
         * Transform all the slices of hamburger
@@ -433,11 +448,12 @@
   &--sub {
     @include breakpoint(desktop) {
       align-self: unset;
-      width: auto;
+      width: 36rem;
     }
   }
 
   &__button {
+    @extend .tertiary-info--small;
     text-decoration: none;
     margin-top: 2rem;
     width: fit-content;
