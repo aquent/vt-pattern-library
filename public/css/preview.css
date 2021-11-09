@@ -9,7 +9,8 @@ body {
 .yield {
   margin: auto;
   max-width: 90%;
-  min-width: 600px;
+  /* min-width: 600px; */
+  /* Interferes with mobile preview*/
 }
 
 .demo-section {
