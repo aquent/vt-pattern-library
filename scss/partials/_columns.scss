@@ -6,15 +6,21 @@
       column-gap: 14rem;
       grid-template-columns: repeat(2, 1fr);
     }
-  }
 
-  &--two-left-wide {
-    @include grid();
-    align-items: center;
+    &-left-wide {
+      @include grid();
+      align-items: center;
 
-    @include breakpoint(tablet) {
-      column-gap: 14rem;
-      grid-template-columns: 3fr 2fr;
+      h3 {
+        @extend .h4;
+        @include vertical-spacing(sm-6, bottom, margin);
+        @include vertical-spacing(md-3, top, margin);
+      }
+
+      @include breakpoint(tablet) {
+        column-gap: 14rem;
+        grid-template-columns: 3fr 2fr;
+      }
     }
   }
 
@@ -36,7 +42,7 @@
     .stat__number {
       @extend h2;
       color: $secondary-orange-2;
-      
+
       @include breakpoint(tablet) {
         margin-bottom: 1.3rem;
       }
