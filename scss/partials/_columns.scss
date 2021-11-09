@@ -3,7 +3,7 @@
   &--two {
     @include grid();
 
-    @include breakpoint(desktop) {
+    @include breakpoint(tablet) {
       column-gap: 14rem;
       grid-template-columns: repeat(2, 1fr);
     }
@@ -13,7 +13,7 @@
     @include grid();
     align-items: center;
 
-    @include breakpoint(desktop) {
+    @include breakpoint(tablet) {
       column-gap: 14rem;
       grid-template-columns: 3fr 2fr;
     }
@@ -28,7 +28,7 @@
       flex-direction: column;
       margin-bottom: 4.3rem;
 
-      @include breakpoint(desktop) {
+      @include breakpoint(tablet) {
         margin-bottom: 8.6rem;
         margin-top: 7.4rem;
       }
@@ -40,11 +40,14 @@
     }
 
     .stat__detail {
-      @extend h6;
-      width: 60%;
+      @extend h4;
+
+      @include breakpoint(tablet) {
+        width: 80%;
+      }
     }
 
-    @include breakpoint(desktop) {
+    @include breakpoint(tablet) {
       column-gap: 14rem;
       grid-template-columns: repeat(3, 1fr);
     }
