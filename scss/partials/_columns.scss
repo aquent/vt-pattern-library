@@ -21,6 +21,7 @@
 
   &--three {
     @include grid();
+    margin: 4.8rem 0;
 
     [class^="column"] {
       display: flex;
@@ -40,6 +41,7 @@
 
     .stat__detail {
       @extend h6;
+      width: 60%;
     }
 
     @include breakpoint(desktop) {
