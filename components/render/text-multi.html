@@ -1,0 +1,47 @@
+
+
+<div class="section--bg-white demo-section">
+  <form 
+  class="form"
+  >
+    <label 
+      class="form__label"
+      for="text-1">
+      A plain text input
+    </label>
+    <textarea 
+      class="form__input-text--multi"
+      name="text-1" 
+      placeholder="A plain text input"
+      ></textarea>
+
+    <label 
+      class="form__label" 
+      for="text-1a">
+      A plain text input
+    </label>
+    <textarea 
+      class="form__input-text--multi-error-styled error" 
+      name="text-1a" 
+      placeholder="A plain text input with error"
+      required>There has been a terrible error.</textarea>
+    <span 
+      class="form__error-message error">
+      This field is required
+    </span>
+
+    <label 
+      class="form__label" 
+      for="text-1b">
+      A plain text input
+    </label>
+    <textarea 
+      class="form__input-text--multi" 
+      name="text-1b"
+      required="">Content has been entered.
+    </textarea>
+    <!-- .form__input-text[val]:not([class*=error]) -->
+  </form>
+</div>
+
+
