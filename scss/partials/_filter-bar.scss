@@ -140,6 +140,14 @@
       transform: none;
       overflow: visible;
       padding: 0;
+
+      &--blog {
+        grid-template-columns: auto 1fr;
+      }
+
+      &--job {
+        grid-template-columns: repeat(3, auto) 1fr;
+      }
     }
 
     & > * {
@@ -148,18 +156,16 @@
 
       @include breakpoint(tablet) {
         margin: 0;
+
+        &:last-child {
+          justify-self: end;
+        }
       }
     }
 
     & > span,
     & > details {
       margin-bottom: 0 !important;
-    }
-
-    @include breakpoint(tablet) {
-      & > *:last-child {
-        justify-self: end;
-      }
     }
 
     /* show mobile dropdown filter */
@@ -237,7 +243,8 @@
     display: inline-block;
 
     @include breakpoint(tablet) {
-      * ~ & {
+      .filter-bar__text-label ~ &,
+      & ~ & {
         padding-left: 3rem;
       }
     }
@@ -250,6 +257,9 @@
         }
 
         &__menu-item {
+          // lock mobile menu on open
+          pointer-events: none;
+
           &:before {
             clip-path: polygon(
               88% 12%,
@@ -272,6 +282,7 @@
 
           @include breakpoint(tablet) {
             background-color: transparent;
+            pointer-events: auto;
 
             &:before {
               content: none;
@@ -357,22 +368,24 @@
   &__dropdown {
     left: 0;
 
+    width: 100%;
+
     @include breakpoint(tablet) {
       padding: 6rem;
     }
 
     &-small {
-      @include breakpoint(desktop) {
+      @include breakpoint(tablet) {
         text-align: right;
         right: 0;
         padding: 3rem;
+        width: max-content;
       }
     }
 
     &,
     &-small {
       z-index: 10;
-      width: 100%;
       overflow: hidden;
       list-style: none;
       background: $primary-white;
@@ -632,10 +645,6 @@
       }
     }
 
-    &-item ~ &-item {
-      // margin-left: 1.5rem;
-    }
-
     &-label {
       display: none;
 
@@ -779,6 +788,7 @@
     position: relative;
     height: 2.3rem;
     width: 2.3rem;
+    display: block;
 
     // magnifying glass handle
     &::before {
