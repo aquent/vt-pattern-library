@@ -93,7 +93,6 @@
 
   @include breakpoint(tablet) {
     grid-template-rows: 5rem auto auto 5rem;
-    // grid-template-columns: repeat(12, 1fr);
     grid-template-columns: 20rem 8.5rem 1fr;
     column-gap: 3rem;
 
