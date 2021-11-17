@@ -8,7 +8,6 @@
 ------------------------------------------------------------*/
 .quote {
   &--attribution {
-
     display: flex;
     flex-direction: column;
     font-style: normal;
@@ -30,7 +29,6 @@
   }
 
   &__text {
-
     &::before {
       @extend %decorative-quote;
       display: block;
@@ -40,7 +38,7 @@
     & > p {
       @extend .h6;
       // TODO: Verify if letter-spacing should be adjusted in _base.scss
-      letter-spacing: 0.028rem; 
+      letter-spacing: 0.028rem;
     }
   }
 
@@ -95,7 +93,6 @@
     grid-template-rows: 5rem auto auto 5rem;
     grid-template-columns: 20rem 8.5rem 1fr;
     column-gap: 3rem;
-
 
     & > .quote__text {
       background-color: $primary-blue;
