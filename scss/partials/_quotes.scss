@@ -8,6 +8,7 @@
 ------------------------------------------------------------*/
 .quote {
   &--attribution {
+
     display: flex;
     flex-direction: column;
     font-style: normal;
@@ -92,19 +93,22 @@
 
   @include breakpoint(tablet) {
     grid-template-rows: 5rem auto auto 5rem;
-    grid-template-columns: repeat(12, 1fr);
+    // grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: 20rem 8.5rem 1fr;
+    column-gap: 3rem;
+
 
     & > .quote__text {
       background-color: $primary-blue;
-      padding: 8rem 6rem 0 8rem;
-      grid-column: 3/13;
+      padding: 8rem 6rem 3.3rem 8rem;
+      grid-column: 2/4;
       grid-row: 1/3;
     }
 
     & > .quote--attribution {
       background-color: $primary-blue;
       padding-left: 8rem;
-      grid-column: 3/13;
+      grid-column: 2/4;
       grid-row: 3/5;
     }
 
