@@ -117,10 +117,6 @@
   &__three {
     &:nth-of-type(3n+1) {
       padding-top: 7.5rem;
-
-      @include breakpoint(desktop) {
-        padding-top: 14.4rem;
-      }
     }
   }
 
