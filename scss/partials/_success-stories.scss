@@ -29,13 +29,7 @@
 .success-story {
   $storyBlock: &;
 
-  &:last-child {
-    margin-bottom: 10rem;
-  }
-
-  &:not(:first-child) {
-    margin-top: 13rem;
-  }
+  margin-bottom: 12rem;
 
   &__container {
     @include self() {
@@ -116,6 +110,10 @@
         }
       }
     }
+  }
+
+  &__content {
+    align-self: center;
   }
 
   &__logo {
