@@ -4,7 +4,6 @@
     padding-bottom: 0;
     width: 42.5rem;
 
-
     @include breakpoint(desktop) {
         margin: 0 auto;
         width: 100%;
@@ -98,7 +97,6 @@
 
             }
         }
-
     }
 }
 
@@ -109,6 +107,7 @@
     padding-top: 3rem;
     padding-bottom: 0;
 
+  
 
     &__image {
         padding-top: 3.8rem;
@@ -120,6 +119,11 @@
                 padding-bottom: 13.8rem;
             }
         }
+    }    
+
+    &__video {
+        max-width: 100%;
+        text-align: center;
     }
 
     &__post {
