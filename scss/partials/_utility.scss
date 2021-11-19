@@ -114,12 +114,6 @@
     }
   }
 
-  &__three {
-    &:nth-of-type(3n+1) {
-      padding-top: 7.5rem;
-    }
-  }
-
   &__four {
     &--homepage-blog {
       @extend .grid-col-content__four;
