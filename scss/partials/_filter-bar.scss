@@ -146,7 +146,8 @@
       }
 
       &--job {
-        grid-template-columns: repeat(3, auto) 1fr;
+        grid-template-columns: repeat(4, auto);
+        justify-content: start;
       }
     }
 
@@ -206,6 +207,7 @@
     }
 
     &__text {
+      @extend .h6;
       width: 100%;
     }
 
@@ -427,28 +429,23 @@
 
     &-list {
       font-weight: inherit;
-      list-style-type: none;
       margin: 0;
       padding: 0;
       display: inline-block;
+      border: 0;
     }
 
     &-item {
       display: flex;
       margin-bottom: 1.5rem;
-      list-style-type: none;
+
+      &:before {
+        content: "";
+      }
 
       @include breakpoint(tablet) {
         display: inline-block;
       }
-
-      &::before {
-        content: "";
-      }
-    }
-
-    &-item ~ &-item {
-      // margin-left: 1.5rem;
     }
 
     &-label {
@@ -620,19 +617,30 @@
   }
 
   &__sorter {
-    position: relative;
-    display: block;
-    padding-bottom: 6rem;
-    order: -1;
-    border-bottom: 0.1rem solid $cool-neutral-4;
+    &,
+    &--client-stories {
+      position: relative;
+      display: block;
+      padding-bottom: 6rem;
+      order: -1;
+      border-bottom: 0.1rem solid $cool-neutral-4;
 
-    @include breakpoint(tablet) {
-      order: unset;
-      padding: 0 3rem;
-      border-bottom: none;
-      margin-bottom: 0;
+      @include breakpoint(tablet) {
+        order: unset;
+        border-bottom: none;
+        margin-bottom: 0;
+      }
     }
 
+    @include breakpoint(tablet) {
+      & {
+        padding: 0 3rem;
+      }
+
+      &--client-stories {
+        padding: 0rem;
+      }
+    }
     &-item {
       display: block;
 
@@ -739,88 +747,88 @@
 
   &__search {
     display: flex;
-  }
 
-  &__search-field {
-    display: none;
-    padding-right: 2rem;
-    text-align: left;
+    &-field {
+      display: none;
+      padding-right: 2rem;
+      text-align: left;
 
-    @include breakpoint(tablet) {
-      padding-right: 3rem;
-      text-align: right;
-    }
-  }
-
-  &__search-input {
-    border: 0;
-    background: transparent;
-    border-bottom: 0.1rem solid $primary-white;
-    outline: 0;
-    margin: 3rem 0;
-
-    &::placeholder {
-      /* Chrome, Firefox, Opera, Safari 10.1+ */
-      color: $secondary-green-2;
-      opacity: 1; /* Firefox */
+      @include breakpoint(tablet) {
+        padding-right: 3rem;
+        text-align: right;
+      }
     }
 
-    &:-ms-input-placeholder {
-      /* Internet Explorer 10-11 */
-      color: $secondary-green-2;
-    }
+    &-input {
+      border: 0;
+      background: transparent;
+      border-bottom: 0.1rem solid $primary-white;
+      outline: 0;
+      margin: 3rem 0;
 
-    &::-ms-input-placeholder {
-      /* Microsoft Edge */
-      color: $secondary-green-2;
-    }
-  }
-
-  &__search-icon {
-    // magnifying glass circle
-    font-size: 100rem; /* This controls the size. */
-    border: 0.3rem solid $primary-white;
-    border-radius: 3.5rem;
-    cursor: pointer;
-    display: inline-block;
-    left: 0.1rem;
-    top: 35%;
-    position: relative;
-    height: 2.3rem;
-    width: 2.3rem;
-    display: block;
-
-    // magnifying glass handle
-    &::before {
-      background: $primary-white;
-      border-width: 0;
-      bottom: -0.6rem;
-      content: "";
-      display: inline-block;
-      height: 0.3rem;
-      right: 1.6rem;
-      position: absolute;
-      width: 1rem;
-      transform: rotate(-50deg);
-      transition: transform 250ms ease, background 250ms ease;
-    }
-
-    &__a {
-      background: none;
-      height: 100%;
-      left: 0;
-      position: absolute;
-      text-decoration: none;
-      width: 100%;
-    }
-
-    a {
-      &#close-search {
-        display: none;
+      &::placeholder {
+        /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: $secondary-green-2;
+        opacity: 1; /* Firefox */
       }
 
-      &#open-search {
+      &:-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: $secondary-green-2;
+      }
+
+      &::-ms-input-placeholder {
+        /* Microsoft Edge */
+        color: $secondary-green-2;
+      }
+    }
+
+    &-icon {
+      // magnifying glass circle
+      font-size: 100rem; /* This controls the size. */
+      border: 0.3rem solid $primary-white;
+      border-radius: 3.5rem;
+      cursor: pointer;
+      display: inline-block;
+      left: 0.1rem;
+      top: 35%;
+      position: relative;
+      height: 2.3rem;
+      width: 2.3rem;
+      display: block;
+
+      // magnifying glass handle
+      &::before {
+        background: $primary-white;
+        border-width: 0;
+        bottom: -0.6rem;
+        content: "";
         display: inline-block;
+        height: 0.3rem;
+        right: 1.6rem;
+        position: absolute;
+        width: 1rem;
+        transform: rotate(-50deg);
+        transition: transform 250ms ease, background 250ms ease;
+      }
+
+      &__a {
+        background: none;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        text-decoration: none;
+        width: 100%;
+      }
+
+      a {
+        &#close-search {
+          display: none;
+        }
+
+        &#open-search {
+          display: inline-block;
+        }
       }
     }
   }
