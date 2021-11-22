@@ -72,7 +72,9 @@
     }
 
     &__video {
+      filter: brightness(60%);
       height: 30rem;
+      
       @include breakpoint(tablet) {
         height: unset;
         width: 100%;
@@ -143,11 +145,13 @@
       // h4
       font-size: 4.2rem;
       line-height: 1.095;
+      margin-bottom: 1.5rem;
 
       // h1
       @include breakpoint(desktop) {
         font-size: 8.4rem;
         line-height: 1.048;
+        margin-bottom: 2.5rem;
       }
     }
 

@@ -1,0 +1,25 @@
+/** TABLE OF CONTENTS
+ — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
+1 — Stat block
+/// END TABLE OF CONTENTS **/
+
+/** 1 - Stat block
+------------------------------------------------------------*/
+.stat {
+    &__number {
+        @extend .h2;
+        color: $secondary-orange-2;
+
+        @include breakpoint(tablet) {
+            margin-bottom: 1.3rem;
+        }
+    }
+
+    &__detail {
+        @extend .h6;
+
+        @include breakpoint(tablet) {
+            width: 90%;
+        }
+    }
+}

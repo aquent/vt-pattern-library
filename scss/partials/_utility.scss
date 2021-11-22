@@ -73,8 +73,8 @@
   &:active,
   &:focus {
     background-color: $primary-white;
-    border: .3rem dotted blue;
-    border-radius: .8rem;
+    border: 0.3rem dotted blue;
+    border-radius: 0.8rem;
     clip: initial;
     color: blue;
     display: block;
@@ -89,20 +89,20 @@
 /** 4 - Multi Column Blog Grid
 ------------------------------------------------------------*/
 .grid-col-content {
-
   &__two,
-  &__three {
+  &__three,
+  &__three-blog {
     padding-top: 0;
     width: 33.5rem;
     @include breakpoint(desktop) {
-      width: 100%
+      width: 100%;
     }
   }
 
   &__two {
     &--homepage {
       @extend .grid-col-content__two;
-      column-gap: 16.0rem !important;
+      column-gap: 16rem !important;
     }
 
     &:nth-of-type(3) {
@@ -114,8 +114,8 @@
     }
   }
 
-  &__three {
-    &:nth-of-type(3n+1) {
+  &__three-blog {
+    &:nth-of-type(3n + 1) {
       padding-top: 7.5rem;
 
       @include breakpoint(desktop) {
@@ -127,7 +127,7 @@
   &__four {
     &--homepage-blog {
       @extend .grid-col-content__four;
-      padding-top: 5.0rem;
+      padding-top: 5rem;
 
       @include breakpoint(desktop) {
         padding-top: 0;
@@ -135,13 +135,11 @@
     }
   }
 
-
-
   @include breakpoint(desktop) {
     &__two {
       @include grid();
       align-items: center;
-      column-gap: 16.0rem !important;
+      column-gap: 16rem !important;
       grid-template-columns: repeat(2, 1fr);
       padding-bottom: 13.5rem;
 
@@ -150,7 +148,8 @@
       }
     }
 
-    &__three {
+    &__three,
+    &__three-blog {
       @include grid();
       align-items: center;
       column-gap: 14.6rem !important;
@@ -169,5 +168,4 @@
     grid-column-gap: 7.1rem;
     grid-template-columns: repeat(1, 1fr);
   }
-
 }
