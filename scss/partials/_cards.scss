@@ -92,6 +92,8 @@
   }
 
   &__title {
+    @extend .h4;
+
     margin-bottom: 1rem;
 
     @include breakpoint(tablet) {
@@ -222,10 +224,6 @@
     grid-row-gap: 6.2rem;
     grid-template-columns: 1fr;
     place-items: center;
-  }
-
-  .content-block__title {
-    @extend .h4;
   }
 
   .content-slider__block,

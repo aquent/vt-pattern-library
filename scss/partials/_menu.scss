@@ -23,7 +23,7 @@
 
   @include breakpoint(desktop) {
     position: static;
-    height: 12rem;
+    height: 10.4rem;
   }
 
   &__img {
@@ -130,8 +130,8 @@
     display: grid;
     grid-auto-flow: column;
     grid-column-gap: 0;
-    grid-template-columns: 1fr 4fr; 
-    height: initial;
+    grid-template-columns: 18rem auto; 
+    height: 100%;
     padding: 0 3rem;
   }
 
@@ -189,12 +189,13 @@
     line-height: 1.25;
 
     @include breakpoint(desktop) {
-    // Styles for tertiary-info      
-    font-size: 1.4rem;
-    line-height: 1.286;
-
-      display: block;
-      padding: 4.3rem 1.774rem 4.3rem 0;
+      // Styles for tertiary-info      
+      align-items: center;
+      display: grid;
+      font-size: 1.4rem;
+      height: 100%;
+      line-height: 1.286;
+      padding: 0 1.774rem 0 0;
       position: relative;
 
       &::before {
@@ -225,6 +226,7 @@
 
   &__menuitem {
     cursor: pointer;
+    height: 100%;
     list-style: none;
     padding: 2.4rem 0;
     position: relative;
@@ -344,7 +346,7 @@
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-columns: auto 3rem repeat(3, auto) 1fr;
+    grid-template-columns: auto 18rem;
     justify-items: center;
     grid-column-gap: 0;
     grid-auto-columns: max-content;
@@ -353,6 +355,11 @@
     transform: none;
     overflow: visible;
     padding: 0;
+
+    .top-menu__nav-wrapper {
+      display: grid;
+      grid-template-columns: auto 3rem repeat(3, auto);
+    }
   }
 
   &:target {
