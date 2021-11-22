@@ -8,6 +8,12 @@
 /// END TABLE OF CONTENTS **/
 
 .hero {
+  margin-top: 8rem;
+
+  @include breakpoint(desktop) {
+    margin-top: 0;
+  }
+  
   /** 1 - hero-video
   ------------------------------------------------------------*/
   &-video {
