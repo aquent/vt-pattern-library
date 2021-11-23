@@ -144,12 +144,9 @@
   }
 }
 
-[class^='social-icon__link'] {
-  @include clear-decoration();
-}
-
-.social-icon {
+.social-icon { 
   @include self() {
+    @include clear-decoration();
     width: 2rem;
     height: 2rem;
     display: inline-block;
