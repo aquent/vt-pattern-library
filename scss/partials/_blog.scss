@@ -4,7 +4,6 @@
     padding-bottom: 0;
     width: 42.5rem;
 
-
     @include breakpoint(desktop) {
         margin: 0 auto;
         width: 100%;
@@ -27,7 +26,7 @@
     &__author {
         align-items: center;
         display: grid;
-        grid-template-columns: 9rem 1fr;
+        grid-template-columns: auto 1fr;
         padding-bottom: 7.5rem;
         padding-top: 3.5rem;
 
@@ -40,7 +39,6 @@
                 border-radius: 50%;
             }
         }
-
 
         &-info {
             display: inline-block;
@@ -99,7 +97,6 @@
 
             }
         }
-
     }
 }
 
@@ -110,14 +107,23 @@
     padding-top: 3rem;
     padding-bottom: 0;
 
+  
 
     &__image {
         padding-top: 3.8rem;
         padding-bottom: 6.6rem;
 
         &-featured {
-            padding-bottom: 13.8rem;
+            padding-bottom: 5.6rem;
+            @include breakpoint(desktop) {
+                padding-bottom: 13.8rem;
+            }
         }
+    }    
+
+    &__video {
+        max-width: 100%;
+        text-align: center;
     }
 
     &__post {
