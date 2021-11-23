@@ -1,10 +1,18 @@
 /** TABLE OF CONTENTS
  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
-1 — Leadership Bio 
+
+  0 - VARIABLES
+  1 — Leadership Bio 
   1.1 - Header
   1.2 - Content
   1.3 - Contact
 /// END TABLE OF CONTENTS **/
+
+// NOTE: Due to lack of mobile designs, I made the the decision to slace the padding/margin down to 1/2 for tablet and 1/3 for mobile.
+
+/** 0 - VARIABLES
+------------------------------------------------------------*/
+// TODO: Add variables for the bio.
 
 /** 1 - Leadership Bio
 ------------------------------------------------------------*/
@@ -15,8 +23,17 @@
   &__header {
     background-color: $primary-blue;
     color: $primary-white;
-    padding: 14.4rem 14.5rem 18.5rem 14.5rem;
-    margin-bottom: 14.5rem;
+    padding: 5rem 5rem 6rem 5rem;
+    margin-bottom: 5rem;
+
+    @include breakpoint(tablet) {
+      padding: 7rem 7rem 8rem 5rem;
+    }
+
+    @include breakpoint(desktop) {
+      padding: 14.4rem 14.5rem 18.5rem 14.5rem;
+      margin-bottom: 14.5rem;
+    }
   }
 
   &__heading-main {
@@ -32,9 +49,10 @@
 ========================= */
 
   &__content {
-    // display: flex;
-    // flex-direction: column;
-    padding: 0 18rem 5rem 18rem;
+    padding: 0 6rem 5rem 6rem;
+    @include breakpoint(desktop) {
+      padding: 0 18rem 5rem 18rem;
+    }
   }
 
   &__image {
@@ -59,7 +77,11 @@
 1.3 - Contact
 ========================= */
   &__contact {
-    padding: 0 18rem;
+    padding: 0 6rem 5rem 6rem;
+
+    @include breakpoint(desktop) {
+      padding: 0 18rem 5rem 18rem;
+    }
   }
 
   &__heading-tertiary {
