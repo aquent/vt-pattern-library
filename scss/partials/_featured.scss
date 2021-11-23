@@ -10,6 +10,7 @@
 
     &__text {
       color: $cool-neutral-6;
+      margin-bottom: 4.5rem;
     }
 
     &__button {
@@ -73,8 +74,13 @@
       }
     }
 
+    &__title {
+      margin-bottom: 2rem;
+    }
+
     &__text {
       color: $cool-neutral-6;
+      margin-bottom: 5rem;
     }
 
     &__image {
