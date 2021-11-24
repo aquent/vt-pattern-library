@@ -23,6 +23,7 @@
     color: get-theme-value(color);
     background-color: get-theme-value(background-color);
 
+    // TODO: This should be refactored into the _hero partial 
     .headline {
       @extend .uppercase;
       background: linear-gradient(
