@@ -23,12 +23,8 @@
   &__header {
     background-color: $primary-blue;
     color: $primary-white;
-    padding: 5rem 5rem 6rem 5rem;
+    padding: 7.5rem 2rem 3.6rem 2rem;
     margin-bottom: 5rem;
-
-    @include breakpoint(tablet) {
-      padding: 7rem 7rem 8rem 5rem;
-    }
 
     @include breakpoint(desktop) {
       padding: 14.4rem 14.5rem 18.5rem 14.5rem;
@@ -39,7 +35,7 @@
   &__heading-main {
     @extend h1;
     padding-bottom: 2rem;
-  }
+  } 
 
   &__subheading {
     @extend .p--lead-1;
@@ -49,7 +45,8 @@
 ========================= */
 
   &__content {
-    padding: 0 6rem 5rem 6rem;
+    padding: 0 6rem 4.3rem 6rem;
+
     @include breakpoint(desktop) {
       padding: 0 18rem 5rem 18rem;
     }
@@ -73,6 +70,7 @@
     color: $cool-neutral-1;
     line-height: 2.8;
   }
+  
   /* =========================
 1.3 - Contact
 ========================= */
