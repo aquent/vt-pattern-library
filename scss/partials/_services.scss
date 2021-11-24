@@ -2,6 +2,10 @@
   &__title {
     margin-bottom: 7.6rem;
   }
+  
+  .service:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .service {
