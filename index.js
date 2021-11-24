@@ -12,7 +12,10 @@ const videoController = new VideoController(
   ".hero-video__controller-wrapper",
   ".hero-video__controller"
 );
-const filterBar = new FilterBar(".filter-bar__menu");
+
+if (document.querySelector(".filter-bar__menu")) {
+  const filterBar = new FilterBar(".filter-bar__menu");
+  filterBar.controlMenuDropdown();
+}
 
 menu.asyncDropdown();
-filterBar.controlMenuDropdown();
