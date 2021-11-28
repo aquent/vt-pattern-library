@@ -10,10 +10,10 @@ export default class ContentSlider {
    *  - Clickable area off by 20px due to 2rem padding on .demo-section
    *  - Viewport top position start at [0, 79], not sure why.
    */
-  constructor(sliderWrapper = '.content-slider') {
+  constructor(sliderWrapper = '.content-slider', controlSurface = ".content-block__upper") {
     // check if there is a content slider
         this.contentSlider = document.querySelector(sliderWrapper);
-
+        this.controlSurface = document.querySelector(controlSurface);
     if (this.contentSlider) {
       /**
        * TODO: update selectors to data-attributes
@@ -21,28 +21,28 @@ export default class ContentSlider {
       //get the DOM elements
       const contentSliderCardsList  = this.contentSlider.querySelector(".content-slider__cards-list");
       const contentSliderControls   = this.contentSlider.querySelector(".content-slider__controls");
-      const contentBlockUpper       = this.contentSlider.querySelector(".content-block__upper");
+      const controlSurface       = this.controlSurface;
 
       const controlsLeft            = contentSliderControls.querySelector(".content-slider__controls-left");
       const controlsRight           = contentSliderControls.querySelector(".content-slider__controls-right");
 
       //get the DOMRect objects of the emelements to use in positioning calculations
-      let contentBlockUpperRect     = contentBlockUpper.getBoundingClientRect();
+      let controlSurfaceRect     = controlSurface.getBoundingClientRect();
       let contentSliderControlsRect = contentSliderControls.getBoundingClientRect();
 
       //set height of Left and Right controls
       //height must be set on individual controls as they are empty
-      controlsLeft.style.height     = `${contentBlockUpperRect.height}px`;
-      controlsRight.style.height    = `${contentBlockUpperRect.height}px`;
+      controlsLeft.style.height     = `${controlSurfaceRect.height}px`;
+      controlsRight.style.height    = `${controlSurfaceRect.height}px`;
 
-      // console.log("initial contentBlockUpperRect.top",contentBlockUpperRect.top);
+      // console.log("initial controlSurfaceRect.top",controlSurfaceRect.top);
       // console.log("initial contentSliderControlsRect.top", contentSliderControlsRect.top);
 
       // viewport starts at [0, 79px] ???
       let intitialTopValue = contentSliderControlsRect.top; //79px
       let diff = 0;
 
-      contentSliderControls.style.top = `${contentBlockUpperRect.top - intitialTopValue}px`;
+      contentSliderControls.style.top = `${controlSurfaceRect.top - intitialTopValue}px`;
       
       let resizeObserver = new ResizeObserver(entries => {
         for (let entry of entries){
@@ -50,10 +50,10 @@ export default class ContentSlider {
           contentSliderControlsRect = contentSliderControls.getBoundingClientRect();
 
           //find the diff between controlRect and upper rect 
-          diff = contentBlockUpperRect.top - contentSliderControlsRect.top;
+          diff = controlSurfaceRect.top - contentSliderControlsRect.top;
 
         //  Adjust controls' top - math is incorect
-          // contentSliderControls.style.top = `${contentBlockUpperRect.top - intitialTopValue + diff}px`;
+          // contentSliderControls.style.top = `${controlSurfaceRect.top - intitialTopValue + diff}px`;
         }
       });
       
@@ -80,6 +80,9 @@ export default class ContentSlider {
         e.preventDefault();
         contentSliderCardsList.scrollLeft += e.deltaY * 2;
     });
+
+    } else {
+      console.error("No content slider found");
     }
   } 
 }
