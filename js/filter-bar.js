@@ -14,8 +14,27 @@ export default class FilterBar extends Menu {
   }
 
   spreadMenuDropdown = () => {
-    // open all details on mobile view
     if (this.navbar) {
+      // open all details on mobile view
+      this.menus.forEach((thisDetail) => {
+        thisDetail.open = true;
+      });
+    }
+  };
+
+  handleSorterChange = () => {
+    document
+      .querySelectorAll(".filter-bar__sorter-input-toggle")
+      .forEach((e) => {
+        e.addEventListener("change", (element) => {
+          document.getElementsByTagName("form")[0].submit();
+          
+        });
+      });
+  };
+
+  handleMobileChange = (e) => {
+    if (e.matches) {
       // Stop closing openthis.menus if the user clicks on a non-menu item
       document.removeEventListener("pointerdown", super.handleNonMenuClick);
 
@@ -23,23 +42,13 @@ export default class FilterBar extends Menu {
       document.removeEventListener("keydown", super.handleEscapeKey);
 
       // Open all filter menu on mobile
-      this.menus.forEach((thisDetail) => {
-        thisDetail.open = true;
-        console.log("detail " + thisDetail.open);
-      });
-    }
-  };
-
-  handleMobileChange = (e) => {
-    if (e.matches) {
-      console.log("spread menu for mobile");
       this.spreadMenuDropdown(this.navbar, this.menus);
     } else {
-      console.log("removing open attr");
       this.menus.forEach((thisDetail) => {
         if (thisDetail.open) thisDetail.removeAttribute("open");
       });
       this.asyncDropdown(this.navbar);
+      this.handleSorterChange();
     }
   };
 
