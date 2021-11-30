@@ -160,6 +160,9 @@
 /** 7 - Clear decoration
 ------------------------------------------------------------*/
 @mixin clear-decoration() {
+  &::before {
+    content: "";
+  }
   & {
     background: none;
     text-decoration: none;
