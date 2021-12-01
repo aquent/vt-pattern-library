@@ -21,13 +21,13 @@ export default class ContentSlider {
       //get the DOM elements
       const contentSliderCardsList  = this.contentSlider.querySelector(".content-slider__cards-list");
       const contentSliderControls   = this.contentSlider.querySelector(".content-slider__controls");
-      const controlSurface       = this.controlSurface;
+      const controlSurface          = this.controlSurface;
 
       const controlsLeft            = contentSliderControls.querySelector(".content-slider__controls-left");
       const controlsRight           = contentSliderControls.querySelector(".content-slider__controls-right");
 
       //get the DOMRect objects of the emelements to use in positioning calculations
-      let controlSurfaceRect     = controlSurface.getBoundingClientRect();
+      let controlSurfaceRect        = controlSurface.getBoundingClientRect();
       let contentSliderControlsRect = contentSliderControls.getBoundingClientRect();
 
       //set height of Left and Right controls
@@ -74,11 +74,6 @@ export default class ContentSlider {
         //   left: 600, // absolute value. Needs to be dynamically calclucated.
         //   behavior: "smooth"
         // })
-      })
-
-      contentSliderControls.addEventListener("wheel", (e) => {
-        e.preventDefault();
-        contentSliderCardsList.scrollLeft += e.deltaY * 2;
     });
 
     } else {
