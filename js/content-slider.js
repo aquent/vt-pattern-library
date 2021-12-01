@@ -60,6 +60,7 @@ export default class ContentSlider {
       resizeObserver.observe(this.contentSlider);
 
       //event listeners
+      //TODO: Refactor to a single function with behavior based on event.someValue
       controlsLeft.addEventListener("click", (e) => {
         e.preventDefault();
         contentSliderCardsList.scrollLeft -= 500;
@@ -69,11 +70,6 @@ export default class ContentSlider {
       controlsRight.addEventListener("click", (e) => {
         e.preventDefault();
         contentSliderCardsList.scrollLeft += 500;
-
-        // contentSliderCardsList.scroll({
-        //   left: 600, // absolute value. Needs to be dynamically calclucated.
-        //   behavior: "smooth"
-        // })
     });
 
     } else {
