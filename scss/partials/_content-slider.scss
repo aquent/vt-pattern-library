@@ -1,6 +1,5 @@
 .content-slider {
   position: relative;
-  overflow-x: scroll;
   // scroll-snap-type: mandatory;
   // scroll-snap-points-x: snapInterval(30% 70%);
   white-space: nowrap;
@@ -16,9 +15,14 @@
   &__cards-list {
     overflow-x: scroll;
     scroll-behavior: smooth;
+    scrollbar-width: none;
     display: flex;
     flex-direction: row;
     gap: 2.5rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     @include breakpoint(desktop) {
       gap: 7.5rem;
