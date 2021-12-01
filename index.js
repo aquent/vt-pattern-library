@@ -6,7 +6,7 @@ import TabsPanel from "./js/tabs-panel";
 import FilterBar from "filter-bar";
 
 const menu = new Menu(".navbar");
-const contentSlider = new ContenSlider();
+const contentSlider = new ContenSlider(".content-slider", ".content-block__upper");
 const tabsPanel = new TabsPanel(".tabs-nav", ".tabs");
 const videoController = new VideoController(
   ".hero-video__controller-wrapper",
