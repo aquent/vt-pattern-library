@@ -65,7 +65,7 @@
     margin-bottom: 2.4rem;
   }
 
-  &__copy {
+  &__copy > p {
     @extend .p--body;
     color: $cool-neutral-1;
     line-height: 2.8;
