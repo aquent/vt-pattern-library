@@ -63,11 +63,9 @@ $breakpoints: (
   xxlarge: 1440px,
 );
 $breakpoint-classes: (mobile tablet desktop);
-$breakpoint-mobile: map-get($breakpoints, mobile);
-$breakpoint-tablet: map-get($breakpoints, tablet);
-$breakpoint-desktop: map-get($breakpoints, desktop);
-$breakpoint-xlarge: map-get($breakpoints, xlarge);
-$breakpoint-xxlarge: map-get($breakpoints, xxlarge);
+$breakpoint-mobile: 0;
+$breakpoint-tablet: 640px;
+$breakpoint-desktop: 866px;
 
 /** 3 - Theme coloring
 ------------------------------------------------------------*/
