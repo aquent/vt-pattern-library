@@ -38,11 +38,11 @@
     position: absolute;
     right: 2.6rem;
     z-index: 10;
-  
+
     @include breakpoint(desktop) {
       position: relative;
       right: initial;
-    } 
+    }
   }
 }
 
@@ -125,12 +125,12 @@
   position: relative;
   width: 100%;
   background-color: $primary-blue;
-  
+
   @include breakpoint(desktop) {
     display: grid;
     grid-auto-flow: column;
     grid-column-gap: 0;
-    grid-template-columns: 18rem auto; 
+    grid-template-columns: 18rem auto;
     height: 100%;
     padding: 0 3rem;
   }
@@ -138,12 +138,16 @@
   &__ul {
     font-weight: inherit;
     list-style-type: none;
-    padding: 2.9rem;    
+    padding: 2.9rem;
   }
 
   &__li {
     display: block;
-    padding-bottom: .2rem;
+    padding-bottom: 1.5rem;
+
+    @include breakpoint(desktop) {
+      padding-bottom: 0.4rem;
+    }
 
     &::before {
       content: "";
@@ -152,12 +156,18 @@
     &--heading {
       border-bottom: 0.1rem solid $cool-neutral-4;
       padding-bottom: 1rem;
-      margin-bottom: 1.6rem;
+      margin-bottom: 3.5rem;
+
+      @include breakpoint(desktop) {
+        margin-bottom: 2.5rem;
+      }
     }
 
     &--subheading {
       color: $secondary-green-1;
       margin-top: 2.8rem;
+      padding-bottom: 1rem;
+      line-height: normal;
 
       &:first-child {
         margin-top: 0;
@@ -183,13 +193,12 @@
   }
 
   &__label {
-   
     // Styles for tertiary-info--large
     font-size: 1.6rem;
     line-height: 1.25;
 
     @include breakpoint(desktop) {
-      // Styles for tertiary-info      
+      // Styles for tertiary-info
       align-items: center;
       display: grid;
       font-size: 1.4rem;
@@ -213,7 +222,13 @@
 
       @at-root [open] #{&} {
         @include breakpoint(desktop) {
-          background: linear-gradient(0deg, $primary-green 0%, $primary-green 6%, transparent 6%, transparent 100%);
+          background: linear-gradient(
+            0deg,
+            $primary-green 0%,
+            $primary-green 6%,
+            transparent 6%,
+            transparent 100%
+          );
 
           &::before {
             background-color: $primary-white;
@@ -233,8 +248,16 @@
 
     &:before {
       background-color: $secondary-green-1;
-      clip-path: polygon(88% 12%, 100% 0, 100% 95%, 95% 100%, 0 100%, 12% 88%, 88% 88%);
-      content: '';
+      clip-path: polygon(
+        88% 12%,
+        100% 0,
+        100% 95%,
+        95% 100%,
+        0 100%,
+        12% 88%,
+        88% 88%
+      );
+      content: "";
       display: block;
       height: 2rem;
       position: absolute;
@@ -288,14 +311,22 @@
       .top-menu {
         &__menuitem {
           background-color: $secondary-blue-1;
-          margin: .9rem auto 0 auto;
+          margin: 0.9rem auto 0 auto;
           padding: 2.5rem 0 2.5rem 6.3rem;
           width: 90%;
 
           &:before {
             background-color: $primary-white;
-            clip-path: polygon(88% 12%, 100% 0, 100% 95%, 95% 100%, 0 100%, 12% 88%, 88% 88%);
-            content: '';
+            clip-path: polygon(
+              88% 12%,
+              100% 0,
+              100% 95%,
+              95% 100%,
+              0 100%,
+              12% 88%,
+              88% 88%
+            );
+            content: "";
             display: block;
             height: 2rem;
             left: 3rem;
@@ -435,8 +466,10 @@
     width: 100%;
 
     @include breakpoint(desktop) {
+      align-self: unset;
       grid-column-start: 1;
       grid-column-end: 4;
+      width: 36rem;
     }
   }
 
@@ -445,17 +478,11 @@
     width: 100%;
 
     @include breakpoint(desktop) {
+      align-self: unset;
       background-color: lighten($secondary-green-2, 20%);
       grid-column-start: 4;
       grid-column-end: 5;
-    }
-  }
-
-  &--main,
-  &--sub {
-    @include breakpoint(desktop) {
-      align-self: unset;
-      width: 36rem;
+      width: 26rem;
     }
   }
 
