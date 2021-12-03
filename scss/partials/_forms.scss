@@ -176,12 +176,6 @@ X — Layout
   }
 }
 
-/** X - Layout
-------------------------------------------------------------*/
-.form__field-wrapper {
-  margin-bottom: 1.6rem;
-}
-
 /* =========================
 4 - Errors - Global
 ========================= */
@@ -195,4 +189,10 @@ X — Layout
   & [class*="__error-message"] {
     color: $product-red-3;
   }
+}
+
+/** X - Layout
+------------------------------------------------------------*/
+.form__field-wrapper {
+  margin-bottom: 1.6rem;
 }
