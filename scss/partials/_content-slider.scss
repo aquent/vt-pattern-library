@@ -43,9 +43,9 @@
   }
 
   &__controls {
-    display: none;
+    // display: none;
 
-    @include breakpoint(desktop) {
+    // @include breakpoint(desktop) {
       display: block;
       position: absolute;
       top: 0;
@@ -56,7 +56,7 @@
       &-left,
       &-right {
         background: none;
-        // background-color: rgba($color: red, $alpha: 0.1);
+        background-color: rgba($color: red, $alpha: 0.1);
         display: inline-block;
         position: relative;
       }
@@ -75,6 +75,6 @@
         right: 0;
         width: 50%;
       }
-    }
+    // }
   }
 }
