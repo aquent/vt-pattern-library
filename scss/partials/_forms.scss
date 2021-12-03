@@ -1,16 +1,15 @@
 /** TABLE OF CONTENTS
  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
 1 - Form
-1.1 - Form Labels
-1.2 - Form Inputs - Global
-
+  1.1 - Form Labels
+  1.2 - Form Inputs - Global
 2 — Inputs
   2.1 — Text Single line
   2.2 — Text Multi line
   2.3 - Radio Buttons
   2.4 - Select Dropdown
-
-  4 - Errors Global (needs to be last)
+3 - Submitting Overlay
+4 - Errors Global (needs to be last)
 X — Layout
 
 /// END TABLE OF CONTENTS **/
@@ -129,10 +128,6 @@ X — Layout
 }
 
 /* =========================
-2.4 - Radio Buttons
-========================= */
-
-/* =========================
 2.4 - Select Dropdown
 ========================= */
 
@@ -147,6 +142,37 @@ X — Layout
     background-size: 16px 8px;
     color: $primary-blue;
     padding: 1.6rem;
+  }
+}
+
+/** 3 - Submitting Overlay
+------------------------------------------------------------*/
+.submit-overlay {
+  background-color: rgba(255,255,255,.666);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  margin: auto;
+
+  &::after {
+    width: 4rem;
+    height: 4rem;
+    background-color: $cool-neutral-2;
+    -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+    animation: sk-rotateplane 1.2s infinite ease-in-out;
+    position: absolute;
+    margin: auto;
+    text-align: center;
+    top: calc(50% - 2rem);
+    left: calc(50% - 2rem);
+    transform: translate(-50%,-50%);
+    content: '';
   }
 }
 
