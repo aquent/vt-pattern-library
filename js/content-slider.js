@@ -12,8 +12,12 @@ export default class ContentSlider {
    */
   constructor(sliderWrapper = '.content-slider', controlSurface = ".content-block__upper") {
     // check if there is a content slider
+
+      console.log("ContentSlider constructor");
+
         this.contentSlider = document.querySelector(sliderWrapper);
         this.controlSurface = document.querySelector(controlSurface);
+
     if (this.contentSlider) {
       /**
        * TODO: update selectors to data-attributes
@@ -44,23 +48,23 @@ export default class ContentSlider {
 
       contentSliderControls.style.top = `${controlSurfaceRect.top - intitialTopValue}px`;
       
-      let resizeObserver = new ResizeObserver(entries => {
-        for (let entry of entries){
-        //   recalculate the controls rect.
-          contentSliderControlsRect = contentSliderControls.getBoundingClientRect();
+      // let resizeObserver = new ResizeObserver(entries => {
+      //   for (let entry of entries){
+      //   //   recalculate the controls rect.
+      //     contentSliderControlsRect = contentSliderControls.getBoundingClientRect();
 
-          //find the diff between controlRect and upper rect 
-          diff = controlSurfaceRect.top - contentSliderControlsRect.top;
+      //     //find the diff between controlRect and upper rect 
+      //     diff = controlSurfaceRect.top - contentSliderControlsRect.top;
 
-        //  Adjust controls' top - math is incorect
-          // contentSliderControls.style.top = `${controlSurfaceRect.top - intitialTopValue + diff}px`;
-        }
-      });
+      //   //  Adjust controls' top - math is incorect
+      //     // contentSliderControls.style.top = `${controlSurfaceRect.top - intitialTopValue + diff}px`;
+      //   }
+      // });
       
-      resizeObserver.observe(this.contentSlider);
+      // resizeObserver.observe(this.contentSlider);
 
-      //event listeners
-      //TODO: Refactor to a single function with behavior based on event.someValue
+      // //event listeners
+      // //TODO: Refactor to a single function with behavior based on event.someValue
       controlsLeft.addEventListener("click", (e) => {
         e.preventDefault();
         contentSliderCardsList.scrollLeft -= 500;
@@ -72,8 +76,24 @@ export default class ContentSlider {
         contentSliderCardsList.scrollLeft += 500;
     });
 
+    window.addEventListener("resize", () => {
+      this.resizeControlSurface();
+    })
+
+    this.testFx();
+
     } else {
       console.error("No content slider found");
     }
   } 
+
+  resizeControlSurface() {
+    console.log("resizeControlSurface");
+
+    
+  }
+
+  testFx() {
+    console.log("test");
+  }
 }
