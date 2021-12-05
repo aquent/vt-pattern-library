@@ -9,6 +9,7 @@
 5 - Vertical spacing
 6 - Image zoom
 7 - Clear decoration
+8 - Arrow Symbol (Menu, Pagination, etc.)
 /// END TABLE OF CONTENTS **/
 
 /** 1 - Breakpoint
@@ -168,4 +169,22 @@
     text-decoration: none;
     border: none;
   }
+}
+
+/** 8 - Arrow Symbol
+------------------------------------------------------------*/
+@mixin arrow-sym($dir: left, $color: $primary-blue) {
+  background-color: $color;
+  clip-path: polygon(88% 12%, 100% 0, 100% 95%, 95% 100%, 0 100%, 12% 88%, 88% 88%);
+  content: '';
+  display: block;
+  height: 2rem;
+  position: absolute;
+  top: 50%;
+  @if ($dir == right) {
+    transform: translateY(-50%) rotate(-45deg);
+  } @else {
+    transform: translateY(-50%) rotate(135deg);
+  }
+  width: 2rem;
 }
