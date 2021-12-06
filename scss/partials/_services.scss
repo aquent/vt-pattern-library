@@ -2,14 +2,19 @@
   &__title {
     margin-bottom: 7.6rem;
   }
-  
-  .service:last-child {
-    margin-bottom: 0;
+
+  @include breakpoint(desktop) {
+    .service:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
 .service {
-  margin-bottom: 11rem;
+  //----Mobile
+  @include grid();
+  grid-template-columns: repeat(12, 1fr);
+  margin-bottom: 6.4rem;
 
   &__enumerator {
     @extend .h6;
@@ -17,9 +22,9 @@
     @include vertical-spacing(sm-6, bottom, margin);
   }
 
-  //----Mobile
-  @include grid();
-  grid-template-columns: repeat(12, 1fr);
+  @include breakpoint(desktop) {
+    margin-bottom: 11rem;
+  }
 
   &__images {
     @include grid();
