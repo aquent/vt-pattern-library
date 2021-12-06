@@ -25,11 +25,19 @@
       h3 {
         @extend .h4;
         @include vertical-spacing(sm-6, bottom, margin);
-        @include vertical-spacing(md-3, top, margin);
       }
 
-      @include breakpoint(tablet) {
-        column-gap: 14rem;
+      // Selects all the headings from 2nd to n
+      p + h3 {
+        @include vertical-spacing(md-4, top, margin);
+      }
+
+      picture {
+        margin-bottom: 6.2rem;
+      }
+
+      @include breakpoint(desktop) {
+        column-gap: 9.5rem;
         grid-template-columns: 3fr 2fr;
       }
     }
