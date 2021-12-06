@@ -31,12 +31,14 @@
     .section-heading {
       @extend h1;
 
+      @include vertical-spacing(sm-1, top, margin);
       @include vertical-spacing(md-1, bottom, margin);
 
       &--underline {
         @extend .h4;
         @extend .uppercase;
 
+        @include vertical-spacing(sm-1, top, margin);
         @include vertical-spacing(md-1, bottom, margin);
 
         background: linear-gradient(
