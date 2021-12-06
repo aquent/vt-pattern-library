@@ -208,16 +208,7 @@
       position: relative;
 
       &::before {
-        background-color: $secondary-green-1;
-        clip-path: polygon(50% 100%, 0 0, 100% 0);
-        content: "";
-        display: block;
-        height: 0.5rem;
-        position: absolute;
-        right: 0px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 0.974rem;
+        @include caret-sym(down, $secondary-green-1);
       }
 
       @at-root [open] #{&} {
@@ -231,8 +222,7 @@
           );
 
           &::before {
-            background-color: $primary-white;
-            clip-path: polygon(50% 0, 100% 100%, 0 100%);
+            @include caret-sym(up, $primary-white);
           }
         }
       }
@@ -246,31 +236,15 @@
     padding: 2.4rem 0;
     position: relative;
 
-    &:before {
-      background-color: $secondary-green-1;
-      clip-path: polygon(
-        88% 12%,
-        100% 0,
-        100% 95%,
-        95% 100%,
-        0 100%,
-        12% 88%,
-        88% 88%
-      );
-      content: "";
-      display: block;
-      height: 2rem;
-      position: absolute;
+    &::before {
+      @include arrow-sym(right, $secondary-green-1);
       right: 0;
-      top: 50%;
-      transform: translateY(-50%) rotate(-45deg);
-      width: 2rem;
     }
 
     @include breakpoint(desktop) {
       padding: 0 0 0 3rem;
 
-      &:before {
+      &::before {
         display: none;
       }
     }
@@ -315,24 +289,10 @@
           padding: 2.5rem 0 2.5rem 6.3rem;
           width: 90%;
 
-          &:before {
-            background-color: $primary-white;
-            clip-path: polygon(
-              88% 12%,
-              100% 0,
-              100% 95%,
-              95% 100%,
-              0 100%,
-              12% 88%,
-              88% 88%
-            );
-            content: "";
-            display: block;
+          &::before {
+            @include arrow-sym (left, $primary-white);
             height: 2rem;
             left: 3rem;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%) rotate(135deg);
             width: 2rem;
           }
 
@@ -342,7 +302,7 @@
             padding: 0 0 0 3rem;
             width: 100%;
 
-            &:before {
+            &::before {
               content: none;
             }
           }

@@ -26,9 +26,8 @@ export default class FilterBar extends Menu {
     document
       .querySelectorAll(".filter-bar__sorter-input-toggle")
       .forEach((e) => {
-        e.addEventListener("change", (element) => {
+        e.addEventListener("change", _ => {
           document.getElementsByTagName("form")[0].submit();
-          
         });
       });
   };
