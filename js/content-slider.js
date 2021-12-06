@@ -10,9 +10,9 @@ export default class ContentSlider {
    *  - Clickable area off by 20px due to 2rem padding on .demo-section
    *  - Viewport top position start at [0, 79], not sure why.
    */
-  constructor() {
+  constructor(sliderWrapper = '.content-slider') {
     // check if there is a content slider
-        this.contentSlider = document.querySelector('[aria-label="gallery"]');
+        this.contentSlider = document.querySelector(sliderWrapper);
 
     if (this.contentSlider) {
       /**

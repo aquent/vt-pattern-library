@@ -23,7 +23,7 @@
 
   @include breakpoint(desktop) {
     position: static;
-    height: 12rem;
+    height: 10.4rem;
   }
 
   &__img {
@@ -38,11 +38,11 @@
     position: absolute;
     right: 2.6rem;
     z-index: 10;
-  
+
     @include breakpoint(desktop) {
       position: relative;
       right: initial;
-    } 
+    }
   }
 }
 
@@ -125,25 +125,29 @@
   position: relative;
   width: 100%;
   background-color: $primary-blue;
-  
+
   @include breakpoint(desktop) {
     display: grid;
     grid-auto-flow: column;
     grid-column-gap: 0;
-    grid-template-columns: 1fr 4fr; 
-    height: initial;
+    grid-template-columns: 18rem auto;
+    height: 100%;
     padding: 0 3rem;
   }
 
   &__ul {
     font-weight: inherit;
     list-style-type: none;
-    padding: 2.9rem;    
+    padding: 2.9rem;
   }
 
   &__li {
     display: block;
-    padding-bottom: .2rem;
+    padding-bottom: 1.5rem;
+
+    @include breakpoint(desktop) {
+      padding-bottom: 0.4rem;
+    }
 
     &::before {
       content: "";
@@ -152,12 +156,18 @@
     &--heading {
       border-bottom: 0.1rem solid $cool-neutral-4;
       padding-bottom: 1rem;
-      margin-bottom: 1.6rem;
+      margin-bottom: 3.5rem;
+
+      @include breakpoint(desktop) {
+        margin-bottom: 2.5rem;
+      }
     }
 
     &--subheading {
       color: $secondary-green-1;
       margin-top: 2.8rem;
+      padding-bottom: 1rem;
+      line-height: normal;
 
       &:first-child {
         margin-top: 0;
@@ -183,40 +193,36 @@
   }
 
   &__label {
-   
     // Styles for tertiary-info--large
     font-size: 1.6rem;
     line-height: 1.25;
 
     @include breakpoint(desktop) {
-    // Styles for tertiary-info      
-    font-size: 1.4rem;
-    line-height: 1.286;
-
-      display: block;
-      padding: 4.3rem 1.774rem 4.3rem 0;
+      // Styles for tertiary-info
+      align-items: center;
+      display: grid;
+      font-size: 1.4rem;
+      height: 100%;
+      line-height: 1.286;
+      padding: 0 1.774rem 0 0;
       position: relative;
 
       &::before {
-        background-color: $secondary-green-1;
-        clip-path: polygon(50% 100%, 0 0, 100% 0);
-        content: "";
-        display: block;
-        height: 0.5rem;
-        position: absolute;
-        right: 0px;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 0.974rem;
+        @include caret-sym(down, $secondary-green-1);
       }
 
       @at-root [open] #{&} {
         @include breakpoint(desktop) {
-          background: linear-gradient(0deg, $primary-green 0%, $primary-green 6%, transparent 6%, transparent 100%);
+          background: linear-gradient(
+            0deg,
+            $primary-green 0%,
+            $primary-green 6%,
+            transparent 6%,
+            transparent 100%
+          );
 
           &::before {
-            background-color: $primary-white;
-            clip-path: polygon(50% 0, 100% 100%, 0 100%);
+            @include caret-sym(up, $primary-white);
           }
         }
       }
@@ -225,27 +231,20 @@
 
   &__menuitem {
     cursor: pointer;
+    height: 100%;
     list-style: none;
     padding: 2.4rem 0;
     position: relative;
 
-    &:before {
-      background-color: $secondary-green-1;
-      clip-path: polygon(88% 12%, 100% 0, 100% 95%, 95% 100%, 0 100%, 12% 88%, 88% 88%);
-      content: '';
-      display: block;
-      height: 2rem;
-      position: absolute;
+    &::before {
+      @include arrow-sym(right, $secondary-green-1);
       right: 0;
-      top: 50%;
-      transform: translateY(-50%) rotate(-45deg);
-      width: 2rem;
     }
 
     @include breakpoint(desktop) {
       padding: 0 0 0 3rem;
 
-      &:before {
+      &::before {
         display: none;
       }
     }
@@ -280,26 +279,20 @@
       }
 
       .dropdown-menu {
-        animation: sweep 0.5s ease-in-out;
+        animation: sweep-right 0.5s ease-in-out;
       }
 
       .top-menu {
         &__menuitem {
           background-color: $secondary-blue-1;
-          margin: .9rem auto 0 auto;
+          margin: 0.9rem auto 0 auto;
           padding: 2.5rem 0 2.5rem 6.3rem;
           width: 90%;
 
-          &:before {
-            background-color: $primary-white;
-            clip-path: polygon(88% 12%, 100% 0, 100% 95%, 95% 100%, 0 100%, 12% 88%, 88% 88%);
-            content: '';
-            display: block;
+          &::before {
+            @include arrow-sym (left, $primary-white);
             height: 2rem;
             left: 3rem;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%) rotate(135deg);
             width: 2rem;
           }
 
@@ -309,7 +302,7 @@
             padding: 0 0 0 3rem;
             width: 100%;
 
-            &:before {
+            &::before {
               content: none;
             }
           }
@@ -344,7 +337,7 @@
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-columns: auto 3rem repeat(3, auto) 1fr;
+    grid-template-columns: auto 18rem;
     justify-items: center;
     grid-column-gap: 0;
     grid-auto-columns: max-content;
@@ -353,6 +346,11 @@
     transform: none;
     overflow: visible;
     padding: 0;
+
+    .top-menu__nav-wrapper {
+      display: grid;
+      grid-template-columns: auto 3rem repeat(3, auto);
+    }
   }
 
   &:target {
@@ -428,8 +426,10 @@
     width: 100%;
 
     @include breakpoint(desktop) {
+      align-self: unset;
       grid-column-start: 1;
       grid-column-end: 4;
+      width: 36rem;
     }
   }
 
@@ -438,17 +438,11 @@
     width: 100%;
 
     @include breakpoint(desktop) {
+      align-self: unset;
       background-color: lighten($secondary-green-2, 20%);
       grid-column-start: 4;
       grid-column-end: 5;
-    }
-  }
-
-  &--main,
-  &--sub {
-    @include breakpoint(desktop) {
-      align-self: unset;
-      width: 36rem;
+      width: 26rem;
     }
   }
 

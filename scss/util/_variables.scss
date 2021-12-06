@@ -63,6 +63,9 @@ $breakpoints: (
   xxlarge: 1440px,
 );
 $breakpoint-classes: (mobile tablet desktop);
+$breakpoint-mobile: 0;
+$breakpoint-tablet: 640px;
+$breakpoint-desktop: 866px;
 
 /** 3 - Theme coloring
 ------------------------------------------------------------*/
