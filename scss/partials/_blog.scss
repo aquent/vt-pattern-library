@@ -82,19 +82,13 @@
             margin-left: auto;
             margin-right: 0;
             padding-top: 2.1rem;
-
-
-            .social-icon__link {
+            .social-icon__link--linkedin, .social-icon__link--twitter, .social-icon__link--facebook {
+                background-color: $secondary-green-2;
                 margin-right: 1.7rem;
 
                 &:last-child {
                     margin-right: 0;
                 }
-
-                img {
-                    background-color: $secondary-green-2;
-                }
-
             }
         }
     }
@@ -259,8 +253,9 @@
             }
 
             &--categories {
+                padding-bottom: 14.6rem;
                 padding-left: 0;
-                padding-bottom: 146px;
+                padding-top: 7.5rem;
 
                 .article__post-list-item {
                     display: inline-block;
@@ -327,10 +322,8 @@
         &-media-links {
             @extend .post-hero__time-social-links;
 
-            .social-icon__link {
-                img {
-                    background-color: $secondary-blue-2;
-                }
+            .social-icon__link--linkedin, .social-icon__link--twitter, .social-icon__link--facebook {
+                background-color: $secondary-blue-2;
             }
         }
     }

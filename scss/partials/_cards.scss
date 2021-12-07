@@ -79,6 +79,7 @@
     &-text {
       color: $cool-neutral-1;
       font-size: 2rem;
+      padding-bottom: 1rem;
 
       &-tag {
         color: $secondary-green-1;
@@ -177,7 +178,7 @@
       grid-template-columns: 1fr 1fr;
       padding-bottom: 14.5rem;
       padding-top: 14.5rem;
-      width: 100%
+      width: 100%;
     }
   }
 
@@ -256,6 +257,13 @@
 
     .content-block__title {
       @extend .h6;
+    }
+  }
+
+  &--blog-button {
+    padding-top: 6.5rem;
+    @include breakpoint(desktop) {
+      padding-top: 12.1rem;
     }
   }
 }
