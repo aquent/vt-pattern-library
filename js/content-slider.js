@@ -83,7 +83,7 @@ export default class ContentSlider {
     this.testFx();
 
     } else {
-      console.error("No content slider found");
+      console.error("[Content Slider] No content slider found");
     }
   } 
 
