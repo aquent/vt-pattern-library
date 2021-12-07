@@ -51,10 +51,18 @@
 }
 
 .hidden-for-desktop {
-  display: relative;
+  display: initial;
 
   @include breakpoint(desktop) {
     display: none;
+  }
+}
+
+.show-for-desktop {
+  display: none;
+
+  @include breakpoint(desktop) {
+    display: initial;
   }
 }
 
