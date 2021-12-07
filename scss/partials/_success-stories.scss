@@ -34,7 +34,8 @@
   &__container {
     @include self() {
       @include grid();
-      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+      row-gap: 2rem;
 
       @include breakpoint(tablet) {
         grid-template-columns: repeat(auto-fit, minmax(60rem, 1fr));
