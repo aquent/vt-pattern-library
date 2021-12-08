@@ -2,7 +2,6 @@
 .post-hero {
     margin: 0;
     padding-bottom: 0;
-    width: 42.5rem;
 
     @include breakpoint(desktop) {
         margin: 0 auto;
@@ -58,7 +57,7 @@
     &__time-social {
         border-top: 0.1rem solid $cool-neutral-2;
         display: grid;
-        grid-template-columns: 18rem 1fr;
+        grid-template-columns: 18rem auto;
 
         &-read-time {
             border-right: 0.1rem solid $cool-neutral-2;
