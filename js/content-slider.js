@@ -46,12 +46,12 @@ export default class ContentSlider {
       // TODO: Refactor to a single function with behavior based on event.someValue
       this.controlsLeft.addEventListener("click", (e) => {
         e.preventDefault();
-        contentSliderCardsList.scrollLeft -= 500;
+        contentSliderCardsList.scrollLeft -= 525;
       });
 
       this.controlsRight.addEventListener("click", (e) => {
         e.preventDefault();
-        contentSliderCardsList.scrollLeft += 500;
+        contentSliderCardsList.scrollLeft += 525;
       });
 
       window.addEventListener("resize", () => {
