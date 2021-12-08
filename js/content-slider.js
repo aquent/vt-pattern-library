@@ -10,7 +10,10 @@ export default class ContentSlider {
    *  - Clickable area off by 20px due to 2rem padding on .demo-section
    *  - Viewport top position start at [0, 79], not sure why.
    */
-  constructor(sliderWrapper = ".content-slider", controlSurface = ".content-block__upper") {
+  constructor(
+    sliderWrapper = ".content-slider",
+    controlSurface = ".content-block__upper"
+  ) {
     // check if there is a content slider
     this.contentSlider = document.querySelector(sliderWrapper);
     this.controlSurface = document.querySelector(controlSurface);
@@ -21,18 +24,9 @@ export default class ContentSlider {
        * TODO: Refactor this so that it appends the controls div to the DOM, therefore removing the necesity for a controlSurface parameter to be passed in.
        */
       // Assign the Controling DOM elements to vars.
-      const contentSliderCardsList = this.contentSlider.querySelector(
-        ".content-slider__cards-list"
-      );
-      this.contentSliderControls = this.contentSlider.querySelector(
-        ".content-slider__controls"
-      );
-      this.controlsLeft = this.contentSliderControls.querySelector(
-        ".content-slider__controls-left"
-      );
-      this.controlsRight = this.contentSliderControls.querySelector(
-        ".content-slider__controls-right"
-      );
+      this.initializeControlSurface();
+
+      this.attachEventListeners();
 
       this.resizeControlSurface();
 
@@ -41,33 +35,51 @@ export default class ContentSlider {
       this.contentSliderControls.style.top = `${
         this.controlSurfaceRect.top - intitialTopValue
       }px`;
-
-      // Event listeners
-      // TODO: Refactor to a single function with behavior based on event.someValue
-      this.controlsLeft.addEventListener("click", (e) => {
-        e.preventDefault();
-        contentSliderCardsList.scrollLeft -= 525;
-      });
-
-      this.controlsRight.addEventListener("click", (e) => {
-        e.preventDefault();
-        contentSliderCardsList.scrollLeft += 525;
-      });
-
-      window.addEventListener("resize", () => {
-        this.resizeControlSurface();
-      });
-
     } else {
-      console.error("[Content Slider] No content slider found. Please make sure the .className parameter passed to the content slider exists and is correct.");
+      console.error(
+        "[Content Slider] No content slider found. Please make sure the .className parameter passed to the content slider exists and is correct."
+      );
     }
   }
 
   resizeControlSurface() {
     this.controlSurfaceRect = this.controlSurface.getBoundingClientRect();
-    this.contentSliderControlsRect = this.contentSliderControls.getBoundingClientRect();
+    this.contentSliderControlsRect =
+      this.contentSliderControls.getBoundingClientRect();
 
     this.controlsLeft.style.height = `${this.controlSurfaceRect.height}px`;
     this.controlsRight.style.height = `${this.controlSurfaceRect.height}px`;
+  }
+
+  initializeControlSurface() {
+    this.contentSliderCardsList = this.contentSlider.querySelector(
+      ".content-slider__cards-list"
+    );
+    this.contentSliderControls = this.contentSlider.querySelector(
+      ".content-slider__controls"
+    );
+    this.controlsLeft = this.contentSliderControls.querySelector(
+      ".content-slider__controls-left"
+    );
+    this.controlsRight = this.contentSliderControls.querySelector(
+      ".content-slider__controls-right"
+    );
+  }
+
+  attachEventListeners() {
+    // TODO: Refactor to a single function with behavior based on event.someValue
+    this.controlsLeft.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.contentSliderCardsList.scrollLeft -= 525;
+    });
+
+    this.controlsRight.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.contentSliderCardsList.scrollLeft += 525;
+    });
+
+    window.addEventListener("resize", () => {
+      this.resizeControlSurface();
+    });
   }
 }
