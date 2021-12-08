@@ -1,7 +1,5 @@
 .content-slider {
   position: relative;
-  // scroll-snap-type: mandatory;
-  // scroll-snap-points-x: snapInterval(30% 70%);
   white-space: nowrap;
 
   &__block {
@@ -43,7 +41,7 @@
   }
 
   &__controls {
-    display: inline;
+    display: block;
     position: absolute;
     top: 0;
     left: 0;
@@ -55,7 +53,7 @@
     &-left,
     &-right {
       background: none;
-      background-color: rgba($color: red, $alpha: 0.1);
+      // background-color: rgba($color: red, $alpha: 0.1);
       display: inline-block;
       position: relative;
     }
