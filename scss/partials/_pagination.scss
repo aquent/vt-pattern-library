@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-left: 0;
   }
 
   &__list-item {
@@ -30,6 +31,14 @@
       transition: background-size (500ms);
       padding: 1rem 0;
       margin-top: 0.6rem;
+    }
+
+    &--mobile-hidden {
+      display: none;
+
+      @include breakpoint(tablet){
+        display: inline-block;
+      }
     }
   }
 
