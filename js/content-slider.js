@@ -10,7 +10,7 @@ export default class ContentSlider {
    *  - Clickable area off by 20px due to 2rem padding on .demo-section
    *  - Viewport top position start at [0, 79], not sure why.
    */
-  constructor(sliderWrapper, controlSurface) {
+  constructor(sliderWrapper = ".content-slider", controlSurface = ".content-block__upper") {
     // check if there is a content slider
     this.contentSlider = document.querySelector(sliderWrapper);
     this.controlSurface = document.querySelector(controlSurface);
@@ -20,15 +20,13 @@ export default class ContentSlider {
        * TODO: update selectors to data-attributes
        * TODO: Refactor this so that it appends the controls div to the DOM, therefore removing the necesity for a controlSurface parameter to be passed in.
        */
-      //get the DOM elements
+      // Assign the Controling DOM elements to vars.
       const contentSliderCardsList = this.contentSlider.querySelector(
         ".content-slider__cards-list"
       );
       this.contentSliderControls = this.contentSlider.querySelector(
         ".content-slider__controls"
       );
-      // const controlSurface          = this.controlSurface;
-
       this.controlsLeft = this.contentSliderControls.querySelector(
         ".content-slider__controls-left"
       );
@@ -39,7 +37,6 @@ export default class ContentSlider {
       this.resizeControlSurface();
 
       let intitialTopValue = this.contentSliderControlsRect.top; //79px
-      let diff = 0;
 
       this.contentSliderControls.style.top = `${
         this.controlSurfaceRect.top - intitialTopValue
