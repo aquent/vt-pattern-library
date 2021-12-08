@@ -10,7 +10,9 @@
   }
 
   &__divider {
-    border: 0.1rem solid $cool-neutral-2;
+    background: $cool-neutral-2;
+    border: 0;
+    height: 0.1rem;
   }
 
   .content-block {
@@ -98,7 +100,9 @@
 
       @include breakpoint(tablet) {
         display: inline-block;
-        border: 0.1rem solid $cool-neutral-3;
+        background: $cool-neutral-3;
+        border: 0;
+        height: 0.1rem;
         margin: auto 0;
       }
     }

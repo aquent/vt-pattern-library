@@ -19,10 +19,12 @@
 }
 
 .client-success {
-  padding: 2rem;
+  & > a {
+    margin-bottom: 5.5rem;
 
-  @include breakpoint(desktop) {
-    padding: 14.5rem;
+    @include breakpoint(desktop) {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -31,11 +33,19 @@
 
   margin-bottom: 12rem;
 
+  &:last-of-type {
+    margin-bottom: 4.5rem;
+
+    @include breakpoint(desktop) {
+      margin-bottom: 9rem;
+    }
+  }
+
   &__container {
     @include self() {
       @include grid();
-      grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
-      row-gap: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+      row-gap: 3rem;
 
       @include breakpoint(tablet) {
         grid-template-columns: repeat(auto-fit, minmax(60rem, 1fr));
