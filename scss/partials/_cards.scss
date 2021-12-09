@@ -260,11 +260,8 @@
     }
   }
 
-  &--blog-button {
-    padding-top: 6.5rem;
-    @include breakpoint(desktop) {
-      padding-top: 12.1rem;
-    }
+  &-button {
+    @include vertical-spacing(lg-1, top, padding);
   }
 }
 
