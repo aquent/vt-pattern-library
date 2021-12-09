@@ -104,7 +104,9 @@
     padding-top: 3rem;
     padding-bottom: 0;
 
-
+    &__body {
+        padding-top: 0;
+    }
 
     &__image {
         padding-top: 3.8rem;
