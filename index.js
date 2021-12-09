@@ -8,7 +8,7 @@ import FilterBar from "filter-bar";
 const menu = new Menu(".navbar");
 
 const contentSlider = new ContentSlider(
-  ".content-slider",
+  "[data-component='content-slider__content-block--clickable']",
   ".content-block__upper"
 );
 
