@@ -12,6 +12,11 @@ const contentSlider = new ContentSlider(
   ".content-block__upper"
 );
 
+const contentSliderQuotes = new ContentSlider(
+  "[data-component='content-slider__quotes']",
+  ".quote"
+);
+
 const tabsPanel = new TabsPanel(
   ".tabs-nav", 
   ".tabs"
