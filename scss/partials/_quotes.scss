@@ -7,10 +7,17 @@
 /** 1 - Basic Quote
 ------------------------------------------------------------*/
 .quote {
+  padding: 2rem;
+
+  @include breakpoint(desktop) {
+    padding: 6rem;
+  }
+  
   &--attribution {
     display: flex;
     flex-direction: column;
     font-style: normal;
+  
   }
 
   &--name {
