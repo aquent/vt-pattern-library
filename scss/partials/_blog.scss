@@ -289,17 +289,10 @@
 .blog-author-footer {
     margin: 0;
     padding-top: 0;
-    width: 45.5rem;
+    width: 100%;
 
     @include breakpoint(desktop) {
         margin: 0 auto;
-        width: 100%;
-    }
-
-    @media only screen and (min-width: 866px) and (max-width: 1160px) {
-        // TODO discuss with Mark and the Web team about how to handle custom breakpoints
-        margin: 0 auto;
-        width: 100%;
     }
 
     &-social {
@@ -336,45 +329,13 @@
     }
 
     &-bio {
-        display: grid;
         align-items: center;
+        border-bottom: 0.1rem solid $cool-neutral-4;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 8rem;
         padding-bottom: 14.5rem;
         padding-top: 7.6rem;
-
-        @include breakpoint(desktop) {
-            grid-template-columns: 1fr 2fr;
-        }
-
-        @media only screen and (min-width: 866px) and (max-width: 1160px) {
-            // TODO discuss with Mark and the Web team about how to handle custom breakpoints
-            grid-template-columns: 1fr;
-        }
-
-
-        border-bottom: 0.1rem solid $cool-neutral-4;
-        grid-column-gap: 8rem;
-
-        &__img-container {
-
-            margin-bottom: 3rem;
-
-            .blog-author-footer-bio__author-image {
-                border-radius: 50%;
-                float: none;
-                height: 25rem;
-                width: 25rem;
-
-                @include breakpoint(desktop) {
-                    float: right;
-                }
-
-                @media only screen and (min-width: 866px) and (max-width: 1160px) {
-                    // TODO discuss with Mark and the Web team about how to handle custom breakpoints
-                    float: none;
-                }
-
-            }
-        }
 
         &-desc-name {
             @extend .h6;
