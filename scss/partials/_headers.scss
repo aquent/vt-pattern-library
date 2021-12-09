@@ -48,6 +48,21 @@
         );
         display: inline-block;
       }
+
+      &--has-subtitle {
+        margin-bottom: 2rem;
+      }
+
+      &__subtitle {
+        color: $cool-neutral-6;
+        margin-bottom: 6.8rem;
+        width: 100%;
+
+        @include breakpoint(desktop) {
+          margin-bottom: 13.8rem;
+          max-width: 75%;
+        }
+      }
     }
   }
 }
