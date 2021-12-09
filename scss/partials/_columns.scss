@@ -4,6 +4,11 @@
   padding-left: 0;
   padding-right: 0;
 
+  h3 {
+    @extend .h4;
+    @include vertical-spacing(sm-3, bottom, margin);
+  }
+
   &--post-hero {
     padding-top: 9.6rem;
     
