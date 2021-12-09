@@ -72,8 +72,10 @@
       column-gap: 5rem;
     }
 
-    @include breakpoint(desktop){
-      padding: 0 19.5rem; // basic content one col padding
+    @include breakpoint(desktop) {
+      max-width: 76.2rem;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     &__title-group {
@@ -116,6 +118,116 @@
         border: none;
         padding-left: 0;
         margin-left: 0;
+      }
+    }
+  }
+
+  .content-years {
+    @include grid();
+    margin-bottom: 5rem;
+
+    @include breakpoint(tablet) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 2fr;
+      row-gap: 1rem;
+      grid-auto-flow: column;
+      column-gap: 5rem;
+      margin-bottom: 0;
+    }
+
+    @include breakpoint(desktop) {
+      max-width: 76.2rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__preface {
+      @include vertical-spacing(md-2, bottom, margin);
+    }
+
+    &__postface {
+      @include vertical-spacing(sm-5, top, margin);
+    }
+
+    &__preface,
+    &__postface {
+      p + p {
+        margin-top: 3rem;
+      }
+
+      @include breakpoint(desktop) {
+        max-width: 76.2rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    &__title-group {
+      @include grid();
+      margin-bottom: 2rem;
+
+      @include breakpoint(tablet) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 5rem;
+        grid-template-rows: 1fr 2fr;
+        grid-row: 1/3;
+        margin-bottom: 0;
+      }
+    }
+
+    &__year {
+      color: $secondary-orange-2;
+
+      @include breakpoint(tablet) {
+        margin-top: 1rem;
+        margin-bottom: 1.5rem;
+        align-self: end;
+        justify-self: start;
+        grid-column: 1/2;
+      }
+    }
+
+    &__stat-description {
+      grid-column: 1/2;
+    }
+
+    &__stat {
+      @extend h6;
+    }
+
+    &__attribute {
+      @extend .p--body-extra-small;
+
+      color: $secondary-green-2;
+      display: flex;
+    }
+
+    &__connector {
+      display: none;
+
+      @include breakpoint(tablet) {
+        display: inline-block;
+        background: $cool-neutral-3;
+        border: 0;
+        height: 0.1rem;
+        margin: auto 0;
+        grid-column: 2/3;
+        align-self: start;
+        margin: 2rem 0;
+      }
+    }
+
+    .content-block {
+      border-left: 0.1rem solid $cool-neutral-3;
+      padding-left: $grid-mobile-margin;
+      margin-left: 1rem;
+
+      @include breakpoint(tablet) {
+        border: none;
+        padding-left: 0;
+        margin-left: 0;
+        grid-row: 2/3;
       }
     }
   }
