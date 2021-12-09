@@ -7,9 +7,13 @@ import FilterBar from "filter-bar";
 
 const menu = new Menu(".navbar");
 
-const contentSlider = new ContentSlider(
+// const contentSlider = new ContentSlider(
+//   ".content-slider",
+//   ".content-block__upper"
+// );
+const contentSliderQuotes = new ContentSlider(
   ".content-slider",
-  ".content-block__upper"
+  ".quote"
 );
 
 const tabsPanel = new TabsPanel(
