@@ -218,6 +218,15 @@
       }
     }
 
+    &__text-highlighted {
+      background-color: $secondary-orange-2;
+      color: $primary-blue;
+      padding: 0 0.5rem;
+
+      // .p--body-emphasis
+      font-weight: 600;
+    }
+
     .content-block {
       border-left: 0.1rem solid $cool-neutral-3;
       padding-left: $grid-mobile-margin;
