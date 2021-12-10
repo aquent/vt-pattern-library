@@ -117,6 +117,10 @@
     }
   }
 
+  &__author {
+    font-weight: 600;
+  }
+
   &__blog-author-date {
     @extend .tk-degular-text;
     padding-bottom: 1rem;
@@ -177,7 +181,7 @@
       column-gap: 14.5rem !important;
       grid-template-columns: 1fr 1fr;
       padding-bottom: 14.5rem;
-      padding-top: 14.5rem;
+      padding-top: 5.5rem;
       width: 100%;
     }
   }
@@ -260,9 +264,6 @@
     }
   }
 
-  &-button {
-    @include vertical-spacing(lg-1, top, padding);
-  }
 }
 
 /** 5 - Content Block - Split
