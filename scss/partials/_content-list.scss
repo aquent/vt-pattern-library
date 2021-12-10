@@ -122,6 +122,14 @@
     }
   }
 
+  p + .content-list {
+    @include vertical-spacing(md-2, top, margin);
+  }
+
+  .content-list + p {
+    @include vertical-spacing(sm-5, top, margin);
+  }
+
   .stat-detail {
     @include grid();
     margin-bottom: 5rem;
@@ -133,14 +141,6 @@
       grid-auto-flow: column;
       column-gap: 5rem;
       margin-bottom: 0;
-    }
-
-    @at-root p + .stat-detail {
-      @include vertical-spacing(md-2, top, margin);
-    }
-
-    & + p {
-      @include vertical-spacing(sm-5, top, margin);
     }
 
     &__stat {
@@ -158,6 +158,8 @@
     }
 
     &__heading {
+      @extend h2;
+      display: block;
       color: $secondary-orange-2;
 
       @include breakpoint(tablet) {
@@ -175,6 +177,7 @@
 
     &__subheading {
       @extend h6;
+      display: block;
     }
 
     &__attribute {
