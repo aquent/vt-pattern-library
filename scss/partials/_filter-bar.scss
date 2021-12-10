@@ -537,8 +537,6 @@
     @include breakpoint(tablet) {
       display: block;
       background: $cool-neutral-6;
-      border: 0;
-      height: 0.1rem;
       margin: 3rem 0;
     }
   }
