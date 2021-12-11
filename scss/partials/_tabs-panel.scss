@@ -14,8 +14,6 @@
 ------------------------------------------------------------*/
 .tabs-nav {
   border-bottom: 1px solid $cool-neutral-4;
-  padding-bottom: 2rem;
-  margin-bottom: 6rem;
 
   &__ul {
     @extend .tk-degular-text;
@@ -61,6 +59,7 @@
         padding-right: 2rem;
         padding-bottom: 1.4rem;
         padding-left: 2rem;
+        margin-top: 0;
       }
 
       &__li:not(:last-of-type) {
@@ -114,6 +113,7 @@
         & li {
           color: $cool-neutral-1;
           margin-bottom: 1.7rem;
+          margin-top: 0;
         }
       }
 

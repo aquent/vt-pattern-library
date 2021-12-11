@@ -4,12 +4,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-left: 0;
   }
 
   &__list-item {
     top: 50%;
     list-style: none;
     display: inline-block;
+    margin-top: 0;
 
     &::before {
       content: "";
@@ -30,6 +32,14 @@
       transition: background-size (500ms);
       padding: 1rem 0;
       margin-top: 0.6rem;
+    }
+
+    &--mobile-hidden {
+      display: none;
+
+      @include breakpoint(tablet){
+        display: inline-block;
+      }
     }
   }
 
