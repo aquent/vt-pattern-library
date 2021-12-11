@@ -106,12 +106,8 @@
 ------------------------------------------------------------*/
 .section {
   @include theming($themes) {
-    .themed-text {
+    .themed-text, p {
       color: get-theme-value(copy-text-color);
-
-      span {
-        @extend p;
-      }
     }
   }
 }
