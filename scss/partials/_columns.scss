@@ -4,6 +4,15 @@
   padding-left: 0;
   padding-right: 0;
 
+  h3 {
+    @extend .h4;
+    @include vertical-spacing(sm-3, bottom, margin);
+  }
+
+  p:not(:last-child) {
+    @include vertical-spacing(md-3, bottom, padding);
+  }
+
   &--post-hero {
     padding-top: 9.6rem;
     
