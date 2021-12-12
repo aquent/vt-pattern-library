@@ -141,7 +141,7 @@
     padding: 2.9rem;
   }
 
-  &__li {
+  ul li#{&}__li {
     display: block;
     padding-bottom: 1.5rem;
     margin-top: 0;
@@ -156,6 +156,7 @@
 
     &--heading {
       border-bottom: 0.1rem solid $cool-neutral-4;
+      color: $primary-blue;
       padding-bottom: 1rem;
       margin-bottom: 3.5rem;
 
@@ -179,6 +180,11 @@
   &__anchor,
   &__button {
     text-decoration: none;
+  }
+
+
+  &__anchor {
+    @extend .p--body-small;
   }
 
   &__button {
