@@ -79,6 +79,7 @@
     max-width: 100%;
 
     @include grid();
+    row-gap: 7rem;
     margin: 4.8rem 0;
 
     [class^="column"] {
@@ -94,6 +95,7 @@
 
     @include breakpoint(tablet) {
       column-gap: 14rem;
+      row-gap: 10rem;
       grid-template-columns: repeat(3, 1fr);
     }
   }
