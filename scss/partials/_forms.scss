@@ -43,6 +43,10 @@ X — Layout
   &__button {
     margin-top: 7rem;
   }
+
+  &--disclaimer {
+    margin-top: 7.1rem;
+  }
 }
 
 /* =========================
@@ -153,7 +157,7 @@ X — Layout
 
 /* =========================
   2.5 - Radio Tab for Check/Compare Salary tool
-  ========================= */
+========================= */
 .form {
   &--salary-radio {
     [name='form-type'] {
