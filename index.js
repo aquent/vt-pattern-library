@@ -4,6 +4,7 @@ import ContenSlider from "content-slider";
 import VideoController from "video-controller";
 import TabsPanel from "./js/tabs-panel";
 import FilterBar from "filter-bar";
+import { salarySurveyInit } from 'compare-salary';
 
 const menu = new Menu(".navbar");
 const contentSlider = new ContenSlider();
@@ -19,3 +20,6 @@ if (document.querySelector(".filter-bar__menu")) {
 }
 
 menu.asyncDropdown();
+
+// Initialize Compare Salary
+salarySurveyInit();
