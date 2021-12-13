@@ -51,7 +51,6 @@
 .menu-toggle {
   background: transparent;
   border: none;
-  border-bottom: 0.2rem solid $primary-white;
   cursor: pointer;
   height: 2.5rem;
   left: 2.6rem;
@@ -94,6 +93,7 @@
   &::after {
     top: 0;
     transform: rotate(180deg);
+    z-index: 0;
   }
 
   &__a {
@@ -108,10 +108,14 @@
   a {
     &#close-menu {
       display: none;
+      z-index: 100;
     }
 
     &#open-menu {
+      border-bottom: 0.2rem solid $primary-white;
       display: inline-block;
+      margin-top: 0.1rem;
+      z-index: 100;
     }
   }
 }
