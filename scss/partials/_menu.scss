@@ -148,6 +148,7 @@
   &__li {
     display: block;
     padding-bottom: 1.5rem;
+    margin-top: 0;
 
     @include breakpoint(desktop) {
       padding-bottom: 0.4rem;

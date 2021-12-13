@@ -14,6 +14,7 @@
 
 // Start loading theme files, starting with 'base'
 @import 'partials/utility';
+@import 'partials/typography';
 @import 'partials/base';
 @import 'partials/basic-content';
 @import 'partials/blog';
@@ -37,5 +38,4 @@
 @import 'partials/stats';
 @import 'partials/success-stories';
 @import 'partials/tabs-panel'; 
-@import 'partials/typography';
 @import 'partials/quotes';
