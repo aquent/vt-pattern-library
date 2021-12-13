@@ -163,7 +163,9 @@ ul {
   padding-left: 1.5rem;
 
   li {
-    @extend p;
+    @extend .p--body;
+    @extend .themed-text;
+    @extend .tk-degular-text;
     list-style: none;
 
     &::before {
@@ -196,13 +198,14 @@ dl {
   display: block;
 
   dt {
-    @extend h4;
+    @extend .h4;
     display: block;
     color: inherit;
   }
 
   dd {
-    @extend p;
+    @extend .p--body;
+    @extend .tk-degular-text;
   }
 }
 

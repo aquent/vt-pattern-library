@@ -5,17 +5,15 @@ import VideoController from "video-controller";
 import TabsPanel from "tabs-panel";
 import FilterBar from "filter-bar";
 
+function init() {
+
 const menu = new Menu(".navbar");
 
-const contentSlider = new ContentSlider(
-  "[data-component='content-slider__content-block--clickable']",
-  ".content-block__upper"
-);
-
-const contentSliderQuotes = new ContentSlider(
-  "[data-component='content-slider__quotes']",
-  ".quote"
-);
+let contentSliders = {}; 
+let contentSliderNodes =  document.querySelectorAll(".content-slider");
+contentSliderNodes.forEach((val, i) =>  {
+  contentSliders[i] = new ContentSlider(val);
+});
 
 const tabsPanel = new TabsPanel(
   ".tabs-nav", 
@@ -33,3 +31,6 @@ if (document.querySelector(".filter-bar__menu")) {
 }
 
 menu.asyncDropdown();
+}
+
+window.addEventListener("DOMContentLoaded", init);
