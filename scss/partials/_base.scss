@@ -157,14 +157,17 @@ time {
 /* =========================
 7.1 - Unordered List
 ========================= */
+li {
+  @extend .p--body;
+  @extend .themed-text;
+}
+
 ul {
   margin: 0;
   font-weight: inherit;
   padding-left: 1.5rem;
 
   li {
-    @extend .p--body;
-    @extend .themed-text;
     @extend .tk-degular-text;
     list-style: none;
 
