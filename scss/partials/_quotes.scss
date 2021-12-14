@@ -24,6 +24,7 @@
     font-size: 2rem;
     font-weight: 800;
     margin-bottom: 0.6rem;
+    margin-top: 2.5rem;
     // TODO: Verify if letter-spacing should be adjusted in _base.scss
     letter-spacing: 0.028rem;
   }
@@ -50,7 +51,7 @@
 
   &--title {
     @extend [class^="tertiary-info"];
-    color: $secondary-green-2;
+    color: $secondary-green-1;
   }
 }
 
@@ -70,6 +71,7 @@
 
     & .quote--name {
       color: $primary-white;
+      margin-top: 0;
     }
   }
 
