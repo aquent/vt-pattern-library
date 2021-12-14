@@ -247,6 +247,10 @@
     padding: 2.4rem 0;
     position: relative;
 
+    &::-webkit-details-marker {
+      display: none;
+    }
+
     &::before {
       @include arrow-sym(right, $secondary-green-1);
       right: 0;
