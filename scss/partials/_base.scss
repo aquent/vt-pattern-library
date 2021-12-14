@@ -160,14 +160,34 @@ time {
 ul {
   margin: 0;
   font-weight: inherit;
+  padding-left: 1.5rem;
 
-  li::before {
-    color: $accessible-green;
-    content: "\2022";
-    float: left;
-    font-weight: bold;
-    margin-left: -1rem;
-    width: 1rem;
+  li {
+    @extend .p--body;
+    @extend .themed-text;
+    @extend .tk-degular-text;
+    list-style: none;
+
+    &::before {
+      color: $accessible-green;
+      content: "\2022";
+      float: left;
+      font-weight: bold;
+      font-family: none;
+      margin-left: -1.5rem;
+      margin-top: 0.3rem;
+      width: 1rem;
+    }
+  }
+
+  li + li {
+    margin-top: 1.5rem;
+  }
+
+  &.loose-leading {
+    li + li {
+      margin-top: 3rem;
+    }
   }
 }
 
@@ -178,20 +198,24 @@ dl {
   display: block;
 
   dt {
-    @extend h4;
+    @extend .h4;
     display: block;
     color: inherit;
   }
 
   dd {
-    @extend p,.p--body;
+    @extend .p--body;
+    @extend .tk-degular-text;
   }
 }
 
 /** 8 - Horizontal Rule
 ------------------------------------------------------------*/
 hr {
-  margin: 0;
+  background: $cool-neutral-3;
+  border: 0;
+  height: 0.1rem;
+  @include vertical-spacing(md-2, auto, margin);
 }
 
 /** 9 - Preformatted Text

@@ -91,7 +91,7 @@
   $self: str-slice(#{&}, 2);
 
   @at-root &,
-    [class*="#{$self}"] {
+    [class^="#{$self}"] {
     @content;
   }
 }
