@@ -5,6 +5,7 @@
 
     @include breakpoint(desktop) {
         width: 100%;
+        margin-top: 0;
     }
 
     @media only screen and (min-width: 866px) and (max-width: 1160px) {
@@ -368,11 +369,11 @@
             &-p {
                 display: inline-block;
 
-                &:first-child {
-                    @include breakpoint(desktop) {
-                        border-right: 0.1rem solid $cool-neutral-4;
-                    }
-                }
+                // &:first-child {
+                //     @include breakpoint(desktop) {
+                //         border-right: 0.1rem solid $cool-neutral-4;
+                //     }
+                // }
             }
         }
     }
