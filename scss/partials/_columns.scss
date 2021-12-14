@@ -4,8 +4,40 @@
   padding-left: 0;
   padding-right: 0;
 
+  h3 {
+    @extend .h4;
+    @include vertical-spacing(sm-3, bottom, margin);
+  }
+
+  p:not(:last-child) {
+    @include vertical-spacing(md-3, bottom, padding);
+  }
+
   &--post-hero {
-    width: calc(min(62.5rem, 100%));
+    padding-top: 9.6rem;
+    
+    @include breakpoint(desktop) {
+      grid-template-columns: calc(min(62.5rem, 50%)) auto;
+      margin-bottom: 9.4rem;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 144rem;
+      padding-top: 27.4rem;
+    }
+
+    @include grid();
+
+    p:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+
+    // Special case for section heading until variablized for a modifier in Velocity
+    @at-root #{&} {
+      h2.section-heading {
+        margin-bottom: 3rem;
+        margin-top: 0;
+      }
+    }
   }
 
   &--two {

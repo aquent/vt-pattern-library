@@ -2,10 +2,10 @@
 .post-hero {
     margin: 6rem auto 0;
     padding-bottom: 0;
-    width: 42.5rem;
 
     @include breakpoint(desktop) {
         width: 100%;
+        margin-top: 0;
     }
 
     @media only screen and (min-width: 866px) and (max-width: 1160px) {
@@ -58,7 +58,7 @@
     &__time-social {
         border-top: 0.1rem solid $cool-neutral-2;
         display: grid;
-        grid-template-columns: 18rem 1fr;
+        grid-template-columns: 18rem auto;
 
         &-read-time {
             border-right: 0.1rem solid $cool-neutral-2;
@@ -369,11 +369,11 @@
             &-p {
                 display: inline-block;
 
-                &:first-child {
-                    @include breakpoint(desktop) {
-                        border-right: 0.1rem solid $cool-neutral-4;
-                    }
-                }
+                // &:first-child {
+                //     @include breakpoint(desktop) {
+                //         border-right: 0.1rem solid $cool-neutral-4;
+                //     }
+                // }
             }
         }
     }

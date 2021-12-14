@@ -25,20 +25,19 @@
 
 /** 2 - Section Heading
 ------------------------------------------------------------*/
-
 .section {
   @include theming($themes) {
     .section-heading {
       @extend h1;
 
-      @include vertical-spacing(sm-1, top, margin);
+      margin-top: 4rem;
       @include vertical-spacing(md-1, bottom, margin);
 
       &--underline {
         @extend .h4;
         @extend .uppercase;
 
-        @include vertical-spacing(sm-1, top, margin);
+        margin-top: 4rem;
         @include vertical-spacing(md-1, bottom, margin);
 
         background: linear-gradient(
@@ -47,6 +46,21 @@
           get-theme-value(secondary-accent) 70%
         );
         display: inline-block;
+      }
+
+      &--has-subtitle {
+        margin-bottom: 2rem;
+      }
+
+      &__subtitle {
+        color: get-theme-value(copy-text-color);
+        margin-bottom: 6.8rem;
+        width: 100%;
+
+        @include breakpoint(desktop) {
+          margin-bottom: 13.8rem;
+          max-width: 75%;
+        }
       }
     }
   }
