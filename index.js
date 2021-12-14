@@ -32,11 +32,9 @@ function init() {
   }
 
   menu.asyncDropdown();
+
+  // Initialize Compare Salary
+  salarySurveyInit();
 }
-
-menu.asyncDropdown();
-
-// Initialize Compare Salary
-salarySurveyInit();
 
 window.addEventListener("DOMContentLoaded", init);
