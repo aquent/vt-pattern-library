@@ -24,7 +24,6 @@ export default class ContentSlider {
       );
       // Needed to calculate the content slider's scrolling step.
       this.firstCard = this.contentSliderCardsList.querySelector(".content-slider__block");
-
       this.contentSliderControls = this.contentSlider.querySelector(
         ".content-slider__controls"
       );
@@ -62,7 +61,6 @@ export default class ContentSlider {
 
   attachEventListeners() {
     // TODO: Refactor to a single function with behavior based on event.someValue
-    // TODO: Verify desired scroll on click behavior with design; 525px ensures at least one card is in view
     this.controlsLeft.addEventListener("click", (e) => {
       e.preventDefault();
       this.contentSliderCardsList.scrollLeft -= this.sliderStep; //px scroll amount

@@ -4,9 +4,11 @@
 
   &__block {
     //Note: these widths might have to be refactored to a different location
-    width: 24rem;
+    min-width: 24rem;
+    white-space: normal; 
     @include breakpoint(tablet) {
-      width: 53.5rem;
+      min-width: 47.5rem;
+      
     }
   }
 
