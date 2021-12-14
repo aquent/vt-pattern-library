@@ -302,7 +302,7 @@
 
       &__text {
         order: 2;
-        justify-self: end;
+        justify-self: start;
         align-self: start;
         z-index: 10;
         grid-row: 2/3;
@@ -314,7 +314,6 @@
 
         @include breakpoint(desktop) {
           grid-row: 1;
-          justify-self: start;
           align-self: center;
           order: 1;
           grid-column: 1/7;
@@ -373,10 +372,12 @@
         justify-self: end;
         grid-column: -1/-5;
         grid-row: 2/7;
+        max-height: 14.4rem;
 
         @include breakpoint(desktop) {
           grid-column: -1/-6;
           grid-row: 2/7;
+          max-height: unset
         }
       }
     }
