@@ -370,11 +370,11 @@
             &-p {
                 display: inline-block;
 
-                &:first-child {
-                    @include breakpoint(desktop) {
-                        border-right: 0.1rem solid $cool-neutral-4;
-                    }
-                }
+                // &:first-child {
+                //     @include breakpoint(desktop) {
+                //         border-right: 0.1rem solid $cool-neutral-4;
+                //     }
+                // }
             }
         }
     }
