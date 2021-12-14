@@ -51,7 +51,6 @@
 .menu-toggle {
   background: transparent;
   border: none;
-  border-bottom: 0.2rem solid $primary-white;
   cursor: pointer;
   height: 2.5rem;
   left: 2.6rem;
@@ -94,6 +93,7 @@
   &::after {
     top: 0;
     transform: rotate(180deg);
+    z-index: 0;
   }
 
   &__a {
@@ -108,10 +108,14 @@
   a {
     &#close-menu {
       display: none;
+      z-index: 100;
     }
 
     &#open-menu {
+      border-bottom: 0.2rem solid $primary-white;
       display: inline-block;
+      margin-top: 0.1rem;
+      z-index: 100;
     }
   }
 }
@@ -141,7 +145,7 @@
     padding: 2.9rem;
   }
 
-  &__li {
+  ul li#{&}__li {
     display: block;
     padding-bottom: 1.5rem;
     margin-top: 0;
@@ -156,6 +160,7 @@
 
     &--heading {
       border-bottom: 0.1rem solid $cool-neutral-4;
+      color: $primary-blue;
       padding-bottom: 1rem;
       margin-bottom: 3.5rem;
 
@@ -179,6 +184,11 @@
   &__anchor,
   &__button {
     text-decoration: none;
+  }
+
+
+  &__anchor {
+    @extend .p--body-small;
   }
 
   &__button {

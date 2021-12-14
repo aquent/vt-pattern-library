@@ -85,6 +85,7 @@
     &-text {
       color: $cool-neutral-1;
       font-size: 2rem;
+      padding-bottom: 1rem;
 
       &-tag {
         color: $secondary-green-1;
@@ -120,6 +121,10 @@
         overflow: hidden;
       }
     }
+  }
+
+  &__author {
+    font-weight: 600;
   }
 
   &__blog-author-date {
@@ -182,8 +187,8 @@
       column-gap: 14.5rem !important;
       grid-template-columns: 1fr 1fr;
       padding-bottom: 14.5rem;
-      padding-top: 14.5rem;
-      width: 100%
+      padding-top: 5.5rem;
+      width: 100%;
     }
   }
 
@@ -264,6 +269,7 @@
       @extend .h6;
     }
   }
+
 }
 
 /** 5 - Content Block - Split
