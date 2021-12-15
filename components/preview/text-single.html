@@ -11,7 +11,9 @@
 
 <body>
   <div class="yield">
-    <div class="section--bg-white demo-section">
+    <div class="section--bg-white">
+  <div class="section__inner">
+    <h2>Fields Classed in Pattern</h2>
 
     <form class="form">
       <label 
@@ -57,6 +59,53 @@
         placeholder="(___) ___-____"
       >
     </form>
+  </div>
+</div>
+
+<div class="section--bg-white">
+  <div class="section__inner">
+    <h2>Fields Without Pattern Classing</h2>
+
+    <form class="form">
+      <label  
+        for="text-1b">
+        Full Name
+      </label>
+      <input 
+        type="text" 
+        name="text-1b" 
+        value="Lauren Ipsum" 
+        placeholder="A plain text input"
+      />
+
+      <label 
+        for="text-2b">
+        Email
+      </label>
+      <input 
+        type="text" 
+        name="text-2b" 
+        class="error"
+        value="invadilEmail.com" 
+        placeholder="lauren.ipsum@email.com"
+      >
+      <span 
+        class="form__error-message error">
+        This is an error.
+      </span>
+
+      <label 
+        for="text-3b">
+        Phone
+      </label>
+      <input 
+        type="text" 
+        name="text-3b" 
+        value="" 
+        placeholder="(___) ___-____"
+      >
+    </form>
+  </div>
 </div>
   </div><!-- .yield -->
 

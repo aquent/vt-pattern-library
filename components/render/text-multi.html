@@ -1,47 +1,91 @@
 
 
-<div class="section--bg-white demo-section">
-  <form 
-  class="form"
-  >
-    <label 
-      class="form__label"
-      for="text-1">
-      A plain text input
-    </label>
-    <textarea 
-      class="form__input-text--multi"
-      name="text-1" 
-      placeholder="A plain text input"
-      ></textarea>
+<div class="section--bg-white">
+  <div class="section__inner">
+    <h2>Fields Classed in Pattern</h2>
 
-    <label 
-      class="form__label" 
-      for="text-1a">
-      A plain text input
-    </label>
-    <textarea 
-      class="form__input-text--multi-error-styled error" 
-      name="text-1a" 
-      placeholder="A plain text input with error"
-      required>There has been a terrible error.</textarea>
-    <span 
-      class="form__error-message error">
-      This field is required
-    </span>
+    <form 
+    class="form"
+    >
+      <label 
+        class="form__label"
+        for="text-1">
+        A plain text input
+      </label>
+      <textarea 
+        class="form__input-text--multi"
+        name="text-1" 
+        placeholder="A plain text input"
+        ></textarea>
 
-    <label 
-      class="form__label" 
-      for="text-1b">
-      A plain text input
-    </label>
-    <textarea 
-      class="form__input-text--multi" 
-      name="text-1b"
-      required="">Content has been entered.
-    </textarea>
-    <!-- .form__input-text[val]:not([class*=error]) -->
-  </form>
+      <label 
+        class="form__label" 
+        for="text-1a">
+        A plain text input
+      </label>
+      <textarea 
+        class="form__input-text--multi-error-styled error" 
+        name="text-1a" 
+        placeholder="A plain text input with error"
+        required>There has been a terrible error.</textarea>
+      <span 
+        class="form__error-message error">
+        This field is required
+      </span>
+
+      <label 
+        class="form__label" 
+        for="text-1b">
+        A plain text input
+      </label>
+      <textarea 
+        class="form__input-text--multi" 
+        name="text-1b"
+        required="">Content has been entered.
+      </textarea>
+    </form>
+  </div>
 </div>
 
+<div class="section--bg-white">
+  <div class="section__inner">
+    <h2>Fields Without Pattern Classing</h2>
+
+    <form 
+    class="form"
+    >
+      <label 
+        for="text-2">
+        A plain text input
+      </label>
+      <textarea 
+        name="text-2" 
+        placeholder="A plain text input"
+        ></textarea>
+
+      <label 
+        for="text-2a">
+        A plain text input
+      </label>
+      <textarea 
+        class="error" 
+        name="text-2a" 
+        placeholder="A plain text input with error"
+        required>There has been a terrible error.</textarea>
+      <span 
+        class="form__error-message error">
+        This field is required
+      </span>
+
+      <label 
+        for="text-2b">
+        A plain text input
+      </label>
+      <textarea 
+        name="text-2b"
+        required="">Content has been entered.
+      </textarea>
+    </form>
+  </div>
+</div>
 

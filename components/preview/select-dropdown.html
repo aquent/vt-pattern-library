@@ -13,6 +13,8 @@
   <div class="yield">
     <div class="section--bg-white">
   <div class="section__inner">
+    <h2>Fields Classed in Pattern</h2>
+
     <form 
       class="form" 
       action=""
@@ -42,6 +44,55 @@
       <select
         id="location" 
         class="form__input-select--error-styled error" 
+        name="market_id" 
+        data-leadfield="location" 
+        required
+      >
+        <option value="">Select a location near you</option>
+        <option data-country="United States" data-state="Alabama" data-zip="35160" value="120">Alabama</option>
+
+      </select>
+      <span 
+        id="error" 
+        class="form__error-message error" 
+      >
+        This is an error. Please fix it.
+      </span>
+
+    </form>
+  </div>
+</div>
+
+<div class="section--bg-white">
+  <div class="section__inner">
+    <h2>Fields Without Pattern Classing</h2>
+    
+    <form 
+      class="form" 
+      action=""
+    >
+
+      <label  
+        for="location">Location
+      </label>
+      <select 
+        id="location" 
+        data-leadfield="location" 
+        name="market_id" 
+        required
+      >
+        <option value="">Select a location near you</option>
+        <option data-country="United States" data-state="Alabama" data-zip="35160" value="120">Alabama
+        </option>
+        <option data-country="Netherlands" data-state="" data-zip="1072 XW" value="43">Amsterdam</option>
+      </select>
+
+      <label 
+        for="location">Location
+      </label>
+      <select
+        id="location" 
+        class="error" 
         name="market_id" 
         data-leadfield="location" 
         required
