@@ -97,8 +97,13 @@
 
     &__heading {
       @extend .section-heading--underline;
+    }
 
-      display: inline;
+    // Override specificity from overly greedy display property created above by the extend
+    &__heading-wrapper {
+      .tab__heading {
+        display: inline;
+      }
     }
 
     &__copy--highlighted {
