@@ -40,6 +40,11 @@
         width: 47.5rem;
       }
     }
+
+    // Modify list in the tabs-panel so logo overlay overhang is visible
+    @at-root .tab #{&} {
+      overflow-x: visible;
+    }
   }
 
   &__controls {
