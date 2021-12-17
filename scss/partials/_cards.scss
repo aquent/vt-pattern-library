@@ -283,7 +283,7 @@
 /** 5 - Content Block - Split
 ------------------------------------------------------------*/
 .content-block--split {
-  width: 71.5rem;
+  width: calc(min(100%, 71.5rem));
   grid-column-gap: 4rem;
 
   .content-block {
@@ -313,9 +313,5 @@
       width: 15rem;
       height: 11.5rem;
     }
-  }
-
-  .content-block__overlay-content {
-    margin-left: 0;
   }
 }
