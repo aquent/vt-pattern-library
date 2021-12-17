@@ -63,6 +63,12 @@
     }
   }
 
+  &__overlay-image {
+    background-color: #fff;
+    height: 73.3%;
+    width: 73.3%;
+  }
+
   &__image {
     grid-column: 1 / 3;
     width: 100%;
@@ -279,6 +285,7 @@
 .content-block--split {
   width: 71.5rem;
   grid-column-gap: 4rem;
+
   .content-block {
     &__lower {
       @include breakpoint(tablet) {
@@ -306,5 +313,9 @@
       width: 15rem;
       height: 11.5rem;
     }
+  }
+
+  .content-block__overlay-content {
+    margin-left: 0;
   }
 }
