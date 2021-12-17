@@ -99,6 +99,13 @@
       @extend .section-heading--underline;
     }
 
+    // Override specificity from overly greedy display property created above by the extend
+    &__heading-wrapper {
+      .tab__heading {
+        display: inline;
+      }
+    }
+
     &__copy--highlighted {
       @extend .h3;
       padding-bottom: 4.3rem;
