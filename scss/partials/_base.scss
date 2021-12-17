@@ -136,10 +136,10 @@ a,
 /** 5 - Blockquotes
 ------------------------------------------------------------*/
 blockquote {
-  @extend .h5--quote;
+  @extend .h5;
   @extend .tk-degular-display;
   font-size: 3.2rem;
-  font-weight: 600;
+  font-style: italic;
 
   @include breakpoint(mobile) {   
     line-height: 1.095;

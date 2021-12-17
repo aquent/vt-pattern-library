@@ -208,7 +208,7 @@
       grid-row: 1/2;
       justify-self: start;
       padding: 0 $grid-desktop-margin;
-      z-index: 10;
+      z-index: 9;
 
       @include breakpoint(desktop) {
         align-self: center;
@@ -304,7 +304,7 @@
         order: 2;
         justify-self: start;
         align-self: start;
-        z-index: 10;
+        z-index: 9;
         grid-row: 2/3;
         padding-right: $grid-mobile-margin;
 

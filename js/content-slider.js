@@ -34,29 +34,23 @@ export default class ContentSlider {
         ".content-slider__controls-right"
       );
       this.attachEventListeners();
-      this.resizeControlSurface();
+      
+      let initialTopValue = this.contentSliderControls.offsetTop; //79px
 
-      let intitialTopValue = this.contentSliderControlsRect.top; //79px
-
-      this.contentSliderControls.style.top = `${this.controlSurfaceRect.top - intitialTopValue
+      this.contentSliderControls.style.top = `${this.controlSurface.offsetTop - initialTopValue
         }px`;
-    } catch {
+    } catch(e) {
       console.error(
-        "[Content Slider] No content slider found. Please make sure the .className parameter passed to the content slider exists and is correct."
+        "[ContentSlider] There was a problem calculating the controls for the content slider: ", e
       );
     }
   }
 
   resizeControlSurface() {
-    this.controlSurfaceRect = this.controlSurface.getBoundingClientRect();
-    this.contentSliderControlsRect =
-      this.contentSliderControls.getBoundingClientRect();
-
-    this.controlsLeft.style.height = `${this.controlSurfaceRect.height}px`;
-    this.controlsRight.style.height = `${this.controlSurfaceRect.height}px`;
-
+    const controlSurfaceRect = this.controlSurface.getBoundingClientRect();
+    this.contentSliderControls.style.height = `${controlSurfaceRect.height}px`;
     // calculate the step size for the content slider
-    this.sliderStep = this.firstCard.getBoundingClientRect().width;
+    this.sliderStep = this.firstCard.offsetWidth;
   }
 
   attachEventListeners() {
@@ -69,6 +63,10 @@ export default class ContentSlider {
     this.controlsRight.addEventListener("click", (e) => {
       e.preventDefault();
       this.contentSliderCardsList.scrollLeft += this.sliderStep; //px scroll amount
+    });
+
+    window.addEventListener("load", () => {
+      this.resizeControlSurface();
     });
 
     window.addEventListener("resize", () => {
