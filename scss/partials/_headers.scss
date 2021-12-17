@@ -25,6 +25,15 @@
 
 /** 2 - Section Heading
 ------------------------------------------------------------*/
+.section-heading {
+  &--underline {
+    @extend .uppercase;
+
+    display: inline-block;
+    margin-top: 4rem;
+    @include vertical-spacing(md-1, bottom, margin);
+  }
+}
 .section {
   @include theming($themes) {
     .section-heading {
@@ -35,17 +44,12 @@
 
       &--underline {
         @extend .h4;
-        @extend .uppercase;
-
-        margin-top: 4rem;
-        @include vertical-spacing(md-1, bottom, margin);
 
         background: linear-gradient(
           180deg,
           rgba(255, 255, 255, 0) 70%,
           get-theme-value(secondary-accent) 70%
         );
-        display: inline-block;
       }
 
       &--has-subtitle {
