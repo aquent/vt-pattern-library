@@ -8,6 +8,10 @@
       color: $secondary-green-2;
     }
 
+    &__title {
+      color: $primary-white;
+    }
+
     &__text {
       color: $cool-neutral-6;
       margin-bottom: 4.5rem;
@@ -83,7 +87,7 @@
     }
 
     &__image {
-      @include breakpoint(desktop){
+      @include breakpoint(desktop) {
         max-width: 72rem;
       }
     }

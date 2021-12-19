@@ -31,7 +31,11 @@
 .success-story {
   $storyBlock: &;
 
-  margin-bottom: 12rem;
+  margin-bottom: 7rem;
+
+  @include breakpoint(desktop) {
+    margin-bottom: 14.5rem;
+  }
 
   &:last-of-type {
     margin-bottom: 4.5rem;
@@ -128,6 +132,9 @@
   }
 
   &__logo {
+    // apply $primary-blue (#00a4d6) on logo
+    // calculated with CSS filter generator https://codepen.io/sosuke/pen/Pjoqqp
+    filter: invert(8%) sepia(53%) saturate(1340%) hue-rotate(173deg) brightness(92%) contrast(98%);
     margin-bottom: 1rem;
     max-height: 12rem;
     max-width: 12rem;
