@@ -66,7 +66,7 @@ if (typeof theForm !== 'undefined' && theForm !== null) {
 
 function searchForm() {
   compareElems.forEach(function(node, idx) {
-    node.classList.add('hide');
+    node.classList.add('hidden');
   });
   dataText.forEach(function(node, idx) {
     node.innerHTML = node.getAttribute('data-text-search');
@@ -91,14 +91,14 @@ function selectedForm() {
           window.history.pushState({}, '', '#search');
           submitBtn.classList.add('secondary');
           compareElems.forEach(function(node, idx) {
-            node.classList.add('hide');
+            node.classList.add('hidden');
             node.removeAttribute('required');
           });
         } else if (formTypeRadios.value == 'compare') {
           window.history.pushState({}, '', '#compare');
           submitBtn.classList.remove('secondary');
           compareElems.forEach(function(node, idx) {
-            node.classList.remove('hide');
+            node.classList.remove('hidden');
             node.setAttribute('required', true);
           });
         }
@@ -129,10 +129,10 @@ function swapJobTitles() {
   if (selectedGroup && selectedGroup !== '') {
     for (let jobTitle of jobTitles) {
       if (jobTitle.dataset.jobGroup === selectedGroup) {
-        jobTitle.classList.remove('hide');
+        jobTitle.classList.remove('hidden');
         jobTitle.removeAttribute('disabled');
       } else {
-        jobTitle.classList.add('hide');
+        jobTitle.classList.add('hidden');
         jobTitle.setAttribute('disabled', '');
       }
     }
@@ -183,7 +183,7 @@ function showDataViz() {
     if (salaryData.title === 'error') {
       showError(salaryData.message);
       // Show the form
-      theForm.classList.remove('hide');
+      theForm.classList.remove('hidden');
     } else {
       // Generate the chart
       const res = generateChart(salaryData);
@@ -197,9 +197,9 @@ function showDataViz() {
       } else {
         showError("Something went wrong, please try again later…");
 
-        // Hide the chart and show the form
-        theVizWrapper.classList.add('hide');
-        theForm.classList.remove('hide');
+        // hidden the chart and show the form
+        theVizWrapper.classList.add('hidden');
+        theForm.classList.remove('hidden');
       }
     }
   }
@@ -440,7 +440,7 @@ function generateChart(salaryData) {
 
 function showError(msg) {
   error.innerHTML = `<p>${msg}</p>`;
-  error.classList.remove('hide');
+  error.classList.remove('hidden');
 }
 
 // Bundle all the myriad components and export
