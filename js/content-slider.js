@@ -37,6 +37,8 @@ export default class ContentSlider {
       
       let initialTopValue = this.contentSliderControls.offsetTop; //79px
 
+      this.setControlSurface();
+
       this.contentSliderControls.style.top = `${this.controlSurface.offsetTop - initialTopValue
         }px`;
     } catch(e) {
@@ -46,7 +48,7 @@ export default class ContentSlider {
     }
   }
 
-  resizeControlSurface() {
+  setControlSurface() {
     const controlSurfaceRect = this.controlSurface.getBoundingClientRect();
     this.contentSliderControls.style.height = `${controlSurfaceRect.height}px`;
     // calculate the step size for the content slider
@@ -65,12 +67,8 @@ export default class ContentSlider {
       this.contentSliderCardsList.scrollLeft += this.sliderStep; //px scroll amount
     });
 
-    window.addEventListener("load", () => {
-      this.resizeControlSurface();
-    });
-
     window.addEventListener("resize", () => {
-      this.resizeControlSurface();
+      this.setControlSurface();
     });
   }
 }
