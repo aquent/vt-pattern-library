@@ -10,7 +10,7 @@
   }
 
   p:not(:last-child) {
-    @include vertical-spacing(md-3, bottom, padding);
+    @include vertical-spacing(sm-1, bottom, padding);
   }
 
   &--post-hero {
