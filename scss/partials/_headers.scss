@@ -33,8 +33,6 @@
       margin-top: 4rem;
       @include vertical-spacing(md-1, bottom, margin);
 
-<<<<<<< Updated upstream
-=======
       @include breakpoint(tablet){
         margin-top: 0;
       }
@@ -43,7 +41,6 @@
         @include vertical-spacing(sm-2, bottom, margin);
       }
 
->>>>>>> Stashed changes
       &--underline {
         @extend .h4;
         @extend .uppercase;
