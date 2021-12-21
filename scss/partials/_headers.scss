@@ -48,6 +48,14 @@
         margin-top: 0;
       }
 
+      &--min-bottom-margin {
+        @include vertical-spacing(sm-2, bottom, margin);
+      }
+
+      &--underline {
+        @extend .h4;
+        @extend .uppercase;
+
       &--underline {
         @extend .h4--alt;
         margin-top: 4rem;
