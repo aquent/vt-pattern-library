@@ -58,7 +58,8 @@ h2 {
 }
 
 h3,
-.h3 {
+.h3,
+[class^="h3"]  {
   font-size: 4.2rem;
   line-height: 1.095;
   @include breakpoint(tablet) {
@@ -68,7 +69,8 @@ h3,
 }
 
 h4,
-.h4 {
+.h4,
+[class^="h4"] {
   // h6
   font-size: 2.8rem;
   line-height: 1.143;
@@ -79,7 +81,8 @@ h4,
 }
 
 h5,
-.h5 {
+.h5,
+[class^="h5"] {
   @extend .h6;
   @include breakpoint(tablet) {
     font-size: 3.2rem;
@@ -88,7 +91,8 @@ h5,
 }
 
 h6,
-.h6 {
+.h6,
+[class^="h6"] {
   font-size: 2.8rem;
   line-height: 1.143;
 }
@@ -142,7 +146,7 @@ blockquote {
   font-size: 3.2rem;
   font-style: italic;
 
-  @include breakpoint(mobile) {   
+  @include breakpoint(mobile) {
     line-height: 1.095;
   }
 }
