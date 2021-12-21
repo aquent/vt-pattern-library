@@ -17,21 +17,22 @@
   /** 1 - hero-video
   ------------------------------------------------------------*/
   &-video {
-    $videoBlock: &;
-
     @include grid();
-    @include vertical-spacing(sm-1, top, padding);
+    padding-top: 1rem;
     @include vertical-spacing(lg-1, bottom, padding);
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    grid-template-rows: 2fr 3rem 1fr;
+    grid-template-rows: 2fr 5rem 1fr;
 
     @include breakpoint(tablet) {
       grid-template-columns: repeat(auto-fit, minmax(60rem, 1fr));
+      padding-top: 4rem;
     }
+
     @include breakpoint(desktop) {
       grid-template-rows: 1fr;
       grid-template-columns: repeat(12, 1fr);
       grid-auto-flow: column;
+      padding-top: 4.5rem;
     }
 
     &__section {
@@ -80,6 +81,8 @@
     &__video {
       filter: brightness(60%);
       height: 30rem;
+      width: 30rem;
+      object-fit: cover;
       
       @include breakpoint(tablet) {
         height: unset;
@@ -91,7 +94,7 @@
       visibility: hidden;
 
       &-button {
-        display: block;
+        display: none;
         box-sizing: border-box;
 
         position: absolute;
@@ -115,8 +118,9 @@
         width: 0;
         height: 2.5rem;
 
-        @include breakpoint(tablet) {
-          display: hidden;
+        &:active,
+        &:focus {
+          display: block;
         }
       }
 
@@ -169,6 +173,10 @@
         font-size: 2.8rem;
         line-height: 1.286;
       }
+    }
+
+    .hero-video__text {
+      color: $primary-white;
     }
   }
 

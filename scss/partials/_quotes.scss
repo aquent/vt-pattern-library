@@ -55,8 +55,9 @@
   }
 }
 
-/** 1 - Single Quote (with image)
+/** 2 - Single Quote (with image)
 ------------------------------------------------------------*/
+// TODO: Refactor this to match BEM pattern
 .quote--single {
   background-color: $primary-white;
   display: grid;
@@ -73,14 +74,23 @@
       color: $primary-white;
       margin-top: 0;
     }
+
+    & .quote--title {
+      color: $secondary-green-2;
+    }
   }
 
   & > .quote__text {
+    @extend .h4--quote;
     background-color: $primary-blue;
     color: #fff;
     grid-row: 1/2;
     grid-column: 1/13;
     padding: 3rem 2.3rem 1.6rem 2rem;
+
+    &::before {
+      height: unset;
+    }
 
     & > p {
       @extend .h4;
