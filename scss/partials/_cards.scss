@@ -109,7 +109,7 @@
     grid-template-columns: repeat(2, 1fr);
     margin-bottom: 2.9rem;
 
-    &-blog {
+    &--blog {
       margin-bottom: 2.1rem;
 
       .post-image {
@@ -130,7 +130,7 @@
       }
     }
 
-    &-blog {
+    &--blog {
       max-width: fit-content;
     }
   }
@@ -265,23 +265,6 @@
     place-items: center;
   }
 
-  .content-slider__block,
-  .content-block--blog {
-    @include breakpoint(desktop) {
-      // Override width set by the content slider
-      width: 24rem !important;
-    }
-
-    @media only screen and (min-width: 866px) and (max-width: 1160px) {
-      // TODO discuss with Mark and the Web team about how to handle custom breakpoints
-      // Override width set by the content slider
-      width: 35rem !important;
-    }
-
-    // Override width set by the content slider
-    width: 27.8rem !important;
-  }
-
   .grid-col-content__four--homepage-blog {
     @include breakpoint(desktop) {
       column-gap: 5.8rem;
@@ -297,9 +280,25 @@
       @extend .h6;
     }
 
+    .content-slider__block {
+      @include breakpoint(desktop) {
+        // Override width set by the content slider
+        min-width: 24rem;
+      }
+  
+      @media only screen and (min-width: 866px) and (max-width: 1160px) {
+        // TODO discuss with Mark and the Web team about how to handle custom breakpoints
+        // Override width set by the content slider
+        min-width: 35rem;
+      }
+  
+      // Override width set by the content slider
+      min-width: 27.8rem;
+    }
+
     .content-block--blog {
       @include breakpoint(desktop) {
-        width: fit-content !important;
+        width: fit-content;
       }
     }
   }
