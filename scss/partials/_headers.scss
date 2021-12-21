@@ -56,9 +56,6 @@
         @extend .h4;
         @extend .uppercase;
 
-      &--underline {
-        @extend .h4--alt;
-        margin-top: 4rem;
         @include vertical-spacing(md-1, bottom, margin);
 
         background: linear-gradient(
