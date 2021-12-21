@@ -55,8 +55,9 @@
   }
 }
 
-/** 1 - Single Quote (with image)
+/** 2 - Single Quote (with image)
 ------------------------------------------------------------*/
+// TODO: Refactor this to match BEM pattern
 .quote--single {
   background-color: $primary-white;
   display: grid;

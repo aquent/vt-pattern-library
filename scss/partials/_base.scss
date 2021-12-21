@@ -59,7 +59,7 @@ h2 {
 
 h3,
 .h3,
-.h3--alt {
+[class^="h3"]  {
   font-size: 4.2rem;
   line-height: 1.095;
   @include breakpoint(tablet) {
@@ -70,8 +70,7 @@ h3,
 
 h4,
 .h4,
-.h4--alt,
-.h4--quote {
+[class^="h4"] {
   font-size: 2.8rem;
   line-height: 1.143;
   @include breakpoint(tablet) {
@@ -82,8 +81,7 @@ h4,
 
 h5,
 .h5,
-.h5--alt,
-.h5--quote {
+[class^="h5"] {
   @extend .h6;
   @include breakpoint(tablet) {
     font-size: 3.2rem;
@@ -93,7 +91,7 @@ h5,
 
 h6,
 .h6,
-.h6--alt .h6--quote {
+[class^="h6"] {
   font-size: 2.8rem;
   line-height: 1.143;
 }
