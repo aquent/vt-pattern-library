@@ -71,6 +71,7 @@ h3,
 h4,
 .h4,
 [class^="h4"] {
+  // h6
   font-size: 2.8rem;
   line-height: 1.143;
   @include breakpoint(tablet) {
@@ -208,7 +209,6 @@ dl {
   dt {
     @extend .h4;
     display: block;
-    color: inherit;
   }
 
   dd {

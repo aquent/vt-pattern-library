@@ -7,6 +7,14 @@
       font-size: 8.4rem;
       line-height: 1.048;
     }
+
+    @include breakpoint(desktop) {
+      &:hover {
+        .service__heading {
+          --d: 100%;
+        }
+      }
+    }
   }
 
   &__divider {
@@ -15,6 +23,19 @@
   }
 
   .content-block {
+    &--clickable {
+      &:hover {
+        .content-block__title {
+          color: $primary-white;
+        }
+
+        .content-block__text,
+        .content-block__text * {
+          color: $primary-white;
+        }
+      }
+    }
+
     &--horizontal {
       @include grid();
       margin: 4rem 0;
@@ -36,10 +57,10 @@
 
     &__text {
       margin-bottom: 0;
-      color: $primary-white;
     }
 
     &__title {
+      color: $primary-white;
       font-size: 4.2rem;
       line-height: 1.095;
     }

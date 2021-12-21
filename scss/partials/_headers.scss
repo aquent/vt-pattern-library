@@ -10,6 +10,17 @@
   @extend .uppercase;
 }
 
+.h4--alt {
+  // h5
+  font-size: 3.2rem;
+  line-height: 1.125;
+
+  @include breakpoint(tablet) {
+    font-size: 4.2rem;
+    line-height: 1.095;
+  }
+}
+
 :is(.h4--quote, .h5--quote, .h6--quote) {
   @extend .italic;
 }
@@ -33,6 +44,14 @@
       margin-top: 4rem;
       @include vertical-spacing(md-1, bottom, margin);
 
+      @include breakpoint(tablet){
+        margin-top: 0;
+      }
+
+      &--min-bottom-margin {
+        @include vertical-spacing(sm-2, bottom, margin);
+      }
+
       &--underline {
         @extend .h4;
         @extend .uppercase;
@@ -44,7 +63,12 @@
           rgba(255, 255, 255, 0) 70%,
           get-theme-value(secondary-accent) 70%
         );
+        padding-bottom: 0.2rem;
         display: inline-block;
+
+        @include breakpoint(tablet){
+          margin-top: 0;
+        }
       }
 
       &--has-subtitle {
