@@ -77,17 +77,17 @@
 
 /** 2 - Tertiary Info
 ------------------------------------------------------------*/
-[class^="tertiary-info"] {
-  @extend .tk-aktiv-grotesk;
-  @extend .uppercase;
-
-  font-size: 1.4rem;
-  font-weight: 700;
-  letter-spacing: 0.3rem;
-  line-height: 1.286;
-}
-
 .tertiary-info {
+  @include self() {
+    @extend .tk-aktiv-grotesk;
+    @extend .uppercase;
+
+    font-weight: 700;
+    letter-spacing: 0.3rem;
+  }
+  font-size: 1.4rem;
+  line-height: 1.286;
+
   &--large {
     font-size: 1.6rem;
     line-height: 1.25;
@@ -111,7 +111,8 @@
 ------------------------------------------------------------*/
 .section {
   @include theming($themes) {
-    .themed-text, p {
+    .themed-text,
+    p {
       color: get-theme-value(copy-text-color);
     }
   }
