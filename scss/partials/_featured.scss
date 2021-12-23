@@ -9,7 +9,7 @@
     }
 
     &__title {
-      color: $primary-white;
+      color: inherit;
     }
 
     &__text {
@@ -67,7 +67,10 @@
   .content-block {
     &--service-category {
       @include grid();
-      @include vertical-spacing(lg-1, bottom, margin);
+
+      &:not(:last-of-type) {
+        @include vertical-spacing(lg-1, bottom, margin);
+      }
 
       @include breakpoint(tablet) {
         grid-template-columns: repeat(auto-fit, minmax(60rem, 1fr));
@@ -79,6 +82,7 @@
     }
 
     &__title {
+      @extend h2;
       color: inherit;
       margin-bottom: 2rem;
     }

@@ -26,7 +26,8 @@
 }
 
 .h1--page-titles {
-  @extend h3;
+  font-size: 5.4rem;
+  line-height: 1.074;
 
   @include breakpoint(tablet) {
     font-size: 10rem;
@@ -72,6 +73,7 @@
       }
 
       &--has-subtitle {
+        @extend h1;
         margin-bottom: 2rem;
       }
 
