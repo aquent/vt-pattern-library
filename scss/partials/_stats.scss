@@ -6,8 +6,10 @@
 /** 1 - Stat block
 ------------------------------------------------------------*/
 .stat {
+    margin: 0;
+
     &__number {
-        @extend .h2;
+        @extend h2;
         color: $secondary-orange-2;
 
         @include breakpoint(tablet) {
