@@ -253,7 +253,7 @@
 
     &::before {
       @include arrow-sym(right, $secondary-green-1);
-      right: 0;
+      right: 1rem;
     }
 
     @include breakpoint(desktop) {
@@ -300,9 +300,14 @@
       .top-menu {
         &__menuitem {
           background-color: $secondary-blue-1;
-          margin: 2.9rem auto 0 auto;
+          margin: 2.9rem 2rem 0 2rem;
           padding: 2.5rem 0 2.5rem 6.3rem;
-          width: 90%;
+          width: calc(100% - 4rem); 
+
+          @include breakpoint(tablet){
+            margin: 0 auto;
+            width: 100%;
+          }
 
           &::before {
             @include arrow-sym (left, $primary-white);
@@ -329,16 +334,16 @@
 
 /** 4 - Nav bar wrapper
 ------------------------------------------------------------*/
-.navbar {
+.navbar {  
   background: $primary-blue;
   display: flex;
   flex-flow: column nowrap;
-  height: 100vh;
+  height: calc(100vh - 8rem);
   list-style: none;
   position: absolute;
   left: 0;
-  overflow: hidden;
-  padding: 5rem 2rem 0 2rem;
+  overflow: scroll;
+  padding: 2rem;
   transform: translateY(-100%);
   transition: transform 0.2s ease;
   width: 100%;
@@ -346,6 +351,7 @@
   
   @include breakpoint(tablet) {
     width: 50%;
+    height: calc(100vh - 9rem);
   }
 
   @include breakpoint(desktop) {
@@ -369,10 +375,10 @@
   }
 
   &:target {
-    transform: translateY(52%);
+    transform: translateY(calc(50% + 4rem));
 
     @include breakpoint(tablet) {
-      transform: translateY(52%);
+      transform: translateY(calc(50% + 4.4rem));
     }
     /* 
         * Transform all the slices of hamburger
@@ -422,8 +428,7 @@
   z-index: 10;
   left: 0;
   width: 100%;
-  height: 92vh;
-  overflow: hidden;
+  min-height: calc(100vh - 16rem); // 16rem = navbar height + top item height
   list-style: none;
   background: $primary-white;
 
@@ -467,4 +472,9 @@
     margin-top: 2rem;
     width: fit-content;
   }
+}
+
+body {
+  height: 2000px;
+  background-color: lightgreen;
 }

@@ -5,6 +5,12 @@ export default class Menu {
   constructor(navbarSelector) {
     this.navbar = document.querySelector(navbarSelector);
     this.menus = this.navbar ? this.navbar.querySelectorAll("details") : null;
+
+    this.menuToggle = this.navbar.nextElementSibling; // The mobile menu toggle button
+    this.documentBody = document.querySelector("body"); // The document body
+
+
+    
   }
 
   handleNonMenuClick = (e) => {
@@ -43,6 +49,37 @@ export default class Menu {
 
       document.addEventListener("pointerdown", this.handleNonMenuClick);
       document.addEventListener("keydown", this.handleEscapeKey);
+      this.menuToggle.addEventListener("pointerdown", this.handleScrollAndOverlay);
     }
   };
+
+  handleScrollAndOverlay = (e) => {
+    // need the body
+    this.documentBody.classList.toggle("no-scroll");
+    // need the dropdown menu
+    this.navbar.classList.toggle("scroll)");
+    //need the overlay
+
+
+
+    // document.body.classList.toggle("no-scroll");
+    // document.querySelector(".navbar").classList.toggle("scroll");
+    // let dropDownMenu = document.querySelector(".dropdown-menu");
+    // console.log(dropDownMenu)
+    // dropDownMenu.classList.toggle("scroll");
+  }
 }
+
+
+// Notes: Can be an onclick / onpointerdown event handler or use the hashchange event handler. The latter is seems to be more efficient and reliable.
+
+// window.addEventListener('hashchange', function(e){
+//   console.log(e.newURL);
+  
+//   if (e.newURL.includes("navbar")) {
+//     addClass(body, "backdrop");
+//   } else {
+//     removeClass(body, "backdrop");
+//     // addClass(navbar, "navbar-open");
+//   }
+//   })

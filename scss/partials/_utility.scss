@@ -3,6 +3,7 @@
 1 — Text
 2 — Containers
 3 - Accessibility and Visibility
+  3.1 - Overflow
 4 - Multi Column Blog Grid
 5 - Similar Section Separator (like break)
 /// END TABLE OF CONTENTS **/
@@ -95,6 +96,24 @@
     width: max-content;
   }
 }
+
+/* =========================
+3.1 - Overflow
+========================= */
+
+.no-scroll {
+  overflow-y: hidden;
+}
+// TODO: Refactctor into a mixin. Another instance is in the content-slider. 
+.scroll {
+  overflow-y: scroll !important;
+  scrollbar-width: none;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 
 /** 4 - Multi Column Blog Grid
 ------------------------------------------------------------*/
