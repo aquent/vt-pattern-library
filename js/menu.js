@@ -5,6 +5,8 @@ export default class Menu {
   constructor(navbarSelector) {
     this.navbar = document.querySelector(navbarSelector);
     this.menus = this.navbar ? this.navbar.querySelectorAll("details") : null;
+    this.navOverlay = document.querySelector(".nav-overlay");
+    console.log(this.navOverlay)
   }
 
   handleNonMenuClick = (e) => {
@@ -52,10 +54,12 @@ export default class Menu {
     if (e.newURL.includes("#navbar")) {
       document.body.classList.add("no-scroll");
       this.navbar.classList.add("scroll");
+      this.navOverlay.style.display = "block";
       return;
     } else {
       document.body.classList.remove("no-scroll");
       this.navbar.classList.remove("scroll");
+      this.navOverlay.style.display = "none";
       return;
     }
   }
