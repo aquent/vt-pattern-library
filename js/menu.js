@@ -6,7 +6,6 @@ export default class Menu {
     this.navbar = document.querySelector(navbarSelector);
     this.menus = this.navbar ? this.navbar.querySelectorAll("details") : null;
     this.navOverlay = document.querySelector(".nav-overlay");
-    console.log(this.navOverlay)
   }
 
   handleNonMenuClick = (e) => {
