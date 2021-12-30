@@ -5,7 +5,6 @@ export default class Menu {
   constructor(navbarSelector) {
     this.navbar = document.querySelector(navbarSelector);
     this.menus = this.navbar ? this.navbar.querySelectorAll("details") : null;
-    this.navOverlay = document.querySelector(".nav-overlay");
   }
 
   handleNonMenuClick = (e) => {
@@ -35,31 +34,15 @@ export default class Menu {
       // Close an open menu if another menu item is opened
       this.menus.forEach((thisDetail, _, details) => {
         thisDetail.ontoggle = (_) => {
-          if (thisDetail.open) {
+          if (thisDetail.open)
             details.forEach((thatDetail) => {
               if (thatDetail != thisDetail) thatDetail.removeAttribute("open");
             });
-          }
         };
       });
 
       document.addEventListener("pointerdown", this.handleNonMenuClick);
       document.addEventListener("keydown", this.handleEscapeKey);
-      window.addEventListener("hashchange", this.handleScrollAndOverlay);
     }
   };
-
-  handleScrollAndOverlay = (e) => {
-    if (e.newURL.includes("#navbar")) {
-      document.body.classList.add("no-scroll");
-      this.navbar.classList.add("scroll");
-      this.navOverlay.style.display = "block";
-      return;
-    } else {
-      document.body.classList.remove("no-scroll");
-      this.navbar.classList.remove("scroll");
-      this.navOverlay.style.display = "none";
-      return;
-    }
-  }
 }
