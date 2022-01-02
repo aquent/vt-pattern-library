@@ -9,8 +9,8 @@
     @include vertical-spacing(sm-3, bottom, margin);
   }
 
-  p:not(:last-child) {
-    @include vertical-spacing(sm-1, bottom, padding);
+  p + p {
+    @include vertical-spacing(sm-1, top, padding);
   }
 
   &--post-hero {
