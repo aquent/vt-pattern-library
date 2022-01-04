@@ -31,6 +31,7 @@ function init() {
   }
 
   menu.asyncDropdown();
+
 }
 
 window.addEventListener("DOMContentLoaded", init);
