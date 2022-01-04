@@ -28,16 +28,22 @@ X — Layout
 ========================= */
 
 .form {
-  &__select {
-    &:focus {
-      outline: none;
+  @at-root {
+    #{&}__select,
+    select {
+      &:focus {
+        outline: none;
+      }
     }
   }
 
-  &__label {
-    @extend [class^="tertiary-info"];
-    margin-top: 2.5rem;
-    padding-bottom: 1.2rem;
+  @at-root {
+    #{&}__label,
+    form label {
+      @extend [class^="tertiary-info"];
+      margin-top: 2.5rem;
+      padding-bottom: 1.2rem;
+    }
   }
 
   &__button {
@@ -53,7 +59,12 @@ X — Layout
 1.2 - Form Inputs - Global
 ========================= */
 
-[class^="form__input-"] {
+[class^="form__input-"],
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="num"],
+input[type="tel"] {
   border: 0.2rem solid $cool-neutral-4;
   width: 100%;
 
@@ -72,12 +83,18 @@ X — Layout
 ========================= */
 
 .form {
-  [class*="-text"] {
-    @extend .tk-degular-text;
-    background: transparent;
-    margin-bottom: 2.1rem;
-    padding: 1.2rem;
-    width: 100%;
+  @at-root {
+    #{&} [class*="-text"],
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    input[type="num"],
+    input[type="tel"] {
+      @extend .tk-degular-text;
+      background: transparent;
+      padding: 1.2rem;
+      width: 100%;
+    }
   }
 }
 
@@ -85,16 +102,19 @@ X — Layout
 2.2 - Multi line
 ========================= */
 .form {
-  [class*="text-multi"] {
-    resize: none;
-    height: 26.8rem;
+  @at-root {
+    #{&} [class*="text-multi"],
+    textarea {
+      resize: none;
+      height: 26.8rem;
+    }
   }
 }
 
 /* =========================
 2.3 - Radio Buttons
 ========================= */
-.form {
+form {
   // Hide native radio input
   input[type="radio"] {
     opacity: 0;
@@ -144,20 +164,20 @@ X — Layout
 ========================= */
 
 .form {
-  [class*="-select"] {
-    appearance: none;
-    border: 0.2rem solid $secondary-green-2;
-    background-image: url("data:image/svg+xml,%3Csvg width='17' height='9' viewBox='0 0 17 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.5 0.5L8.5 8.5L16.5 0.5H0.5Z' fill='%23051C2C'/%3E%3C/svg%3E%0A");
-    background-origin: content-box;
-    background-position: right 1% center;
-    background-repeat: no-repeat;
-    background-size: 16px 8px;
-    color: $primary-blue;
-    margin-bottom: 2.1rem;
-    padding: 1.6rem;
-    width: 100%;
+  @at-root {
+    #{&} [class*="-select"],
+    select {
+      appearance: none;
+      border: 0.2rem solid $secondary-green-2;
+      background-image: url("data:image/svg+xml,%3Csvg width='17' height='9' viewBox='0 0 17 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.5 0.5L8.5 8.5L16.5 0.5H0.5Z' fill='%23051C2C'/%3E%3C/svg%3E%0A");
+      background-origin: content-box;
+      background-position: right 1% center;
+      background-repeat: no-repeat;
+      background-size: 16px 8px;
+      color: $primary-blue;
+      padding: 1.6rem;
+    }
   }
-}
 
 /* =========================
   2.5 - Radio Tab for Check/Compare Salary tool
@@ -251,12 +271,15 @@ X — Layout
 ========================= */
 // Error styles need to be at the bottom
 .form {
-  & [class*="-error-styled"] {
-    border: 0.2rem solid $product-red-3;
-    color: $product-red-3;
+  @at-root {
+    #{&} [class*="-error-styled"],
+    .error:not(span) {
+      border: 0.2rem solid $product-red-3;
+      color: $product-red-3;
+    }
   }
 
-  & [class*="__error-message"] {
+ [class*="__error-message"] {
     color: $product-red-3;
   }
 }

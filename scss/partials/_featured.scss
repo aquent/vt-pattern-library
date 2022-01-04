@@ -8,6 +8,10 @@
       color: $secondary-green-2;
     }
 
+    &__title {
+      color: inherit;
+    }
+
     &__text {
       color: $cool-neutral-6;
       margin-bottom: 4.5rem;
@@ -63,7 +67,10 @@
   .content-block {
     &--service-category {
       @include grid();
-      @include vertical-spacing(lg-1, bottom, margin);
+
+      &:not(:last-of-type) {
+        @include vertical-spacing(lg-1, bottom, margin);
+      }
 
       @include breakpoint(tablet) {
         grid-template-columns: repeat(auto-fit, minmax(60rem, 1fr));
@@ -75,6 +82,8 @@
     }
 
     &__title {
+      @extend h2;
+      color: inherit;
       margin-bottom: 2rem;
     }
 
@@ -83,7 +92,7 @@
     }
 
     &__image {
-      @include breakpoint(desktop){
+      @include breakpoint(desktop) {
         max-width: 72rem;
       }
     }

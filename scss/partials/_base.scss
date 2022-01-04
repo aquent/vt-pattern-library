@@ -58,7 +58,8 @@ h2 {
 }
 
 h3,
-.h3 {
+.h3,
+.h3--alt {
   font-size: 4.2rem;
   line-height: 1.095;
   @include breakpoint(tablet) {
@@ -68,7 +69,9 @@ h3,
 }
 
 h4,
-.h4 {
+.h4,
+.h4--alt,
+.h4--quote {
   font-size: 2.8rem;
   line-height: 1.143;
   @include breakpoint(tablet) {
@@ -78,7 +81,9 @@ h4,
 }
 
 h5,
-.h5 {
+.h5,
+.h5--alt,
+.h5--quote {
   @extend .h6;
   @include breakpoint(tablet) {
     font-size: 3.2rem;
@@ -87,7 +92,9 @@ h5,
 }
 
 h6,
-.h6 {
+.h6,
+.h6--alt,
+.h6--quote {
   font-size: 2.8rem;
   line-height: 1.143;
 }
@@ -136,11 +143,12 @@ a,
 /** 5 - Blockquotes
 ------------------------------------------------------------*/
 blockquote {
-  @extend .h6--quote;
+  @extend .h5;
+  @extend .tk-degular-display;
+  font-size: 3.2rem;
+  font-style: italic;
 
   @include breakpoint(mobile) {
-    font-size: 4.2rem;
-    font-style: italic;
     line-height: 1.095;
   }
 }
@@ -157,14 +165,17 @@ time {
 /* =========================
 7.1 - Unordered List
 ========================= */
+li {
+  @extend .p--body;
+  @extend .themed-text;
+}
+
 ul {
   margin: 0;
   font-weight: inherit;
   padding-left: 1.5rem;
 
   li {
-    @extend .p--body;
-    @extend .themed-text;
     @extend .tk-degular-text;
     list-style: none;
 
@@ -200,7 +211,6 @@ dl {
   dt {
     @extend .h4;
     display: block;
-    color: inherit;
   }
 
   dd {

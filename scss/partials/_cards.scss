@@ -21,6 +21,12 @@
     }
   }
 
+  &__link {
+    @extend a;
+    display: inline-block;
+    position: relative;
+  }
+
   // !!! Note: Not sure if `__date` shoudl be replaced by `__overlay-content`
 
   &__date,
@@ -57,20 +63,16 @@
     }
   }
 
+  &__overlay-image {
+    background-color: #fff;
+    height: 73.3%;
+    width: 73.3%;
+  }
+
   &__image {
     grid-column: 1 / 3;
     width: 100%;
     max-width: 100%;
-  }
-
-  &__subtitle {
-    @extend [class^="tertiary-info"];
-    color: $secondary-green-1;
-    margin-bottom: 1rem;
-
-    @include breakpoint(tablet) {
-      margin-bottom: 3rem;
-    }
   }
 
   &__blog {
@@ -94,7 +96,7 @@
 
   &__title {
     @extend .h4;
-
+    color: $secondary-blue-1;
     margin-bottom: 1rem;
 
     @include breakpoint(tablet) {
@@ -107,13 +109,29 @@
     grid-template-columns: repeat(2, 1fr);
     margin-bottom: 2.9rem;
 
-    &-blog {
+    &--blog {
       margin-bottom: 2.1rem;
 
       .post-image {
         display: inline-block;
         overflow: hidden;
       }
+    }
+  }
+
+  &__lower {
+    .content-block__subtitle {
+      @extend [class^="tertiary-info"];
+      color: $secondary-green-1;
+      margin-bottom: 1rem;
+
+      @include breakpoint(tablet) {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    &--blog {
+      max-width: fit-content;
     }
   }
 
@@ -136,6 +154,13 @@
 
   .content-block__title {
     display: inline;
+    background: linear-gradient($primary-green 0 0) 0 100%/100% 0.2rem no-repeat;
+
+    @include breakpoint(desktop) {
+      background: linear-gradient($primary-green 0 0) 0 100% / var(--d, 0)
+        0.2rem no-repeat;
+      transition: 0.3s;
+    }
 
     &::after {
       @extend .content-block__title;
@@ -146,7 +171,13 @@
 
   &:hover {
     .content-block__title {
-      @extend .a;
+      color: $primary-blue;
+      --d: 100%;
+    }
+
+    .content-block__text,
+    .content-block__text * {
+      color: $primary-blue;
     }
   }
 
@@ -170,10 +201,14 @@
   }
 
   &-featured {
+    @extend .content-block--clickable;
     padding-bottom: 7.5rem;
     padding-top: 7.5rem;
     width: 33.5rem;
-    @extend .content-block--clickable;
+
+    .content-block__blog-title {
+      @extend h2;
+    }
 
     @include breakpoint(desktop) {
       @include grid();
@@ -196,7 +231,7 @@
 
   &-featured-home {
     @extend .content-block--clickable;
-    padding-bottom: 5.0rem;
+    padding-bottom: 5rem;
     border-bottom: 1px solid $cool-neutral-6;
 
     @include breakpoint(desktop) {
@@ -207,7 +242,7 @@
     @media only screen and (min-width: 866px) and (max-width: 1160px) {
       // TODO discuss with Mark and the Web team about how to handle custom breakpoints
       width: 77rem;
-   }
+    }
   }
 }
 
@@ -219,9 +254,8 @@
   @include breakpoint(desktop) {
     display: grid;
     column-gap: 6rem;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr;
     padding-bottom: 10rem;
-    padding-top: 4.5rem;
   }
 
   @media only screen and (min-width: 866px) and (max-width: 1160px) {
@@ -229,23 +263,6 @@
     grid-row-gap: 6.2rem;
     grid-template-columns: 1fr;
     place-items: center;
-  }
-
-  .content-slider__block,
-  .content-block--blog {
-    @include breakpoint(desktop) {
-      // Override width set by the content slider
-      width: 24rem !important;
-    }
-
-    @media only screen and (min-width: 866px) and (max-width: 1160px) {
-      // TODO discuss with Mark and the Web team about how to handle custom breakpoints
-      // Override width set by the content slider
-      width: 35rem!important;
-    }
-  
-    // Override width set by the content slider
-    width: 27.8rem !important;
   }
 
   .grid-col-content__four--homepage-blog {
@@ -262,15 +279,37 @@
     .content-block__title {
       @extend .h6;
     }
-  }
 
+    .content-slider__block {
+      @include breakpoint(desktop) {
+        // Override width set by the content slider
+        min-width: 24rem;
+      }
+  
+      @media only screen and (min-width: 866px) and (max-width: 1160px) {
+        // TODO discuss with Mark and the Web team about how to handle custom breakpoints
+        // Override width set by the content slider
+        min-width: 35rem;
+      }
+  
+      // Override width set by the content slider
+      min-width: 27.8rem;
+    }
+
+    .content-block--blog {
+      @include breakpoint(desktop) {
+        width: fit-content;
+      }
+    }
+  }
 }
 
 /** 5 - Content Block - Split
 ------------------------------------------------------------*/
 .content-block--split {
-  width: 71.5rem;
+  width: calc(min(100%, 71.5rem));
   grid-column-gap: 4rem;
+
   .content-block {
     &__lower {
       @include breakpoint(tablet) {

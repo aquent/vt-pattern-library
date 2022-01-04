@@ -28,6 +28,7 @@ export default class TabsPanel {
   }
   // onClick for navbar
   onClick = (e) => {
+    e.preventDefault();
     // The reason for the ternary check is there is only one click event attached to the navbar. A side effect of that is the user can click on either the <a> or a <li>. I believe having this check is more efficicent than having multiple event listeners.
     const clickedItem =
       e.target.nodeName === "A" ? e.target.parentElement : e.target;

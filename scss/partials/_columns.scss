@@ -9,12 +9,12 @@
     @include vertical-spacing(sm-3, bottom, margin);
   }
 
-  p:not(:last-child) {
-    @include vertical-spacing(md-3, bottom, padding);
+  p + p {
+    @include vertical-spacing(sm-1, top, padding);
   }
 
   &--post-hero {
-    padding-top: 9.6rem;
+    padding-top: 7.6rem;
     
     @include breakpoint(desktop) {
       grid-template-columns: calc(min(62.5rem, 50%)) auto;
@@ -22,7 +22,7 @@
       margin-left: auto;
       margin-right: auto;
       max-width: 144rem;
-      padding-top: 27.4rem;
+      padding-top: 12.9rem;
     }
 
     @include grid();
@@ -79,6 +79,7 @@
     max-width: 100%;
 
     @include grid();
+    row-gap: 7rem;
     margin: 4.8rem 0;
 
     [class^="column"] {
@@ -93,7 +94,8 @@
     }
 
     @include breakpoint(tablet) {
-      column-gap: 14rem;
+      column-gap: 8rem;
+      row-gap: 10rem;
       grid-template-columns: repeat(3, 1fr);
     }
   }
