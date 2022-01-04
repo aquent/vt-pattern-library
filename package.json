@@ -7,7 +7,6 @@
     "@frctl/fractal": "^1.5.11",
     "@frctl/mandelbrot": "^1.9.4",
     "@frctl/nunjucks": "^2.0.13",
-    "d3": "^7.2.1",
     "json-schema": ">=0.4.0"
   },
   "devDependencies": {

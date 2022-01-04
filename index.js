@@ -4,7 +4,6 @@ import ContentSlider from "content-slider";
 import VideoController from "video-controller";
 import TabsPanel from "tabs-panel";
 import FilterBar from "filter-bar";
-import { salarySurveyInit } from 'compare-salary';
 
 function init() {
 
@@ -33,8 +32,6 @@ function init() {
 
   menu.asyncDropdown();
 
-  // Initialize Compare Salary
-  salarySurveyInit();
 }
 
 window.addEventListener("DOMContentLoaded", init);

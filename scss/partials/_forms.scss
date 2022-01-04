@@ -55,6 +55,7 @@ X — Layout
 
 [class^="form__input-"] {
   border: 0.2rem solid $cool-neutral-4;
+  width: 100%;
 
   &:focus,
   &:not(:placeholder-shown) {
@@ -74,6 +75,7 @@ X — Layout
   [class*="-text"] {
     @extend .tk-degular-text;
     background: transparent;
+    margin-bottom: 2.1rem;
     padding: 1.2rem;
     width: 100%;
   }
@@ -151,7 +153,9 @@ X — Layout
     background-repeat: no-repeat;
     background-size: 16px 8px;
     color: $primary-blue;
+    margin-bottom: 2.1rem;
     padding: 1.6rem;
+    width: 100%;
   }
 }
 
@@ -204,6 +208,10 @@ X — Layout
         width: 0;
       }
     }
+  }
+
+  .error-message {
+    color: $product-red-3;
   }
 }
 
