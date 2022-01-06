@@ -8,6 +8,7 @@
   2.2 — Text Multi line
   2.3 - Radio Buttons
   2.4 - Select Dropdown
+  2.5 - Radio Tab (Check/Compare Salary tool)
 3 - Submitting Overlay
 4 - Errors Global (needs to be last)
 X — Layout
@@ -21,6 +22,7 @@ X — Layout
   display: flex;
   flex-direction: column;
 }
+
 /* =========================
 1.1 - Form Labels
 ========================= */
@@ -43,6 +45,14 @@ X — Layout
       padding-bottom: 1.2rem;
     }
   }
+
+  &__button {
+    margin-top: 7rem;
+  }
+
+  &--disclaimer {
+    margin-top: 7.1rem;
+  }
 }
 
 /* =========================
@@ -56,6 +66,7 @@ input[type="url"],
 input[type="num"],
 input[type="tel"] {
   border: 0.2rem solid $cool-neutral-4;
+  width: 100%;
 
   &:focus,
   &:not(:placeholder-shown) {
@@ -111,7 +122,7 @@ form {
     width: 0;
 
     // Create a custom radio input in ::before
-    & + ::before {
+    &+ ::before {
       background: transparent;
       border: 0.2rem solid $cool-neutral-4;
       border-radius: 50%;
@@ -125,23 +136,23 @@ form {
       transition: all 0.2s ease-in-out;
     }
 
-    &:checked + ::before {
+    &:checked+ ::before {
       background: radial-gradient($accessible-green 40%, transparent 0%);
     }
   }
 
   // Maybe a good use ofr :has()
-  input[type="radio"] + label {
+  input[type="radio"]+label {
     padding-bottom: 2.4rem;
   }
 
   // Apply theme appropriate colors
   @include theming($themes) {
-    input[type="radio"] + label {
+    input[type="radio"]+label {
       cursor: pointer;
       color: get-theme-value(color);
 
-      & + ::before {
+      &+ ::before {
         background: get-theme-value(background-color);
       }
     }
@@ -167,12 +178,67 @@ form {
       padding: 1.6rem;
     }
   }
+
+/* =========================
+  2.5 - Radio Tab for Check/Compare Salary tool
+========================= */
+.form {
+  &--salary-radio {
+    [name='form-type'] {
+      display: none;
+    }
+
+    label:hover,
+    [name='form-type']:checked+label {
+      border-bottom: .6rem solid $accessible-green;
+    }
+
+    @extend .tk-degular-text;
+    color: $secondary-blue-1;
+    border-bottom: .1rem solid $cool-neutral-4;
+    display: grid;
+    font-weight: 600;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 10rem;
+    height: 4rem;
+
+    label {
+      border-right: .1rem solid $cool-neutral-4;
+      padding-right: 1.3rem;
+      padding-left: 2rem;
+    }
+
+    input[type="radio"]+label {
+      padding-bottom: 1rem;
+    }
+
+    input[name='form-type'] {
+
+      // Create a custom radio input in ::before
+      &+ ::before {
+        @include clear-decoration();
+        transition: none;
+        content: none;
+      }
+
+      &:checked+ ::before {
+        @include clear-decoration();
+        transition: none;
+        content: none;
+        width: 0;
+      }
+    }
+  }
+
+  .error-message {
+    color: $product-red-3;
+  }
 }
 
 /** 3 - Submitting Overlay
 ------------------------------------------------------------*/
 .submit-overlay {
-  background-color: rgba(255,255,255,.666);
+  background-color: rgba(255, 255, 255, .666);
   top: 0;
   left: 0;
   right: 0;
@@ -195,7 +261,7 @@ form {
     text-align: center;
     top: calc(50% - 2rem);
     left: calc(50% - 2rem);
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     content: '';
   }
 }
@@ -218,8 +284,9 @@ form {
   }
 }
 
-/** X - Layout
-------------------------------------------------------------*/
-.form__field-wrapper {
-  margin-bottom: 1.6rem;
+  /** X - Layout
+  ------------------------------------------------------------*/
+  .form__field-wrapper {
+    margin-bottom: 1.6rem;
+  }
 }

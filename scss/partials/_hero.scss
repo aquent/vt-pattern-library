@@ -7,13 +7,15 @@
 5 - hero-blog
 /// END TABLE OF CONTENTS **/
 
-.hero {
+[class^="hero"][class*="__section"] {
   margin-top: 8rem;
 
   @include breakpoint(desktop) {
     margin-top: 0;
   }
-  
+}
+
+.hero {  
   /** 1 - hero-video
   ------------------------------------------------------------*/
   &-video {
@@ -362,7 +364,13 @@
       }
 
       &-1 {
+        object-fit: cover;
+        height: 30rem;
+        width: 30rem;
+
         @include breakpoint(tablet) {
+          object-fit: contain;
+          height: unset;
           width: 100%;
         }
       }

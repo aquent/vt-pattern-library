@@ -6,8 +6,18 @@
 /** 1 - Stat block
 ------------------------------------------------------------*/
 .stat {
+    row-gap: 4.8rem;
+
+    [class^=column] {
+        margin: 0;
+    }
+
+    @include breakpoint(tablet) {
+        margin: 7.5rem 0;
+    }
+
     &__number {
-        @extend .h2;
+        @extend h2;
         color: $secondary-orange-2;
 
         @include breakpoint(tablet) {

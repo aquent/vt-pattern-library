@@ -111,7 +111,7 @@
   &__filter-icon {
     width: 3rem;
     height: 100%;
-    mask: url("/img/filter.svg") no-repeat center / contain;
+    mask: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='30' y1='10' x2='13' y2='10' stroke='white' stroke-width='2'/%3E%3Ccircle cx='10' cy='10' r='4' stroke='white' stroke-width='2'/%3E%3Cline x1='6' y1='10' x2='2' y2='10' stroke='white' stroke-width='2'/%3E%3Cline x1='2' y1='22' x2='19' y2='22' stroke='white' stroke-width='2'/%3E%3Ccircle cx='22' cy='22' r='4' transform='rotate(-180 22 22)' stroke='white' stroke-width='2'/%3E%3Cline x1='26' y1='22' x2='30' y2='22' stroke='white' stroke-width='2'/%3E%3C/svg%3E%0A") no-repeat center / contain;
     background-color: $primary-white;
     margin-right: 3rem;
     display: block;
@@ -451,6 +451,11 @@
       }
     }
 
+    &-wrapper {
+      margin-top: 0;
+      padding-bottom: 0;
+    }
+
     &-label {
       color: $primary-blue;
       background: none;
@@ -459,6 +464,10 @@
       display: inline-block;
       text-align: center;
       box-shadow: none;
+
+      // unset default form label styling
+      letter-spacing: 0;
+      text-transform: none;
     }
 
     // plus sign icon
@@ -608,7 +617,6 @@
     &-clear {
       margin-left: 2rem;
       white-space: nowrap;
-      display: grid;
       align-self: center;
 
       @include breakpoint(tablet) {
@@ -644,15 +652,16 @@
         padding: 0rem;
       }
     }
+
     &-item {
       display: block;
 
-      &:not(:last-child) {
-        margin-bottom: 2rem;
-      }
-
       &::before {
         content: "";
+      }
+
+      .filter-bar__sorter-input-label::before {
+        display: none;
       }
     }
 
@@ -671,56 +680,69 @@
         display: grid;
         grid-template-columns: 3rem auto;
         gap: 0.5rem;
+        margin-top: 1rem;
+        padding-bottom: 0;
 
         @include breakpoint(tablet) {
           display: inline-block;
         }
-      }
 
-      &-toggle {
-        appearance: none;
-        background-color: $primary-white;
-        margin: 0.5rem 0;
-        color: $cool-neutral-2;
-        width: 2.5rem;
-        height: 2.5rem;
-        border: 0.3rem solid $cool-neutral-2;
-        border-radius: 50%;
-        transform: translateY(-0.075rem);
-
-        display: grid;
-        place-content: center;
-
-        &::before {
-          content: "";
-          width: 1rem;
-          height: 1rem;
-          border-radius: 50%;
-          transform: scale(0);
-          transition: 120ms transform ease-in-out;
-          box-shadow: inset 1rem 1rem $primary-green;
-        }
-
-        &:checked::before {
-          transform: scale(1);
-        }
-
-        @include breakpoint(tablet) {
+        .filter-bar__sorter-input-toggle {
           appearance: none;
-          pointer-events: none;
-          border: none;
-          display: inline-block;
-
+          background-color: $primary-white;
+          margin: 0.5rem 0;
+          color: $cool-neutral-2;
+          width: 2.5rem;
+          height: 2.5rem;
+          border: 0.3rem solid $cool-neutral-2;
+          border-radius: 50%;
+          transform: translateY(-0.075rem);
+          opacity: 1;
+  
+          display: grid;
+          place-content: center;
+  
           &::before {
-            box-shadow: none;
+            content: "";
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1rem 1rem $primary-green;
+          }
+  
+          &:checked::before {
+            transform: scale(1);
+          }
+  
+          @include breakpoint(tablet) {
+            appearance: none;
+            pointer-events: none;
+            border: none;
+            display: inline-block;
+  
+            &::before {
+              box-shadow: none;
+            }
           }
         }
       }
+
+      
 
       &-label {
         background: none;
         color: $primary-blue;
         cursor: pointer;
+
+        // unset default form label styling
+        letter-spacing: 0;
+        text-transform: none;
+
+        &::before {
+          display: none;
+        }
 
         @include breakpoint(tablet) {
           background: linear-gradient(
@@ -762,13 +784,15 @@
       }
     }
 
-    &-input {
+    & &-input {
       border: 0;
       background: transparent;
       border-bottom: 0.1rem solid $primary-white;
       color: $primary-white;
       outline: 0;
       margin: 3rem 0;
+      padding: 0;
+      width: unset;
 
       &::placeholder {
         /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -800,6 +824,7 @@
       height: 2.3rem;
       width: 2.3rem;
       display: block;
+      margin-left: 1rem;
 
       // magnifying glass handle
       &::before {
@@ -843,7 +868,7 @@
     margin: 2.5rem 0;
 
     @include breakpoint(tablet) {
-      padding-left: 3rem;
+      padding-left: 2rem;
     }
   }
 }
