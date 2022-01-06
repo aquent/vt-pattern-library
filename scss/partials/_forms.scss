@@ -50,6 +50,13 @@ X — Layout
     margin-top: 7rem;
   }
 
+  &--copy {
+    padding-bottom: 5rem;
+    &__header {
+      padding-bottom: 2.7rem;
+    }
+  }
+
   &--disclaimer {
     margin-top: 7.1rem;
   }
@@ -176,6 +183,7 @@ form {
       background-size: 16px 8px;
       color: $primary-blue;
       padding: 1.6rem;
+      width: 100%;
     }
   }
 
@@ -198,14 +206,23 @@ form {
     border-bottom: .1rem solid $cool-neutral-4;
     display: grid;
     font-weight: 600;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    height: 7rem;
     margin-bottom: 10rem;
-    height: 4rem;
+   
 
     label {
+      @extend .tk-degular-text;
       border-right: .1rem solid $cool-neutral-4;
+      letter-spacing: 0;
       padding-right: 1.3rem;
       padding-left: 2rem;
+      font-weight: 600;
+      font-size: 2rem;
+      text-transform: capitalize;
+      &:first-child {
+        padding-top: 5rem;
+      }
     }
 
     input[type="radio"]+label {
