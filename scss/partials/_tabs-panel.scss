@@ -26,6 +26,10 @@
 
     display: none;
     padding: 0;
+   
+    & > li + li{
+      margin-top: 0;
+    }
 
     // Desktop
     @include breakpoint(desktop) {
@@ -39,6 +43,8 @@
         color: $secondary-blue-1;
         display: flex;
         justify-content: flex-start;
+        
+        
 
         &::before {
           content: "";
