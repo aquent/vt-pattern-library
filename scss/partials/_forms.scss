@@ -215,10 +215,10 @@ form {
       @extend .tk-degular-text;
       border-right: .1rem solid $cool-neutral-4;
       letter-spacing: 0;
+      font-size: 2rem;
+      font-weight: 600;
       padding-right: 1.3rem;
       padding-left: 2rem;
-      font-weight: 600;
-      font-size: 2rem;
       text-transform: capitalize;
       &:first-child {
         padding-top: 5rem;
