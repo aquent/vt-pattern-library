@@ -207,7 +207,7 @@ form {
     display: grid;
     font-weight: 600;
     grid-template-columns: repeat(3, 1fr);
-    height: 7rem;
+    height: 7.1rem;
     margin-bottom: 10rem;
    
 
@@ -247,6 +247,7 @@ form {
     }
   }
 
+  // Bouncer JS class
   .error-message {
     color: $product-red-3;
   }
