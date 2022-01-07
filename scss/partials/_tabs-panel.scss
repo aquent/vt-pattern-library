@@ -26,8 +26,8 @@
 
     display: none;
     padding: 0;
-   
-    & > li + li{
+   // reset styles set in base.scss line 180
+    & > li + li {
       margin-top: 0;
     }
 
@@ -43,8 +43,6 @@
         color: $secondary-blue-1;
         display: flex;
         justify-content: flex-start;
-        
-        
 
         &::before {
           content: "";
@@ -144,7 +142,7 @@
       }
 
       &__heading {
-        @extend [class^="tertiary-info"];
+        @extend .tertiary-info;
 
         border-top: 1px solid $cool-neutral-6;
         color: $secondary-green-1;
@@ -157,7 +155,7 @@
       overflow: visible;
       
       &__heading {
-        @extend [class^="tertiary-info"];
+        @extend .tertiary-info;
 
         border-top: 1px solid $cool-neutral-6;
         color: $secondary-green-1;
