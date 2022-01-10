@@ -84,7 +84,7 @@
       padding-bottom: 1rem;
 
       &-tag {
-        color: $secondary-green-1;
+        color: $secondary-green-1 !important;
         font-size: 1.6rem;
       }
     }
@@ -136,11 +136,13 @@
   }
 
   &__author {
+    color: $primary-blue;
     font-weight: 600;
   }
 
   &__blog-author-date {
     @extend .tk-degular-text;
+    color: $secondary-green-1;
     padding-bottom: 1rem;
     padding-top: 1rem;
   }
