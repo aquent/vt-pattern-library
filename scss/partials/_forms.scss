@@ -42,7 +42,7 @@ X — Layout
 
     #{&}__label,
     form label {
-      @extend [class^="tertiary-info"];
+      @include tertiary-info();
       margin-top: 2.5rem;
       padding-bottom: 1.2rem;
     }
