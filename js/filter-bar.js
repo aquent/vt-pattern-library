@@ -7,10 +7,10 @@ import scssVars from "!!sass-variable-loader?preserveVariableNames!../scss/util/
 export default class FilterBar extends Menu {
   constructor(filterBarSelector) {
     super(filterBarSelector);
-
-    this.mobileView = window.matchMedia(
-      "(max-width: " + scssVars["breakpoint-tablet"] + ")"
-    );
+    this.mobileView;
+  
+    this.handleMobileChange();
+    window.addEventListener("resize", this.handleMobileChange);
   }
 
   spreadMenuDropdown = () => {
@@ -32,8 +32,11 @@ export default class FilterBar extends Menu {
       });
   };
 
-  handleMobileChange = (e) => {
-    if (e.matches) {
+  handleMobileChange = () => {
+    const breakpoint = "(max-width: " + scssVars["breakpointDesktop"] + ")";
+    this.mobileView = window.matchMedia(breakpoint);
+
+    if (this.mobileView.matches) {
       // Stop closing openthis.menus if the user clicks on a non-menu item
       document.removeEventListener("pointerdown", super.handleNonMenuClick);
 
@@ -49,10 +52,5 @@ export default class FilterBar extends Menu {
       this.asyncDropdown(this.navbar);
       this.handleSorterChange();
     }
-  };
-
-  controlMenuDropdown = () => {
-    this.handleMobileChange(this.mobileView);
-    this.mobileView.addEventListener("change", this.handleMobileChange);
   };
 }

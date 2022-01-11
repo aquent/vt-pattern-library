@@ -58,7 +58,7 @@ export default class Menu {
     } else {
       document.body.classList.remove("no-scroll");
       this.navbar.classList.remove("scroll");
-      this.navOverlay.style.display = "none";
+      if(this.navOverlay) this.navOverlay.style.display = "none";
       return;
     }
   }
