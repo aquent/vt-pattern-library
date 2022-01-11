@@ -81,7 +81,7 @@
   }
 
   &__heading-tertiary {
-    @extend [class^="tertiary-info"];
+    @include tertiary-info();
     margin-bottom: 2.7rem;
   }
 

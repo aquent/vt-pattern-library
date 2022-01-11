@@ -50,7 +50,7 @@
   }
 
   &--title {
-    @extend [class^="tertiary-info"];
+    @include tertiary-info();
     color: $secondary-green-1;
   }
 }

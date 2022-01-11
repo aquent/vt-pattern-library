@@ -138,7 +138,7 @@
       }
 
       &__heading {
-        @extend [class^="tertiary-info"];
+        @include tertiary-info();
 
         border-top: 1px solid $cool-neutral-6;
         color: $secondary-green-1;
@@ -151,7 +151,7 @@
       overflow: visible;
       
       &__heading {
-        @extend [class^="tertiary-info"];
+        @include tertiary-info();
 
         border-top: 1px solid $cool-neutral-6;
         color: $secondary-green-1;
