@@ -100,3 +100,12 @@
     }
   }
 }
+
+.l-columns {
+  @include breakpoint(tablet) {
+    &--right-sidebar {
+      @include grid(11.4rem);
+      grid-template-columns: 1.82fr 1fr;
+    }
+  }   
+}
