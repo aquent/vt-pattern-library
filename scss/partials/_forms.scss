@@ -29,6 +29,7 @@ X — Layout
 
 .form {
   @at-root {
+
     #{&}__select,
     select {
       &:focus {
@@ -38,9 +39,10 @@ X — Layout
   }
 
   @at-root {
+
     #{&}__label,
     form label {
-      @extend [class^="tertiary-info"];
+      @include tertiary-info();
       margin-top: 2.5rem;
       padding-bottom: 1.2rem;
     }
@@ -48,6 +50,14 @@ X — Layout
 
   &__button {
     margin-top: 7rem;
+  }
+
+  &--copy {
+    padding-bottom: 5rem;
+
+    &__header {
+      padding-bottom: 2.7rem;
+    }
   }
 
   &--disclaimer {
@@ -84,6 +94,7 @@ input[type="tel"] {
 
 .form {
   @at-root {
+
     #{&} [class*="-text"],
     input[type="text"],
     input[type="email"],
@@ -103,6 +114,7 @@ input[type="tel"] {
 ========================= */
 .form {
   @at-root {
+
     #{&} [class*="text-multi"],
     textarea {
       resize: none;
@@ -115,6 +127,7 @@ input[type="tel"] {
 2.3 - Radio Buttons
 ========================= */
 form {
+
   // Hide native radio input
   input[type="radio"] {
     opacity: 0;
@@ -165,6 +178,7 @@ form {
 
 .form {
   @at-root {
+
     #{&} [class*="-select"],
     select {
       appearance: none;
@@ -176,113 +190,127 @@ form {
       background-size: 16px 8px;
       color: $primary-blue;
       padding: 1.6rem;
+      width: 100%;
     }
   }
 
-/* =========================
+  /* =========================
   2.5 - Radio Tab for Check/Compare Salary tool
 ========================= */
-.form {
-  &--salary-radio {
-    [name='form-type'] {
-      display: none;
-    }
-
-    label:hover,
-    [name='form-type']:checked+label {
-      border-bottom: .6rem solid $accessible-green;
-    }
-
-    @extend .tk-degular-text;
-    color: $secondary-blue-1;
-    border-bottom: .1rem solid $cool-neutral-4;
-    display: grid;
-    font-weight: 600;
-    grid-template-columns: repeat(4, 1fr);
-    margin-bottom: 10rem;
-    height: 4rem;
-
-    label {
-      border-right: .1rem solid $cool-neutral-4;
-      padding-right: 1.3rem;
-      padding-left: 2rem;
-    }
-
-    input[type="radio"]+label {
-      padding-bottom: 1rem;
-    }
-
-    input[name='form-type'] {
-
-      // Create a custom radio input in ::before
-      &+ ::before {
-        @include clear-decoration();
-        transition: none;
-        content: none;
+  .form {
+    &--salary-radio {
+      [name='form-type'] {
+        display: none;
       }
 
-      &:checked+ ::before {
-        @include clear-decoration();
-        transition: none;
-        content: none;
-        width: 0;
+      label:hover,
+      [name='form-type']:checked+label {
+        border-bottom: .6rem solid $accessible-green;
+      }
+
+      @extend .tk-degular-text;
+      color: $secondary-blue-1;
+      border-bottom: .1rem solid $cool-neutral-4;
+      display: grid;
+      font-weight: 600;
+      grid-template-columns: repeat(3, 1fr);
+      height: 7.1rem;
+      margin-bottom: 10rem;
+
+
+      label {
+
+        @extend .tk-degular-text;
+        border-right: .1rem solid $cool-neutral-4;
+        letter-spacing: 0;
+        font-size: 2rem;
+        font-weight: 600;
+        padding-right: 1.3rem;
+        padding-left: 2rem;
+        text-transform: capitalize;
+
+        &:first-child {
+          padding-top: 5rem;
+        }
+      }
+
+      input[type="radio"]+label {
+        padding-bottom: 1rem;
+      }
+
+      input[name='form-type'] {
+
+        // Create a custom radio input in ::before
+        &+ ::before {
+          @include clear-decoration();
+          transition: none;
+          content: none;
+        }
+
+        &:checked+ ::before {
+          @include clear-decoration();
+          transition: none;
+          content: none;
+          width: 0;
+        }
       }
     }
-  }
 
-  .error-message {
-    color: $product-red-3;
-  }
-}
-
-/** 3 - Submitting Overlay
-------------------------------------------------------------*/
-.submit-overlay {
-  background-color: rgba(255, 255, 255, .666);
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 1;
-  text-align: center;
-  margin: auto;
-
-  &::after {
-    width: 4rem;
-    height: 4rem;
-    background-color: $cool-neutral-2;
-    -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
-    animation: sk-rotateplane 1.2s infinite ease-in-out;
-    position: absolute;
-    margin: auto;
-    text-align: center;
-    top: calc(50% - 2rem);
-    left: calc(50% - 2rem);
-    transform: translate(-50%, -50%);
-    content: '';
-  }
-}
-
-/* =========================
-4 - Errors - Global
-========================= */
-// Error styles need to be at the bottom
-.form {
-  @at-root {
-    #{&} [class*="-error-styled"],
-    .error:not(span) {
-      border: 0.2rem solid $product-red-3;
+    // Bouncer JS class
+    .error-message {
       color: $product-red-3;
     }
   }
 
- [class*="__error-message"] {
-    color: $product-red-3;
+  /** 3 - Submitting Overlay
+------------------------------------------------------------*/
+  .submit-overlay {
+    background-color: rgba(255, 255, 255, .666);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    margin: auto;
+
+    &::after {
+      width: 4rem;
+      height: 4rem;
+      background-color: $cool-neutral-2;
+      -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+      animation: sk-rotateplane 1.2s infinite ease-in-out;
+      position: absolute;
+      margin: auto;
+      text-align: center;
+      top: calc(50% - 2rem);
+      left: calc(50% - 2rem);
+      transform: translate(-50%, -50%);
+      content: '';
+    }
   }
-}
+
+  /* =========================
+4 - Errors - Global
+========================= */
+  // Error styles need to be at the bottom
+  .form {
+    @at-root {
+
+      #{&} [class*="-error-styled"],
+      .error:not(span) {
+        border: 0.2rem solid $product-red-3;
+        color: $product-red-3;
+      }
+    }
+
+    [class*="__error-message"] {
+      color: $product-red-3;
+    }
+  }
 
   /** X - Layout
   ------------------------------------------------------------*/
