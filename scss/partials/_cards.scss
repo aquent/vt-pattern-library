@@ -336,8 +336,13 @@
     }
 
     &__overlay-content {
-      width: 15rem;
-      height: 11.5rem;
+      width: 10rem;
+      height: 7.5rem;
+
+      @include breakpoint(tablet) {
+        width: 15rem;
+        height: 11.5rem;
+      }
     }
   }
 }
