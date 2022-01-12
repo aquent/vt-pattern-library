@@ -26,6 +26,11 @@
 
     display: none;
     padding: 0;
+  
+    // Needed to ovveride default <a> styles
+    &__li > a {
+      color: $secondary-blue-1;
+    }
    // reset styles set in base.scss line 180
     & > li + li {
       margin-top: 0;
