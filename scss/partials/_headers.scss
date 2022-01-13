@@ -46,13 +46,7 @@
   @include theming($themes) {
     .section-heading {
       @extend h1;
-
-      margin-top: 4rem;
       @include vertical-spacing(md-1, bottom, margin);
-
-      @include breakpoint(tablet){
-        margin-top: 0;
-      }
 
       &--min-bottom-margin {
         @include vertical-spacing(sm-2, bottom, margin);
