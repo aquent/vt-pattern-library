@@ -88,8 +88,10 @@
 }
 
 .tertiary-info {
-  @include tertiary-info();
-
+  @include self() {
+    @include tertiary-info();
+  }
+  
   &--large {
     font-size: 1.6rem;
     line-height: 1.25;
