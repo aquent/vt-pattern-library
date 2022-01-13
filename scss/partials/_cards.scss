@@ -129,10 +129,6 @@
         margin-bottom: 1.5rem;
       }
     }
-
-    &--blog {
-      max-width: fit-content;
-    }
   }
 
   &__author {
@@ -256,7 +252,7 @@
   @include breakpoint(desktop) {
     display: grid;
     column-gap: 6rem;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr 1fr;
     padding-bottom: 10rem;
   }
 
@@ -336,8 +332,13 @@
     }
 
     &__overlay-content {
-      width: 15rem;
-      height: 11.5rem;
+      width: 10rem;
+      height: 7.5rem;
+
+      @include breakpoint(tablet) {
+        width: 15rem;
+        height: 11.5rem;
+      }
     }
   }
 }

@@ -26,6 +26,15 @@
 
     display: none;
     padding: 0;
+  
+    // Needed to overide default <a> styles
+    &__li > a {
+      color: $secondary-blue-1;
+    }
+   // reset styles set in base.scss line 180
+    & > li + li {
+      margin-top: 0;
+    }
 
     // Desktop
     @include breakpoint(desktop) {
@@ -76,8 +85,9 @@
   &__dropdown {
     @extend .tk-degular-text;
     @extend .p--body;
-
+    
     border: 2px solid $secondary-green-2;
+    color: $primary-blue;
     padding: 1.6rem 4rem 1.6rem 1.5rem;
     width: 100%;
 
