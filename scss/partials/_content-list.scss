@@ -1,3 +1,11 @@
+p + .content-list {
+  @include vertical-spacing(md-2, top, margin);
+}
+
+.content-list + p {
+  @include vertical-spacing(sm-5, top, margin);
+}
+
 .content-list {
   &__headline {
     @extend h3;
@@ -83,7 +91,10 @@
 
   .content-steps {
     @include grid();
-    @include vertical-spacing(md-2, bottom, margin);
+
+    &:not(:last-of-type) {
+      @include vertical-spacing(md-2, bottom, margin);
+    }
 
     @include breakpoint(tablet) {
       grid-template-rows: 1fr;
@@ -144,14 +155,6 @@
         color: $primary-white;
       }
     }
-  }
-
-  p + .content-list {
-    @include vertical-spacing(md-2, top, margin);
-  }
-
-  .content-list + p {
-    @include vertical-spacing(sm-5, top, margin);
   }
 
   .stat-detail {
