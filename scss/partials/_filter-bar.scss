@@ -461,8 +461,9 @@
       background: none;
       text-decoration: none;
       cursor: pointer;
-      display: inline-block;
-      text-align: center;
+      display: block;
+      padding-left: 3rem;
+      text-align: left;
       box-shadow: none;
 
       // unset default form label styling
@@ -472,9 +473,7 @@
 
     // plus sign icon
     &-icon {
-      display: inline-block;
       cursor: pointer;
-      width: 2.5rem;
 
       &::after,
       &::before {
@@ -531,7 +530,7 @@
       // kick stroke
       &:after {
         transform: rotate(305deg);
-        width: 2.2 rem;
+        width: 2.2rem;
       }
     }
 
