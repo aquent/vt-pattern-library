@@ -42,7 +42,7 @@
 
   &__nav {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-template-columns: 1fr;
     grid-gap: 1.5rem;
 
     @include breakpoint(tablet) {
@@ -94,7 +94,7 @@
 
   &__main-nav {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-template-columns: 1fr;
     grid-gap: 5.5rem;
 
     @include breakpoint(desktop) {
@@ -128,7 +128,7 @@
 
   &__bottom-nav {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-template-columns: 1fr;
     grid-gap: 2.5rem;
     padding-top: 2.5rem;
     padding-bottom: 2.5rem;
