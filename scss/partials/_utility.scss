@@ -48,7 +48,7 @@
 /** 3 - Accessibility and Visibility
 ------------------------------------------------------------*/
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .hidden-for-desktop {
