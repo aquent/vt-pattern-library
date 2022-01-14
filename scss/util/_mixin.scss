@@ -98,15 +98,15 @@
 
 /** 4 - Grid
 ------------------------------------------------------------*/
-@mixin grid() {
+@mixin grid($d-gap: $grid-desktop-gap, $t-gap: $grid-tablet-gap, $m-gap: $grid-mobile-gap) {
   @at-root & {
     display: grid;
-    column-gap: $grid-mobile-gap;
+    column-gap: $m-gap;
     @include breakpoint(tablet) {
-      column-gap: $grid-tablet-gap;
+      column-gap: $t-gap;
     }
     @include breakpoint(desktop) {
-      column-gap: $grid-desktop-gap;
+      column-gap: $d-gap;
     }
   }
 }
