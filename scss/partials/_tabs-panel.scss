@@ -5,11 +5,6 @@
 
 /// END TABLE OF CONTENTS **/
 
-/** TODO:
-* [ ] Chevron for the mobile dropdown
-*
-** 
-
 /** 1 - Tabs Panel
 ------------------------------------------------------------*/
 .tabs-nav {
@@ -43,8 +38,6 @@
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       margin: 9.4 rem 0 12rem 0;
-      // margin-bottom: 12rem;
-      // margin-top: 9rem;
 
       &__li {
         align-items: flex-end;
