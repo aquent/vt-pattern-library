@@ -26,6 +26,7 @@
     // Needed to overide default <a> styles
     &__li > a {
       color: $secondary-blue-1;
+      font-weight: 600;
     }
    // reset styles set in base.scss line 180
     & > li + li {
