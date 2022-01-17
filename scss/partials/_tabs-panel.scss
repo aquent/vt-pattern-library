@@ -5,15 +5,11 @@
 
 /// END TABLE OF CONTENTS **/
 
-/** TODO:
-* [ ] Chevron for the mobile dropdown
-*
-** 
-
 /** 1 - Tabs Panel
 ------------------------------------------------------------*/
 .tabs-nav {
   border-bottom: 1px solid $cool-neutral-4;
+  margin-top: 4.5rem;
   padding-bottom: 2rem;
 
   @include breakpoint(desktop) {
@@ -30,6 +26,7 @@
     // Needed to overide default <a> styles
     &__li > a {
       color: $secondary-blue-1;
+      font-weight: 600;
     }
    // reset styles set in base.scss line 180
     & > li + li {
@@ -41,7 +38,7 @@
       border-bottom: 1px solid $cool-neutral-4;
       display: grid;
       grid-template-columns: repeat(7, 1fr);
-      margin-bottom: 12rem;
+      margin: 9.4 rem 0 12rem 0;
 
       &__li {
         align-items: flex-end;
