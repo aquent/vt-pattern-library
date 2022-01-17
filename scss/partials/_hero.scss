@@ -185,10 +185,11 @@
   /** 2 - hero-img-contained
   ------------------------------------------------------------*/
   &-img-contained {
-    @include grid();
+    @include grid(0, 0, 0);
     @include vertical-spacing(sm-1, top, padding);
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     grid-template-rows: 5fr 3fr;
+    overflow: hidden;
 
     @include breakpoint(tablet) {
       grid-template-columns: repeat(auto-fit, minmax(60rem, 1fr));
@@ -219,6 +220,7 @@
       justify-self: start;
       padding: 0 $grid-desktop-margin;
       z-index: 9;
+
 
       @include breakpoint(desktop) {
         align-self: center;

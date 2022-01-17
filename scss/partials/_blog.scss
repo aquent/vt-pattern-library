@@ -144,9 +144,14 @@
 
         h2 {
             @extend .h4;
+
+            margin: 7.5rem 0 2.7rem;
+
+            @include breakpoint(desktop) {
+                margin: 11.6rem 0 2.7rem;
+            }
         }
 
-        h2,
         h3,
         h4 {
             margin: 13.5rem 0 2.7rem;
@@ -254,54 +259,53 @@
 
             &-item {
                 @extend .tk-degular-text;
+
+                display: table;
                 color: $cool-neutral-1;
                 font-size: 2rem;
                 font-weight: 500;
                 list-style-type: none;
-                padding-bottom: 1.5rem;
+                margin-right: 0.8rem;
+                padding-bottom: 0;
+                padding-top: 0;
 
-                &:last-child {
-                    padding-bottom: 0;
+                @include breakpoint(tablet) {
+                    display: inline-block;
                 }
-
+            
+                &::before {
+                    content: '';
+                }
+            
+                .button--small-secondary-flex {
+                    @extend .tk-degular-text;
+        
+                    font-size: 2rem;
+                    font-weight: 500;
+                    letter-spacing: -0.2px;
+                    line-height: 0.5;
+                    text-transform: capitalize;
+                }
             }
 
             &--categories {
-                padding-bottom: 14.6rem;
+                margin: 6.8rem 0 0; 
+                margin-bottom: 14.6rem !important; // Overrides naked ul styles on blog content
                 padding-left: 0;
-                padding-top: 7.5rem;
-
-                .article__post-list-item {
-                    display: inline-block;
-                    margin-right: 0.8rem;
-
-                    &::before {
-                        content: '';
-                    }
-
-                    .button--small-secondary-flex {
-                        @extend .tk-degular-text;
-                        font-weight: 500;
-                        letter-spacing: -0.2px;
-                        line-height: 0.5;
-                        text-transform: capitalize;
-                    }
-                }
             }
 
         }
-
     }
 }
 
 // Blog Author Footer
 .blog-author-footer {
-    margin: 0;
+    margin: 0 0 6.5rem 0;
     padding-top: 0;
     width: 100%;
 
     @include breakpoint(desktop) {
-        margin: 0 auto;
+        margin: 0 0 13.4rem 0;
     }
 
     &-social {
