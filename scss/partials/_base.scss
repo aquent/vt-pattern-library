@@ -9,6 +9,7 @@
 7 — Lists
   7.1 — Unordered List
   7.2 — Definition List
+  7.3 — Ordered List
 7 — Horizontal Rule
 9 — Preformatted Text
 /// END TABLE OF CONTENTS **/
@@ -217,6 +218,28 @@ dl {
     @extend .p--body;
     @extend .tk-degular-text;
   }
+}
+
+/* =========================
+7.3 - Ordered List
+========================= */
+ol {
+  margin: 0 0 3rem 0;
+  font-weight: inherit;
+  padding-left: 2.5rem;
+
+  li {
+    @extend .tk-degular-text;
+
+    &::marker {
+      color: $accessible-green;
+    }
+  }
+
+  li + li {
+    margin-top: 1.5rem;
+  }
+
 }
 
 /** 8 - Horizontal Rule
