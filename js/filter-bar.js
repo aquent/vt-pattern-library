@@ -45,6 +45,9 @@ export default class FilterBar extends Menu {
 
       // Open all filter menu on mobile
       this.spreadMenuDropdown(this.navbar, this.menus);
+
+      // Freeze mobile screen on opening filter
+      window.addEventListener("hashchange", this.handleScrollAndOverlay);
     } else {
       this.menus.forEach((thisDetail) => {
         if (thisDetail.open) thisDetail.removeAttribute("open");
