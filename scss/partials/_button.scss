@@ -1,14 +1,16 @@
 @include mod(anchor, link) {
-  @extend [class^="tertiary-info"];
+  @include tertiary-info();
+
   font-weight: 700;
 }
 
 [class^="button"] {
-  @extend [class^="tertiary-info"];
+  @include tertiary-info();
+
   background: none;
-  text-decoration: none;
   cursor: pointer;
   display: inline-block;
+  font-size: 1.4rem;
   text-align: center;
   text-decoration: none;
 }
@@ -31,6 +33,7 @@
 
 @include mod(button, flex-mobile) {
   width: 100%;
+
   @include breakpoint(tablet) {
     width: auto;
   }

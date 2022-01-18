@@ -26,8 +26,13 @@
 }
 
 .h1--page-titles {
-  font-size: 5.4rem;
+  font-size: 4.6rem;
   line-height: 1.074;
+
+  // Resolves long single words so they don't overflow the horizontal space
+  @media (min-width: 445px) {
+    font-size: 5.4rem;
+  }
 
   @include breakpoint(tablet) {
     font-size: 10rem;
@@ -41,13 +46,7 @@
   @include theming($themes) {
     .section-heading {
       @extend h1;
-
-      margin-top: 4rem;
       @include vertical-spacing(md-1, bottom, margin);
-
-      @include breakpoint(tablet){
-        margin-top: 0;
-      }
 
       &--min-bottom-margin {
         @include vertical-spacing(sm-2, bottom, margin);

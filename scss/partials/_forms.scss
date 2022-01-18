@@ -8,6 +8,7 @@
   2.2 — Text Multi line
   2.3 - Radio Buttons
   2.4 - Select Dropdown
+  2.5 - Radio Tab (Check/Compare Salary tool)
 3 - Submitting Overlay
 4 - Errors Global (needs to be last)
 5 - Lead Form
@@ -22,12 +23,14 @@ X — Layout
   display: flex;
   flex-direction: column;
 }
+
 /* =========================
 1.1 - Form Labels
 ========================= */
 
 .form {
   @at-root {
+
     #{&}__select,
     select {
       &:focus {
@@ -37,12 +40,29 @@ X — Layout
   }
 
   @at-root {
+
     #{&}__label,
     form label {
-      @extend [class^="tertiary-info"];
+      @include tertiary-info();
       margin-top: 2.5rem;
       padding-bottom: 1.2rem;
     }
+  }
+
+  &__button {
+    margin-top: 7rem;
+  }
+
+  &--copy {
+    padding-bottom: 5rem;
+
+    &__header {
+      padding-bottom: 2.7rem;
+    }
+  }
+
+  &--disclaimer {
+    margin-top: 7.1rem;
   }
 }
 
@@ -58,6 +78,7 @@ input[type="num"],
 input[type="tel"],
 textarea {
   border: 0.2rem solid $cool-neutral-4;
+  width: 100%;
 
   &:focus,
   &:not(:placeholder-shown) {
@@ -75,6 +96,7 @@ textarea {
 
 .form {
   @at-root {
+
     #{&} [class*="-text"],
     input[type="text"],
     input[type="email"],
@@ -94,6 +116,7 @@ textarea {
 ========================= */
 .form {
   @at-root {
+
     #{&} [class*="text-multi"],
     textarea {
       display: block;
@@ -109,6 +132,7 @@ textarea {
 2.3 - Radio Buttons
 ========================= */
 form {
+
   // Hide native radio input
   input[type="radio"] {
     opacity: 0;
@@ -116,7 +140,7 @@ form {
     width: 0;
 
     // Create a custom radio input in ::before
-    & + ::before {
+    &+ ::before {
       background: transparent;
       border: 0.2rem solid $cool-neutral-4;
       border-radius: 50%;
@@ -130,23 +154,23 @@ form {
       transition: all 0.2s ease-in-out;
     }
 
-    &:checked + ::before {
+    &:checked+ ::before {
       background: radial-gradient($accessible-green 40%, transparent 0%);
     }
   }
 
   // Maybe a good use ofr :has()
-  input[type="radio"] + label {
+  input[type="radio"]+label {
     padding-bottom: 2.4rem;
   }
 
   // Apply theme appropriate colors
   @include theming($themes) {
-    input[type="radio"] + label {
+    input[type="radio"]+label {
       cursor: pointer;
       color: get-theme-value(color);
 
-      & + ::before {
+      &+ ::before {
         background: get-theme-value(background-color);
       }
     }
@@ -159,6 +183,7 @@ form {
 
 .form {
   @at-root {
+
     #{&} [class*="-select"],
     select {
       appearance: none;
@@ -174,48 +199,121 @@ form {
       width: 100%;
     }
   }
-}
+
+/* =========================
+2.5 - Radio Tab for Check/Compare Salary tool
+========================= */
+  .form {
+    &--salary-radio {
+      [name='form-type'] {
+        display: none;
+      }
+
+      label:hover,
+      [name='form-type']:checked+label {
+        border-bottom: .6rem solid $accessible-green;
+      }
+
+      @extend .tk-degular-text;
+      color: $secondary-blue-1;
+      border-bottom: .1rem solid $cool-neutral-4;
+      display: grid;
+      font-weight: 600;
+      grid-template-columns: repeat(3, 1fr);
+      height: 7.1rem;
+      margin-bottom: 10rem;
+
+
+      label {
+
+        @extend .tk-degular-text;
+        border-right: .1rem solid $cool-neutral-4;
+        letter-spacing: 0;
+        font-size: 2rem;
+        font-weight: 600;
+        padding-right: 1.3rem;
+        padding-left: 2rem;
+        text-transform: capitalize;
+
+        &:first-child {
+          padding-top: 5rem;
+        }
+      }
+
+      input[type="radio"]+label {
+        padding-bottom: 1rem;
+      }
+
+      input[name='form-type'] {
+
+        // Create a custom radio input in ::before
+        &+ ::before {
+          @include clear-decoration();
+          transition: none;
+          content: none;
+        }
+
+        &:checked+ ::before {
+          @include clear-decoration();
+          transition: none;
+          content: none;
+          width: 0;
+        }
+      }
+    }
+
+    // Bouncer JS class
+    .error-message {
+      color: $product-red-3;
+    }
+  }
 
 /** 3 - Submitting Overlay
 ------------------------------------------------------------*/
-.submit-overlay {
-  background-color: rgba(255,255,255,.666);
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: 1;
-  text-align: center;
-  margin: auto;
-
-  &::after {
-    width: 4rem;
-    height: 4rem;
-    background-color: $cool-neutral-2;
-    -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
-    animation: sk-rotateplane 1.2s infinite ease-in-out;
+  .submit-overlay {
+    background-color: rgba(255, 255, 255, .666);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
     position: absolute;
-    margin: auto;
+    z-index: 1;
     text-align: center;
-    top: calc(50% - 2rem);
-    left: calc(50% - 2rem);
-    transform: translate(-50%,-50%);
-    content: '';
+    margin: auto;
+
+    &::after {
+      width: 4rem;
+      height: 4rem;
+      background-color: $cool-neutral-2;
+      -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+      animation: sk-rotateplane 1.2s infinite ease-in-out;
+      position: absolute;
+      margin: auto;
+      text-align: center;
+      top: calc(50% - 2rem);
+      left: calc(50% - 2rem);
+      transform: translate(-50%, -50%);
+      content: '';
+    }
   }
-}
 
 /* =========================
 4 - Errors - Global
 ========================= */
-// Error styles need to be at the bottom
-.form {
-  @at-root {
-    #{&} [class*="-error-styled"],
-    .error:not(span) {
-      border: 0.2rem solid $product-red-3;
+  // Error styles need to be at the bottom
+  .form {
+    @at-root {
+
+      #{&} [class*="-error-styled"],
+      .error:not(span) {
+        border: 0.2rem solid $product-red-3;
+        color: $product-red-3;
+      }
+    }
+
+    [class*="__error-message"] {
       color: $product-red-3;
     }
   }
@@ -243,11 +341,10 @@ styles updated accordingly. */
     + textarea {
       margin-bottom: 3rem;
     }
-  }
-}
 
-/** X - Layout
-------------------------------------------------------------*/
-.form__field-wrapper {
-  margin-bottom: 1.6rem;
+  /** X - Layout
+  ------------------------------------------------------------*/
+  .form__field-wrapper {
+    margin-bottom: 1.6rem;
+  }
 }

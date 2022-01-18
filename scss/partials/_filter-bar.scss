@@ -7,7 +7,7 @@
     height: 100%;
     width: 100%;
 
-    @include breakpoint(tablet) {
+    @include breakpoint(desktop) {
       position: relative;
     }
 
@@ -17,7 +17,7 @@
         display: none;
         animation: sweep-down 0.5s ease-in-out;
 
-        @include breakpoint(tablet) {
+        @include breakpoint(desktop) {
           display: inline-block;
         }
       }
@@ -32,7 +32,7 @@
     display: flex;
     width: 100%;
 
-    @include breakpoint(tablet) {
+    @include breakpoint(desktop) {
       display: none;
     }
 
@@ -43,7 +43,7 @@
 
       /* hide sorter */
       & ~ .filter-bar__menu > .filter-bar__sorter {
-        @include breakpoint(tablet) {
+        @include breakpoint(desktop) {
           display: none;
         }
       }
@@ -119,7 +119,6 @@
 
   &__menu {
     position: absolute;
-    z-index: 1;
     top: 0;
     left: 0;
     width: 100%;
@@ -131,8 +130,9 @@
     transition: transform 0.2s ease;
     background-color: $primary-white;
     padding-bottom: 20rem;
+    z-index: 10;
 
-    @include breakpoint(tablet) {
+    @include breakpoint(desktop) {
       display: grid;
       height: 100%;
       background-color: $secondary-blue-1;
@@ -158,7 +158,7 @@
       margin-left: 2rem;
       margin-right: 2rem;
 
-      @include breakpoint(tablet) {
+      @include breakpoint(desktop) {
         margin: 0;
 
         &:last-child {
@@ -190,7 +190,7 @@
         justify-items: center;
         align-items: center;
 
-        @include breakpoint(tablet) {
+        @include breakpoint(desktop) {
           display: none;
         }
       }
@@ -205,7 +205,7 @@
     margin-bottom: 2rem;
     order: -1;
 
-    @include breakpoint(tablet) {
+    @include breakpoint(desktop) {
       display: none;
     }
 
@@ -219,7 +219,7 @@
       width: 3rem;
       background: none;
 
-      @include breakpoint(tablet) {
+      @include breakpoint(desktop) {
         display: none;
       }
 
@@ -247,7 +247,7 @@
   &__details {
     display: inline-block;
 
-    @include breakpoint(tablet) {
+    @include breakpoint(desktop) {
       .filter-bar__text-label ~ &,
       & ~ & {
         padding-left: 3rem;
@@ -285,7 +285,7 @@
             width: 1.5rem;
           }
 
-          @include breakpoint(tablet) {
+          @include breakpoint(desktop) {
             background-color: transparent;
             pointer-events: auto;
 
@@ -305,17 +305,18 @@
   }
 
   &__text-label {
-    // @extend .tertiary-info;
-
     color: $secondary-green-1;
     padding: 3rem 0 3rem 0;
     display: none;
 
-    @include breakpoint(tablet) {
-      //   @extend .p--body-emphasis;
+    @include breakpoint(desktop) {
       display: block;
       color: $secondary-green-2;
     }
+  }
+
+  &__text-label-mobile {
+    padding: 3rem 2rem 3rem 0;
   }
 
   &__filter-label,
@@ -328,15 +329,16 @@
     color: $secondary-green-1;
     padding: 3rem 1rem 3rem 0;
 
-    @include breakpoint(tablet) {
+    @include breakpoint(desktop) {
       display: none;
     }
   }
 
   &__filter-label {
+    display: none;
     padding: 3rem 2rem 3rem 0;
 
-    @include breakpoint(tablet) {
+    @include breakpoint(desktop) {
       display: inline-block;
       position: relative;
       color: $primary-white;
@@ -375,12 +377,12 @@
 
     width: 100%;
 
-    @include breakpoint(tablet) {
+    @include breakpoint(desktop) {
       padding: 6rem;
     }
 
     &-small {
-      @include breakpoint(tablet) {
+      @include breakpoint(desktop) {
         text-align: right;
         right: 0;
         padding: 3rem;
@@ -408,7 +410,7 @@
     &-buttons {
       display: none;
 
-      @include breakpoint(tablet) {
+      @include breakpoint(desktop) {
         display: block;
 
         & > a:first-child {
@@ -446,7 +448,7 @@
         content: "";
       }
 
-      @include breakpoint(tablet) {
+      @include breakpoint(desktop) {
         display: inline-block;
       }
     }
@@ -543,7 +545,7 @@
   &__divider {
     display: none;
 
-    @include breakpoint(tablet) {
+    @include breakpoint(desktop) {
       display: block;
       background: $cool-neutral-6;
       margin: 3rem 0;
@@ -566,8 +568,9 @@
       gap: 1.5rem;
       overflow-x: scroll;
 
-      @include breakpoint(tablet) {
+      @include breakpoint(desktop) {
         display: inline-block;
+        overflow-x: hidden;
       }
     }
 
@@ -619,7 +622,7 @@
       white-space: nowrap;
       align-self: center;
 
-      @include breakpoint(tablet) {
+      @include breakpoint(desktop) {
         display: inline-block;
         margin-left: 3rem;
         vertical-align: super;
@@ -636,14 +639,14 @@
       order: -1;
       border-bottom: 0.1rem solid $cool-neutral-4;
 
-      @include breakpoint(tablet) {
+      @include breakpoint(desktop) {
         order: unset;
         border-bottom: none;
         margin-bottom: 0;
       }
     }
 
-    @include breakpoint(tablet) {
+    @include breakpoint(desktop) {
       & {
         padding: 0 3rem;
       }
@@ -668,7 +671,7 @@
     &-label {
       display: none;
 
-      @include breakpoint(tablet) {
+      @include breakpoint(desktop) {
         color: $secondary-green-1;
         display: block;
         text-align: right;
@@ -683,7 +686,7 @@
         margin-top: 1rem;
         padding-bottom: 0;
 
-        @include breakpoint(tablet) {
+        @include breakpoint(desktop) {
           display: inline-block;
         }
 
@@ -716,7 +719,7 @@
             transform: scale(1);
           }
   
-          @include breakpoint(tablet) {
+          @include breakpoint(desktop) {
             appearance: none;
             pointer-events: none;
             border: none;
@@ -744,7 +747,7 @@
           display: none;
         }
 
-        @include breakpoint(tablet) {
+        @include breakpoint(desktop) {
           background: linear-gradient(
               to right,
               $secondary-green-2,
@@ -778,7 +781,7 @@
       padding-right: 2rem;
       text-align: left;
 
-      @include breakpoint(tablet) {
+      @include breakpoint(desktop) {
         padding-right: 3rem;
         text-align: right;
       }
@@ -867,7 +870,7 @@
     border-left: 0.1rem solid $cool-neutral-2;
     margin: 2.5rem 0;
 
-    @include breakpoint(tablet) {
+    @include breakpoint(desktop) {
       padding-left: 2rem;
     }
   }

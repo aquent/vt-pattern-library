@@ -27,10 +27,10 @@ function init() {
 
   if (document.querySelector(".filter-bar__menu")) {
     const filterBar = new FilterBar(".filter-bar__menu");
-    filterBar.controlMenuDropdown();
   }
 
   menu.asyncDropdown();
+
 }
 
 window.addEventListener("DOMContentLoaded", init);
