@@ -108,4 +108,25 @@
       grid-template-columns: 1.82fr 1fr;
     }
   }   
+
+  &__heading {
+    margin-bottom: 7.5rem;
+  }
+
+  &__section-separator {
+    background: none;
+    border-top: 1px solid $cool-neutral-6;
+    margin: 5rem 0;
+  }
+
+  &__subheading {
+    color: $primary-blue;
+    display: block;
+    margin-bottom: 2.5rem;
+  }
+
+  &__tip {
+    display: block;
+    margin-top: 2.6rem;
+  }
 }
