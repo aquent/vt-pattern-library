@@ -47,7 +47,11 @@
 
 /** 3 - Accessibility and Visibility
 ------------------------------------------------------------*/
-.hidden {
+/* The .hide class applies specifically to code currently rendered
+by the lead form generator. Once form messaging is baked into the 
+LeadForm JS class, it can be removed here. */
+.hidden,
+.hide {
   display: none !important;
 }
 
