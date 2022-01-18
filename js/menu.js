@@ -4,6 +4,7 @@
 export default class Menu {
   constructor(navbarSelector) {
     this.navbar = document.querySelector(navbarSelector);
+    this.navbarId = navbarSelector.replace(".", "#");
     this.menus = this.navbar ? this.navbar.querySelectorAll("details") : null;
     this.navOverlay = document.querySelector(".nav-overlay");
   }
@@ -50,7 +51,7 @@ export default class Menu {
   };
 
   handleScrollAndOverlay = (e) => {
-    if (e.newURL.includes("#navbar")) {
+    if (e.newURL.includes(this.navbarId)) {
       document.body.classList.add("no-scroll");
       this.navbar.classList.add("scroll");
       this.navOverlay.style.display = "block";
@@ -58,8 +59,8 @@ export default class Menu {
     } else {
       document.body.classList.remove("no-scroll");
       this.navbar.classList.remove("scroll");
-      if(this.navOverlay) this.navOverlay.style.display = "none";
+      if (this.navOverlay) this.navOverlay.style.display = "none";
       return;
     }
-  }
+  };
 }
