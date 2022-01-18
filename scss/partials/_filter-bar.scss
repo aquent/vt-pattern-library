@@ -305,17 +305,18 @@
   }
 
   &__text-label {
-    // @extend .tertiary-info;
-
     color: $secondary-green-1;
     padding: 3rem 0 3rem 0;
     display: none;
 
     @include breakpoint(desktop) {
-      //   @extend .p--body-emphasis;
       display: block;
       color: $secondary-green-2;
     }
+  }
+
+  &__text-label-mobile {
+    padding: 3rem 2rem 3rem 0;
   }
 
   &__filter-label,
@@ -334,6 +335,7 @@
   }
 
   &__filter-label {
+    display: none;
     padding: 3rem 2rem 3rem 0;
 
     @include breakpoint(desktop) {
