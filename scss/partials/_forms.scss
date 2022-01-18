@@ -11,6 +11,7 @@
   2.5 - Radio Tab (Check/Compare Salary tool)
 3 - Submitting Overlay
 4 - Errors Global (needs to be last)
+5 - Lead Form
 X — Layout
 
 /// END TABLE OF CONTENTS **/
@@ -74,7 +75,8 @@ input[type="text"],
 input[type="email"],
 input[type="url"],
 input[type="num"],
-input[type="tel"] {
+input[type="tel"],
+textarea {
   border: 0.2rem solid $cool-neutral-4;
   width: 100%;
 
@@ -117,8 +119,11 @@ input[type="tel"] {
 
     #{&} [class*="text-multi"],
     textarea {
-      resize: none;
+      display: block;
       height: 26.8rem;
+      padding: 1.2rem;
+      resize: none;
+      width: 100%;
     }
   }
 }
@@ -189,13 +194,14 @@ form {
       background-repeat: no-repeat;
       background-size: 16px 8px;
       color: $primary-blue;
+      display: block;
       padding: 1.6rem;
       width: 100%;
     }
   }
 
-  /* =========================
-  2.5 - Radio Tab for Check/Compare Salary tool
+/* =========================
+2.5 - Radio Tab for Check/Compare Salary tool
 ========================= */
   .form {
     &--salary-radio {
@@ -262,7 +268,7 @@ form {
     }
   }
 
-  /** 3 - Submitting Overlay
+/** 3 - Submitting Overlay
 ------------------------------------------------------------*/
   .submit-overlay {
     background-color: rgba(255, 255, 255, .666);
@@ -293,7 +299,7 @@ form {
     }
   }
 
-  /* =========================
+/* =========================
 4 - Errors - Global
 ========================= */
   // Error styles need to be at the bottom
@@ -311,6 +317,30 @@ form {
       color: $product-red-3;
     }
   }
+
+  @at-root {
+    [class*="error-message"] {
+      color: $product-red-3;
+      font-size: 1.8rem;
+      margin: -3rem 0 3rem;
+    }
+  }
+}
+
+/** 5 - Lead Form
+------------------------------------------------------------*/
+/* Many of these styles will break BEM for purposes of styling
+non-BEM elements created by the current lead form builder code.
+That tool should be updated to use BEM in the long run, and these 
+styles updated accordingly. */
+
+.lead-form {
+  label { 
+    + input,
+    + select,
+    + textarea {
+      margin-bottom: 3rem;
+    }
 
   /** X - Layout
   ------------------------------------------------------------*/
