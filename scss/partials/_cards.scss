@@ -202,9 +202,9 @@
     @extend .content-block--clickable;
     padding-bottom: 7.5rem;
     padding-top: 7.5rem;
-    width: 33.5rem;
+    width: 100%;
 
-    .content-block__blog-title {
+    .content-block__title {
       @extend h2;
     }
 
