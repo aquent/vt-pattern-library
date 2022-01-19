@@ -202,10 +202,15 @@
     @extend .content-block--clickable;
     padding-bottom: 7.5rem;
     padding-top: 7.5rem;
-    width: 33.5rem;
+    width: 100%;
 
     .content-block__blog-title {
-      @extend h2;
+      @extend .content-block__title;
+      font-size: 4.2rem;
+      
+      @include breakpoint(desktop) {
+        font-size: 6.8rem;
+      }
     }
 
     @include breakpoint(desktop) {
