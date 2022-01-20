@@ -119,5 +119,9 @@
     p {
       color: get-theme-value(copy-text-color);
     }
+
+    p + p {
+      margin-top: 1.5rem;
+    }
   }
 }
