@@ -10,15 +10,15 @@
   }
 
   p + p {
-    @include vertical-spacing(sm-1, top, padding);
+    @include vertical-spacing(sm-1, top, margin);
   }
 
   p + ul {
-    @include vertical-spacing(sm-3, top, padding);
+    @include vertical-spacing(sm-3, top, margin);
   }
 
   p + h3 {
-    @include vertical-spacing(md-3, top, padding);
+    @include vertical-spacing(md-3, top, margin);
   }
 
   &--post-hero {
