@@ -6,11 +6,19 @@
 
   h3 {
     @extend .h4;
-    @include vertical-spacing(sm-3, bottom, margin);
+    margin-bottom: 1.5rem;
   }
 
   p + p {
     @include vertical-spacing(sm-1, top, padding);
+  }
+
+  p + ul {
+    @include vertical-spacing(sm-3, top, padding);
+  }
+
+  p + h3 {
+    @include vertical-spacing(md-3, top, padding);
   }
 
   &--post-hero {

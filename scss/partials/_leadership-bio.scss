@@ -43,7 +43,7 @@
 ========================= */
 
   &__content {
-    padding: 0 6rem 4.3rem 6rem;
+    padding: 0 0 4.3rem;
 
     @include breakpoint(desktop) {
       padding: 0 18rem 5rem 18rem;
