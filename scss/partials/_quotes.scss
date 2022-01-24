@@ -1,11 +1,13 @@
 // /** TABLE OF CONTENTS
 //  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
 // 1 — Basic Quote
+//  1.1 — Single Quote Theming
 // 2 — Single Quote
 // /// END TABLE OF CONTENTS **/
 
 /** 1 - Basic Quote
 ------------------------------------------------------------*/
+
 .quote {
   padding: 2rem;
 
@@ -33,7 +35,7 @@
     &--name {
       font-size: 2.8rem;
     }
-  }
+  } 
 
   &__text {
     &::before {
@@ -54,6 +56,27 @@
     color: $secondary-green-1;
   }
 }
+
+/** 1.1 - Basic quote Theming
+------------------------------------------------------------*/
+.section {
+  @include theming($themes) {
+
+    & .quote {
+      // Note: background-color: color; and color: background-color; is not an error. It just so happens that the values are the correct ones. 
+      background-color: get-theme-value(color);
+      color: get-theme-value(background-color);
+       
+      & > blockquote > p {
+        color: get-theme-value(background-color);
+      }
+    }
+  }
+}
+
+
+
+
 
 /** 2 - Single Quote (with image)
 ------------------------------------------------------------*/
@@ -132,3 +155,4 @@
     }
   }
 }
+
