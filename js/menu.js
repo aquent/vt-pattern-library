@@ -20,6 +20,7 @@ export default class Menu {
         if (thisDetail.open) thisDetail.removeAttribute("open");
       });
     }
+    this.navOverlay.style.display = "none"; 
   };
 
   handleEscapeKey = (e) => {
@@ -27,6 +28,7 @@ export default class Menu {
     if (e.key == "Escape")
       this.menus.forEach((thisDetail) => {
         if (thisDetail.open) thisDetail.removeAttribute("open");
+        this.navOverlay.style.display = "none";
       });
     return;
   };
@@ -37,6 +39,7 @@ export default class Menu {
       this.menus.forEach((thisDetail, _, details) => {
         thisDetail.ontoggle = (_) => {
           if (thisDetail.open) {
+            this.navOverlay.style.display = "block";
             details.forEach((thatDetail) => {
               if (thatDetail != thisDetail) thatDetail.removeAttribute("open");
             });

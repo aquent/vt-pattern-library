@@ -479,6 +479,7 @@
 /** 5 - Navbar Overlay
 ------------------------------------------------------------*/
 .nav-overlay {
+  animation: sweep-right 0.5s ease-in-out;
   position: fixed;
   top: 0;
   left: 0;
@@ -487,4 +488,8 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 10;
   display: none;
+  
+  @include breakpoint(desktop) {
+    top: 10.4rem; // accounts for navbar height
+  }
 }
