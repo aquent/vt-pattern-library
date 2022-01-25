@@ -20,6 +20,7 @@ export default class Menu {
         if (thisDetail.open) thisDetail.removeAttribute("open");
       });
     }
+    document.body.classList.remove("no-scroll");
     this.navOverlay.style.display = "none"; 
   };
 
@@ -28,6 +29,7 @@ export default class Menu {
     if (e.key == "Escape")
       this.menus.forEach((thisDetail) => {
         if (thisDetail.open) thisDetail.removeAttribute("open");
+        document.body.classList.remove("no-scroll");
         this.navOverlay.style.display = "none";
       });
     return;
@@ -39,6 +41,7 @@ export default class Menu {
       this.menus.forEach((thisDetail, _, details) => {
         thisDetail.ontoggle = (_) => {
           if (thisDetail.open) {
+            document.body.classList.add("no-scroll");
             this.navOverlay.style.display = "block";
             details.forEach((thatDetail) => {
               if (thatDetail != thisDetail) thatDetail.removeAttribute("open");
