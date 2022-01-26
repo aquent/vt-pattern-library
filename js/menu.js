@@ -14,7 +14,7 @@ export default class Menu {
     if (
       this.navbar &&
       this.navbar !== e.target &&
-      !this.navbar.contains(e.target)
+      !this.navbar.contains(e.target) || !this.navbar
     ) {
       this.menus.forEach((thisDetail) => {
         if (thisDetail.open) thisDetail.removeAttribute("open");
