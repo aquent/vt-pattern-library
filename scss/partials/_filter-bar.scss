@@ -1,5 +1,5 @@
 .filter-bar {
-  padding: 0 3rem;
+  padding: 0 2rem;
 
   &__content {
     display: flex;
@@ -8,6 +8,7 @@
     width: 100%;
 
     @include breakpoint(desktop) {
+      padding: 0 3rem;
       position: relative;
     }
 
@@ -443,10 +444,12 @@
 
     &-item {
       display: flex;
-      margin-bottom: 1.5rem;
+      margin: 1.5rem 0;
 
       &:before {
         content: "";
+        margin-left: 0;
+        width: 0;
       }
 
       @include breakpoint(desktop) {
@@ -795,8 +798,11 @@
       outline: 0;
       margin: 3rem 0;
       padding: 0;
-      width: unset;
 
+      @include breakpoint(tablet){
+        width: unset;
+      }
+   
       &::placeholder {
         /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: $secondary-green-2;
