@@ -448,6 +448,8 @@
 
       &:before {
         content: "";
+        margin-left: 0;
+        width: 0;
       }
 
       @include breakpoint(desktop) {
