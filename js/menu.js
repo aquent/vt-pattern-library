@@ -27,7 +27,7 @@ export default class Menu {
         if (thisDetail.open) thisDetail.removeAttribute("open");
       });
     }
-    // Prevents overlay div overwrite on mobile
+    // Prevents overrides for overlay div on mobile
     if (!this.mobileView.matches) {
       document.body.classList.remove("no-scroll");
       this.navOverlay.style.display = "none";
