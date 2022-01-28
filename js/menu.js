@@ -24,14 +24,16 @@ export default class Menu {
       !this.navbar.contains(e.target)
     ) {
       this.menus.forEach((thisDetail) => {
-        if (thisDetail.open) thisDetail.removeAttribute("open");
-      });
-    }
-    // Prevents overrides for overlay div on mobile
-    if (!this.mobileView.matches) {
-      document.body.classList.remove("no-scroll");
-      this.navOverlay.style.display = "none";
-    }    
+        if (thisDetail.open) {
+          thisDetail.removeAttribute("open");
+          // Prevents overrides for overlay div on mobile
+          if (!this.mobileView.matches) {
+            document.body.classList.remove("no-scroll");
+            this.navOverlay.style.display = "none";
+          } 
+        } 
+      });  
+    }     
   };
 
   handleEscapeKey = (e) => {
@@ -53,6 +55,8 @@ export default class Menu {
           if (thisDetail.open) {
             details.forEach((thatDetail) => {
               if (thatDetail != thisDetail) thatDetail.removeAttribute("open");
+              document.body.classList.remove("no-scroll");
+              this.navOverlay.style.display = "none";
             });
           }
         };
@@ -62,10 +66,10 @@ export default class Menu {
         thisDetail.ontoggle = (_) => {
           // Close an open menu if another menu item is opened
           if (thisDetail.open) {
-            document.body.classList.add("no-scroll");
-            this.navOverlay.style.display = "block";
             details.forEach((thatDetail) => {
               if (thatDetail != thisDetail) thatDetail.removeAttribute("open");
+              document.body.classList.add("no-scroll");
+              this.navOverlay.style.display = "block";
             });
           }
         };
