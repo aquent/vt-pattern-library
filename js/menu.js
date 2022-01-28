@@ -1,3 +1,5 @@
+import scssVars from "!!sass-variable-loader?preserveVariableNames!../scss/util/_variables.scss";
+
 /**
  * Class representing the main menu navigation.
  */
@@ -7,9 +9,14 @@ export default class Menu {
     this.navbarId = navbarSelector.replace(".", "#");
     this.menus = this.navbar ? this.navbar.querySelectorAll("details") : null;
     this.navOverlay = document.querySelector(".nav-overlay");
+    this.mainMenu = document.getElementById("navbar");
+    this.mainMenuItems = this.mainMenu ? this.mainMenu.querySelectorAll("details") : null;
+    this.mobileView;
   }
 
   handleNonMenuClick = (e) => {
+    const breakpoint = "(max-width: " + scssVars["breakpointDesktop"] + ")";
+    this.mobileView = window.matchMedia(breakpoint);
     // Close openthis.menus if the user clicks on a non-menu item
     if (
       this.navbar &&
@@ -20,8 +27,11 @@ export default class Menu {
         if (thisDetail.open) thisDetail.removeAttribute("open");
       });
     }
-    document.body.classList.remove("no-scroll");
-    this.navOverlay.style.display = "none"; 
+    // Prevents overlay div overwrite on mobile
+    if (!this.mobileView.matches) {
+      document.body.classList.remove("no-scroll");
+      this.navOverlay.style.display = "none";
+    }    
   };
 
   handleEscapeKey = (e) => {
@@ -40,6 +50,17 @@ export default class Menu {
       // Close an open menu if another menu item is opened
       this.menus.forEach((thisDetail, _, details) => {
         thisDetail.ontoggle = (_) => {
+          if (thisDetail.open) {
+            details.forEach((thatDetail) => {
+              if (thatDetail != thisDetail) thatDetail.removeAttribute("open");
+            });
+          }
+        };
+      });
+      // Applies overlay div only to the main menu
+      this.mainMenuItems.forEach((thisDetail, _, details) => {
+        thisDetail.ontoggle = (_) => {
+          // Close an open menu if another menu item is opened
           if (thisDetail.open) {
             document.body.classList.add("no-scroll");
             this.navOverlay.style.display = "block";
