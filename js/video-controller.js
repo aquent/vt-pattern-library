@@ -1,6 +1,8 @@
 /**
  * Class representing the video player controller.
  */
+import scssVars from "!!sass-variable-loader?preserveVariableNames!../scss/util/_variables.scss";
+
 export default class VideoController {
   constructor(wrapperSelector, controllerSelector) {
     this.wrapper = document.querySelector(wrapperSelector);
@@ -10,6 +12,7 @@ export default class VideoController {
       this.video = this.wrapper.getElementsByTagName("video")[0];
 
       this.#controlState();
+      this.#autoplayDesktop();
     }
   }
 
@@ -24,5 +27,14 @@ export default class VideoController {
         this.video.pause();
       }
     });
+  }
+
+  #autoplayDesktop() {
+    const breakpoint = "(min-width: " + scssVars["breakpointDesktop"] + ")";
+    this.desktopView = window.matchMedia(breakpoint);
+
+    if (this.desktopView.matches) {
+      this.video.setAttribute("autoplay", true);
+    }
   }
 }
