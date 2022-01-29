@@ -1,5 +1,5 @@
 .filter-bar {
-  padding: 0 2rem;
+  padding: 0 3rem;
 
   &__content {
     display: flex;
@@ -8,7 +8,6 @@
     width: 100%;
 
     @include breakpoint(desktop) {
-      padding: 0 3rem;
       position: relative;
     }
 
