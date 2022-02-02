@@ -93,6 +93,8 @@
           a {
             &#close-search {
               display: inline-block;
+              z-index: 10;
+              padding: 1.5rem;
             }
 
             &#open-search {
@@ -866,6 +868,8 @@
 
         &#open-search {
           display: inline-block;
+          z-index: 10;
+          padding: 1.5rem;
         }
       }
     }
