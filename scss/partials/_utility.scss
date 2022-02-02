@@ -105,7 +105,8 @@ LeadForm JS class, it can be removed here. */
 3.1 - Overflow
 ========================= */
 .no-scroll {
-  overflow-y: hidden;
+  overflow-y: scroll; 
+  position: fixed; 
 }
 // TODO: Refactctor into a mixin. Another instance is in the content-slider. 
 .scroll {
