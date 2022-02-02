@@ -25,9 +25,7 @@ export default class Menu {
       !this.navbar.contains(e.target)
     ) {
       this.menus.forEach((thisDetail) => {
-        if (thisDetail.open) {
-          thisDetail.removeAttribute("open");
-        } 
+        if (thisDetail.open) thisDetail.removeAttribute("open");
       });  
     }
     // Removes overlay div for main menu dropdowns and prevent overrides for overlay div on mobile
@@ -84,7 +82,7 @@ export default class Menu {
       return;
     } else {
       document.body.classList.remove("no-scroll");
-      this.navOverlay.remove();
+      if (this.navOverlay) this.navOverlay.remove();
       return;
     }
   };
