@@ -7,7 +7,7 @@ import FilterBar from "filter-bar";
 
 function init() {
 
-  const menu = new Menu(".navbar");
+  const menu = new Menu(".navbar", true);
 
   let contentSliders = {};
   let contentSliderNodes = document.querySelectorAll(".content-slider");
