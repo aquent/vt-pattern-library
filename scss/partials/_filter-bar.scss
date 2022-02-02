@@ -1,9 +1,13 @@
 .filter-bar {
   padding: 0 2rem;
 
+  @include breakpoint(desktop) {
+    padding: 0 3rem;
+  }
+
   &__content {
     display: flex;
-    padding: 0 3rem;
+    padding: 0 2rem;
     height: 100%;
     width: 100%;
 
@@ -93,6 +97,8 @@
           a {
             &#close-search {
               display: inline-block;
+              z-index: 10;
+              padding: 1.5rem;
             }
 
             &#open-search {
@@ -866,6 +872,8 @@
 
         &#open-search {
           display: inline-block;
+          z-index: 10;
+          padding: 1.5rem;
         }
       }
     }
