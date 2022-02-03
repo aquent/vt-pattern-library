@@ -9,8 +9,8 @@ export default class Menu {
     this.navbar = document.querySelector(navbarSelector);
     this.navbarId = navbarSelector.replace(".", "#");
     this.menus = this.navbar ? this.navbar.querySelectorAll("details") : null;
-    this.navOverlay = document.createElement('div'); 
-    this.navOverlay.classList.add('nav-overlay');
+    this.navOverlay = document.createElement("div");
+    this.navOverlay.classList.add("nav-overlay");
     this.navLogo = document.querySelector(".top-nav__logo");
     this.mobileView;
   }
@@ -25,8 +25,11 @@ export default class Menu {
       !this.navbar.contains(e.target)
     ) {
       this.menus.forEach((thisDetail) => {
-        if (thisDetail.open) thisDetail.removeAttribute("open");
-      });  
+        if (thisDetail.open) {
+          thisDetail.removeAttribute("open");
+          thisDetail.querySelector(".dropdown-menu").style.display = "none";
+        }
+      });
     }
     // Removes overlay div for main menu dropdowns and prevent overrides for overlay div on mobile
     if (!this.mobileView.matches && this.generateOverlay == true) {
@@ -40,8 +43,8 @@ export default class Menu {
     if (e.key == "Escape")
       this.menus.forEach((thisDetail) => {
         if (thisDetail.open) thisDetail.removeAttribute("open");
-         // Removes overlay div for main menu dropdowns
-        if(this.generateOverlay == true) {
+        // Removes overlay div for main menu dropdowns
+        if (this.generateOverlay == true) {
           this.navOverlay.remove();
           document.body.classList.remove("no-scroll");
         }
@@ -52,18 +55,24 @@ export default class Menu {
   asyncDropdown = () => {
     if (this.navbar) {
       // Close an open menu if another menu item is opened
-      this.menus.forEach((thisDetail, _, details) => {    
+      this.menus.forEach((thisDetail, _, details) => {
         thisDetail.ontoggle = (_) => {
           if (thisDetail.open) {
+            thisDetail.querySelector(".dropdown-menu").style.display = "grid";
             details.forEach((thatDetail) => {
               if (thatDetail != thisDetail) {
-                thatDetail.removeAttribute("open"); 
+                thatDetail.removeAttribute("open");
+                thatDetail.querySelector(".dropdown-menu").style.display =
+                  "none";
                 // Generate overlay div only on main menu dropdowns
-                if(this.generateOverlay == true) {
-                  this.navLogo.insertAdjacentElement('afterend', this.navOverlay);
+                if (this.generateOverlay == true) {
+                  this.navLogo.insertAdjacentElement(
+                    "afterend",
+                    this.navOverlay
+                  );
                   document.body.classList.add("no-scroll");
-                }           
-              }           
+                }
+              }
             });
           }
         };
@@ -78,7 +87,7 @@ export default class Menu {
   handleScrollAndOverlay = (e) => {
     if (e.newURL.includes(this.navbarId)) {
       document.body.classList.add("no-scroll");
-      this.navLogo.insertAdjacentElement('afterend', this.navOverlay);
+      this.navLogo.insertAdjacentElement("afterend", this.navOverlay);
       return;
     } else {
       document.body.classList.remove("no-scroll");
