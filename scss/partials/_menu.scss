@@ -187,7 +187,6 @@
     text-decoration: none;
   }
 
-
   &__anchor {
     @extend .p--body-small;
   }
@@ -296,6 +295,11 @@
 
       .dropdown-menu {
         animation: sweep-down 0.5s ease-in-out;
+
+        @include breakpoint(desktop) {
+          animation: slide-down 0.5s ease-in-out;
+          overflow-y: hidden;
+        }
       }
 
       .top-menu {
@@ -303,18 +307,18 @@
           background-color: $secondary-blue-1;
           margin: 2.9rem 2rem 0 2rem;
           padding: 2.5rem 0 2.5rem 6.3rem;
-          width: calc(100% - 4rem); 
-
-          @include breakpoint(tablet){
-            margin: 0 auto;
-            width: 100%;
-          }
+          width: calc(100% - 4rem);
 
           &::before {
-            @include arrow-sym (left, $primary-white);
+            @include arrow-sym(left, $primary-white);
             height: 2rem;
             left: 3rem;
             width: 2rem;
+          }
+
+          @include breakpoint(tablet) {
+            margin: 0 auto;
+            width: 100%;
           }
 
           @include breakpoint(desktop) {
@@ -335,7 +339,7 @@
 
 /** 4 - Nav bar wrapper
 ------------------------------------------------------------*/
-.navbar {  
+.navbar {
   background: $primary-blue;
   display: flex;
   flex-flow: column nowrap;
@@ -349,7 +353,7 @@
   transition: transform 0.2s ease;
   width: 100%;
   z-index: 100;
-  
+
   @include breakpoint(tablet) {
     width: 50%;
     height: calc(100vh - 9rem);
