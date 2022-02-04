@@ -461,6 +461,7 @@
 
   &--sub {
     align-self: flex-end;
+    margin-bottom: 10rem;
     width: 100%;
 
     @include breakpoint(desktop) {
@@ -468,6 +469,7 @@
       background-color: lighten($secondary-green-2, 20%);
       grid-column-start: 4;
       grid-column-end: 5;
+      margin-bottom: 0;
       width: 26rem;
     }
   }
@@ -486,11 +488,11 @@
   animation: sweep-down 0.5s ease-in-out;
   display: block;
   position: fixed;
-  top: 0;
+  top: 9rem;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(5, 28, 44, 0.5);
   z-index: 10;
 
   @include breakpoint(desktop) {
