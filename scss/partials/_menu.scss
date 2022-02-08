@@ -297,8 +297,7 @@
         animation: sweep-down 0.5s ease-in-out;
 
         @include breakpoint(desktop) {
-          animation: slide-down 0.5s ease-in-out;
-          overflow-y: hidden;
+          animation: slide-down 0.3s ease-in-out;
         }
       }
 
@@ -438,13 +437,22 @@
   background: $primary-white;
 
   @include breakpoint(desktop) {
-    transform: none;
     display: grid;
-    position: absolute;
+    position: relative;
     height: auto;
     min-height: initial;
     width: max-content;
     overflow: visible;
+  }
+
+  &__wrapper {
+    position: absolute;
+    overflow: hidden;
+    width: 100%;
+
+    @include breakpoint(desktop) {
+      width: initial;
+    }
   }
 
   &--main {
