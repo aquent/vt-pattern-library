@@ -15,6 +15,11 @@ export default class Menu {
     this.mobileView;
   }
 
+  #displayDropdownMenu(menuItem, displayStyle) {
+    if (menuItem.querySelector(".dropdown-menu"))
+      menuItem.querySelector(".dropdown-menu").style.display = displayStyle;
+  }
+
   handleNonMenuClick = (e) => {
     const breakpoint = "(max-width: " + scssVars["breakpointDesktop"] + ")";
     this.mobileView = window.matchMedia(breakpoint);
@@ -27,7 +32,7 @@ export default class Menu {
       this.menus.forEach((thisDetail) => {
         if (thisDetail.open) {
           thisDetail.removeAttribute("open");
-          thisDetail.querySelector(".dropdown-menu").style.display = "none";
+          this.#displayDropdownMenu(thisDetail, "none")
         }
       });
     }
@@ -58,12 +63,12 @@ export default class Menu {
       this.menus.forEach((thisDetail, _, details) => {
         thisDetail.ontoggle = (_) => {
           if (thisDetail.open) {
-            thisDetail.querySelector(".dropdown-menu").style.display = "grid";
+            this.#displayDropdownMenu(thisDetail, "grid")
             details.forEach((thatDetail) => {
               if (thatDetail != thisDetail) {
                 thatDetail.removeAttribute("open");
-                thatDetail.querySelector(".dropdown-menu").style.display =
-                  "none";
+                this.#displayDropdownMenu(thatDetail, "none")
+
                 // Generate overlay div only on main menu dropdowns
                 if (this.generateOverlay == true) {
                   this.navLogo.insertAdjacentElement(
