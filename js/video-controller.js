@@ -34,7 +34,7 @@ export default class VideoController {
     this.desktopView = window.matchMedia(breakpoint);
 
     if (this.desktopView.matches) {
-      this.video.setAttribute("autoplay", true);
+      this.video.play();
     }
   }
 }
