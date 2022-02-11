@@ -32,7 +32,7 @@ export default class Menu {
       this.menus.forEach((thisDetail) => {
         if (thisDetail.open) {
           thisDetail.removeAttribute("open");
-          this.#displayDropdownMenu(thisDetail, "none")
+          this.#displayDropdownMenu(thisDetail, "none");
         }
       });
     }
@@ -57,17 +57,32 @@ export default class Menu {
     return;
   };
 
+  handleMobileJumpLink = () => {
+    const breakpoint = "(max-width: " + scssVars["breakpointDesktop"] + ")";
+    this.mobileView = window.matchMedia(breakpoint);
+    if (this.mobileView.matches) {
+      const anchors = this.navbar.querySelectorAll("a");
+
+      anchors.forEach((anchor) => {
+        anchor.onclick = (e) => {
+          e.preventDefault();
+          window.location.replace(anchor.getAttribute("href"));
+        };
+      });
+    }
+  };
+
   asyncDropdown = () => {
     if (this.navbar) {
       // Close an open menu if another menu item is opened
       this.menus.forEach((thisDetail, _, details) => {
         thisDetail.ontoggle = (_) => {
           if (thisDetail.open) {
-            this.#displayDropdownMenu(thisDetail, "grid")
+            this.#displayDropdownMenu(thisDetail, "grid");
             details.forEach((thatDetail) => {
               if (thatDetail != thisDetail) {
                 thatDetail.removeAttribute("open");
-                this.#displayDropdownMenu(thatDetail, "none")
+                this.#displayDropdownMenu(thatDetail, "none");
 
                 // Generate overlay div only on main menu dropdowns
                 if (this.generateOverlay == true) {
@@ -82,6 +97,9 @@ export default class Menu {
           }
         };
       });
+
+      // mobile - prevent opening menu after going back on page
+      this.handleMobileJumpLink();
 
       document.addEventListener("pointerdown", this.handleNonMenuClick);
       document.addEventListener("keydown", this.handleEscapeKey);
