@@ -36,6 +36,9 @@ export default class FilterBar extends Menu {
     const breakpoint = "(max-width: " + scssVars["breakpointDesktop"] + ")";
     this.mobileView = window.matchMedia(breakpoint);
 
+    // Prevent opening filter menu or search field after going back on page for mobile
+    this.handleJumpLink();
+
     if (this.mobileView.matches) {
       // Stop closing openthis.menus if the user clicks on a non-menu item
       document.removeEventListener("pointerdown", super.handleNonMenuClick);
@@ -45,9 +48,6 @@ export default class FilterBar extends Menu {
 
       // Open all filter menu on mobile
       this.spreadMenuDropdown(this.navbar, this.menus);
-
-      // Prevent opening filter menu after going back on page for mobile
-      this.handleMobileJumpLink();
 
       // Freeze mobile screen on opening filter
       window.addEventListener("hashchange", this.handleScrollAndOverlay);

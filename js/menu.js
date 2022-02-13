@@ -57,19 +57,21 @@ export default class Menu {
     return;
   };
 
-  handleMobileJumpLink = () => {
-    const breakpoint = "(max-width: " + scssVars["breakpointDesktop"] + ")";
-    this.mobileView = window.matchMedia(breakpoint);
-    if (this.mobileView.matches) {
-      const anchors = this.navbar.querySelectorAll("a");
+  handleJumpLink = () => {
+    const noTraceLinks = document.querySelectorAll(".erase-trace") || [];
 
-      anchors.forEach((anchor) => {
-        anchor.onclick = (e) => {
-          e.preventDefault();
-          window.location.replace(anchor.getAttribute("href"));
-        };
-      });
-    }
+    noTraceLinks.forEach((link) => {
+      link.onclick = (e) => {
+        e.preventDefault();
+
+        const currTitle = document.getElementsByTagName("title")[0].innerHTML;
+        const currHref = window.location.href;
+        const ogLink = currHref.substring(0, currHref.indexOf("#")) || currHref;
+
+        window.location.replace(link.getAttribute("href"));
+        history.replaceState({}, currTitle, ogLink)
+      };
+    });
   };
 
   asyncDropdown = () => {
@@ -99,7 +101,7 @@ export default class Menu {
       });
 
       // mobile - prevent opening menu after going back on page
-      this.handleMobileJumpLink();
+      this.handleJumpLink();
 
       document.addEventListener("pointerdown", this.handleNonMenuClick);
       document.addEventListener("keydown", this.handleEscapeKey);
