@@ -289,12 +289,13 @@
 
     &__title {
       @include grid();
-      padding-left: $grid-desktop-margin;
+      padding-left: $grid-mobile-margin;
       grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
       grid-template-rows: 1fr 3rem auto;
 
       @include breakpoint(tablet) {
         grid-template-columns: repeat(auto-fit, minmax(60rem, 1fr));
+        padding-left: $grid-desktop-margin;
         padding-bottom: 4rem;
       }
 
