@@ -38,7 +38,11 @@
     }
 
     &__section {
-      padding-left: $grid-desktop-margin;
+      padding-left: $grid-mobile-margin;
+
+      @include breakpoint(desktop) {
+        padding-left: $grid-desktop-margin;
+      }
     }
 
     &__copy,

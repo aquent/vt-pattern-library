@@ -41,7 +41,7 @@
     margin: 0 auto;
     max-width: 144rem;
     width: 100%;
-    padding: clamp(6rem, 8vw, 14.5rem) 2rem;
+    padding: clamp(6rem, 8vw, 14.5rem) $grid-mobile-margin;
 
     @include breakpoint(tablet) {
       padding: clamp(6rem, 8vw, 14.5rem) clamp(2rem, 8vw, 14.5rem);
