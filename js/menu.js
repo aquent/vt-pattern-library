@@ -32,7 +32,7 @@ export default class Menu {
       this.menus.forEach((thisDetail) => {
         if (thisDetail.open) {
           thisDetail.removeAttribute("open");
-          this.#displayDropdownMenu(thisDetail, "none")
+          this.#displayDropdownMenu(thisDetail, "none");
         }
       });
     }
@@ -57,17 +57,34 @@ export default class Menu {
     return;
   };
 
+  handleJumpLink = () => {
+    const noTraceLinks = document.querySelectorAll(".erase-trace") || [];
+
+    noTraceLinks.forEach((link) => {
+      link.onclick = (e) => {
+        e.preventDefault();
+
+        const currTitle = document.getElementsByTagName("title")[0].innerHTML;
+        const currHref = window.location.href;
+        const ogLink = currHref.substring(0, currHref.indexOf("#")) || currHref;
+
+        window.location.replace(link.getAttribute("href"));
+        history.replaceState({}, currTitle, ogLink)
+      };
+    });
+  };
+
   asyncDropdown = () => {
     if (this.navbar) {
       // Close an open menu if another menu item is opened
       this.menus.forEach((thisDetail, _, details) => {
         thisDetail.ontoggle = (_) => {
           if (thisDetail.open) {
-            this.#displayDropdownMenu(thisDetail, "grid")
+            this.#displayDropdownMenu(thisDetail, "grid");
             details.forEach((thatDetail) => {
               if (thatDetail != thisDetail) {
                 thatDetail.removeAttribute("open");
-                this.#displayDropdownMenu(thatDetail, "none")
+                this.#displayDropdownMenu(thatDetail, "none");
 
                 // Generate overlay div only on main menu dropdowns
                 if (this.generateOverlay == true) {
@@ -82,6 +99,9 @@ export default class Menu {
           }
         };
       });
+
+      // mobile - prevent opening menu after going back on page
+      this.handleJumpLink();
 
       document.addEventListener("pointerdown", this.handleNonMenuClick);
       document.addEventListener("keydown", this.handleEscapeKey);
