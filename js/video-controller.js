@@ -12,7 +12,7 @@ export default class VideoController {
       this.video = this.wrapper.getElementsByTagName("video")[0];
 
       this.#controlState();
-      this.#autoplayDesktop();
+      this.#playVideoOnBreakpoints();
     }
   }
 
@@ -29,12 +29,13 @@ export default class VideoController {
     });
   }
 
-  #autoplayDesktop() {
-    const breakpoint = "(min-width: " + scssVars["breakpointDesktop"] + ")";
-    this.desktopView = window.matchMedia(breakpoint);
+  #playVideoOnBreakpoints() {
+    const breakpoint = "(max-width: " + scssVars["breakpointDesktop"] + ")";
+    this.mobileView = window.matchMedia(breakpoint);
 
-    if (this.desktopView.matches) {
+    if (this.mobileView.matches) 
+      this.video.setAttribute("poster", this.video.getAttribute("data-poster"));
+    else
       this.video.play();
-    }
   }
 }
