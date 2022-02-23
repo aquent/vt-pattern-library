@@ -37,7 +37,7 @@ export default class FilterBar extends Menu {
     this.mobileView = window.matchMedia(breakpoint);
 
     // Prevent opening filter menu or search field after going back on page for mobile
-    this.handleJumpLink();
+    this.handleJumpLink(document.querySelectorAll(".erase-trace"));
 
     if (this.mobileView.matches) {
       // Stop closing openthis.menus if the user clicks on a non-menu item
