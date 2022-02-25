@@ -69,6 +69,10 @@
       & > blockquote > p {
         color: get-theme-value(background-color);
       }
+
+      &--title {
+        color: get-theme-value(secondary-accent);
+      }
     }
   }
 }

@@ -23,7 +23,7 @@
 
   &--post-hero {
     padding-top: 3.6rem;
-    
+
     @include breakpoint(tablet) {
       padding-top: 12.9rem;
     }
@@ -113,12 +113,16 @@
 }
 
 .l-columns {
+  p {
+    color: $primary-blue;
+  }
+
   @include breakpoint(tablet) {
     &--right-sidebar {
       @include grid(11.4rem);
       grid-template-columns: 1.82fr 1fr;
     }
-  }   
+  }
 
   &__heading {
     margin-bottom: 7.5rem;
@@ -127,7 +131,7 @@
   &__section-separator {
     background: none;
     border-top: 1px solid $cool-neutral-6;
-    margin: 5rem 0;
+    @include vertical-spacing(md-4, auto, margin);
   }
 
   &__subheading {
@@ -137,7 +141,31 @@
   }
 
   &__tip {
+    @extend .p--body-small;
+
+    color: $cool-neutral-1;
     display: block;
     margin-top: 2.6rem;
+  }
+
+  &__tip-label {
+    @extend .p--body-small-emphasis;
+    color: $primary-blue;
+  }
+
+  &__label {
+    color: $cool-neutral-1;
+  }
+
+  &__info-list {
+    padding-left: 0;
+
+    li {
+      color: $primary-blue;
+
+      &::before {
+        content: "";
+      }
+    }
   }
 }

@@ -30,7 +30,6 @@ X — Layout
 
 .form {
   @at-root {
-
     #{&}__select,
     select {
       &:focus {
@@ -40,17 +39,17 @@ X — Layout
   }
 
   @at-root {
-
-    #{&}__label,
-    form label {
+    label {
       @include tertiary-info();
-      margin-top: 2.5rem;
-      padding-bottom: 1.2rem;
+
+      & ~ label {
+        margin-top: 2.5rem;
+      }
     }
   }
 
   &__button {
-    margin-top: 7rem;
+    margin-top: 2rem;
   }
 
   &--copy {
@@ -59,10 +58,6 @@ X — Layout
     &__header {
       padding-bottom: 2.7rem;
     }
-  }
-
-  &--disclaimer {
-    margin-top: 7.1rem;
   }
 
   &--submit-section {
@@ -80,14 +75,26 @@ input[type="email"],
 input[type="url"],
 input[type="num"],
 input[type="tel"],
+input[type="number"],
 textarea {
   border: 0.2rem solid $cool-neutral-4;
   width: 100%;
 
-  &:focus,
-  &:not(:placeholder-shown) {
+  &:focus {
     outline: none;
     border: 0.2rem solid $cool-neutral-2;
+  }
+
+  &::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $secondary-green-1;
+    opacity: 1; /* Firefox */
+  }
+
+  &:-ms-input-placeholder,
+  &::-ms-input-placeholder {
+    /* Internet Explorer 10-11, Microsoft Edge */
+    color: $secondary-green-1;
   }
 }
 
@@ -97,10 +104,8 @@ textarea {
 /* =========================
 2.1 - Single line
 ========================= */
-
 .form {
   @at-root {
-
     #{&} [class*="-text"],
     input[type="text"],
     input[type="email"],
@@ -120,7 +125,6 @@ textarea {
 ========================= */
 .form {
   @at-root {
-
     #{&} [class*="text-multi"],
     textarea {
       display: block;
@@ -136,15 +140,24 @@ textarea {
 2.3 - Radio Buttons
 ========================= */
 form {
-
   // Hide native radio input
   input[type="radio"] {
     opacity: 0;
     height: 0;
     width: 0;
 
+    & + label {
+      @extend .tk-degular-text;
+      @extend .p--body;
+
+      color: $secondary-blue-1;
+      // unset default form label styling
+      letter-spacing: 0;
+      text-transform: none;
+    }
+
     // Create a custom radio input in ::before
-    &+ ::before {
+    & + ::before {
       background: transparent;
       border: 0.2rem solid $cool-neutral-4;
       border-radius: 50%;
@@ -158,23 +171,24 @@ form {
       transition: all 0.2s ease-in-out;
     }
 
-    &:checked+ ::before {
-      background: radial-gradient($accessible-green 40%, transparent 0%);
-    }
-  }
+    &:checked {
+      & + ::before {
+        background: radial-gradient($accessible-green 40%, transparent 0%);
+      }
 
-  // Maybe a good use ofr :has()
-  input[type="radio"]+label {
-    padding-bottom: 2.4rem;
+      & + label {
+        color: $primary-blue;
+      }
+    }
   }
 
   // Apply theme appropriate colors
   @include theming($themes) {
-    input[type="radio"]+label {
+    input[type="radio"] + label {
       cursor: pointer;
       color: get-theme-value(color);
 
-      &+ ::before {
+      & + ::before {
         background: get-theme-value(background-color);
       }
     }
@@ -184,10 +198,8 @@ form {
 /* =========================
 2.4 - Select Dropdown
 ========================= */
-
 .form {
   @at-root {
-
     #{&} [class*="-select"],
     select {
       appearance: none;
@@ -196,11 +208,19 @@ form {
       background-origin: content-box;
       background-position: right 1% center;
       background-repeat: no-repeat;
-      background-size: 16px 8px;
+      background-size: 1.6rem 0.8rem;
       color: $primary-blue;
       display: block;
       padding: 1.6rem;
       width: 100%;
+
+      &:invalid {
+        color: $secondary-green-1;
+      }
+
+      option {
+        color: $secondary-green-1;
+      }
     }
   }
 
@@ -209,27 +229,27 @@ form {
 ========================= */
   .form {
     &--salary-radio {
-      [name='form-type'] {
+      [name="form-type"] {
         display: none;
       }
 
       label:hover,
-      [name='form-type']:checked+label {
-        border-bottom: .6rem solid $accessible-green;
+      [name="form-type"]:checked + label {
+        border-bottom: 0.6rem solid $accessible-green;
       }
 
       @extend .tk-degular-text;
       color: $secondary-blue-1;
-      border-bottom: .1rem solid $cool-neutral-4;
+      border-bottom: 0.1rem solid $cool-neutral-4;
       display: grid;
       font-weight: 600;
       grid-template-columns: repeat(3, 1fr);
       margin-bottom: 10rem;
 
       label {
-
         @extend .tk-degular-text;
-        border-right: .1rem solid $cool-neutral-4;
+
+        border-right: 0.1rem solid $cool-neutral-4;
         letter-spacing: 0;
         font-size: 2rem;
         font-weight: 600;
@@ -242,20 +262,19 @@ form {
         }
       }
 
-      input[type="radio"]+label {
+      input[type="radio"] + label {
         padding-bottom: 1rem;
       }
 
-      input[name='form-type'] {
-
+      input[name="form-type"] {
         // Create a custom radio input in ::before
-        &+ ::before {
+        & + ::before {
           @include clear-decoration();
           transition: none;
           content: none;
         }
 
-        &:checked+ ::before {
+        &:checked + ::before {
           @include clear-decoration();
           transition: none;
           content: none;
@@ -263,17 +282,39 @@ form {
         }
       }
     }
+  }
 
-    // Bouncer JS class
-    .error-message {
-      margin: 0;
+  .tabs-nav__label {
+    @include tertiary-info();
+    margin-top: 2.5rem;
+  }
+
+/* =========================
+2.6 - Dollar sign in input field
+========================= */
+  .form {  
+    &__dollar-sign {
+      display: inline-block;
+      position: relative;
+
+      &:before {
+        position: absolute;
+        content: "$";
+        color: $secondary-green-1;
+        left: 1.5rem;
+        top: 1.4rem;
+      }
+
+      input {
+        padding-left: 2.5rem;
+      }  
     }
   }
 
 /** 3 - Submitting Overlay
 ------------------------------------------------------------*/
   .submit-overlay {
-    background-color: rgba(255, 255, 255, .666);
+    background-color: rgba(255, 255, 255, 0.666);
     top: 0;
     left: 0;
     right: 0;
@@ -297,7 +338,7 @@ form {
       top: calc(50% - 2rem);
       left: calc(50% - 2rem);
       transform: translate(-50%, -50%);
-      content: '';
+      content: "";
     }
   }
 
@@ -307,7 +348,6 @@ form {
   // Error styles need to be at the bottom
   .form {
     @at-root {
-
       #{&} [class*="-error-styled"],
       .error:not(span) {
         border: 0.2rem solid $product-red-3;
@@ -329,18 +369,20 @@ form {
   }
 }
 
-/** 5 - Lead Form
+/** 5 - Lead Form and Salary Form
 ------------------------------------------------------------*/
 /* Many of these styles will break BEM for purposes of styling
 non-BEM elements created by the current lead form builder code.
 That tool should be updated to use BEM in the long run, and these 
 styles updated accordingly. */
 
-.lead-form {
-  label { 
+.lead-form, .salary-form {
+  label {
     + input,
-    + select,
-    + textarea {
+    ~ select,
+    + textarea,
+    + div.form__wrapper-input {
+      margin-top: 1.2rem;
       margin-bottom: 3rem;
     }
   }
@@ -348,6 +390,27 @@ styles updated accordingly. */
 
 /** X - Layout
 ------------------------------------------------------------*/
-.form__field-wrapper {
-  margin-bottom: 1.6rem;
+.form {
+  &__field-wrapper {
+    margin-bottom: 1.6rem;
+  }
+
+  &__submit-btn-adj-link {
+    float: right;
+    margin: 1.5rem 0;
+  }
+
+  &__wrapper-input {
+    [class*="error-message"] {
+      margin: 0;
+    }
+  }
+}
+
+.salary-form {
+  .columns--two {
+    @include breakpoint(desktop){
+      column-gap: 1.5rem;
+    }
+  }
 }

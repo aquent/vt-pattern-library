@@ -57,21 +57,18 @@ export default class Menu {
     return;
   };
 
-  handleJumpLink = () => {
-    const noTraceLinks = document.querySelectorAll(".erase-trace") || [];
+  handleJumpLink = (anchors) => {
+    const breakpoint = "(max-width: " + scssVars["breakpointDesktop"] + ")";
+    this.mobileView = window.matchMedia(breakpoint);
 
-    noTraceLinks.forEach((link) => {
-      link.onclick = (e) => {
-        e.preventDefault();
-
-        const currTitle = document.getElementsByTagName("title")[0].innerHTML;
-        const currHref = window.location.href;
-        const ogLink = currHref.substring(0, currHref.indexOf("#")) || currHref;
-
-        window.location.replace(link.getAttribute("href"));
-        history.replaceState({}, currTitle, ogLink)
-      };
-    });
+    if (this.mobileView.matches) {
+      anchors.forEach((anchor) => {
+        anchor.onclick = (e) => {
+          e.preventDefault();
+          window.location.replace(anchor.getAttribute("href"));
+        };
+      });
+    }
   };
 
   asyncDropdown = () => {
@@ -101,7 +98,7 @@ export default class Menu {
       });
 
       // mobile - prevent opening menu after going back on page
-      this.handleJumpLink();
+      this.handleJumpLink(this.navbar.querySelectorAll("a"));
 
       document.addEventListener("pointerdown", this.handleNonMenuClick);
       document.addEventListener("keydown", this.handleEscapeKey);
