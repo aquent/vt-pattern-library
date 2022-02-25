@@ -117,8 +117,13 @@
   }
 
   &__content {
-    padding-left: clamp(2rem, 8vw, 14.5rem);
-    padding-right: clamp(2rem, 8vw, 14.5rem);
+    padding-left: $grid-mobile-margin;
+    padding-right: $grid-mobile-margin;
+    
+    @include breakpoint(tablet){
+      padding-left: clamp(2rem, 8vw, 14.5rem);
+      padding-right: clamp(2rem, 8vw, 14.5rem);
+    }
 
     @include breakpoint(desktop) {
       max-width: 144rem;
