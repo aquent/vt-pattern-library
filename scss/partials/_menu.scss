@@ -28,7 +28,7 @@
   }
 
   &__img {
-    width: 18rem;
+    width: 16rem;
 
     @include breakpoint(desktop) {
       max-width: 18rem;
@@ -53,16 +53,12 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  height: 2.5rem;
+  height: 2rem;
   left: 2.6rem;
   position: relative;
   transition: border-bottom 250ms ease;
-  width: 3.5rem;
+  width: 2.6rem;
   z-index: 102;
-
-  @include breakpoint(tablet) {
-    //transform: translateY(50%);
-  }
 
   @include breakpoint(desktop) {
     display: none;
