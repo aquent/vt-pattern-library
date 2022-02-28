@@ -108,6 +108,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin-bottom: 2.9rem;
+    overflow: hidden;
 
     &--blog {
       margin-bottom: 2.1rem;
