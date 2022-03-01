@@ -3,16 +3,15 @@
     @extend .content-block--clickable;
     border: 0.2rem solid $secondary-green-2;
     display: block;
-    max-height: 20.5rem;
-    max-width: 40rem;
 
     @include breakpoint(desktop) {
+        max-height: 20.5rem;
         max-width: 55.7rem;
     }
 
     &__block {
         padding: 0rem 2rem;
-        height: 16rem;
+        min-height: 16rem;
         position: relative;
     }
 
@@ -25,8 +24,15 @@
         @extend .tk-aktiv-grotesk;
         @extend .uppercase;
         color: $secondary-green-1;
+        display: block;
         font-size: 1.2rem;
         letter-spacing: 1.8px;
+        min-height: 8rem;
+
+        @include breakpoint(tablet) {
+            display: initial;
+            min-height: initial;
+        }
     }
 
     &__posted {
