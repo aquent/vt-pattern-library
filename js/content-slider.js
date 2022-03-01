@@ -102,6 +102,7 @@ export default class ContentSlider {
     try {
       let io = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
+          // The first card is starting to be out of viewport (99.5% or less of the card is in the viewport)
           if (entry.intersectionRatio < intersectionRatioToTriggerChange) {
             this.controlsLeft.style.zIndex = zIndexToShow;
           } else {
