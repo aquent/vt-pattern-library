@@ -17,6 +17,7 @@ export default class ContentSlider {
       : "content-slider__cards-list";
     this.controlSurface = wrapperObj.querySelector(`.${surfaceSelector}`);
     this.hasLeftControl = false;
+
     this.initializeIntersectionObserver(this.contentSlider, this.controlSurface);
 
     try {
@@ -46,9 +47,8 @@ export default class ContentSlider {
 
       this.setControlSurface();
 
-      this.contentSliderControls.style.top = `${
-        this.controlSurface.offsetTop - initialTopValue
-      }px`;
+      this.contentSliderControls.style.top = `${this.controlSurface.offsetTop - initialTopValue
+        }px`;
     } catch (e) {
       console.error(
         "[ContentSlider] There was a problem calculating the controls for the content slider: ",
@@ -69,8 +69,6 @@ export default class ContentSlider {
     this.controlsLeft.addEventListener("click", (e) => {
       e.preventDefault();
       this.contentSliderCardsList.scrollLeft -= this.sliderStep; //px scroll amount
-      console.log(this.hasLeftControl)
-
     });
 
     this.controlsRight.addEventListener("click", (e) => {
@@ -86,44 +84,50 @@ export default class ContentSlider {
   }
 
   /**
-   * 
+   * Inirializes the intersection observer to add left (prev) control on the content slider as soon as the first card starts to go out of the viewport".
    * @param {HTMLElement} contentSlider  
    * @param {HTMLElement} controlSurface
    * @returns {void}
    */
   initializeIntersectionObserver(contentSlider) {
-    console.log("[ContentSlider] Initializing Intersection Observer");
+
+    //Trigger thresholds for the intersection observer to fire the callback
+    const thresholdArr = [1, .9999, .99];
+    const intersectionRatioToTriggerChange = .995;
+    const zIndexToShow = 15;
+    const zIndexToHide = 10;
 
     let firstCard = contentSlider.querySelector(".content-slider__block");
     console.log(firstCard)
     const options = {
       root: contentSlider,
-      threshold: [1, .9],
+      threshold: thresholdArr,
     };
     // TODO: Wrap this in a try/catch block
-    let io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.intersectionRatio < 1) {
-          this.hasLeftControl = true;
-          // append left and right controls to content slider
-        } else {          
-          // append right controls to content slider
-          this.hasLeftControl = false;
-        }
-      });
-    }, options);
+    try {
+      let io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.intersectionRatio < intersectionRatioToTriggerChange) {
+            this.controlsLeft.style.zIndex = zIndexToShow;
+          } else {
+            this.controlsLeft.style.zIndex = zIndexToHide;
+          }
+        });
+      }, options);
 
-    io.observe(firstCard);
-
+      io.observe(firstCard);
+    } catch (e) {
+      console.error(
+        "[Content Slider] There was a problem initializing the intersection observer: ",
+        e
+      );
+    }
   }
 
   /**
+   * TODO: Implement fx
    * Appends the left and right controls to the content slider.
    * @param {HTMLElement} contentSlider
    * @return {void}
    */
-  appendControls(contentSlider) {
-    
-  }
-
 }
