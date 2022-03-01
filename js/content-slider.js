@@ -17,8 +17,6 @@ export default class ContentSlider {
     this.controlSurface = wrapperObj.querySelector(`.${surfaceSelector}`);
     this.hasLeftControl = false;
 
-    this.initializeIntersectionObserver(this.contentSlider, this.controlSurface);
-
     try {
       /**
        * TODO: Refactor controlSurface so that it appends the controls div to the DOM, therefore removing the necesity for a controlSurface parameter to be passed in.
@@ -45,9 +43,11 @@ export default class ContentSlider {
       let initialTopValue = this.contentSliderControls.offsetTop; //79px
 
       this.setControlSurface();
-
+      this.initializeIntersectionObserver();
       this.contentSliderControls.style.top = `${this.controlSurface.offsetTop - initialTopValue
         }px`;
+
+    
     } catch (e) {
       console.error(
         "[ContentSlider] There was a problem calculating the controls for the content slider: ",
@@ -82,11 +82,11 @@ export default class ContentSlider {
 
   /**
    * Inirializes the intersection observer to add left (prev) control on the content slider as soon as the first card starts to go out of the viewport".
-   * @param {HTMLElement} contentSlider  
-   * @param {HTMLElement} controlSurface
+   * @uses this.contentSlider
+   * @uses this.this.firstCard
    * @returns {void}
    */
-  initializeIntersectionObserver(contentSlider) {
+  initializeIntersectionObserver() {
 
     // Trigger thresholds for the intersection observer to fire the callback
     const thresholdArr = [1, .9999, .99];
@@ -94,9 +94,8 @@ export default class ContentSlider {
     const zIndexToShow = 15;
     const zIndexToHide = 10;
 
-    let firstCard = contentSlider.querySelector(".content-slider__block");
     const options = {
-      root: contentSlider,
+      root: this.contentSlider,
       threshold: thresholdArr,
     };
 
@@ -110,8 +109,8 @@ export default class ContentSlider {
           }
         });
       }, options);
-
-      io.observe(firstCard);
+      
+      io.observe(this.firstCard);
     } catch (e) {
       console.error(
         "[Content Slider] There was a problem initializing the intersection observer: ",
