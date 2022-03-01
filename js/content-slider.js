@@ -72,8 +72,6 @@ export default class ContentSlider {
     });
 
     this.controlsRight.addEventListener("click", (e) => {
-      console.log(this.hasLeftControl)
-
       e.preventDefault();
       this.contentSliderCardsList.scrollLeft += this.sliderStep; //px scroll amount
     });
