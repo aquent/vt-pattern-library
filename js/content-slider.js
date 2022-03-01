@@ -46,8 +46,6 @@ export default class ContentSlider {
       this.initializeIntersectionObserver();
       this.contentSliderControls.style.top = `${this.controlSurface.offsetTop - initialTopValue
         }px`;
-
-    
     } catch (e) {
       console.error(
         "[ContentSlider] There was a problem calculating the controls for the content slider: ",
@@ -83,7 +81,7 @@ export default class ContentSlider {
   /**
    * Inirializes the intersection observer to add left (prev) control on the content slider as soon as the first card starts to go out of the viewport".
    * @uses this.contentSlider
-   * @uses this.this.firstCard
+   * @uses this.firstCard
    * @returns {void}
    */
   initializeIntersectionObserver() {
