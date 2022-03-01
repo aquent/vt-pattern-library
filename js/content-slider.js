@@ -1,7 +1,6 @@
 export default class ContentSlider {
   /**
    * TODO:
-   * !! - Fix the Controls repositioning logic in the resizeObserver.
    * !! - Investigate the reason the controls click area diverges from img div on different browser zoom levels
    *  - Fix tab indexes (user should not be able to scroll by tabbing // add visibility classes )
    *  - Refactor addition of event listeners into a separate function. DRY-er.
@@ -89,19 +88,18 @@ export default class ContentSlider {
    */
   initializeIntersectionObserver(contentSlider) {
 
-    //Trigger thresholds for the intersection observer to fire the callback
+    // Trigger thresholds for the intersection observer to fire the callback
     const thresholdArr = [1, .9999, .99];
     const intersectionRatioToTriggerChange = .995;
     const zIndexToShow = 15;
     const zIndexToHide = 10;
 
     let firstCard = contentSlider.querySelector(".content-slider__block");
-    console.log(firstCard)
     const options = {
       root: contentSlider,
       threshold: thresholdArr,
     };
-    // TODO: Wrap this in a try/catch block
+
     try {
       let io = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
