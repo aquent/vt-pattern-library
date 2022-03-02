@@ -7,7 +7,7 @@
     min-width: 24rem;
     white-space: normal;
     @include breakpoint(tablet) {
-      min-width: 47.5rem;
+      // min-width: 47.5rem;
     }
   }
 
@@ -34,9 +34,9 @@
     .content-block--clickable,
     .content-block {
       white-space: normal;
-      width: 24rem;
+      // width: 24rem;
       @include breakpoint(tablet) {
-        width: 47.5rem;
+        // width: 47.5rem;
       }
     }
 

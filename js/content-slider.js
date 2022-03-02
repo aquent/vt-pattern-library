@@ -15,7 +15,16 @@ export default class ContentSlider {
       ? wrapperObj.dataset.controlSurface
       : "content-slider__cards-list";
     this.controlSurface = wrapperObj.querySelector(`.${surfaceSelector}`);
-    this.hasLeftControl = false;
+
+
+
+
+    this.contentSliderCardsList = wrapperObj.querySelector(".content-slider__cards-list").children;
+    console.log(this.contentSliderCardsList);
+
+
+  
+
 
     try {
       /**
@@ -38,12 +47,20 @@ export default class ContentSlider {
       this.controlsRight = this.contentSliderControls.querySelector(
         ".content-slider__controls-right"
       );
+
       this.attachEventListeners();
 
       let initialTopValue = this.contentSliderControls.offsetTop; //79px
 
       this.setControlSurface();
       this.initializeIntersectionObserver();
+
+
+      this.resizeCards();
+
+
+
+
       this.contentSliderControls.style.top = `${this.controlSurface.offsetTop - initialTopValue
         }px`;
     } catch (e) {
@@ -53,6 +70,29 @@ export default class ContentSlider {
       );
     }
   }
+
+    resizeCards() {
+      console.log("resizing cards");
+      // get the width of the content slider
+      const contentSliderWidth = this.contentSlider.offsetWidth;
+      console.log('contentSliderWidth', contentSliderWidth);
+      //calculate the appropriate width for each card
+
+      //assign the width to each card
+      let cardWidth = ((contentSliderWidth - 150) / 2.25)  / 10;
+      console.log('cardWidth', cardWidth);
+
+      let contentSliderCardsList = this.contentSlider.querySelectorAll('.content-slider__block');
+      console.log(contentSliderCardsList);
+
+      contentSliderCardsList.forEach((card) => {
+        console.log(card)
+        // card.style.minWidth = '10rem';
+        card.style.minWidth = `${cardWidth}rem`;
+      });
+      // calculate the adjusted width of the content slider cards
+    }
+
 
   setControlSurface() {
     const controlSurfaceRect = this.controlSurface.getBoundingClientRect();
@@ -75,6 +115,7 @@ export default class ContentSlider {
 
     window.addEventListener("resize", () => {
       this.setControlSurface();
+      this.resizeCards()
     });
   }
 
