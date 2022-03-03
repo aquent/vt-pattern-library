@@ -16,16 +16,6 @@ export default class ContentSlider {
       : "content-slider__cards-list";
     this.controlSurface = wrapperObj.querySelector(`.${surfaceSelector}`);
 
-
-
-
-    this.contentSliderCardsList = wrapperObj.querySelector(".content-slider__cards-list").children;
-    console.log(this.contentSliderCardsList);
-
-
-  
-
-
     try {
       /**
        * TODO: Refactor controlSurface so that it appends the controls div to the DOM, therefore removing the necesity for a controlSurface parameter to be passed in.
@@ -48,21 +38,16 @@ export default class ContentSlider {
         ".content-slider__controls-right"
       );
 
-      this.attachEventListeners();
-
       let initialTopValue = this.contentSliderControls.offsetTop; //79px
+      this.contentSliderControls.style.top = `${
+        this.controlSurface.offsetTop - initialTopValue
+      }px`;
 
+      this.attachEventListeners();
+      this.resizeCards();
       this.setControlSurface();
       this.initializeIntersectionObserver();
 
-
-      this.resizeCards();
-
-
-
-
-      this.contentSliderControls.style.top = `${this.controlSurface.offsetTop - initialTopValue
-        }px`;
     } catch (e) {
       console.error(
         "[ContentSlider] There was a problem calculating the controls for the content slider: ",
@@ -71,28 +56,33 @@ export default class ContentSlider {
     }
   }
 
-    resizeCards() {
-      console.log("resizing cards");
-      // get the width of the content slider
-      const contentSliderWidth = this.contentSlider.offsetWidth;
-      console.log('contentSliderWidth', contentSliderWidth);
-      //calculate the appropriate width for each card
+  /**
+   * Resizes the content slider's cards to always display a fixed number of cards.
+   * @uses this.contentSlider
+   */
+  resizeCards() {
+    const mobileWidthInPx = 640;
+    const contentSliderWidth = this.contentSlider.offsetWidth;
+    let contentSliderBlock = this.contentSlider.querySelectorAll(
+      ".content-slider__block"
+    );
+    let cardsToShow = 1.25; // show 1.25 cards on mobile
+    let cardWidth = 24; //default card width for mobile
+    let combinedGuttersInPx = 50;
 
-      //assign the width to each card
-      let cardWidth = ((contentSliderWidth - 150) / 2.25)  / 10;
-      console.log('cardWidth', cardWidth);
-
-      let contentSliderCardsList = this.contentSlider.querySelectorAll('.content-slider__block');
-      console.log(contentSliderCardsList);
-
-      contentSliderCardsList.forEach((card) => {
-        console.log(card)
-        // card.style.minWidth = '10rem';
-        card.style.minWidth = `${cardWidth}rem`;
-      });
-      // calculate the adjusted width of the content slider cards
+    //set the desktop values
+    if (contentSliderWidth > mobileWidthInPx) {
+      cardsToShow = 2.25;
+      combinedGuttersInPx = 150;
     }
+    // set the individual card width
+    cardWidth = (contentSliderWidth - combinedGuttersInPx) / cardsToShow / 10; //convert to rem
 
+    // apply to each card
+    contentSliderBlock.forEach((card) => {
+      card.style.minWidth = `${cardWidth}rem`;
+    });
+  }
 
   setControlSurface() {
     const controlSurfaceRect = this.controlSurface.getBoundingClientRect();
@@ -115,7 +105,7 @@ export default class ContentSlider {
 
     window.addEventListener("resize", () => {
       this.setControlSurface();
-      this.resizeCards()
+      this.resizeCards();
     });
   }
 
@@ -126,10 +116,9 @@ export default class ContentSlider {
    * @returns {void}
    */
   initializeIntersectionObserver() {
-
     // Trigger thresholds for the intersection observer to fire the callback
-    const thresholdArr = [1, .9999, .99];
-    const intersectionRatioToTriggerChange = .995;
+    const thresholdArr = [1, 0.9999, 0.999, 0.99];
+    const intersectionRatioToTriggerChange = 0.995;
     const zIndexToShow = 15;
     const zIndexToHide = 10;
 
@@ -149,7 +138,7 @@ export default class ContentSlider {
           }
         });
       }, options);
-      
+
       io.observe(this.firstCard);
     } catch (e) {
       console.error(

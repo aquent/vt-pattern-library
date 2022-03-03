@@ -1,16 +1,30 @@
+/** TABLE OF CONTENTS - Cards
+ — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
+1 — Content Block
+2 - Card List (card container)
+3 - Controls - (left and right arrow container)
+
+NOTES: 
+ * The width of the .content-slider__block(cards) is dynamically set in content-slider.js file. 
+/// END TABLE OF CONTENTS **/
+
 .content-slider {
   position: relative;
   white-space: nowrap;
 
+/** 1 - Content Block
+------------------------------------------------------------*/
   &__block {
-    //Note: these widths might have to be refactored to a different location
     min-width: 24rem;
     white-space: normal;
+    
     @include breakpoint(tablet) {
-      // min-width: 47.5rem;
+      min-width: 47.5rem;
     }
   }
 
+/** 2 - Cards List
+------------------------------------------------------------*/
   &__cards-list {
     overflow-x: scroll;
     scroll-behavior: smooth;
@@ -23,7 +37,7 @@
       display: none;
     }
 
-    @include breakpoint(desktop) {
+    @include breakpoint(tablet) {
       gap: 7.5rem;
     }
 
@@ -34,10 +48,6 @@
     .content-block--clickable,
     .content-block {
       white-space: normal;
-      // width: 24rem;
-      @include breakpoint(tablet) {
-        // width: 47.5rem;
-      }
     }
 
     // Modify list in the tabs-panel so logo overlay overhang is visible
@@ -46,10 +56,12 @@
     }
   }
 
+/** 3 - Controls
+------------------------------------------------------------*/
   &__controls {
     display: none;
 
-    @include breakpoint(desktop) {
+    @include breakpoint(tablet) {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       position: absolute;
@@ -79,6 +91,7 @@
 
       cursor: url("data:image/svg+xml,%3Csvg width='75' height='75' viewBox='0 0 75 75' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='37.5' cy='37.5' r='37.5' transform='rotate(-180 37.5 37.5)' fill='%23509E2F'/%3E%3Cline x1='53' y1='38' x2='33' y2='38' stroke='white' stroke-width='2'/%3E%3Cpath d='M21 37.5L33.75 30.1388L33.75 44.8612L21 37.5Z' fill='white'/%3E%3C/svg%3E%0A"),
         auto;
+      // z-indexes are dynamically updated in JS to control the control arrows' display based on the current scroll position
       z-index: 10;
     }
 
