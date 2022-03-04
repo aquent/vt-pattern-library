@@ -17,7 +17,6 @@ NOTES:
   &__block {
     min-width: 24rem;
     white-space: normal;
-    
     @include breakpoint(tablet) {
       min-width: 47.5rem;
     }

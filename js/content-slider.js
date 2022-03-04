@@ -15,6 +15,7 @@ export default class ContentSlider {
       ? wrapperObj.dataset.controlSurface
       : "content-slider__cards-list";
     this.controlSurface = wrapperObj.querySelector(`.${surfaceSelector}`);
+    this.hasLeftControl = false;
 
     try {
       /**
@@ -37,6 +38,7 @@ export default class ContentSlider {
       this.controlsRight = this.contentSliderControls.querySelector(
         ".content-slider__controls-right"
       );
+      this.attachEventListeners();
 
       let initialTopValue = this.contentSliderControls.offsetTop; //79px
       this.contentSliderControls.style.top = `${
@@ -47,7 +49,8 @@ export default class ContentSlider {
       this.resizeCards();
       this.setControlSurface();
       this.initializeIntersectionObserver();
-
+      this.contentSliderControls.style.top = `${this.controlSurface.offsetTop - initialTopValue
+        }px`;
     } catch (e) {
       console.error(
         "[ContentSlider] There was a problem calculating the controls for the content slider: ",
@@ -116,9 +119,10 @@ export default class ContentSlider {
    * @returns {void}
    */
   initializeIntersectionObserver() {
+
     // Trigger thresholds for the intersection observer to fire the callback
-    const thresholdArr = [1, 0.9999, 0.999, 0.99];
-    const intersectionRatioToTriggerChange = 0.995;
+    const thresholdArr = [1, .9999, .99];
+    const intersectionRatioToTriggerChange = .995;
     const zIndexToShow = 15;
     const zIndexToHide = 10;
 
@@ -138,7 +142,7 @@ export default class ContentSlider {
           }
         });
       }, options);
-
+      
       io.observe(this.firstCard);
     } catch (e) {
       console.error(

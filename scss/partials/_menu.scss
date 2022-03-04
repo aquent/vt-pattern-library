@@ -37,12 +37,18 @@
 
   &__logo {
     position: absolute;
-    right: 2.6rem;
+    right: 2rem;
+    top: 2rem;
     z-index: 101;
+
+    @include breakpoint(tablet) {
+      top: initial;
+    }
 
     @include breakpoint(desktop) {
       position: relative;
       right: initial;
+      top: initial;
     }
   }
 }
@@ -54,7 +60,7 @@
   border: none;
   cursor: pointer;
   height: 2rem;
-  left: 2.6rem;
+  left: 2rem;
   position: relative;
   transition: border-bottom 250ms ease;
   width: 2.6rem;
@@ -88,7 +94,7 @@
   }
 
   &::after {
-    top: 0;
+    top: 0.1rem;
     transform: rotate(180deg);
     z-index: 0;
   }
