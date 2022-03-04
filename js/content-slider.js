@@ -41,7 +41,12 @@ export default class ContentSlider {
       this.attachEventListeners();
 
       let initialTopValue = this.contentSliderControls.offsetTop; //79px
+      this.contentSliderControls.style.top = `${
+        this.controlSurface.offsetTop - initialTopValue
+      }px`;
 
+      this.attachEventListeners();
+      this.resizeCards();
       this.setControlSurface();
       this.initializeIntersectionObserver();
       this.contentSliderControls.style.top = `${this.controlSurface.offsetTop - initialTopValue
@@ -52,6 +57,34 @@ export default class ContentSlider {
         e
       );
     }
+  }
+
+  /**
+   * Resizes the content slider's cards to always display a fixed number of cards.
+   * @uses this.contentSlider
+   */
+  resizeCards() {
+    const mobileWidthInPx = 640;
+    const contentSliderWidth = this.contentSlider.offsetWidth;
+    let contentSliderBlock = this.contentSlider.querySelectorAll(
+      ".content-slider__block"
+    );
+    let cardsToShow = 1.25; // show 1.25 cards on mobile
+    let cardWidth = 24; //default card width for mobile
+    let combinedGuttersInPx = 50;
+
+    //set the desktop values
+    if (contentSliderWidth > mobileWidthInPx) {
+      cardsToShow = 2.25;
+      combinedGuttersInPx = 150;
+    }
+    // set the individual card width
+    cardWidth = (contentSliderWidth - combinedGuttersInPx) / cardsToShow / 10; //convert to rem
+
+    // apply to each card
+    contentSliderBlock.forEach((card) => {
+      card.style.minWidth = `${cardWidth}rem`;
+    });
   }
 
   setControlSurface() {
@@ -75,6 +108,7 @@ export default class ContentSlider {
 
     window.addEventListener("resize", () => {
       this.setControlSurface();
+      this.resizeCards();
     });
   }
 
