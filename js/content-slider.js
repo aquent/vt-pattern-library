@@ -119,9 +119,8 @@ export default class ContentSlider {
    * @returns {void}
    */
   initializeIntersectionObserver() {
-
     // Trigger thresholds for the intersection observer to fire the callback
-    const thresholdArr = [1, .9999, .99];
+    const thresholdArr = [1, .9999, .999, .99];
     const intersectionRatioToTriggerChange = .995;
     const zIndexToShow = 15;
     const zIndexToHide = 10;
@@ -130,7 +129,7 @@ export default class ContentSlider {
       root: this.contentSlider,
       threshold: thresholdArr,
     };
-
+  
     try {
       let io = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
