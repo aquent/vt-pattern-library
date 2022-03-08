@@ -217,8 +217,11 @@ LeadForm JS class, it can be removed here. */
     display: block;
     height: 1px;
     background-color: $cool-neutral-4;
-    margin: 0 auto;
     max-width: 100%;
-    width: calc(min(144rem, 80%));
+    margin: 0;
+
+    @include breakpoint(tablet) {
+      margin: 0 clamp(2rem, 8vw, 14.5rem);
+    }
   }
 }
