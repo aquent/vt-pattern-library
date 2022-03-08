@@ -32,10 +32,9 @@
 
     @include breakpoint(desktop) {
       grid-template-rows: 1fr;
-      grid-template-columns: repeat(12, 1fr);
+      grid-template-columns: repeat(9, 1fr);
       grid-auto-flow: column;
-      max-width: 144rem;
-      margin: auto;
+      column-gap: 0;
     }
 
     &__section {
@@ -69,8 +68,8 @@
         justify-self: start;
         align-self: center;
         order: 1;
-        grid-column: 1/7;
-        padding-left: 2.5rem;
+        grid-column: 1/5;
+        padding-left: 3rem;
       }
     }
 
@@ -81,7 +80,7 @@
       position: relative;
 
       @include breakpoint(desktop) {
-        grid-column: -1/-11;
+        grid-column: -1/-8;
         order: 2;
       }
     }
@@ -95,10 +94,6 @@
       @include breakpoint(tablet) {
         height: unset;
         width: 100%;
-      }
-
-      @include breakpoint(tablet) {
-        max-width: 112.5rem;
       }
     }
 
