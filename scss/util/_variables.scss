@@ -76,9 +76,7 @@ $themes: (
     background-color: $primary-blue,
     primary-accent: $primary-green,
     secondary-accent: $secondary-green-1,
-    copy-text-color: $cool-neutral-6,
-    link-default: $secondary-green-1,
-    link-hover: $primary-green,
+    copy-text-color: $cool-neutral-6
   ),
   bg-sec-blue: (
     color: $primary-white,
@@ -86,9 +84,7 @@ $themes: (
     background-color: $secondary-blue-1,
     primary-accent: $primary-green,
     secondary-accent: $secondary-green-1,
-    copy-text-color: $cool-neutral-6,
-    link-default: $secondary-green-1,
-    link-hover: $primary-green,
+    copy-text-color: $cool-neutral-6
   ),
   bg-green: (
     color: $primary-blue,
@@ -96,9 +92,7 @@ $themes: (
     background-color: $primary-green,
     primary-accent: $secondary-blue-1,
     secondary-accent: $cool-neutral-1,
-    copy-text-color: $cool-neutral-6,
-    link-default: $cool-neutral-1,
-    link-hover: $primary-blue
+    copy-text-color: $cool-neutral-6
   ),
   bg-white: (
     color: $primary-blue,
@@ -106,9 +100,7 @@ $themes: (
     background-color: $primary-white,
     primary-accent: $accessible-green,
     secondary-accent: $secondary-green-2,
-    copy-text-color: $cool-neutral-1,
-    link-default: $secondary-green-2,
-    link-hover: $accessible-green
+    copy-text-color: $cool-neutral-1
   ),
   bg-sec-green: (
     color: $primary-blue,
@@ -116,9 +108,7 @@ $themes: (
     background-color: $secondary-green-2,
     primary-accent: $accessible-green,
     secondary-accent: $secondary-green-2,
-    copy-text-color: $cool-neutral-6,
-    link-default: $cool-neutral-1,
-    link-hover: $primary-blue
+    copy-text-color: $cool-neutral-6
   ),
 );
 
@@ -134,7 +124,7 @@ $grid-desktop-margin: 3rem;
 /** 4 - Spacing
 ------------------------------------------------------------*/
 // Given design vertical spacing is the measure between
-// element's baseline and following siblink element's ascender line
+// element's baseline and following sibling element's ascender line
 
 $design-vertical-spacing: (
   // large 1
