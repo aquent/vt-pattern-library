@@ -116,6 +116,12 @@ p {
 ------------------------------------------------------------*/
 a,
 .a {
+  /*
+  #TODO: 
+   - [X] Add the headings link style (https://codepen.io/nedevn/pen/XWgzxXM Nubmer 1)
+   - [ ] Implement theme colors
+  */
+
   background-color: transparent;
   background: linear-gradient(to right, $secondary-green-2, $secondary-green-2),
     linear-gradient(to right, $accessible-green, $accessible-green);
@@ -137,33 +143,6 @@ a,
   }
 }
 
-.section {
-  @include theming($themes) {
-    a,
-    .a {
-      background: linear-gradient(
-          to right,
-          get-theme-value(link-default),
-          get-theme-value(link-default)
-        ),
-        linear-gradient(
-          to right,
-          get-theme-value(link-hover),
-          get-theme-value(link-hover)
-        );
-      background-size: 100% 0.2rem, 0% 0.2rem;
-      background-position: 100% 100%, 0 100%;
-      background-repeat: no-repeat;
-      text-decoration: none;
-      transition: background-size (500ms);
-
-      &:hover,
-      &:focus {
-        background-size: 0 0.2rem, 100% 0.2rem;
-      }
-    }
-  }
-}
 /** 5 - Blockquotes
 ------------------------------------------------------------*/
 blockquote {
@@ -266,6 +245,7 @@ ol {
   li + li {
     margin-top: 1.5rem;
   }
+
 }
 
 /** 8 - Horizontal Rule
