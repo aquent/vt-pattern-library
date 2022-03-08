@@ -109,6 +109,11 @@
       row-gap: 10rem;
       grid-template-columns: repeat(3, 1fr);
     }
+
+    .content-block__title {
+      @extend .h6;
+      margin-bottom: 1rem;
+    }
   }
 }
 
