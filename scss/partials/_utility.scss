@@ -221,7 +221,9 @@ LeadForm JS class, it can be removed here. */
     margin: 0;
 
     @include breakpoint(tablet) {
-      margin: 0 clamp(2rem, 8vw, 14.5rem);
+      max-width: 144rem;
+      width: calc(144rem - 2*clamp(2rem, 8vw, 14.5rem));
+      margin: 0 auto;
     }
   }
 }
