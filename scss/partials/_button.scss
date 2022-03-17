@@ -5,6 +5,7 @@
 }
 
 [class^="button"] {
+
   @include tertiary-info();
 
   background: none;
@@ -44,7 +45,8 @@
     [class^="button"] {
       color: get-theme-value(color);
       background-color: get-theme-value(background-color);
-
+      background: get-theme-value(background-color);
+      
       &:hover {
         color: get-theme-value(rollover-color);
         background-color: get-theme-value(color);
