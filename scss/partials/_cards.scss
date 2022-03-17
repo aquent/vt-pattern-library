@@ -148,6 +148,8 @@
 /** 2 - Content Block - Clickable
 ------------------------------------------------------------*/
 .content-block--clickable {
+  @include clear-decoration();
+
   background: none;
   display: block;
 
