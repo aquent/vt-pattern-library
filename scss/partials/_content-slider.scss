@@ -74,7 +74,8 @@ NOTES:
 
     &-left,
     &-right {
-      background: none;
+      @include clear-decoration();
+
       border: none;
       height: 100%;
       padding: 0;
