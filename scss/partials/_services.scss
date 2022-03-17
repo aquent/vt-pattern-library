@@ -11,6 +11,7 @@
 }
 
 .service {
+  @include clear-decoration();
   //----Mobile
   @include grid();
   grid-template-columns: repeat(12, 1fr);
