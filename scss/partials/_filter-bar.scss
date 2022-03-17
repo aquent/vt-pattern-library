@@ -857,6 +857,8 @@
       }
 
       &__a {
+        @include clear-decoration();
+        
         background: none;
         height: 100%;
         left: 0;
