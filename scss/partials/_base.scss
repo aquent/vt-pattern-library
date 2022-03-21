@@ -143,6 +143,30 @@ a,
   }
 }
 
+
+.section {
+  @include theming($themes) {
+    a,
+    .a {
+      &:not([class^="button"]):not([class^="content-slider__controls"]):not([class^="leadership-bio__social-icon"]):not(.job-card):not(.content-block--clickable):not(.service__text-content):not(.service):not([class^="pagination"]):not(.footer__a):not(.top-menu__anchor):not([class^="social-icon"]):not([class^="tabs-nav"]):not(.filter-bar__search-icon__a):not(.footer__logo) {
+        background: linear-gradient(to right, red, red),
+          linear-gradient(to right, yellow, yellow);
+        background-size: 100% 0.2rem, 0% 0.2rem;
+        background-position: 100% 100%, 0 100%;
+        background-repeat: no-repeat;
+        color: inherit;
+        text-decoration: none;
+        transition: background-size (500ms);
+
+        &:hover,
+        &:focus {
+          background-size: 0 0.2rem, 100% 0.2rem;
+        }
+      }
+    }
+  }
+}
+
 /** 5 - Blockquotes
 ------------------------------------------------------------*/
 blockquote {
@@ -245,7 +269,6 @@ ol {
   li + li {
     margin-top: 1.5rem;
   }
-
 }
 
 /** 8 - Horizontal Rule
