@@ -444,7 +444,7 @@
     &__title {
       grid-column: 1/2;
       @include breakpoint(desktop) {
-        grid-column: 1/7;
+        grid-column: 1/-1;
       }
     }
   }
