@@ -428,23 +428,26 @@
   ------------------------------------------------------------*/
   &-textonly {
     @include grid();
-    @include vertical-spacing(md-1, top, padding);
-    @include vertical-spacing(lg-1, bottom, padding);
+    // @include vertical-spacing(lg-1, top, padding);
+    // @include vertical-spacing(lg-1, bottom, padding);
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    padding-left: $grid-desktop-margin;
+    min-height: 35.5rem;
+    padding: 7.5rem $grid-mobile-margin 16rem $grid-mobile-margin;
 
     @include breakpoint(tablet) {
       grid-template-columns: repeat(auto-fit, minmax(60rem, 1fr));
     }
+
     @include breakpoint(desktop) {
       grid-template-columns: repeat(12, 1fr);
       grid-auto-flow: column;
+      padding: 13.5rem $grid-desktop-margin 25rem $grid-desktop-margin;
     }
 
     &__title {
       grid-column: 1/2;
       @include breakpoint(desktop) {
-        grid-column: 1/-1;
+        grid-column: 1/12;
       }
     }
   }
