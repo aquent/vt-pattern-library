@@ -1,9 +1,11 @@
 .vt-footer {
   padding-top: 4rem;
   padding-bottom: 7.5rem;
+  margin-top: 1.5rem;
 
   @include breakpoint(desktop) {
     padding-bottom: 10rem;
+    margin-top: 0;
   }
 }
 
