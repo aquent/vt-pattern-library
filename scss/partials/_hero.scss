@@ -15,7 +15,7 @@
   }
 }
 
-.hero {  
+.hero {
   /** 1 - hero-video
   ------------------------------------------------------------*/
   &-video {
@@ -90,7 +90,7 @@
       height: 30rem;
       width: 30rem;
       object-fit: cover;
-      
+
       @include breakpoint(tablet) {
         height: unset;
         width: 100%;
@@ -225,7 +225,6 @@
       justify-self: start;
       padding: 0 $grid-desktop-margin;
       z-index: 9;
-
 
       @include breakpoint(desktop) {
         align-self: center;
@@ -401,7 +400,7 @@
         @include breakpoint(desktop) {
           grid-column: 1/4;
           grid-row: 1/4;
-          max-width: unset
+          max-width: unset;
         }
       }
 
@@ -418,7 +417,7 @@
         @include breakpoint(desktop) {
           grid-column: -1/-6;
           grid-row: 2/7;
-          max-height: unset
+          max-height: unset;
         }
       }
     }
@@ -428,23 +427,24 @@
   ------------------------------------------------------------*/
   &-textonly {
     @include grid();
-    @include vertical-spacing(md-1, top, padding);
-    @include vertical-spacing(lg-1, bottom, padding);
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    padding-left: $grid-desktop-margin;
+    min-height: 35.5rem;
+    padding: 7.5rem $grid-mobile-margin 16rem $grid-mobile-margin;
 
     @include breakpoint(tablet) {
       grid-template-columns: repeat(auto-fit, minmax(60rem, 1fr));
     }
+
     @include breakpoint(desktop) {
       grid-template-columns: repeat(12, 1fr);
       grid-auto-flow: column;
+      padding: 13.5rem $grid-desktop-margin 25rem $grid-desktop-margin;
     }
 
     &__title {
       grid-column: 1/2;
       @include breakpoint(desktop) {
-        grid-column: 1/7;
+        grid-column: 1/12;
       }
     }
   }
