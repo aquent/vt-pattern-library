@@ -53,12 +53,26 @@
 
   &--two {
     max-width: 100%;
+    // Select all cards starting with the second one
+    & > *:nth-child(n + 2) {
+      @include vertical-spacing(lg-1, top, margin);
+    }
 
     @include grid();
 
     @include breakpoint(tablet) {
       column-gap: 14rem;
       grid-template-columns: repeat(2, 1fr);
+
+      // Reset the margin of the second card
+      & > *:nth-child(2) {
+        margin: 0px;
+      }
+
+      // Selects all the child elements starting at the third one.
+      & > *:nth-child(n + 3) {
+        @include vertical-spacing(lg-1, top, margin);
+      }
     }
 
     &-left-wide {
