@@ -65,7 +65,7 @@
       grid-template-columns: repeat(2, 1fr);
 
       // Reset the margin of the second card
-      & > *:nth-child(n + 2) {
+      & > *:nth-child(2) {
         margin: 0px;
       }
 
