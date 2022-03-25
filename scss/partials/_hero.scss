@@ -437,7 +437,7 @@
     @include breakpoint(desktop) {
       grid-template-columns: repeat(12, 1fr);
       grid-auto-flow: column;
-      padding: 13.5rem $grid-desktop-margin 25rem $grid-desktop-margin;
+      padding: 13.5rem $grid-desktop-margin 23.5rem $grid-desktop-margin;
     }
 
     &__title {
