@@ -144,7 +144,7 @@
   }
 
   &__heading {
-    margin-bottom: 7.5rem;
+    @include vertical-spacing(md-2, bottom, margin);
   }
 
   &__section-separator {
@@ -184,6 +184,23 @@
 
       &::before {
         content: "";
+      }
+    }
+  }
+
+  &__column {
+    & + & {
+      &:before {
+        content: "";
+        display: block;
+        height: 0.1rem;
+        background-color: $cool-neutral-4;
+        max-width: 100%;
+        margin: 7.5rem 0 6.5rem 0;
+
+        @include breakpoint(tablet) {
+          display: none;
+        }
       }
     }
   }
