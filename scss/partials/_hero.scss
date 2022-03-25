@@ -428,7 +428,6 @@
   &-textonly {
     @include grid();
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    // min-height: 35.5rem;
     padding: 7.5rem $grid-mobile-margin 16rem $grid-mobile-margin;
 
     @include breakpoint(tablet) {
