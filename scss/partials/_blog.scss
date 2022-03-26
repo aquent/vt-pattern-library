@@ -389,4 +389,12 @@
             }
         }
     }
+
+    &__divider {
+        margin-bottom: 6.5rem;
+
+        @include breakpoint(desktop) {
+            margin-bottom: 13.4rem;
+        }
+    }
 }
