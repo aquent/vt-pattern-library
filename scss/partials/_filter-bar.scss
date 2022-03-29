@@ -312,6 +312,10 @@
     cursor: pointer;
     list-style: none;
     position: relative;
+
+    &::-webkit-details-marker {
+      display: none;
+    }
   }
 
   &__text-label {
