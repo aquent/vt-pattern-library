@@ -247,8 +247,12 @@ form {
       border-bottom: 0.1rem solid $cool-neutral-4;
       display: grid;
       font-weight: 600;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       margin-bottom: 10rem;
+
+      @include breakpoint(tablet){
+      grid-template-columns: repeat(3, 1fr);
+      }
 
       label {
         @extend .tk-degular-text;
@@ -285,12 +289,16 @@ form {
           width: 0;
         }
       }
+
+
     }
   }
 
   .tabs-nav__label {
+
     @include tertiary-info();
     margin-top: 2.5rem;
+    padding-top: 1rem;
   }
 
 /* =========================
