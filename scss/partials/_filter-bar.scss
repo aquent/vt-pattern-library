@@ -1,4 +1,10 @@
 .filter-bar {
+
+  // Filter-bar should appear to be contained withing the text-only hero, so it is moved up by its height whenever the filter bar appears after a text-only hero. 
+  .hero-textonly__section + & {
+    margin-top: -8.8rem;
+  }
+
   padding: 0 2rem;
 
   @include breakpoint(desktop) {
