@@ -27,7 +27,7 @@
         display: block;
         font-size: 1.2rem;
         letter-spacing: 1.8px;
-        min-height: 8rem;
+        min-height: 9rem;
 
         @include breakpoint(tablet) {
             display: initial;
@@ -43,10 +43,6 @@
             font-weight: 500;
             position: absolute;
             bottom: 2rem;
-
-            @include breakpoint(desktop) {
-                padding-top: 4.5rem;
-            }
         }
 
 
@@ -289,5 +285,54 @@
         grid-template-columns: 1fr;
         grid-column-gap: 3.6rem;
         grid-row-gap: 3.6rem;
+    }
+}
+
+.related-job {
+    padding-top: 0;
+    width: 100%;
+
+    @include breakpoint(desktop) {
+        margin: 0 auto;
+    }
+
+    &__social {
+        @extend .post-hero__time-social;
+        @include vertical-spacing(lg-1, bottom, margin);
+        border-bottom: 0.1rem solid $cool-neutral-4;
+        border-top: 0;
+
+        &-date-time {
+            width: 86%;
+            @extend .post-hero__time-social-read-time;
+
+            time {
+                &::before {
+                    content: "Date";
+                    color: $primary-blue;
+                    font-weight: 500;
+                }
+
+                @extend .tk-degular-text;
+                color: $secondary-green-1;
+                margin-bottom: 1.6rem !important;
+            }
+        }
+
+        &-media-links {
+            @extend .post-hero__time-social-links;
+
+            .social-icon__link--linkedin,
+            .social-icon__link--twitter,
+            .social-icon__link--facebook {
+                background-color: $secondary-blue-2;
+            }
+        }
+    }
+
+    &__button {
+        @include breakpoint(desktop) {
+            margin-top: 4rem;
+        }
     }
 }
