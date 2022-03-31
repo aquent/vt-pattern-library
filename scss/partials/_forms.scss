@@ -112,7 +112,8 @@ textarea {
     input[type="email"],
     input[type="url"],
     input[type="number"],
-    input[type="tel"] {
+    input[type="tel"],
+    textarea {
       @extend .p--body;
       background: transparent;
       padding: 1.6rem;
@@ -422,6 +423,10 @@ styles updated accordingly. */
 
 .salary-form {
   .columns--two {
+    :nth-child(n+2) {
+      margin-top: 0;
+    }
+
     @include breakpoint(desktop){
       column-gap: 1.5rem;
     }
