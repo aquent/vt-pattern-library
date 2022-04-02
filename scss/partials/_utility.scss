@@ -148,12 +148,10 @@ LeadForm JS class, it can be removed here. */
   }
 
   &__three-blog {
-    &:nth-of-type(3n + 1) {
-      padding-top: 7.5rem;
+    @include vertical-spacing(lg-1, bottom, padding);
 
-      @include breakpoint(desktop) {
-        padding-top: 14.4rem;
-      }
+    &:last-of-type {
+      padding-bottom: 0;
     }
   }
 
@@ -187,11 +185,11 @@ LeadForm JS class, it can be removed here. */
       align-items: center;
       column-gap: 14.6rem !important;
       grid-template-columns: repeat(3, 1fr);
-      padding-bottom: 13.5rem;
     }
 
     &__three {
       row-gap: 20rem;
+      @include vertical-spacing(md-1, bottom, padding);
     }
 
     &__four {
