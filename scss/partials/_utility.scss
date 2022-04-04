@@ -41,10 +41,10 @@
     margin: 0 auto;
     max-width: 144rem;
     width: 100%;
-    padding: clamp(6rem, 8vw, 14.5rem) $grid-mobile-margin;
+    padding: clamp(6rem, 8vw, $max-hmargin) $grid-mobile-margin;
 
     @include breakpoint(tablet) {
-      padding: clamp(6rem, 8vw, 14.5rem) clamp(2rem, 8vw, 14.5rem);
+      padding: clamp(6rem, 8vw, $max-hmargin) clamp(2rem, 8vw, $max-hmargin);
     }
   }
 }
@@ -215,13 +215,15 @@ LeadForm JS class, it can be removed here. */
     display: block;
     height: 1px;
     background-color: $cool-neutral-4;
-    max-width: 100%;
-    margin: 0;
+    margin: 0 auto;
+    width: calc(100vw - 2rem*2);
 
     @include breakpoint(tablet) {
-      max-width: 144rem;
-      width: calc(144rem - 2*clamp(2rem, 8vw, 14.5rem));
-      margin: 0 auto;
+      width: calc(100vw - clamp(2rem, 8vw, #{$max-hmargin})*2);
+    }
+
+    @include breakpoint(xxlarge) {
+      width: calc(#{$max-design-screen-width} - clamp(2rem, 8vw, #{$max-hmargin})*2);
     }
   }
 }
