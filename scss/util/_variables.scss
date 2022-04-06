@@ -1,12 +1,13 @@
 /** TABLE OF CONTENTS
  — — — — — — — — — — — — — — — — — — — — — — — — — — — — — — /
 1 — Colors
-2 — Breakpoints
-3 — Theme coloring
-4 — Grid
-5 — Spacing
-  5.1 — Vertical
-  5.2 — Horizontal
+2 - Constraints
+3 — Breakpoints
+4 — Theme coloring
+5 — Grid
+6 — Spacing
+  6.1 — Vertical
+  6.2 — Horizontal
 /// END TABLE OF CONTENTS **/
 
 /** 1 - Colors
@@ -53,21 +54,27 @@ $cool-neutral-6: map-get($colors, cool-neutral-6);
 $warm-neutral-1: map-get($colors, warm-neutral-1);
 $warm-neutral-2: map-get($colors, warm-neutral-2);
 
-/** 2 - Breakpoints
+/** 2 - Constraints
+------------------------------------------------------------*/
+$max-design-screen-width: 1440px;
+$max-hmargin: 14.5rem;
+$max-content-width: 115rem; // $max-design-screen-width - $max-hmargin * 2 sides 
+
+/** 3 - Breakpoints
 ------------------------------------------------------------*/
 $breakpoints: (
   mobile: 0,
   tablet: 640px,
   desktop: 866px,
   xlarge: 1200px,
-  xxlarge: 1440px,
+  xxlarge: $max-design-screen-width,
 );
 $breakpoint-classes: (mobile tablet desktop);
 $breakpoint-mobile: 0;
 $breakpoint-tablet: 640px;
 $breakpoint-desktop: 866px;
 
-/** 3 - Theme coloring
+/** 4 - Theme coloring
 ------------------------------------------------------------*/
 $themes: (
   bg-prim-blue: (
@@ -112,7 +119,7 @@ $themes: (
   ),
 );
 
-/** 4 - Grid
+/** 5 - Grid
 ------------------------------------------------------------*/
 $grid-mobile-gap: 1rem;
 $grid-mobile-margin: 2rem;
@@ -121,7 +128,7 @@ $grid-tablet-margin: 2rem;
 $grid-desktop-gap: 1.5rem;
 $grid-desktop-margin: 3rem;
 
-/** 4 - Spacing
+/** 6 - Spacing
 ------------------------------------------------------------*/
 // Given design vertical spacing is the measure between
 // element's baseline and following sibling element's ascender line

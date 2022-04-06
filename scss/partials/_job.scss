@@ -3,30 +3,57 @@
     @extend .content-block--clickable;
     border: 0.2rem solid $secondary-green-2;
     display: block;
-    max-height: 20.5rem;
-    max-width: 40rem;
 
     @include breakpoint(desktop) {
+        max-height: 20.5rem;
         max-width: 55.7rem;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        min-width: 4rem;
     }
 
     &__block {
         padding: 0rem 2rem;
-        height: 16rem;
+        min-height: 16rem;
         position: relative;
+
+        @include breakpoint(desktop) {
+            min-width: 4rem;
+        }
     }
 
     &__title {
         @extend .h6;
         padding-top: 1.3rem;
+
+        @include breakpoint(desktop) {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-height: 8rem;
+        }
     }
 
     &__location {
         @extend .tk-aktiv-grotesk;
         @extend .uppercase;
         color: $secondary-green-1;
+        display: block;
         font-size: 1.2rem;
         letter-spacing: 1.8px;
+        min-height: 9rem;
+        margin-top: 0.5rem;
+
+        @include breakpoint(tablet) {
+            min-height: initial;
+            min-width: 4rem;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
     }
 
     &__posted {
@@ -37,10 +64,6 @@
             font-weight: 500;
             position: absolute;
             bottom: 2rem;
-
-            @include breakpoint(desktop) {
-                padding-top: 4.5rem;
-            }
         }
 
 
@@ -283,5 +306,54 @@
         grid-template-columns: 1fr;
         grid-column-gap: 3.6rem;
         grid-row-gap: 3.6rem;
+    }
+}
+
+.related-job {
+    padding-top: 0;
+    width: 100%;
+
+    @include breakpoint(desktop) {
+        margin: 0 auto;
+    }
+
+    &__social {
+        @extend .post-hero__time-social;
+        @include vertical-spacing(lg-1, bottom, margin);
+        border-bottom: 0.1rem solid $cool-neutral-4;
+        border-top: 0;
+
+        &-date-time {
+            width: 86%;
+            @extend .post-hero__time-social-read-time;
+
+            time {
+                &::before {
+                    content: "Date";
+                    color: $primary-blue;
+                    font-weight: 500;
+                }
+
+                @extend .tk-degular-text;
+                color: $secondary-green-1;
+                margin-bottom: 1.6rem !important;
+            }
+        }
+
+        &-media-links {
+            @extend .post-hero__time-social-links;
+
+            .social-icon__link--linkedin,
+            .social-icon__link--twitter,
+            .social-icon__link--facebook {
+                background-color: $secondary-blue-2;
+            }
+        }
+    }
+
+    &__button {
+        @include breakpoint(desktop) {
+            margin-top: 4rem;
+        }
     }
 }

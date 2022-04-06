@@ -157,6 +157,10 @@
             margin: 13.5rem 0 2.7rem;
         }
 
+        img {
+            height: auto;
+        }
+        
         p {
             color: $cool-neutral-1;
             margin-bottom: 2.8rem;
@@ -383,6 +387,14 @@
                 //     }
                 // }
             }
+        }
+    }
+
+    &__divider {
+        margin-bottom: 6.5rem;
+
+        @include breakpoint(desktop) {
+            margin-bottom: 13.4rem;
         }
     }
 }

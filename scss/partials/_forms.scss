@@ -78,6 +78,8 @@ input[type="tel"],
 input[type="number"],
 textarea {
   border: 0.2rem solid $cool-neutral-4;
+  border-radius: 0;
+  box-shadow: none;
   width: 100%;
 
   &:focus {
@@ -106,15 +108,15 @@ textarea {
 ========================= */
 .form {
   @at-root {
-    #{&} [class*="-text"],
     input[type="text"],
     input[type="email"],
     input[type="url"],
-    input[type="num"],
-    input[type="tel"] {
-      @extend .tk-degular-text;
+    input[type="number"],
+    input[type="tel"],
+    textarea {
+      @extend .p--body;
       background: transparent;
-      padding: 1.2rem;
+      padding: 1.6rem;
       width: 100%;
     }
   }
@@ -202,9 +204,12 @@ form {
   @at-root {
     #{&} [class*="-select"],
     select {
+      @extend .p--body;
       appearance: none;
       border: 0.2rem solid $secondary-green-2;
+      border-radius: 0;
       background-image: url("data:image/svg+xml,%3Csvg width='17' height='9' viewBox='0 0 17 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.5 0.5L8.5 8.5L16.5 0.5H0.5Z' fill='%23051C2C'/%3E%3C/svg%3E%0A");
+      background-color: transparent;
       background-origin: content-box;
       background-position: right 1% center;
       background-repeat: no-repeat;
@@ -243,12 +248,16 @@ form {
       border-bottom: 0.1rem solid $cool-neutral-4;
       display: grid;
       font-weight: 600;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       margin-bottom: 10rem;
+
+      @include breakpoint(tablet){
+      grid-template-columns: repeat(3, 1fr);
+      }
 
       label {
         @extend .tk-degular-text;
-
+        
         border-right: 0.1rem solid $cool-neutral-4;
         letter-spacing: 0;
         font-size: 2rem;
@@ -259,6 +268,16 @@ form {
 
         &:first-child {
           padding-top: 5rem;
+        }
+
+        &:last-of-type {
+          border-right: none;
+        }
+
+        @include breakpoint(tablet){
+          &:last-of-type {
+            border-right: 0.1rem solid $cool-neutral-4;
+          }
         }
       }
 
@@ -281,12 +300,16 @@ form {
           width: 0;
         }
       }
+
+
     }
   }
 
   .tabs-nav__label {
+
     @include tertiary-info();
     margin-top: 2.5rem;
+    padding-top: 1rem;
   }
 
 /* =========================
@@ -301,8 +324,9 @@ form {
         position: absolute;
         content: "$";
         color: $secondary-green-1;
+        font-size: 2rem;
         left: 1.5rem;
-        top: 1.4rem;
+        top: 1.5rem;
       }
 
       input {
@@ -409,6 +433,10 @@ styles updated accordingly. */
 
 .salary-form {
   .columns--two {
+    :nth-child(n+2) {
+      margin-top: 0;
+    }
+
     @include breakpoint(desktop){
       column-gap: 1.5rem;
     }
