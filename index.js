@@ -4,8 +4,15 @@ import ContentSlider from "content-slider";
 import VideoController from "video-controller";
 import TabsPanel from "tabs-panel";
 import FilterBar from "filter-bar";
+import Button from "button";
+
 
 function init() {
+  let utmButtons = {};
+  let utmButtonNodes = document.querySelectorAll(".button__utm-detector");
+  utmButtonNodes.forEach((val, i) => {
+    utmButtons[i] = new Button(val);
+  })
 
   const menu = new Menu(".navbar", true);
 
