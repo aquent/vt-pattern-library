@@ -126,8 +126,7 @@ LeadForm JS class, it can be removed here. */
 ------------------------------------------------------------*/
 .grid-col-content {
   &__two,
-  &__three,
-  &__three-blog {
+  &__three{
     padding-top: 0;
     width: 100%;
   }
@@ -149,6 +148,11 @@ LeadForm JS class, it can be removed here. */
 
   &__three-blog {
     @include vertical-spacing(lg-1, bottom, padding);
+    width: 100%;
+
+    &:nth-of-type(even) {
+      padding-top: 0;
+    }
 
     &:last-of-type {
       padding-bottom: 0;
