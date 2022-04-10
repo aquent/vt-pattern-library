@@ -55,7 +55,7 @@
     max-width: 100%;
     // Select all cards starting with the second one
     & > *:nth-child(n + 2) {
-      @include vertical-spacing(lg-1, top, margin);
+      @include vertical-spacing(md-2, top, margin);
     }
 
     @include grid();
@@ -66,12 +66,12 @@
 
       // Reset the margin of the second card
       & > *:nth-child(2) {
-        margin: 0px;
+        margin: 0;
       }
 
       // Selects all the child elements starting at the third one.
       & > *:nth-child(n + 3) {
-        @include vertical-spacing(lg-1, top, margin);
+        @include vertical-spacing(md-2, top, margin);
       }
     }
 
