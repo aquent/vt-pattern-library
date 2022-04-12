@@ -41,10 +41,10 @@
     margin: 0 auto;
     max-width: 144rem;
     width: 100%;
-    padding: clamp(6rem, 8vw, 14.5rem) $grid-mobile-margin;
+    padding: clamp(6rem, 8vw, $max-hmargin) $grid-mobile-margin;
 
     @include breakpoint(tablet) {
-      padding: clamp(6rem, 8vw, 14.5rem) clamp(2rem, 8vw, 14.5rem);
+      padding: clamp(6rem, 8vw, $max-hmargin) clamp(2rem, 8vw, $max-hmargin);
     }
   }
 }
@@ -126,8 +126,7 @@ LeadForm JS class, it can be removed here. */
 ------------------------------------------------------------*/
 .grid-col-content {
   &__two,
-  &__three,
-  &__three-blog {
+  &__three {
     padding-top: 0;
     width: 100%;
   }
@@ -147,8 +146,17 @@ LeadForm JS class, it can be removed here. */
     }
   }
 
+  &__three {
+    @include vertical-spacing(md-1, bottom, padding);
+  }
+
   &__three-blog {
     @include vertical-spacing(lg-1, bottom, padding);
+    width: 100%;
+
+    &:nth-of-type(even) {
+      padding-top: 0;
+    }
 
     &:last-of-type {
       padding-bottom: 0;
@@ -187,9 +195,8 @@ LeadForm JS class, it can be removed here. */
       grid-template-columns: repeat(3, 1fr);
     }
 
-    &__three {
+    &__three-blog {
       row-gap: 20rem;
-      @include vertical-spacing(md-1, bottom, padding);
     }
 
     &__four {
@@ -215,13 +222,15 @@ LeadForm JS class, it can be removed here. */
     display: block;
     height: 1px;
     background-color: $cool-neutral-4;
-    max-width: 100%;
-    margin: 0;
+    margin: 0 auto;
+    width: calc(100vw - 2rem*2);
 
     @include breakpoint(tablet) {
-      max-width: 144rem;
-      width: calc(144rem - 2*clamp(2rem, 8vw, 14.5rem));
-      margin: 0 auto;
+      width: calc(100vw - clamp(2rem, 8vw, #{$max-hmargin})*2);
+    }
+
+    @include breakpoint(xxlarge) {
+      width: calc(#{$max-design-screen-width} - clamp(2rem, 8vw, #{$max-hmargin})*2);
     }
   }
 }

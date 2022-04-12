@@ -4,10 +4,6 @@
     @include vertical-spacing(md-1, bottom, margin);
   }
 
-  &__text {
-    @include vertical-spacing(md-3, bottom, margin);
-  }
-
   &__title {
     @extend .h4;
     @include vertical-spacing(sm-6, bottom, margin);
