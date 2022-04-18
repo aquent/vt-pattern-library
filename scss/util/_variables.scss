@@ -83,7 +83,9 @@ $themes: (
     background-color: $primary-blue,
     primary-accent: $primary-green,
     secondary-accent: $secondary-green-1,
-    copy-text-color: $cool-neutral-6
+    copy-text-color: $cool-neutral-6,
+    link-default: $secondary-green-1,
+    link-hover: $primary-green,
   ),
   bg-sec-blue: (
     color: $primary-white,
@@ -91,7 +93,9 @@ $themes: (
     background-color: $secondary-blue-1,
     primary-accent: $primary-green,
     secondary-accent: $secondary-green-1,
-    copy-text-color: $cool-neutral-6
+    copy-text-color: $cool-neutral-6,
+    link-default: $secondary-green-1,
+    link-hover: $primary-green,
   ),
   bg-green: (
     color: $primary-blue,
@@ -99,7 +103,9 @@ $themes: (
     background-color: $primary-green,
     primary-accent: $secondary-blue-1,
     secondary-accent: $cool-neutral-1,
-    copy-text-color: $cool-neutral-6
+    copy-text-color: $cool-neutral-6,
+    link-default: $cool-neutral-1,
+    link-hover: $primary-blue
   ),
   bg-white: (
     color: $primary-blue,
@@ -107,7 +113,9 @@ $themes: (
     background-color: $primary-white,
     primary-accent: $accessible-green,
     secondary-accent: $secondary-green-2,
-    copy-text-color: $cool-neutral-1
+    copy-text-color: $cool-neutral-1,
+    link-default: $secondary-green-2,
+    link-hover: $accessible-green
   ),
   bg-sec-green: (
     color: $primary-blue,
@@ -115,7 +123,9 @@ $themes: (
     background-color: $secondary-green-2,
     primary-accent: $accessible-green,
     secondary-accent: $secondary-green-2,
-    copy-text-color: $cool-neutral-6
+    copy-text-color: $cool-neutral-6,
+    link-default: $cool-neutral-1,
+    link-hover: $primary-blue
   ),
 );
 
